@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard | EST Brand Services</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="https://estbrandservices.com/img/favicon/favicon-32x32.png">
+
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- Admin Theme Stylesheet -->
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+  <!-- =========================================================================
+       TOP HEADER (Matching Reference Screenshot)
+       ========================================================================= -->
+  <header class="admin-header">
+    <div class="header-left">
+      <button class="mobile-menu-btn" id="mobileMenuToggle" aria-label="Toggle navigation">
+        <i class="bi bi-list"></i>
+      </button>
+      <a href="admin.html" class="admin-logo">
+        <img src="https://estbrandservices.com/img/logo/est-logowithtag-light.webp" alt="EST Brand Services" onerror="this.onerror=null; this.src='https://estbrandservices.com/img/logo/est-logowithtag-dark.webp';">
+      </a>
+    </div>
+
+    <div class="header-right">
+      <a href="index.html" target="_blank" class="header-btn" title="View Public Website">
+        <i class="bi bi-globe2"></i> <span>Live Website</span>
+      </a>
+      <div class="profile-avatar-circle" title="Logged in as Admin" onclick="window.adminApp.switchView('dashboard')">
+        A
+      </div>
+    </div>
+  </header>
+
+  <!-- =========================================================================
+       APP BODY LAYOUT (SIDEBAR + MAIN CONTENT)
+       ========================================================================= -->
+  <div class="admin-layout">
+    
+    <!-- LEFT SIDEBAR NAVIGATION (Matching Reference Screenshot) -->
+    <aside class="admin-sidebar" id="adminSidebar">
+      <ul class="sidebar-nav-list">
+        
+        <!-- Dashboard -->
+        <li class="sidebar-nav-item active">
+          <button class="nav-link-btn active" data-view="dashboard">
+            <span class="nav-left">
+              <i class="bi bi-house nav-icon"></i>
+              <span>Dashboard</span>
+            </span>
+          </button>
+        </li>
+
+        <!-- Our Clients -->
+        <li class="sidebar-nav-item">
+          <button class="nav-link-btn" data-view="clients">
+            <span class="nav-left">
+              <i class="bi bi-people nav-icon"></i>
+              <span>Our Clients</span>
+            </span>
+          </button>
+        </li>
+
+        <!-- Services -->
+        <li class="sidebar-nav-item">
+          <button class="nav-link-btn" data-view="services">
+            <span class="nav-left">
+              <i class="bi bi-layers nav-icon"></i>
+              <span>Services</span>
+            </span>
+          </button>
+        </li>
+
+        <!-- Featured Experiences & Case Studies -->
+        <li class="sidebar-nav-item">
+          <button class="nav-link-btn" data-view="case-studies">
+            <span class="nav-left">
+              <i class="bi bi-briefcase nav-icon" style="color: var(--color-primary);"></i>
+              <span>Featured Experiences</span>
+            </span>
+          </button>
+        </li>
+
+        <!-- Strategy Insights -->
+        <li class="sidebar-nav-item">
+          <button class="nav-link-btn" data-view="insights">
+            <span class="nav-left">
+              <i class="bi bi-lightbulb nav-icon" style="color: #f59e0b;"></i>
+              <span>Insights & Topic Hubs</span>
+            </span>
+          </button>
+        </li>
+
+        <!-- Our Events (Hero Video, Photo Gallery & Video Showcases) -->
+        <li class="sidebar-nav-item">
+          <button class="nav-link-btn" data-view="our-events">
+            <span class="nav-left">
+              <i class="bi bi-camera-reels nav-icon" style="color: var(--color-primary);"></i>
+              <span>Our Events</span>
+            </span>
+          </button>
+        </li>
+
+
+        <!-- Event & Gallery Group -->
+        <li class="sidebar-nav-item">
+          <div class="nav-link-btn nav-parent open">
+            <span class="nav-left">
+              <span>Event & Gallery</span>
+            </span>
+            <i class="bi bi-chevron-up nav-chevron"></i>
+          </div>
+          <ul class="nav-submenu">
+            <li>
+              <button class="submenu-link" data-view="brands">
+                <i class="bi bi-box-seam sub-icon"></i>
+                <span>Brands</span>
+              </button>
+            </li>
+            <li>
+              <button class="submenu-link" data-view="event-pages">
+                <i class="bi bi-file-earmark-richtext sub-icon"></i>
+                <span>Event Pages</span>
+              </button>
+            </li>
+            <li>
+              <button class="submenu-link" data-view="event-registrations">
+                <i class="bi bi-calendar-check sub-icon"></i>
+                <span>Event Registrations</span>
+              </button>
+            </li>
+            <li>
+              <button class="submenu-link" data-view="events">
+                <i class="bi bi-calendar-event sub-icon"></i>
+                <span>Events</span>
+              </button>
+            </li>
+            <li>
+              <button class="submenu-link" data-view="galleries">
+                <i class="bi bi-images sub-icon"></i>
+                <span>Galleries</span>
+              </button>
+            </li>
+            <li>
+              <button class="submenu-link" data-view="video-galleries">
+                <i class="bi bi-camera-video sub-icon"></i>
+                <span>Video Galleries</span>
+              </button>
+            </li>
+          </ul>
+        </li>
+
+        <!-- Feedbacks Group -->
+        <li class="sidebar-nav-item">
+          <div class="nav-link-btn nav-parent open">
+            <span class="nav-left">
+              <span>Feedbacks</span>
+            </span>
+            <i class="bi bi-chevron-up nav-chevron"></i>
+          </div>
+          <ul class="nav-submenu">
+            <li>
+              <button class="submenu-link" data-view="client-feedbacks">
+                <i class="bi bi-people sub-icon"></i>
+                <span>Client Feedbacks</span>
+              </button>
+            </li>
+            <li>
+              <button class="submenu-link" data-view="employee-feedbacks">
+                <i class="bi bi-person-badge sub-icon"></i>
+                <span>Employee Feedbacks</span>
+              </button>
+            </li>
+          </ul>
+        </li>
+
+      </ul>
+    </aside>
+
+    <!-- MAIN DYNAMIC CONTENT CONTAINER -->
+    <main class="admin-main" id="adminMainContent">
+      <!-- Injected by admin.js -->
+    </main>
+
+  </div>
+
+  <!-- =========================================================================
+       REUSABLE MODAL SYSTEM
+       ========================================================================= -->
+  <div class="modal-overlay" id="genericModalOverlay">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3 class="modal-title" id="genericModalTitle">Modal Title</h3>
+        <button class="modal-close-btn" id="genericModalClose" aria-label="Close modal">
+          <i class="bi bi-x-lg"></i>
+        </button>
+      </div>
+      <div class="modal-body" id="genericModalBody">
+        <!-- Form elements injected dynamically -->
+      </div>
+      <div class="modal-footer">
+        <button class="btn-outline" id="genericModalCancel">Cancel</button>
+        <button class="btn-add" id="genericModalSave">Save</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       AUTHENTICATION & FORGOT PASSWORD OVERLAY
+       ========================================================================= -->
+  <div class="auth-overlay" id="adminAuthOverlay">
+    
+    <!-- Sign In Card -->
+    <div class="auth-card" id="signInCard">
+      <div class="auth-header">
+        <img src="https://estbrandservices.com/img/logo/est-logowithtag-light.webp" alt="EST Brand Services" class="auth-logo-img">
+        <h2 class="auth-title">Admin Sign In</h2>
+        <p class="auth-subtitle">Enter your admin credentials to access the CMS</p>
+      </div>
+
+      <!-- Quick Demo Credentials Fill -->
+      <div class="auth-demo-hint">
+        <span><i class="bi bi-key-fill" style="color:var(--color-primary)"></i> Default ID: <code>admin</code> &bull; Pass: <code>admin</code></span>
+        <button class="auth-demo-btn" id="btnAutoFillDemo">Auto Fill</button>
+      </div>
+
+      <form class="auth-form" id="adminLoginForm">
+        <div class="form-group">
+          <label class="form-label">Admin ID or Email</label>
+          <input type="text" class="form-input" id="loginAdminId" placeholder="admin or email" required autocomplete="username">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Password</label>
+          <div class="password-input-wrap">
+            <input type="password" class="form-input" id="loginPassword" placeholder="Enter password" required autocomplete="current-password" style="padding-right: 40px;">
+            <button type="button" class="password-toggle-btn" id="btnToggleLoginPass" aria-label="Toggle password visibility">
+              <i class="bi bi-eye-fill"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="auth-options">
+          <label class="auth-checkbox-label">
+            <input type="checkbox" id="loginRememberMe" checked>
+            <span>Remember me</span>
+          </label>
+          <a class="auth-link" id="linkForgotPassword">Forgot password?</a>
+        </div>
+
+        <button type="submit" class="btn-auth-submit" id="btnLoginSubmit">
+          <i class="bi bi-box-arrow-in-right"></i> Sign In to Dashboard
+        </button>
+      </form>
+    </div>
+
+    <!-- Forgot / Reset Password Card -->
+    <div class="auth-card" id="forgotPassCard" style="display: none;">
+      <div class="auth-header">
+        <img src="https://estbrandservices.com/img/logo/est-logowithtag-light.webp" alt="EST Brand Services" class="auth-logo-img">
+        <h2 class="auth-title">Recover Password</h2>
+        <p class="auth-subtitle">Reset your admin security credentials</p>
+      </div>
+
+      <!-- Step 1: Request OTP -->
+      <div id="forgotStep1">
+        <form class="auth-form" id="forgotFormStep1">
+          <div class="form-group">
+            <label class="form-label">Admin ID or Registered Email</label>
+            <input type="text" class="form-input" id="forgotAdminId" placeholder="e.g. admin or admin@estbrandservices.com" value="admin" required>
+          </div>
+
+          <button type="submit" class="btn-auth-submit">
+            <i class="bi bi-send-fill"></i> Send Verification OTP
+          </button>
+        </form>
+      </div>
+
+      <!-- Step 2 & 3: Enter OTP & Set New Password -->
+      <div id="forgotStep2" style="display: none;">
+        <div class="otp-display-box">
+          <p style="font-size: 0.775rem; color: var(--text-muted); margin-bottom: 4px;">Simulation OTP Sent To Admin Email:</p>
+          <div class="otp-number" id="generatedOtpCode">849201</div>
+        </div>
+
+        <form class="auth-form" id="forgotFormStep2">
+          <div class="form-group">
+            <label class="form-label">Enter 6-Digit OTP Code</label>
+            <input type="text" class="form-input" id="inputOtpCode" placeholder="Enter 6-digit code" maxlength="6" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">New Password</label>
+            <div class="password-input-wrap">
+              <input type="password" class="form-input" id="inputNewPassword" placeholder="Minimum 4 characters" required minlength="4" style="padding-right: 40px;">
+              <button type="button" class="password-toggle-btn" id="btnToggleNewPass">
+                <i class="bi bi-eye-fill"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Confirm New Password</label>
+            <input type="password" class="form-input" id="inputConfirmPassword" placeholder="Confirm new password" required>
+          </div>
+
+          <button type="submit" class="btn-auth-submit">
+            <i class="bi bi-check2-circle"></i> Save & Reset Password
+          </button>
+        </form>
+      </div>
+
+      <a class="auth-back-link" id="linkBackToSignIn">
+        <i class="bi bi-arrow-left"></i> Back to Sign In
+      </a>
+    </div>
+
+  </div>
+
+  <!-- TOAST NOTIFICATIONS CONTAINER -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- Application Logic -->
+  <script src="admin.js"></script>
+</body>
+</html>
