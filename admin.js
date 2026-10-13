@@ -1030,6 +1030,16 @@
 
   let DB = loadDatabase();
 
+  // Helper: Strip raw camera prefixes/suffixes like " - DSC_2609" or "DSC_2609" from photo titles
+  function sanitizePhotoTitle(title, fallback = '') {
+    if (!title) return fallback || '';
+    let cleaned = String(title).replace(/\s*[-–—|:]\s*(?:_?DSC|IMG|DJI|SAM|PXP|P|PHOTO|IMAGE)[_-]?\d+.*$/i, '').trim();
+    if (/^(?:_?DSC|IMG|DJI|SAM|PXP|P|PHOTO|IMAGE)[_-]?\d+$/i.test(cleaned)) {
+      return fallback || cleaned;
+    }
+    return cleaned || fallback || title;
+  }
+
   function normalizeDb(parsed) {
     if (!parsed || typeof parsed !== 'object') return JSON.parse(JSON.stringify(DEFAULT_DB));
 
@@ -1038,6 +1048,13 @@
     if (parsed.eventImages === undefined) parsed.eventImages = DEFAULT_DB.eventImages;
     if (parsed.eventVideos === undefined) parsed.eventVideos = DEFAULT_DB.eventVideos;
     if (parsed.events === undefined) parsed.events = DEFAULT_DB.events;
+
+    // Automatically strip any existing DSC_ or camera suffixes from event photo titles
+    if (Array.isArray(parsed.eventImages)) {
+      parsed.eventImages.forEach(img => {
+        if (img && img.title) img.title = sanitizePhotoTitle(img.title, img.eventName);
+      });
+    }
     if (parsed.galleries === undefined) parsed.galleries = DEFAULT_DB.galleries;
     if (parsed.videoGalleries === undefined) parsed.videoGalleries = DEFAULT_DB.videoGalleries;
     if (parsed.auth === undefined) parsed.auth = DEFAULT_DB.auth;
@@ -1564,7 +1581,9 @@
     const eventMap = new Map();
 
     images.forEach(img => {
-      const key = (img.eventName && img.eventName.trim()) ? img.eventName.trim() : (img.title || 'EST Showcase');
+      const cleanTitle = sanitizePhotoTitle(img.title, img.eventName);
+      const cleanEventName = sanitizePhotoTitle(img.eventName, 'EST Showcase');
+      const key = (cleanEventName && cleanEventName.trim()) ? cleanEventName.trim() : (cleanTitle || 'EST Showcase');
       if (!eventMap.has(key)) {
         const newGroup = {
           eventName: key,
@@ -1576,7 +1595,11 @@
         eventMap.set(key, newGroup);
         eventGroups.push(newGroup);
       }
-      eventMap.get(key).photos.push(img);
+      eventMap.get(key).photos.push({
+        ...img,
+        title: cleanTitle,
+        eventName: cleanEventName
+      });
     });
 
     return eventGroups.map((group, groupIdx) => {
@@ -1830,7 +1853,7 @@
             }
 
             urls.forEach((url, index) => {
-              const photoTitle = baseTitle ? (urls.length > 1 ? `${baseTitle} - Photo ${index + 1}` : baseTitle) : `Photo ${index + 1} (${eventName})`;
+              const photoTitle = baseTitle || (eventName ? eventName : 'Event Photo');
               newPhotosToAdd.push({
                 id: 'ei_' + Date.now().toString().slice(-6) + '_' + Math.random().toString(36).substr(2, 4),
                 title: photoTitle,
@@ -1848,8 +1871,13 @@
             }
 
             selectedFilesList.forEach((fileItem, index) => {
-              const cleanFileName = fileItem.name.replace(/\.[^/.]+$/, "");
-              const photoTitle = baseTitle ? (selectedFilesList.length > 1 ? `${baseTitle} - ${cleanFileName}` : baseTitle) : cleanFileName;
+              // User requirement: Do NOT append raw camera suffixes like DSC_2609 to photo base title
+              let photoTitle = baseTitle;
+              if (!photoTitle) {
+                const cleanFileName = fileItem.name.replace(/\.[^/.]+$/, "");
+                const isCameraRaw = /^(?:_?DSC|IMG|DJI|SAM|PXP|P|PHOTO|IMAGE)[_-]?\d+$/i.test(cleanFileName);
+                photoTitle = isCameraRaw ? (eventName || 'Event Photo') : cleanFileName;
+              }
               newPhotosToAdd.push({
                 id: 'ei_' + Date.now().toString().slice(-6) + '_' + Math.random().toString(36).substr(2, 4),
                 title: photoTitle,

@@ -372,6 +372,38 @@
       color: #64748b;
     }
 
+    .media-card-footer span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .media-card-footer span i {
+      margin-right: 2px;
+    }
+
+    .media-card-footer .btn,
+    .media-card-footer button,
+    .btn-carousel-view {
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 8px !important;
+      letter-spacing: 0.2px;
+      transition: all 0.25s ease;
+      cursor: pointer;
+    }
+
+    .media-card-footer .btn i,
+    .media-card-footer button i,
+    .btn-carousel-view i {
+      margin-right: 7px !important;
+      font-size: 0.95rem !important;
+      line-height: 1;
+      display: inline-flex;
+      align-items: center;
+    }
+
     /* Modal / Lightbox */
     .events-modal-overlay {
       position: fixed;
@@ -1130,6 +1162,16 @@
         return null;
       }
 
+      // Helper: Strip raw camera prefixes/suffixes like " - DSC_2609" or "DSC_2609" from photo base titles
+      function cleanPhotoTitle(title, fallback = '') {
+        if (!title) return fallback || '';
+        let cleaned = String(title).replace(/\s*[-–—|:]\s*(?:_?DSC|IMG|DJI|SAM|PXP|P|PHOTO|IMAGE)[_-]?\d+.*$/i, '').trim();
+        if (/^(?:_?DSC|IMG|DJI|SAM|PXP|P|PHOTO|IMAGE)[_-]?\d+$/i.test(cleaned)) {
+          return fallback || cleaned;
+        }
+        return cleaned || fallback || title;
+      }
+
       function refreshPageData() {
         const DB = getDB();
 
@@ -1147,10 +1189,18 @@
         let images = [];
         if (DB) {
           if (Array.isArray(DB.eventImages)) {
-            images = [...DB.eventImages];
+            images = DB.eventImages.map(img => ({
+              ...img,
+              title: cleanPhotoTitle(img.title, img.eventName),
+              eventName: cleanPhotoTitle(img.eventName, 'EST Event')
+            }));
           }
         } else {
-          images = [...DEFAULT_EVENT_IMAGES];
+          images = DEFAULT_EVENT_IMAGES.map(img => ({
+            ...img,
+            title: cleanPhotoTitle(img.title, img.eventName),
+            eventName: cleanPhotoTitle(img.eventName, 'EST Event')
+          }));
         }
 
         // Resolute persistence: when DB exists, respect empty array [] so deleted items stay deleted!
@@ -1328,8 +1378,8 @@
                     <p class="media-card-desc">${escapeHtml(group.desc || group.photos[0].desc || 'High-resolution event captures and stage architecture.')}</p>
                     <div class="media-card-footer">
                       <span><i class="bi bi-calendar3"></i> ${escapeHtml(group.date)}</span>
-                      <button class="btn btn-outline" style="font-size: 0.775rem; padding: 5px 14px; border-radius: 999px;" onclick="window.openPhotoCarousel(${groupIdx}, 0)">
-                        <i class="bi bi-images"></i> View Carousel (${photosCount})
+                      <button class="btn btn-outline btn-carousel-view" style="font-size: 0.775rem; padding: 6px 16px; border-radius: 999px; display: inline-flex; align-items: center; gap: 8px;" onclick="window.openPhotoCarousel(${groupIdx}, 0)">
+                        <i class="bi bi-images" style="margin-right: 7px; font-size: 0.95rem;"></i><span>View Carousel (${photosCount})</span>
                       </button>
                     </div>
                   </div>
@@ -1350,8 +1400,8 @@
                     <p class="media-card-desc">${escapeHtml(singlePhoto.desc || group.desc || '')}</p>
                     <div class="media-card-footer">
                       <span><i class="bi bi-calendar3"></i> ${escapeHtml(singlePhoto.date || group.date)}</span>
-                      <button class="btn btn-outline" style="font-size: 0.775rem; padding: 4px 12px; border-radius: 999px;" onclick="window.openPhotoCarousel(${groupIdx}, 0)">
-                        <i class="bi bi-arrows-fullscreen"></i> Expand
+                      <button class="btn btn-outline btn-carousel-view" style="font-size: 0.775rem; padding: 6px 14px; border-radius: 999px; display: inline-flex; align-items: center; gap: 8px;" onclick="window.openPhotoCarousel(${groupIdx}, 0)">
+                        <i class="bi bi-arrows-fullscreen" style="margin-right: 6px; font-size: 0.85rem;"></i><span>Expand</span>
                       </button>
                     </div>
                   </div>
@@ -1484,8 +1534,8 @@
                   <p class="media-card-desc">${escapeHtml(vid.desc || '')}</p>
                   <div class="media-card-footer">
                     <span><i class="bi bi-camera-reels"></i> HD 1080p</span>
-                    <button class="btn btn-primary" style="font-size: 0.775rem; padding: 5px 14px; border-radius: 999px;" onclick="window.openMediaModal('video', '${escapeHtml(vid.videoUrl)}', '${escapeHtml(vid.title)}')">
-                      <i class="bi bi-play-fill"></i> Play Video
+                    <button class="btn btn-primary" style="font-size: 0.775rem; padding: 6px 16px; border-radius: 999px; display: inline-flex; align-items: center; gap: 8px;" onclick="window.openMediaModal('video', '${escapeHtml(vid.videoUrl)}', '${escapeHtml(vid.title)}')">
+                      <i class="bi bi-play-fill" style="margin-right: 5px; font-size: 1rem;"></i><span>Play Video</span>
                     </button>
                   </div>
                 </div>
