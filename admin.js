@@ -1030,63 +1030,48 @@
 
   let DB = loadDatabase();
 
+  function normalizeDb(parsed) {
+    if (!parsed || typeof parsed !== 'object') return JSON.parse(JSON.stringify(DEFAULT_DB));
+
+    // Ensure models exist if strictly undefined, but PRESERVE empty arrays [] so deleted items stay deleted!
+    if (parsed.heroVideo === undefined) parsed.heroVideo = DEFAULT_DB.heroVideo;
+    if (parsed.eventImages === undefined) parsed.eventImages = DEFAULT_DB.eventImages;
+    if (parsed.eventVideos === undefined) parsed.eventVideos = DEFAULT_DB.eventVideos;
+    if (parsed.events === undefined) parsed.events = DEFAULT_DB.events;
+    if (parsed.galleries === undefined) parsed.galleries = DEFAULT_DB.galleries;
+    if (parsed.videoGalleries === undefined) parsed.videoGalleries = DEFAULT_DB.videoGalleries;
+    if (parsed.auth === undefined) parsed.auth = DEFAULT_DB.auth;
+    if (parsed.caseStudies === undefined) parsed.caseStudies = DEFAULT_DB.caseStudies;
+    if (parsed.insightClusters === undefined) parsed.insightClusters = DEFAULT_DB.insightClusters;
+    if (parsed.blogPosts === undefined) parsed.blogPosts = DEFAULT_DB.blogPosts;
+    if (parsed.clients === undefined) parsed.clients = DEFAULT_DB.clients;
+    if (parsed.services === undefined) parsed.services = DEFAULT_DB.services;
+    if (parsed.clientFeedbacks === undefined) parsed.clientFeedbacks = DEFAULT_DB.clientFeedbacks;
+    if (parsed.employeeFeedbacks === undefined) parsed.employeeFeedbacks = DEFAULT_DB.employeeFeedbacks;
+    if (parsed.eventRegistrations === undefined) parsed.eventRegistrations = DEFAULT_DB.eventRegistrations;
+
+    return parsed;
+  }
+
   function loadDatabase() {
     try {
+      if (window.ESTCloudSync && typeof window.ESTCloudSync.getDB === 'function') {
+        const cloudDb = window.ESTCloudSync.getDB();
+        if (cloudDb && typeof cloudDb === 'object') {
+          return normalizeDb(cloudDb);
+        }
+      }
       const saved = localStorage.getItem(STORAGE_KEY);
       if (saved) {
         const parsed = JSON.parse(saved);
-        // Ensure new models exist
-        if (!parsed.heroVideo) parsed.heroVideo = DEFAULT_DB.heroVideo;
-        if (!parsed.eventImages) parsed.eventImages = DEFAULT_DB.eventImages;
-        if (!parsed.eventVideos) parsed.eventVideos = DEFAULT_DB.eventVideos;
-        if (!parsed.auth) parsed.auth = DEFAULT_DB.auth;
-        
-        // Normalize Case Studies & Featured Experiences
-        if (!parsed.caseStudies || !Array.isArray(parsed.caseStudies) || parsed.caseStudies.length === 0) {
-          parsed.caseStudies = DEFAULT_DB.caseStudies;
-        } else {
-          // If existing caseStudies don't contain Colorbar Cosmoprof, prepend default featured experiences
-          if (!parsed.caseStudies.some(cs => cs.client === 'Colorbar Cosmetics' || cs.id === 'cs_colorbar')) {
-            parsed.caseStudies = [...DEFAULT_DB.caseStudies.slice(0, 8), ...parsed.caseStudies];
-          }
-          parsed.caseStudies.forEach(cs => {
-            if (!cs.coverImage) cs.coverImage = 'https://images.unsplash.com/photo-1497215728101-856f4ea42174?q=80&w=1000';
-            if (!cs.status) cs.status = 'Published';
-          });
-        }
-
-        // Normalize Insight Clusters
-        if (!parsed.insightClusters || !Array.isArray(parsed.insightClusters) || parsed.insightClusters.length === 0) {
-          parsed.insightClusters = DEFAULT_DB.insightClusters;
-        } else {
-          parsed.insightClusters.forEach(ic => {
-            if (!ic.icon) ic.icon = 'bi-stars';
-            if (!ic.status) ic.status = 'Active';
-            if (!Array.isArray(ic.articles)) ic.articles = [];
-          });
-        }
-
-        // Normalize Blog Posts
-        if (!parsed.blogPosts || !Array.isArray(parsed.blogPosts) || parsed.blogPosts.length === 0) {
-          parsed.blogPosts = DEFAULT_DB.blogPosts;
-        } else {
-          // Normalize existing posts and guarantee fallbacks
-          parsed.blogPosts.forEach(post => {
-            if (!post.coverImage) {
-              post.coverImage = 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1200&auto=format&fit=crop&q=80';
-            }
-            if (!post.status) post.status = 'Published';
-            if (!post.views) post.views = '1';
-            if (!post.category) post.category = 'Industry Insights';
-          });
-        }
-        return parsed;
+        return normalizeDb(parsed);
       }
     } catch (e) {
       console.warn('Failed to parse database from LocalStorage:', e);
     }
-    saveDatabase(DEFAULT_DB);
-    return JSON.parse(JSON.stringify(DEFAULT_DB));
+    const initial = JSON.parse(JSON.stringify(DEFAULT_DB));
+    saveDatabase(initial);
+    return initial;
   }
 
   function saveDatabase(data) {
@@ -1094,6 +1079,12 @@
       const serialized = JSON.stringify(data);
       localStorage.setItem(STORAGE_KEY, serialized);
       localStorage.setItem('EST_ADMIN_DB_SYNC_TS', Date.now().toString());
+
+      // Save to Firebase Realtime Database & BroadcastChannel
+      if (window.ESTCloudSync && typeof window.ESTCloudSync.saveDB === 'function') {
+        window.ESTCloudSync.saveDB(data);
+      }
+
       try {
         window.dispatchEvent(new CustomEvent('EST_DB_UPDATED', { detail: data }));
         if (typeof BroadcastChannel !== 'undefined') {
@@ -1110,6 +1101,7 @@
           data.eventImages = data.eventImages.slice(0, 25);
           try {
             localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+            if (window.ESTCloudSync) window.ESTCloudSync.saveDB(data);
             showToast('Storage full: Automatically optimized to newest 25 albums.', 'warning');
             return true;
           } catch (e2) {
@@ -1299,8 +1291,8 @@
   // =========================================================================
   function renderOurEventsManager(container) {
     const hero = DB.heroVideo || DEFAULT_DB.heroVideo;
-    const images = DB.eventImages || DEFAULT_DB.eventImages;
-    const videos = DB.eventVideos || DEFAULT_DB.eventVideos;
+    const images = Array.isArray(DB.eventImages) ? DB.eventImages : (DEFAULT_DB.eventImages || []);
+    const videos = Array.isArray(DB.eventVideos) ? DB.eventVideos : (DEFAULT_DB.eventVideos || []);
 
     container.innerHTML = `
       <div class="view-container active">
@@ -2179,9 +2171,10 @@
     const totalServices = DB.services.length;
     const totalCaseStudies = (DB.caseStudies || []).length;
     const totalInsights = (DB.insightClusters || []).length;
-    const totalEvents = DB.events.length;
-    const totalRegs = DB.eventRegistrations.length;
-    const avgRating = (DB.clientFeedbacks.reduce((acc, f) => acc + f.rating, 0) / (DB.clientFeedbacks.length || 1)).toFixed(1);
+    const totalEvents = (DB.events || []).length;
+    const upcomingEvents = (DB.events || []).filter(e => (e.status || '').toLowerCase() === 'upcoming').length;
+    const totalRegs = (DB.eventRegistrations || []).length;
+    const avgRating = ((DB.clientFeedbacks || []).reduce((acc, f) => acc + (f.rating || 5), 0) / (DB.clientFeedbacks?.length || 1)).toFixed(1);
 
     container.innerHTML = `
       <div class="view-container active">
@@ -2245,7 +2238,7 @@
             <div class="stat-info">
               <span class="stat-label">Total Events</span>
               <span class="stat-value">${totalEvents}</span>
-              <span class="stat-trend trend-up"><i class="bi bi-check2-circle"></i> 2 Upcoming</span>
+              <span class="stat-trend trend-up"><i class="bi bi-check2-circle"></i> ${upcomingEvents} Upcoming</span>
             </div>
             <div class="stat-icon-wrapper stat-icon-accent">
               <i class="bi bi-calendar2-event-fill"></i>
@@ -3696,7 +3689,7 @@
                 </tr>
               </thead>
               <tbody>
-                ${DB.events.map(ev => `
+                ${(DB.events && DB.events.length > 0) ? DB.events.map(ev => `
                   <tr>
                     <td><strong>${escapeHtml(ev.title)}</strong></td>
                     <td><span class="badge badge-category"><i class="bi bi-geo-alt-fill" style="color: var(--color-primary)"></i> ${escapeHtml(ev.city)}</span></td>
@@ -3710,7 +3703,14 @@
                       </div>
                     </td>
                   </tr>
-                `).join('')}
+                `).join('') : `
+                  <tr>
+                    <td colspan="7" style="text-align: center; color: var(--text-muted); padding: 40px 20px;">
+                      <i class="bi bi-calendar-x" style="font-size: 2rem; color: #475569; display: block; margin-bottom: 8px;"></i>
+                      No events currently scheduled. Click "+ Add New Event" above to create an event.
+                    </td>
+                  </tr>
+                `}
               </tbody>
             </table>
           </div>
@@ -4617,16 +4617,131 @@
     }[tag] || tag));
   }
 
+  // =========================================================================
+  // CLOUD SYNC & FIREBASE REAL-TIME SYNCHRONIZATION CONTROLLER
+  // =========================================================================
+  function initCloudSyncManager() {
+    const btnSync = document.getElementById('btnHeaderCloudSync');
+    const syncLabel = document.getElementById('headerSyncLabel');
+
+    if (window.ESTCloudSync && typeof window.ESTCloudSync.onSync === 'function') {
+      window.ESTCloudSync.onSync((cloudData, source) => {
+        if (source !== 'local_save') {
+          DB = normalizeDb(cloudData);
+          if (syncLabel) {
+            syncLabel.textContent = 'Cloud Live: Updated';
+            setTimeout(() => {
+              if (syncLabel) syncLabel.textContent = 'Real-Time Cloud Sync';
+            }, 3000);
+          }
+          renderCurrentView();
+        }
+      });
+    }
+
+    btnSync?.addEventListener('click', () => {
+      openCloudSyncModal();
+    });
+  }
+
+  function openCloudSyncModal() {
+    const currentConfig = (window.ESTCloudSync && typeof window.ESTCloudSync.getFirebaseConfig === 'function')
+      ? window.ESTCloudSync.getFirebaseConfig()
+      : {};
+
+    const modalBody = `
+      <div style="padding: 4px 0;">
+        <div style="background: rgba(12, 188, 161, 0.1); border: 1px solid rgba(12, 188, 161, 0.3); border-radius: 8px; padding: 14px; margin-bottom: 20px; display: flex; align-items: center; justify-content: space-between;">
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <span style="width: 10px; height: 10px; border-radius: 50%; background: #0cbca1; display: inline-block; box-shadow: 0 0 10px #0cbca1;"></span>
+            <div>
+              <strong style="color: #fff; font-size: 0.95rem;">Real-Time Cloud Status: Active</strong>
+              <p style="color: #94a3b8; font-size: 0.8rem; margin: 2px 0 0 0;">Synchronizing across laptops, mobile devices, and worldwide visitors.</p>
+            </div>
+          </div>
+          <span class="badge badge-confirmed" style="background: rgba(12, 188, 161, 0.2); color: #0cbca1; border: 1px solid #0cbca1;">Live Sync</span>
+        </div>
+
+        <p style="color: #cbd5e1; font-size: 0.875rem; margin-bottom: 16px; line-height: 1.5;">
+          Your data (Events, Photo Galleries, Video Showcases, Case Studies) is automatically synchronized in real-time. When you delete, edit, or add content here, it reflects everywhere immediately.
+        </p>
+
+        <h4 style="color: #fff; font-size: 0.95rem; margin-bottom: 12px; font-weight: 600;">
+          <i class="bi bi-fire" style="color: #fe3b20; margin-right: 6px;"></i> Firebase Realtime Database Credentials
+        </h4>
+
+        <div class="form-group">
+          <label class="form-label">Database URL</label>
+          <input type="text" class="form-input" id="cf_dbUrl" value="${escapeHtml(currentConfig.databaseURL || '')}" placeholder="https://your-project-default-rtdb.firebaseio.com">
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">API Key</label>
+            <input type="text" class="form-input" id="cf_apiKey" value="${escapeHtml(currentConfig.apiKey || '')}" placeholder="AIzaSy...">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Project ID</label>
+            <input type="text" class="form-input" id="cf_projectId" value="${escapeHtml(currentConfig.projectId || '')}" placeholder="est-brand-services">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Auth Domain</label>
+          <input type="text" class="form-input" id="cf_authDomain" value="${escapeHtml(currentConfig.authDomain || '')}" placeholder="your-project.firebaseapp.com">
+        </div>
+
+        <div style="display: flex; gap: 10px; margin-top: 18px;">
+          <button type="button" class="btn-outline" id="btnForcePushCloud" style="flex: 1; padding: 10px;">
+            <i class="bi bi-cloud-arrow-up-fill"></i> Push Current DB to Cloud
+          </button>
+        </div>
+      </div>
+    `;
+
+    openGenericModal({
+      title: 'Real-Time Cloud Synchronization & Firebase',
+      body: modalBody,
+      saveText: 'Save Cloud Config',
+      onSave: () => {
+        const dbUrl = document.getElementById('cf_dbUrl')?.value.trim();
+        const apiKey = document.getElementById('cf_apiKey')?.value.trim();
+        const projectId = document.getElementById('cf_projectId')?.value.trim();
+        const authDomain = document.getElementById('cf_authDomain')?.value.trim();
+
+        if (window.ESTCloudSync && typeof window.ESTCloudSync.setFirebaseConfig === 'function') {
+          window.ESTCloudSync.setFirebaseConfig({
+            databaseURL: dbUrl,
+            apiKey: apiKey,
+            projectId: projectId,
+            authDomain: authDomain
+          });
+          showToast('Firebase Cloud settings updated successfully!', 'success');
+        }
+        return true;
+      }
+    });
+
+    document.getElementById('btnForcePushCloud')?.addEventListener('click', () => {
+      if (window.ESTCloudSync && typeof window.ESTCloudSync.saveDB === 'function') {
+        window.ESTCloudSync.saveDB(DB);
+        showToast('Pushed current database to Cloud successfully!', 'success');
+      }
+    });
+  }
+
   // Expose global controller
   window.adminApp = {
     switchView,
     showToast,
     exportToCSV,
-    openProfileSettingsModal
+    openProfileSettingsModal,
+    openCloudSyncModal
   };
 
-  // Attach auth initialization
+  // Attach auth and cloud initialization
   initAuthentication();
+  initCloudSyncManager();
 
 })();
 

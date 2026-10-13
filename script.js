@@ -472,35 +472,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const STORAGE_KEY = 'EST_ADMIN_DB_V2';
     let db = null;
-    try {
-      const raw = localStorage.getItem(STORAGE_KEY);
-      if (raw) db = JSON.parse(raw);
-    } catch (e) {
-      console.warn('Error reading db for gallery:', e);
+    if (window.ESTCloudSync && typeof window.ESTCloudSync.getDB === 'function') {
+      db = window.ESTCloudSync.getDB();
+    }
+    if (!db) {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (raw) db = JSON.parse(raw);
+      } catch (e) {
+        console.warn('Error reading db for gallery:', e);
+      }
     }
 
     const isVideoPage = window.location.pathname.includes('gallery-videos.html');
     const isImagePage = window.location.pathname.includes('gallery-images.html');
 
     if (isImagePage && db) {
-      // Merge eventImages and galleries
       let allImages = [];
       if (Array.isArray(db.eventImages)) {
         allImages.push(...db.eventImages);
-      }
-      if (Array.isArray(db.galleries)) {
-        db.galleries.forEach(g => {
-          if (!allImages.some(img => img.id === g.id || img.imgUrl === g.coverUrl)) {
-            allImages.push({
-              id: g.id,
-              title: g.title,
-              category: 'Exhibitions',
-              eventName: g.event || 'EST Showcase',
-              imgUrl: g.coverUrl,
-              desc: `${g.photosCount || 10} Photos in this album`
-            });
-          }
-        });
       }
 
       if (allImages.length > 0) {
@@ -520,27 +510,19 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
           `;
         }).join('');
+      } else {
+        portfolioGrid.innerHTML = `
+          <div style="grid-column: 1/-1; text-align: center; padding: 80px 20px; color: var(--color-text-muted);">
+            <i class="bi bi-images" style="font-size: 2.8rem; color: #475569; margin-bottom: 14px; display: block;"></i>
+            <h3 style="color: #fff; font-size: 1.25rem; font-weight: 600; margin-bottom: 6px;">No Gallery Photos Available</h3>
+            <p style="color: #94a3b8; font-size: 0.95rem;">New event captures will appear here once uploaded via the admin panel.</p>
+          </div>
+        `;
       }
     } else if (isVideoPage && db) {
-      // Merge eventVideos and videoGalleries
       let allVideos = [];
       if (Array.isArray(db.eventVideos)) {
         allVideos.push(...db.eventVideos);
-      }
-      if (Array.isArray(db.videoGalleries)) {
-        db.videoGalleries.forEach(vg => {
-          if (!allVideos.some(v => v.id === vg.id || v.videoUrl === vg.videoUrl)) {
-            allVideos.push({
-              id: vg.id,
-              title: vg.title,
-              category: 'Showreel',
-              client: vg.client || 'EST Showcase',
-              duration: vg.duration || 'Video',
-              thumbUrl: vg.thumbnail || 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800',
-              videoUrl: vg.videoUrl
-            });
-          }
-        });
       }
 
       if (allVideos.length > 0) {
@@ -560,10 +542,28 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
           `;
         }).join('');
+      } else {
+        portfolioGrid.innerHTML = `
+          <div style="grid-column: 1/-1; text-align: center; padding: 80px 20px; color: var(--color-text-muted);">
+            <i class="bi bi-camera-video" style="font-size: 2.8rem; color: #475569; margin-bottom: 14px; display: block;"></i>
+            <h3 style="color: #fff; font-size: 1.25rem; font-weight: 600; margin-bottom: 6px;">No Video Showreels Available</h3>
+            <p style="color: #94a3b8; font-size: 0.95rem;">High-energy event showreels will appear here once uploaded via the admin panel.</p>
+          </div>
+        `;
       }
     }
 
     bindPortfolioFilterAndLightbox();
+  }
+
+  // Bind real-time synchronization listeners for public portfolio/galleries
+  if (!window._portfolioSyncBound) {
+    window._portfolioSyncBound = true;
+    window.addEventListener('EST_DB_UPDATED', () => initDynamicPortfolio());
+    window.addEventListener('EST_DB_SYNC', () => initDynamicPortfolio());
+    if (window.ESTCloudSync && typeof window.ESTCloudSync.onSync === 'function') {
+      window.ESTCloudSync.onSync(() => initDynamicPortfolio());
+    }
   }
 
   function formatVideoEmbedHtml(url, style = 'width: 100%; height: 60vh; border: none; border-radius: 8px;') {

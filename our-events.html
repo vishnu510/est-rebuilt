@@ -1085,6 +1085,11 @@
   <!-- AOS Script -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 
+  <!-- Firebase & Real-Time Cloud Sync -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+  <script src="cloud-sync.js"></script>
+
   <!-- Public Dynamic Synchronization & Carousel Script -->
   <script>
     (function () {
@@ -1119,6 +1124,10 @@
       ];
 
       function getDB() {
+        if (window.ESTCloudSync && typeof window.ESTCloudSync.getDB === 'function') {
+          const cloudDb = window.ESTCloudSync.getDB();
+          if (cloudDb) return cloudDb;
+        }
         try {
           const raw = localStorage.getItem(STORAGE_KEY);
           if (raw) return JSON.parse(raw);
@@ -1141,39 +1150,24 @@
           ctaLink: 'contact.html'
         };
 
-        let images = (DB && Array.isArray(DB.eventImages) && DB.eventImages.length > 0) ? [...DB.eventImages] : [...DEFAULT_EVENT_IMAGES];
-        if (DB && Array.isArray(DB.galleries)) {
-          DB.galleries.forEach(g => {
-            if (!images.some(img => img.id === g.id || img.imgUrl === g.coverUrl)) {
-              images.push({
-                id: g.id,
-                title: g.title,
-                category: 'Exhibitions',
-                eventName: g.event || g.title,
-                imgUrl: g.coverUrl,
-                desc: `${g.photosCount || 12} Photos in this album`,
-                date: '2025-2026'
-              });
-            }
-          });
+        // Resolute persistence: when DB exists, respect empty array [] so deleted items stay deleted!
+        let images = [];
+        if (DB) {
+          if (Array.isArray(DB.eventImages)) {
+            images = [...DB.eventImages];
+          }
+        } else {
+          images = [...DEFAULT_EVENT_IMAGES];
         }
 
-        let videos = (DB && Array.isArray(DB.eventVideos) && DB.eventVideos.length > 0) ? [...DB.eventVideos] : [...DEFAULT_EVENT_VIDEOS];
-        if (DB && Array.isArray(DB.videoGalleries)) {
-          DB.videoGalleries.forEach(vg => {
-            if (!videos.some(v => v.id === vg.id || v.videoUrl === vg.videoUrl)) {
-              videos.push({
-                id: vg.id,
-                title: vg.title,
-                category: 'Showreel',
-                client: vg.client || 'EST Showcase',
-                duration: vg.duration || 'Video',
-                thumbUrl: vg.thumbnail || 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800',
-                videoUrl: vg.videoUrl,
-                desc: `${vg.views || ''} views highlight reel`
-              });
-            }
-          });
+        // Resolute persistence: when DB exists, respect empty array [] so deleted items stay deleted!
+        let videos = [];
+        if (DB) {
+          if (Array.isArray(DB.eventVideos)) {
+            videos = [...DB.eventVideos];
+          }
+        } else {
+          videos = [...DEFAULT_EVENT_VIDEOS];
         }
 
         // 1. Render Hero Section
@@ -1759,6 +1753,16 @@
       window.addEventListener('EST_DB_UPDATED', () => {
         refreshPageData();
       });
+
+      window.addEventListener('EST_DB_SYNC', () => {
+        refreshPageData();
+      });
+
+      if (window.ESTCloudSync && typeof window.ESTCloudSync.onSync === 'function') {
+        window.ESTCloudSync.onSync(() => {
+          refreshPageData();
+        });
+      }
 
       if (typeof BroadcastChannel !== 'undefined') {
         try {

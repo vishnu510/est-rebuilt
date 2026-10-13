@@ -30,6 +30,11 @@
     </div>
 
     <div class="header-right">
+      <button class="header-btn" id="btnHeaderCloudSync" title="Cloud Real-Time Sync & Firebase Settings" style="border: 1px solid rgba(12, 188, 161, 0.4); background: rgba(12, 188, 161, 0.1); color: #0cbca1; cursor: pointer;">
+        <span class="sync-dot-live" style="width: 8px; height: 8px; border-radius: 50%; background: #0cbca1; display: inline-block; box-shadow: 0 0 8px #0cbca1; margin-right: 6px;"></span>
+        <span id="headerSyncLabel">Real-Time Cloud Sync</span>
+      </button>
+
       <a href="index.html" target="_blank" class="header-btn" title="View Public Website">
         <i class="bi bi-globe2"></i> <span>Live Website</span>
       </a>
@@ -326,6 +331,11 @@
 
   <!-- TOAST NOTIFICATIONS CONTAINER -->
   <div class="toast-container" id="toastContainer"></div>
+
+  <!-- Firebase & Real-Time Cloud Sync -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+  <script src="cloud-sync.js"></script>
 
   <!-- Application Logic -->
   <script src="admin.js"></script>
