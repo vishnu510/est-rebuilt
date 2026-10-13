@@ -1133,20 +1133,9 @@
       let catCarouselCurrentIndex = 0;
       let currentLightboxState = { photos: [], currentIndex: 0, title: '' };
 
-      const DEFAULT_EVENT_IMAGES = [
-        { id: 'ei1', title: 'Cisco Live Keynote Stage & Holographic Projection', category: 'Conferences', eventName: 'Cisco Connect 2026', imgUrl: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=900&auto=format&fit=crop&q=80', date: '2026-02-18', desc: 'Main plenary hall stage design with dynamic LED wall and real-time delegate interaction systems.' },
-        { id: 'ei2', title: 'Intel Innovation 3D Experiential Booth', category: 'Exhibitions', eventName: 'India Tech Expo', imgUrl: 'https://images.unsplash.com/photo-1511578314322-379afb476865?w=900&auto=format&fit=crop&q=80', date: '2026-02-14', desc: 'Bespoke 3D curved pavilion with AI demo pods and enterprise engagement zones.' },
-        { id: 'ei3', title: 'Dell Technologies Multi-City Corporate Conclave', category: 'Roadshows', eventName: 'Dell Enterprise Tour', imgUrl: 'https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=900&auto=format&fit=crop&q=80', date: '2026-01-25', desc: 'Simultaneous 5-city executive breakfast series with interactive product launch displays.' },
-        { id: 'ei4', title: 'Samsung Galaxy Enterprise Zone Activation', category: 'Brand Activations', eventName: 'Samsung B2B Summit', imgUrl: 'https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=900&auto=format&fit=crop&q=80', date: '2026-01-10', desc: 'Tactile experiential pop-up inside DLF CyberHub capturing over 1,500 high-intent enterprise leads.' },
-        { id: 'ei5', title: 'Global Leadership Retreat & Sunset Awards', category: 'Offsites', eventName: 'Annual Partner Offsite Goa', imgUrl: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=900&auto=format&fit=crop&q=80', date: '2025-12-20', desc: 'Curated 3-day luxury leadership summit with themed gala evening and experiential staging.' },
-        { id: 'ei6', title: 'HP Indigo Future Print & Packaging Pavilion', category: 'Exhibitions', eventName: 'PrintPack India', imgUrl: 'https://images.unsplash.com/photo-1528605248644-14dd04022da1?w=900&auto=format&fit=crop&q=80', date: '2025-11-15', desc: 'Full-scale industrial machinery live demonstration booth with private C-suite meeting lounges.' }
-      ];
+      const DEFAULT_EVENT_IMAGES = [];
 
-      const DEFAULT_EVENT_VIDEOS = [
-        { id: 'ev1', title: 'EST Brand Services - Experiential Showreel 2026', category: 'Showreel', client: 'EST Master Reel', duration: '2m 45s', videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-set-of-plateaus-seen-from-the-sky-in-a-sunset-26070-large.mp4', thumbUrl: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800&auto=format&fit=crop&q=80', date: '2026-03-01', desc: 'High-energy compilation of pan-India corporate conferences, stage productions, and bespoke booths.' },
-        { id: 'ev2', title: 'Pan-India Corporate Activation Recap - 8 Cities', category: 'Roadshows', client: 'Cisco & HP', duration: '3m 12s', videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-set-of-plateaus-seen-from-the-sky-in-a-sunset-26070-large.mp4', thumbUrl: 'https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=800&auto=format&fit=crop&q=80', date: '2026-02-10', desc: 'Seamless multi-hub on-ground execution across Mumbai, Bengaluru, Delhi NCR, Hyderabad, and Pune.' },
-        { id: 'ev3', title: 'Exhibition Pavilion 3D Walkthrough & Live Execution', category: 'Exhibitions', client: 'Intel India', duration: '1m 50s', videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-set-of-plateaus-seen-from-the-sky-in-a-sunset-26070-large.mp4', thumbUrl: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&auto=format&fit=crop&q=80', date: '2026-01-18', desc: 'From initial 3D render to turnkey on-site fabrication and live delegate engagement.' }
-      ];
+      const DEFAULT_EVENT_VIDEOS = [];
 
       function getDB() {
         if (window.ESTCloudSync && typeof window.ESTCloudSync.getDB === 'function') {
@@ -1185,32 +1174,19 @@
           ctaLink: 'contact.html'
         };
 
-        // Resolute persistence: when DB exists, respect empty array [] so deleted items stay deleted!
+        // Fully dynamic: only show what is uploaded in the admin panel!
         let images = [];
-        if (DB) {
-          if (Array.isArray(DB.eventImages)) {
-            images = DB.eventImages.map(img => ({
-              ...img,
-              title: cleanPhotoTitle(img.title, img.eventName),
-              eventName: cleanPhotoTitle(img.eventName, 'EST Event')
-            }));
-          }
-        } else {
-          images = DEFAULT_EVENT_IMAGES.map(img => ({
+        if (DB && Array.isArray(DB.eventImages)) {
+          images = DB.eventImages.map(img => ({
             ...img,
             title: cleanPhotoTitle(img.title, img.eventName),
             eventName: cleanPhotoTitle(img.eventName, 'EST Event')
           }));
         }
 
-        // Resolute persistence: when DB exists, respect empty array [] so deleted items stay deleted!
         let videos = [];
-        if (DB) {
-          if (Array.isArray(DB.eventVideos)) {
-            videos = [...DB.eventVideos];
-          }
-        } else {
-          videos = [...DEFAULT_EVENT_VIDEOS];
+        if (DB && Array.isArray(DB.eventVideos)) {
+          videos = [...DB.eventVideos];
         }
 
         // 1. Render Hero Section

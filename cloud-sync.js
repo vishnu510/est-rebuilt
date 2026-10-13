@@ -11,16 +11,16 @@
   const CONFIG_STORAGE_KEY = 'EST_FIREBASE_CONFIG';
   const CHANNEL_NAME = 'est_admin_sync';
 
-  // Default plug-and-play Firebase configuration
-  // Users can customize this via the Admin Cloud Sync settings modal anytime.
+  // Placeholder / Default template for Firebase configuration.
+  // Users input their real Firebase Realtime Database project URL in the Admin panel.
   const DEFAULT_FIREBASE_CONFIG = {
-    apiKey: "AIzaSyESTBrandServicesLiveSync2026Key",
-    authDomain: "est-brand-services-live.firebaseapp.com",
-    databaseURL: "https://est-brand-services-live-default-rtdb.firebaseio.com",
-    projectId: "est-brand-services-live",
-    storageBucket: "est-brand-services-live.appspot.com",
-    messagingSenderId: "109827364521",
-    appId: "1:109827364521:web:786abc123def456"
+    apiKey: "",
+    authDomain: "",
+    databaseURL: "",
+    projectId: "",
+    storageBucket: "",
+    messagingSenderId: "",
+    appId: ""
   };
 
   const listeners = new Set();
@@ -28,6 +28,7 @@
   let firebaseDb = null;
   let broadcastChannel = null;
   let isCloudActive = false;
+  let cloudStatusMessage = 'Initializing...';
   let lastSyncTimestamp = 0;
 
   // Initialize BroadcastChannel for instant local tab-to-tab sync
@@ -35,7 +36,7 @@
     try {
       broadcastChannel = new BroadcastChannel(CHANNEL_NAME);
       broadcastChannel.onmessage = (event) => {
-        if (event.data && event.data.type === 'DB_UPDATE') {
+        if (event.data && event.data.type === 'DB_UPDATE' && event.data.data) {
           handleIncomingData(event.data.data, 'broadcast');
         }
       };
@@ -58,46 +59,132 @@
     try {
       const custom = localStorage.getItem(CONFIG_STORAGE_KEY);
       if (custom) {
-        return JSON.parse(custom);
+        const parsed = JSON.parse(custom);
+        if (parsed && typeof parsed === 'object') {
+          return parsed;
+        }
       }
     } catch (_) {}
     return DEFAULT_FIREBASE_CONFIG;
   }
 
+  function isValidDatabaseUrl(url) {
+    if (!url || typeof url !== 'string') return false;
+    const trimmed = url.trim();
+    return (trimmed.startsWith('https://') && (trimmed.includes('firebaseio.com') || trimmed.includes('firebasedatabase.app')));
+  }
+
+  // Firebase Realtime Database purges empty arrays/objects.
+  // We use markers so empty arrays stay empty arrays across cloud roundtrips!
+  function prepareForCloud(data) {
+    if (!data || typeof data !== 'object') return data;
+    const clone = JSON.parse(JSON.stringify(data));
+    clone._initialized = true;
+    clone._lastSync = Date.now();
+
+    const secureArray = (arr) => {
+      if (!Array.isArray(arr) || arr.length === 0) return ['__EST_EMPTY__'];
+      return arr;
+    };
+
+    clone.eventImages = secureArray(clone.eventImages);
+    clone.eventVideos = secureArray(clone.eventVideos);
+    clone.caseStudies = secureArray(clone.caseStudies);
+    clone.events = secureArray(clone.events);
+    if (clone.clients !== undefined) clone.clients = secureArray(clone.clients);
+    if (clone.services !== undefined) clone.services = secureArray(clone.services);
+    if (clone.clientFeedbacks !== undefined) clone.clientFeedbacks = secureArray(clone.clientFeedbacks);
+    if (clone.employeeFeedbacks !== undefined) clone.employeeFeedbacks = secureArray(clone.employeeFeedbacks);
+    if (clone.eventRegistrations !== undefined) clone.eventRegistrations = secureArray(clone.eventRegistrations);
+
+    return clone;
+  }
+
+  function restoreFromCloud(data) {
+    if (!data || typeof data !== 'object') return data;
+    const clone = JSON.parse(JSON.stringify(data));
+    clone._initialized = true;
+
+    const unpackArray = (val) => {
+      if (!val) return [];
+      if (!Array.isArray(val)) {
+        if (typeof val === 'object') {
+          // Convert Firebase keyed object to array if needed
+          return Object.values(val).filter(item => item !== '__EST_EMPTY__');
+        }
+        return [];
+      }
+      if (val.length === 1 && val[0] === '__EST_EMPTY__') return [];
+      return val.filter(item => item !== '__EST_EMPTY__');
+    };
+
+    clone.eventImages = unpackArray(clone.eventImages);
+    clone.eventVideos = unpackArray(clone.eventVideos);
+    clone.caseStudies = unpackArray(clone.caseStudies);
+    clone.events = unpackArray(clone.events);
+    if (clone.clients !== undefined) clone.clients = unpackArray(clone.clients);
+    if (clone.services !== undefined) clone.services = unpackArray(clone.services);
+    if (clone.clientFeedbacks !== undefined) clone.clientFeedbacks = unpackArray(clone.clientFeedbacks);
+    if (clone.employeeFeedbacks !== undefined) clone.employeeFeedbacks = unpackArray(clone.employeeFeedbacks);
+    if (clone.eventRegistrations !== undefined) clone.eventRegistrations = unpackArray(clone.eventRegistrations);
+
+    return clone;
+  }
+
   function initFirebase() {
     if (typeof firebase === 'undefined' || !firebase.initializeApp) {
-      console.info('[EST CloudSync] Firebase SDK not loaded, operating in local reactive mode.');
+      console.info('[EST CloudSync] Firebase SDK not loaded, operating in local offline-cache mode.');
+      isCloudActive = false;
+      cloudStatusMessage = 'Offline Local Mode';
       return;
     }
 
     try {
       const config = getActiveConfig();
-      if (!config || !config.databaseURL) return;
-
-      // Check if already initialized
-      if (!firebase.apps || !firebase.apps.length) {
-        firebaseApp = firebase.initializeApp(config);
-      } else {
-        firebaseApp = firebase.apps[0];
+      if (!config || !isValidDatabaseUrl(config.databaseURL)) {
+        isCloudActive = false;
+        cloudStatusMessage = 'Awaiting Firebase Configuration';
+        return;
       }
 
-      firebaseDb = firebase.database();
+      // Initialize or reuse app
+      const appName = 'EST_LIVE_SYNC';
+      const existingApp = (firebase.apps || []).find(a => a.name === appName || a.name === '[DEFAULT]');
+      if (!existingApp) {
+        firebaseApp = firebase.initializeApp(config, appName);
+      } else {
+        firebaseApp = existingApp;
+      }
+
+      firebaseDb = firebase.database(firebaseApp);
       const dbRef = firebaseDb.ref('est_database');
 
-      // Listen for real-time cloud updates
+      // Listen for real-time cloud updates continuously
       dbRef.on('value', (snapshot) => {
         const val = snapshot.val();
         if (val && typeof val === 'object') {
           isCloudActive = true;
-          handleIncomingData(val, 'firebase');
+          cloudStatusMessage = 'Cloud Synchronized (Live)';
+          const restored = restoreFromCloud(val);
+          handleIncomingData(restored, 'firebase');
+        } else if (val === null) {
+          // Firebase database exists but is currently empty
+          isCloudActive = true;
+          cloudStatusMessage = 'Cloud Connected (Empty Database)';
+          console.info('[EST CloudSync] Firebase connected, root database is empty.');
         }
       }, (error) => {
+        isCloudActive = false;
+        cloudStatusMessage = 'Firebase Error: ' + error.message;
         console.warn('[EST CloudSync] Firebase live sync warning:', error.message);
       });
 
       isCloudActive = true;
-      console.log('[EST CloudSync] Connected to Firebase Realtime Database.');
+      cloudStatusMessage = 'Connected to Firebase Realtime Database';
+      console.log('[EST CloudSync] Connected to Firebase Realtime Database:', config.databaseURL);
     } catch (err) {
+      isCloudActive = false;
+      cloudStatusMessage = 'Init Error: ' + err.message;
       console.warn('[EST CloudSync] Firebase initialization error:', err.message);
     }
   }
@@ -169,8 +256,9 @@
     saveDB: function (data) {
       if (!data || typeof data !== 'object') return false;
       lastSyncTimestamp = Date.now();
+      data._initialized = true;
 
-      // 1. LocalStorage
+      // 1. LocalStorage Cache
       try {
         localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
         localStorage.setItem('EST_ADMIN_DB_SYNC_TS', lastSyncTimestamp.toString());
@@ -178,7 +266,7 @@
         console.error('[EST CloudSync] LocalStorage write error:', err);
       }
 
-      // 2. BroadcastChannel
+      // 2. BroadcastChannel for instant local tab-to-tab sync
       if (broadcastChannel) {
         try {
           broadcastChannel.postMessage({ type: 'DB_UPDATE', data, timestamp: lastSyncTimestamp });
@@ -188,14 +276,19 @@
       // 3. Dispatch local event
       try {
         window.dispatchEvent(new CustomEvent('EST_DB_UPDATED', { detail: { data, source: 'local_save' } }));
+        window.dispatchEvent(new CustomEvent('EST_DB_SYNC', { detail: { data, source: 'local_save' } }));
       } catch (_) {}
 
-      // 4. Firebase Realtime Database
+      // 4. Push to Firebase Realtime Database for cross-device synchronization
       if (firebaseDb) {
         try {
-          firebaseDb.ref('est_database').set(data).then(() => {
+          const cloudPayload = prepareForCloud(data);
+          firebaseDb.ref('est_database').set(cloudPayload).then(() => {
             isCloudActive = true;
+            cloudStatusMessage = 'Cloud Synchronized (Live)';
+            console.log('[EST CloudSync] Live sync pushed to Firebase.');
           }).catch((fbErr) => {
+            cloudStatusMessage = 'Push Error: ' + fbErr.message;
             console.warn('[EST CloudSync] Firebase push error:', fbErr.message);
           });
         } catch (e) {
@@ -213,7 +306,6 @@
       if (!configObj) return false;
       try {
         localStorage.setItem(CONFIG_STORAGE_KEY, JSON.stringify(configObj));
-        // Re-initialize
         initFirebase();
         return true;
       } catch (e) {
@@ -230,13 +322,40 @@
     },
 
     /**
+     * Test connection to a Firebase databaseURL
+     */
+    testFirebaseConnection: async function (config) {
+      if (!config || !isValidDatabaseUrl(config.databaseURL)) {
+        return { success: false, message: 'Invalid Database URL. Must start with https:// and end with firebaseio.com or firebasedatabase.app' };
+      }
+
+      try {
+        const cleanUrl = config.databaseURL.replace(/\/+$/, '') + '/.json?shallow=true';
+        const res = await fetch(cleanUrl, { method: 'GET', mode: 'cors' });
+        if (res.ok) {
+          return { success: true, message: 'Firebase Database reached and verified successfully!' };
+        } else if (res.status === 401 || res.status === 403) {
+          return { success: false, message: 'Firebase permission denied. In Firebase Console > Realtime Database > Rules, set ".read": true, ".write": true' };
+        } else if (res.status === 404) {
+          return { success: false, message: 'Database URL not found (404). Please check the project name and URL in your Firebase Console.' };
+        } else {
+          return { success: false, message: 'HTTP ' + res.status + ': ' + res.statusText };
+        }
+      } catch (err) {
+        return { success: false, message: 'Network connection failed: ' + err.message };
+      }
+    },
+
+    /**
      * Connection status
      */
     getStatus: function () {
       return {
         cloudConnected: isCloudActive,
+        statusMessage: cloudStatusMessage,
         lastSync: lastSyncTimestamp,
-        hasFirebaseSDK: typeof firebase !== 'undefined' && !!firebase.initializeApp
+        hasFirebaseSDK: typeof firebase !== 'undefined' && !!firebase.initializeApp,
+        config: getActiveConfig()
       };
     }
   };

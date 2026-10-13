@@ -689,251 +689,9 @@
       lastUpdated: '2026-03-15'
     },
 
-    eventImages: [
-      { id: 'ei1', title: 'Cisco Live Keynote Stage & Holographic Projection', category: 'Conferences', eventName: 'Cisco Connect 2026', imgUrl: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=900&auto=format&fit=crop&q=80', date: '2026-02-18', desc: 'Main plenary hall stage design with dynamic LED wall and real-time delegate interaction systems.' },
-      { id: 'ei2', title: 'Intel Innovation 3D Experiential Booth', category: 'Exhibitions', eventName: 'India Tech Expo', imgUrl: 'https://images.unsplash.com/photo-1511578314322-379afb476865?w=900&auto=format&fit=crop&q=80', date: '2026-02-14', desc: 'Bespoke 3D curved pavilion with AI demo pods and enterprise engagement zones.' },
-      { id: 'ei3', title: 'Dell Technologies Multi-City Corporate Conclave', category: 'Roadshows', eventName: 'Dell Enterprise Tour', imgUrl: 'https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=900&auto=format&fit=crop&q=80', date: '2026-01-25', desc: 'Simultaneous 5-city executive breakfast series with interactive product launch displays.' },
-      { id: 'ei4', title: 'Samsung Galaxy Enterprise Zone Activation', category: 'Brand Activations', eventName: 'Samsung B2B Summit', imgUrl: 'https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=900&auto=format&fit=crop&q=80', date: '2026-01-10', desc: 'Tactile experiential pop-up inside DLF CyberHub capturing over 1,500 high-intent enterprise leads.' },
-      { id: 'ei5', title: 'Global Leadership Retreat & Sunset Awards', category: 'Offsites', eventName: 'Annual Partner Offsite Goa', imgUrl: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=900&auto=format&fit=crop&q=80', date: '2025-12-20', desc: 'Curated 3-day luxury leadership summit with themed gala evening and experiential staging.' },
-      { id: 'ei6', title: 'HP Indigo Future Print & Packaging Pavilion', category: 'Exhibitions', eventName: 'PrintPack India', imgUrl: 'https://images.unsplash.com/photo-1528605248644-14dd04022da1?w=900&auto=format&fit=crop&q=80', date: '2025-11-15', desc: 'Full-scale industrial machinery live demonstration booth with private C-suite meeting lounges.' }
-    ],
+    eventImages: [],
 
-    caseStudies: [
-{
-            "id": "cs_colorbar",
-            "client": "Colorbar Cosmetics",
-            "industry": "Beauty & Luxury Retail",
-            "title": "Colorbar Cosmoprof: Sinful Collection Launch",
-            "category": "Luxury Activation",
-            "coverImage": "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=1200",
-            "challenge": "Launch the premium Sinful Collection with high-octane social buzz, influencer engagement, and immersive product touchpoints.",
-            "strategy": "A multi-sensory experiential beauty pavilion featuring interactive cosmetic testing bars, mirror lighting domes, and holographic product reveals that dominated social feeds.",
-            "execution": "Full-scale experiential build with interactive testing bars, custom lighting domes, and holographic stage reveal.",
-            "resultsHtml": "<p>Generated massive social velocity, over 4.8M impressions, and packed footfall throughout Cosmoprof.</p>",
-            "metric1Value": "4.8M+",
-            "metric1Label": "Social Impressions",
-            "metric2Value": "100%",
-            "metric2Label": "Influencer Turnout",
-            "status": "Published",
-            "date": "2026-02-15"
-      },
-      {
-            "id": "cs_suntory",
-            "client": "House of Suntory",
-            "industry": "Luxury Spirits & Hospitality",
-            "title": "House of Suntory: 100 Year Celebration",
-            "category": "Centennial Gala",
-            "coverImage": "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?q=80&w=800",
-            "challenge": "Celebrate a century of Japanese craftsmanship for an ultra-exclusive C-Suite guestlist.",
-            "strategy": "An intimate VIP Japanese aesthetic tasting pavilion combining kinetic paper lanterns, bespoke omakase pairings, and heritage storytelling.",
-            "execution": "Kinetic paper lantern installations, multi-course sensory pairing lounge, and custom acoustic ambiance.",
-            "resultsHtml": "<p>Achieved 100% C-Suite attendance with stellar critical acclaim and luxury brand prestige.</p>",
-            "metric1Value": "100%",
-            "metric1Label": "C-Suite Attendance",
-            "metric2Value": "5-Star",
-            "metric2Label": "VIP Feedback",
-            "status": "Published",
-            "date": "2026-02-01"
-      },
-      {
-            "id": "cs_amazon",
-            "client": "Amazon India",
-            "industry": "E-Commerce & Enterprise",
-            "title": "Amazon Smbhav Summit",
-            "category": "Mega Summit",
-            "coverImage": "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?q=80&w=800",
-            "challenge": "Host India's flagship enterprise seller conclave with simultaneous national streaming.",
-            "strategy": "India's flagship enterprise seller summit with 15,000+ live delegates, 4 simultaneous broadcast stages, and custom interactive digital discovery zones.",
-            "execution": "Turnkey technical production, 4 concurrent broadcast stages, and digital exhibition zones.",
-            "resultsHtml": "<p>Engaged over 15,000 delegates seamlessly across two days of high-velocity keynote sessions.</p>",
-            "metric1Value": "15,000+",
-            "metric1Label": "Delegates",
-            "metric2Value": "4",
-            "metric2Label": "Live Stages",
-            "status": "Published",
-            "date": "2026-01-20"
-      },
-      {
-            "id": "cs_cartier",
-            "client": "Cartier",
-            "industry": "Haute Horlogerie & High Jewelry",
-            "title": "Cartier Christmas Immersive Activation",
-            "category": "High Jewelry",
-            "coverImage": "https://images.unsplash.com/photo-1544816155-12df9643f363?q=80&w=1200",
-            "challenge": "Build an ultra-luxurious holiday activation reflecting Maison Cartier heritage in Mumbai.",
-            "strategy": "An opulent architectural glass holiday pavilion featuring custom gilded panther sculptures, interactive music boxes, and high-security VIP salon suites.",
-            "execution": "Architectural glass pavilion, custom gilded panther sculptures, and bespoke concierge suites.",
-            "resultsHtml": "<p>Drove unprecedented ultra-HNW engagement and private client sales over the festive period.</p>",
-            "metric1Value": "Ultra-HNW",
-            "metric1Label": "Engagement",
-            "metric2Value": "100%",
-            "metric2Label": "Sales Target",
-            "status": "Published",
-            "date": "2025-12-24"
-      },
-      {
-            "id": "cs_canon",
-            "client": "Canon",
-            "industry": "Imaging & Optical Technology",
-            "title": "Canon Masters Conclave & Product Launch",
-            "category": "Product Reveal",
-            "coverImage": "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=1000",
-            "challenge": "Launch flagship cinema cameras to top directors, cinematographers, and tech media.",
-            "strategy": "Cinema camera reveal with a curved 360-degree LED tunnel, live low-light studio test sets, and national media stream.",
-            "execution": "Immersive curved LED tunnel, low-light experimental shooting studios, and live broadcast.",
-            "resultsHtml": "<p>Achieved 100% media conversion and viral coverage across leading film publications.</p>",
-            "metric1Value": "100%",
-            "metric1Label": "Media Conversion",
-            "metric2Value": "360°",
-            "metric2Label": "LED Tunnel",
-            "status": "Published",
-            "date": "2025-11-20"
-      },
-      {
-            "id": "cs_hyundai",
-            "client": "Hyundai Motors",
-            "industry": "Automotive & Mobility",
-            "title": "Hyundai Soirée: IONIQ 5 Customer Meet",
-            "category": "Automotive Soirée",
-            "coverImage": "https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=1000",
-            "challenge": "Showcase revolutionary electric vehicle design and book test drives for pre-launch prospects.",
-            "strategy": "An avant-garde electric vehicle reveal with interactive projection mapping, sustainable kinetic installations, and test track hospitality.",
-            "execution": "Dynamic projection mapping on vehicle body, kinetic installations, and track hospitality.",
-            "resultsHtml": "<p>Generated over 250 qualified bookings and enthusiastic pre-order momentum.</p>",
-            "metric1Value": "250+",
-            "metric1Label": "Qualified Bookings",
-            "metric2Value": "Zero",
-            "metric2Label": "Carbon Footprint",
-            "status": "Published",
-            "date": "2025-10-15"
-      },
-      {
-            "id": "cs_rado",
-            "client": "RADO Switzerland",
-            "industry": "Swiss Luxury Timepieces",
-            "title": "RADO at India Art Fair",
-            "category": "Art Fair Pavilion",
-            "coverImage": "https://images.unsplash.com/photo-1524805444758-089113d48a6d?q=80&w=800",
-            "challenge": "Position ceramic watchmaking as contemporary high art at the premier Indian art exhibition.",
-            "strategy": "Ceramic sculpture watch gallery seamlessly integrating horological design with contemporary Indian sculpture.",
-            "execution": "Bespoke sculptural display plinths, ambient gallery lighting, and artist collaboration zone.",
-            "resultsHtml": "<p>Recognized as an architectural marvel and featured prominently in international design press.</p>",
-            "metric1Value": "Architectural",
-            "metric1Label": "Marvel",
-            "metric2Value": "45K+",
-            "metric2Label": "Gallery Visitors",
-            "status": "Published",
-            "date": "2025-09-10"
-      },
-      {
-            "id": "cs_google_hp",
-            "client": "Google Cloud & HP",
-            "industry": "Enterprise Cloud & AI",
-            "title": "Enterprise Tech & AI Partner Summits",
-            "category": "Pan-India Tech Tour",
-            "coverImage": "https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=1200",
-            "challenge": "Deliver a unified B2B demand generation tour across 7 metro cities within 30 days.",
-            "strategy": "Synchronized 7-city multi-hub roadshow featuring live cloud architecture demo stages, CTO VIP roundtables, and high-velocity demand generation funnels.",
-            "execution": "7-city roadshow execution with simultaneous cloud demo stages, VIP salons, and lead funnels.",
-            "resultsHtml": "<p>Influenced over $42M+ in pipeline opportunities with direct account conversions.</p>",
-            "metric1Value": "$42M+",
-            "metric1Label": "Pipeline Influenced",
-            "metric2Value": "7",
-            "metric2Label": "Cities Toured",
-            "status": "Published",
-            "date": "2025-08-20"
-      },
-      {
-        id: 'cs1',
-        client: 'Adobe Systems',
-        industry: 'Technology & Design',
-        title: 'Workspace Transformation & Experiential Innovation Zones',
-        category: 'Corporate Branding',
-        coverImage: 'https://images.unsplash.com/photo-1497215728101-856f4ea42174?q=80&w=1000',
-        challenge: 'Re-energize 45,000+ sq. ft. of headquarters space with brand culture art without disrupting daily office operations.',
-        strategy: 'Developed a 3D architectural plan with custom frosted glass manifestations, acoustic felt murals, and interactive team breakout spaces.',
-        execution: '100% turnkey night installations across 3 floors within 14 business days.',
-        resultsHtml: '<p>Delivered an award-winning workspace environment that increased workplace satisfaction scores by 42% while causing zero interruption to daily enterprise workflows.</p>',
-        metric1Value: '45K+',
-        metric1Label: 'Sq. Ft. Branded',
-        metric2Value: 'Zero',
-        metric2Label: 'Workday Downtime',
-        status: 'Published',
-        date: '2026-02-10'
-      },
-      {
-        id: 'cs2',
-        client: 'AMD',
-        industry: 'Semiconductor & Enterprise Tech',
-        title: 'High-Performance Developer Summit & Global Live Broadcast',
-        category: 'Conferences & AV',
-        coverImage: 'https://images.unsplash.com/photo-1505373877841-8d25f7d46678?q=80&w=1000',
-        challenge: 'Deliver a flawless technical seminar for 850+ in-person CXOs and developers while streaming globally with zero audio/video lag.',
-        strategy: 'Curved P2.6 LED stage backdrop, hot-standby audio/video matrix, Watchout media servers, and RFID delegate tracking.',
-        execution: 'Turnkey stage production, green room management, and multi-cam broadcast in Bangalore.',
-        resultsHtml: '<p>Orchestrated an end-to-end technical summit with 99.9% stream reliability and over 12,000 virtual attendees worldwide.</p>',
-        metric1Value: '850+',
-        metric1Label: 'CXO & Dev Attendees',
-        metric2Value: '99.9%',
-        metric2Label: 'Stream Uptime',
-        status: 'Published',
-        date: '2026-01-28'
-      },
-      {
-        id: 'cs3',
-        client: 'ACPL Systems',
-        industry: 'Enterprise Cybersecurity',
-        title: 'Account-Based Marketing & Executive CXO Dinner Series',
-        category: 'Demand Generation',
-        coverImage: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1000',
-        challenge: 'Penetrate Tier-1 Enterprise CIOs and CISOs in Delhi NCR and Mumbai for cybersecurity advisory.',
-        strategy: 'Integrated LinkedIn ABM messaging, personalized SDR cadences, and exclusive 5-star private executive roundtables.',
-        execution: '3 closed-door roundtables hosted with 14 CISOs per city and direct account executive introductions.',
-        resultsHtml: '<p>Successfully connected ACPL cybersecurity experts with 42 verified decision-makers resulting in 3.8x pipeline ROI within 90 days.</p>',
-        metric1Value: '42',
-        metric1Label: 'Qualified CXO Meetings',
-        metric2Value: '3.8x',
-        metric2Label: 'Pipeline ROI',
-        status: 'Published',
-        date: '2026-01-15'
-      },
-      {
-        id: 'cs4',
-        client: 'BenQ',
-        industry: 'Display Technology',
-        title: 'Immersive 3D Exhibition Pavilion & Live Color Labs',
-        category: 'Exhibition Marketing',
-        coverImage: 'https://images.unsplash.com/photo-1565034946487-077786996e27?q=80&w=1000',
-        challenge: 'Stand out on a crowded trade show floor at Pragati Maidan and demonstrate professional color accuracy displays.',
-        strategy: 'Built a raised double-height wooden and glass pavilion featuring interactive darkroom display testing pods and executive hospitality.',
-        execution: 'Turnkey 3D CAD modeling, CNC fabrication, lighting calibration, and badge scan lead capture.',
-        resultsHtml: '<p>Captured record footfall with 2,800+ trade visitors experiencing hands-on display demos, generating 340+ dealer inquiries.</p>',
-        metric1Value: '2,800+',
-        metric1Label: 'Trade Show Visitors',
-        metric2Value: '340+',
-        metric2Label: 'Dealer Inquiries',
-        status: 'Published',
-        date: '2025-12-14'
-      },
-      {
-        id: 'cs5',
-        client: 'National FMCG Brand',
-        industry: 'CPG & Personal Care',
-        title: '12-City Mall & Residential Society Direct Sampling Tour',
-        category: 'BTL Activation',
-        coverImage: 'https://images.unsplash.com/photo-1560523136-40743f800c87?q=80&w=1000',
-        challenge: 'Accelerate consumer trial and regional brand recall for a new organic personal care line across North and West India.',
-        strategy: 'Multi-city hydraulic mobile vans, mall kiosks, and weekend gated society carnivals with gamified interactive surveys.',
-        execution: 'Synchronized rollout across Delhi NCR, Jaipur, Chandigarh, Lucknow, Mumbai, and Pune over 30 days.',
-        resultsHtml: '<p>Achieved unprecedented sampling velocity with 120,000+ consumer interactions and a 94% verified trial rate.</p>',
-        metric1Value: '120K+',
-        metric1Label: 'Samples Disbursed',
-        metric2Value: '94%',
-        metric2Label: 'Consumer Trial Rate',
-        status: 'Published',
-        date: '2025-11-20'
-      }
-    ],
+    caseStudies: [],
 
     insightClusters: [
       {
@@ -1008,11 +766,7 @@
       }
     ],
 
-    eventVideos: [
-      { id: 'ev1', title: 'EST Brand Services - Experiential Showreel 2026', category: 'Showreel', client: 'EST Master Reel', duration: '2m 45s', videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-set-of-plateaus-seen-from-the-sky-in-a-sunset-26070-large.mp4', thumbUrl: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800&auto=format&fit=crop&q=80', date: '2026-03-01', desc: 'High-energy compilation of pan-India corporate conferences, stage productions, and bespoke booths.' },
-      { id: 'ev2', title: 'Pan-India Corporate Activation Recap - 8 Cities', category: 'Roadshows', client: 'Cisco & HP', duration: '3m 12s', videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-set-of-plateaus-seen-from-the-sky-in-a-sunset-26070-large.mp4', thumbUrl: 'https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=800&auto=format&fit=crop&q=80', date: '2026-02-10', desc: 'Seamless multi-hub on-ground execution across Mumbai, Bengaluru, Delhi NCR, Hyderabad, and Pune.' },
-      { id: 'ev3', title: 'Exhibition Pavilion 3D Walkthrough & Live Execution', category: 'Exhibitions', client: 'Intel India', duration: '1m 50s', videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-set-of-plateaus-seen-from-the-sky-in-a-sunset-26070-large.mp4', thumbUrl: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&auto=format&fit=crop&q=80', date: '2026-01-18', desc: 'From initial 3D render to turnkey on-site fabrication and live delegate engagement.' }
-    ],
+    eventVideos: [],
 
     auth: {
       adminId: 'admin',
@@ -1041,31 +795,35 @@
   }
 
   function normalizeDb(parsed) {
-    if (!parsed || typeof parsed !== 'object') return JSON.parse(JSON.stringify(DEFAULT_DB));
+    if (!parsed || typeof parsed !== 'object') {
+      const init = JSON.parse(JSON.stringify(DEFAULT_DB));
+      init._initialized = true;
+      return init;
+    }
 
-    // Ensure models exist if strictly undefined, but PRESERVE empty arrays [] so deleted items stay deleted!
+    parsed._initialized = true;
+
     if (parsed.heroVideo === undefined) parsed.heroVideo = DEFAULT_DB.heroVideo;
-    if (parsed.eventImages === undefined) parsed.eventImages = DEFAULT_DB.eventImages;
-    if (parsed.eventVideos === undefined) parsed.eventVideos = DEFAULT_DB.eventVideos;
-    if (parsed.events === undefined) parsed.events = DEFAULT_DB.events;
+    parsed.eventImages = Array.isArray(parsed.eventImages) ? parsed.eventImages : [];
+    parsed.eventVideos = Array.isArray(parsed.eventVideos) ? parsed.eventVideos : [];
+    parsed.events = Array.isArray(parsed.events) ? parsed.events : [];
+    parsed.caseStudies = Array.isArray(parsed.caseStudies) ? parsed.caseStudies : [];
 
     // Automatically strip any existing DSC_ or camera suffixes from event photo titles
-    if (Array.isArray(parsed.eventImages)) {
-      parsed.eventImages.forEach(img => {
-        if (img && img.title) img.title = sanitizePhotoTitle(img.title, img.eventName);
-      });
-    }
-    if (parsed.galleries === undefined) parsed.galleries = DEFAULT_DB.galleries;
-    if (parsed.videoGalleries === undefined) parsed.videoGalleries = DEFAULT_DB.videoGalleries;
+    parsed.eventImages.forEach(img => {
+      if (img && img.title) img.title = sanitizePhotoTitle(img.title, img.eventName);
+    });
+
+    parsed.galleries = Array.isArray(parsed.galleries) ? parsed.galleries : [];
+    parsed.videoGalleries = Array.isArray(parsed.videoGalleries) ? parsed.videoGalleries : [];
     if (parsed.auth === undefined) parsed.auth = DEFAULT_DB.auth;
-    if (parsed.caseStudies === undefined) parsed.caseStudies = DEFAULT_DB.caseStudies;
-    if (parsed.insightClusters === undefined) parsed.insightClusters = DEFAULT_DB.insightClusters;
-    if (parsed.blogPosts === undefined) parsed.blogPosts = DEFAULT_DB.blogPosts;
-    if (parsed.clients === undefined) parsed.clients = DEFAULT_DB.clients;
-    if (parsed.services === undefined) parsed.services = DEFAULT_DB.services;
-    if (parsed.clientFeedbacks === undefined) parsed.clientFeedbacks = DEFAULT_DB.clientFeedbacks;
-    if (parsed.employeeFeedbacks === undefined) parsed.employeeFeedbacks = DEFAULT_DB.employeeFeedbacks;
-    if (parsed.eventRegistrations === undefined) parsed.eventRegistrations = DEFAULT_DB.eventRegistrations;
+    if (parsed.insightClusters === undefined) parsed.insightClusters = DEFAULT_DB.insightClusters || [];
+    if (parsed.blogPosts === undefined) parsed.blogPosts = DEFAULT_DB.blogPosts || [];
+    if (parsed.clients === undefined) parsed.clients = DEFAULT_DB.clients || [];
+    if (parsed.services === undefined) parsed.services = DEFAULT_DB.services || [];
+    if (parsed.clientFeedbacks === undefined) parsed.clientFeedbacks = DEFAULT_DB.clientFeedbacks || [];
+    if (parsed.employeeFeedbacks === undefined) parsed.employeeFeedbacks = DEFAULT_DB.employeeFeedbacks || [];
+    parsed.eventRegistrations = Array.isArray(parsed.eventRegistrations) ? parsed.eventRegistrations : [];
 
     return parsed;
   }
@@ -1303,8 +1061,8 @@
   // =========================================================================
   function renderOurEventsManager(container) {
     const hero = DB.heroVideo || DEFAULT_DB.heroVideo;
-    const images = Array.isArray(DB.eventImages) ? DB.eventImages : (DEFAULT_DB.eventImages || []);
-    const videos = Array.isArray(DB.eventVideos) ? DB.eventVideos : (DEFAULT_DB.eventVideos || []);
+    const images = Array.isArray(DB.eventImages) ? DB.eventImages : [];
+    const videos = Array.isArray(DB.eventVideos) ? DB.eventVideos : [];
 
     container.innerHTML = `
       <div class="view-container active">
@@ -1441,7 +1199,7 @@
                 <option value="Offsites">Offsites</option>
               </select>
             </div>
-            <button class="btn-add" id="btnAddEventImage">
+            <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;"><button class="btn-outline" id="btnClearAllEventImages" style="color: var(--status-danger); border-color: rgba(239, 68, 68, 0.4);" ${images.length === 0 ? "disabled" : ""}><i class="bi bi-trash-fill"></i> Delete All Photos (${images.length})</button><button class="btn-add" id="btnAddEventImage">
               <i class="bi bi-images"></i> Add / Upload Multiple Photos
             </button>
           </div>
@@ -1457,9 +1215,12 @@
             <p style="font-size: 0.9rem; color: var(--text-muted);">
               Manage showreels, client activation films, and event recap videos displayed on the public page.
             </p>
-            <button class="btn-add" id="btnAddEventVideo">
-              <i class="bi bi-camera-video-fill"></i> Add Video Showreel
-            </button>
+            <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+              <button class="btn-outline" id="btnClearAllEventVideos" style="color: var(--status-danger); border-color: rgba(239, 68, 68, 0.4);" ${videos.length === 0 ? "disabled" : ""}><i class="bi bi-trash-fill"></i> Delete All Videos (${videos.length})</button>
+              <button class="btn-add" id="btnAddEventVideo">
+                <i class="bi bi-camera-video-fill"></i> Add Video Showreel
+              </button>
+            </div>
           </div>
 
           <div class="cards-grid" id="eventVideosGrid">
@@ -1735,7 +1496,18 @@
       });
       if (grid) {
         grid.innerHTML = renderEventImageCards(filtered);
-        attachImageCardActions(container);
+            // Clear All Photos
+    container.querySelector('#btnClearAllEventImages')?.addEventListener('click', () => {
+      confirmDelete('Delete All Photos', 'Are you sure you want to permanently delete all event photos? This cannot be undone.', () => {
+        DB.eventImages = [];
+        saveDatabase(DB);
+        renderOurEventsManager(document.getElementById('adminMainContent'));
+        document.querySelector('[data-tab="tab-event-images"]')?.click();
+        showToast('All event photos removed', 'danger');
+      });
+    });
+
+    attachImageCardActions(container);
       }
     };
 
@@ -2065,9 +1837,17 @@
       btn.addEventListener('click', () => {
         const eventName = btn.getAttribute('data-event');
         confirmDelete('Delete Event Album', `Are you sure you want to remove all photos under "${eventName}"?`, () => {
-          DB.eventImages = DB.eventImages.filter(img => (img.eventName || img.title) !== eventName);
+          const target = String(eventName || '').trim().toLowerCase();
+          DB.eventImages = (DB.eventImages || []).filter(img => {
+            const cleanEvt = sanitizePhotoTitle(img.eventName || '', '').trim().toLowerCase();
+            const cleanTit = sanitizePhotoTitle(img.title || '', '').trim().toLowerCase();
+            const rawEvt = String(img.eventName || '').trim().toLowerCase();
+            const rawTit = String(img.title || '').trim().toLowerCase();
+            return cleanEvt !== target && cleanTit !== target && rawEvt !== target && rawTit !== target;
+          });
           saveDatabase(DB);
           renderOurEventsManager(document.getElementById('adminMainContent'));
+          document.querySelector('[data-tab="tab-event-images"]')?.click();
           showToast(`Removed album "${eventName}"`, 'danger');
         });
       });
@@ -2177,11 +1957,23 @@
       btn.addEventListener('click', () => {
         const id = btn.getAttribute('data-id');
         confirmDelete('Delete Video', 'Are you sure you want to remove this video showreel?', () => {
-          DB.eventVideos = DB.eventVideos.filter(v => v.id !== id);
+          DB.eventVideos = (DB.eventVideos || []).filter(v => v.id !== id);
           saveDatabase(DB);
           renderOurEventsManager(document.getElementById('adminMainContent'));
+          document.querySelector('[data-tab="tab-event-videos"]')?.click();
           showToast('Video removed', 'danger');
         });
+      });
+    });
+
+    // Clear All Videos
+    container.querySelector('#btnClearAllEventVideos')?.addEventListener('click', () => {
+      confirmDelete('Delete All Videos', 'Are you sure you want to permanently delete all video showreels? This cannot be undone.', () => {
+        DB.eventVideos = [];
+        saveDatabase(DB);
+        renderOurEventsManager(document.getElementById('adminMainContent'));
+        document.querySelector('[data-tab="tab-event-videos"]')?.click();
+        showToast('All event videos removed', 'danger');
       });
     });
   }
@@ -2697,7 +2489,7 @@
   // VIEW: CASE STUDIES
   // =========================================================================
   function renderCaseStudies(container) {
-    if (!DB.caseStudies) DB.caseStudies = DEFAULT_DB.caseStudies;
+    if (!Array.isArray(DB.caseStudies)) DB.caseStudies = [];
 
     container.innerHTML = `
       <div class="view-container active">
@@ -2713,6 +2505,7 @@
             <a href="case-studies.html" target="_blank" class="header-btn" style="background: rgba(254, 59, 32, 0.15); border-color: var(--color-primary); color: #fff;">
               <i class="bi bi-box-arrow-up-right"></i> <span>View Live Case Studies</span>
             </a>
+            <button class="btn-outline" id="btnClearAllCaseStudies" style="color: var(--status-danger); border-color: rgba(239, 68, 68, 0.4);" ${DB.caseStudies.length === 0 ? "disabled" : ""}><i class="bi bi-trash-fill"></i> Delete All Experiences (${DB.caseStudies.length})</button>
             <button class="btn-add" id="btnAddCaseStudy"><i class="bi bi-plus-lg"></i> Add Experience</button>
           </div>
         </div>
@@ -2808,12 +2601,21 @@
     document.querySelectorAll('[data-action="delete-case-study"]').forEach(btn => {
       btn.addEventListener('click', () => {
         const id = btn.getAttribute('data-id');
-        confirmDelete('Delete Case Study', 'Are you sure you want to remove this case study? It will be removed live from the case studies page.', () => {
-          DB.caseStudies = DB.caseStudies.filter(c => c.id !== id);
+        confirmDelete('Delete Case Study', 'Are you sure you want to remove this case study? It will be removed live from the website.', () => {
+          DB.caseStudies = (DB.caseStudies || []).filter(c => c.id !== id);
           saveDatabase(DB);
           renderCaseStudies(document.getElementById('adminMainContent'));
           showToast('Case study removed successfully', 'danger');
         });
+      });
+    });
+
+    document.getElementById('btnClearAllCaseStudies')?.addEventListener('click', () => {
+      confirmDelete('Delete All Experiences', 'Are you sure you want to permanently delete all case studies and featured experiences? This cannot be undone.', () => {
+        DB.caseStudies = [];
+        saveDatabase(DB);
+        renderCaseStudies(document.getElementById('adminMainContent'));
+        showToast('All featured experiences removed', 'danger');
       });
     });
   }
@@ -4667,65 +4469,102 @@
     });
   }
 
-  function openCloudSyncModal() {
-    const currentConfig = (window.ESTCloudSync && typeof window.ESTCloudSync.getFirebaseConfig === 'function')
-      ? window.ESTCloudSync.getFirebaseConfig()
-      : {};
+    function openCloudSyncModal() {
+    const status = (window.ESTCloudSync && typeof window.ESTCloudSync.getStatus === 'function')
+      ? window.ESTCloudSync.getStatus()
+      : { cloudConnected: false, statusMessage: 'Offline', config: {} };
+
+    const currentConfig = status.config || {};
+    const isConnected = !!status.cloudConnected;
 
     const modalBody = `
-      <div style="padding: 4px 0;">
-        <div style="background: rgba(12, 188, 161, 0.1); border: 1px solid rgba(12, 188, 161, 0.3); border-radius: 8px; padding: 14px; margin-bottom: 20px; display: flex; align-items: center; justify-content: space-between;">
-          <div style="display: flex; align-items: center; gap: 10px;">
-            <span style="width: 10px; height: 10px; border-radius: 50%; background: #0cbca1; display: inline-block; box-shadow: 0 0 10px #0cbca1;"></span>
+      <div style="padding: 4px 0; display: flex; flex-direction: column; gap: 16px;">
+        
+        <!-- Live Status Banner -->
+        <div style="background: ${isConnected ? 'rgba(12, 188, 161, 0.1)' : 'rgba(245, 158, 11, 0.1)'}; border: 1px solid ${isConnected ? 'rgba(12, 188, 161, 0.3)' : 'rgba(245, 158, 11, 0.3)'}; border-radius: 10px; padding: 14px; display: flex; align-items: center; justify-content: space-between;">
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <span style="width: 12px; height: 12px; border-radius: 50%; background: ${isConnected ? '#0cbca1' : '#f59e0b'}; display: inline-block; box-shadow: 0 0 10px ${isConnected ? '#0cbca1' : '#f59e0b'};"></span>
             <div>
-              <strong style="color: #fff; font-size: 0.95rem;">Real-Time Cloud Status: Active</strong>
-              <p style="color: #94a3b8; font-size: 0.8rem; margin: 2px 0 0 0;">Synchronizing across laptops, mobile devices, and worldwide visitors.</p>
+              <strong style="color: #fff; font-size: 0.95rem;">${isConnected ? 'Cloud Sync: Active & Live' : 'Cloud Sync: Awaiting Database URL'}</strong>
+              <p style="color: #94a3b8; font-size: 0.8rem; margin: 2px 0 0 0;">${status.statusMessage || (isConnected ? 'Synchronizing across laptops, mobile devices, and worldwide visitors.' : 'Connect your Firebase Realtime Database to sync across all devices.')}</p>
             </div>
           </div>
-          <span class="badge badge-confirmed" style="background: rgba(12, 188, 161, 0.2); color: #0cbca1; border: 1px solid #0cbca1;">Live Sync</span>
+          <span class="badge" style="background: ${isConnected ? 'rgba(12, 188, 161, 0.2)' : 'rgba(245, 158, 11, 0.2)'}; color: ${isConnected ? '#0cbca1' : '#f59e0b'}; border: 1px solid ${isConnected ? '#0cbca1' : '#f59e0b'};">
+            ${isConnected ? 'Live Connected' : 'Setup Required'}
+          </span>
         </div>
 
-        <p style="color: #cbd5e1; font-size: 0.875rem; margin-bottom: 16px; line-height: 1.5;">
-          Your data (Events, Photo Galleries, Video Showcases, Case Studies) is automatically synchronized in real-time. When you delete, edit, or add content here, it reflects everywhere immediately.
-        </p>
-
-        <h4 style="color: #fff; font-size: 0.95rem; margin-bottom: 12px; font-weight: 600;">
-          <i class="bi bi-fire" style="color: #fe3b20; margin-right: 6px;"></i> Firebase Realtime Database Credentials
-        </h4>
-
-        <div class="form-group">
-          <label class="form-label">Database URL</label>
-          <input type="text" class="form-input" id="cf_dbUrl" value="${escapeHtml(currentConfig.databaseURL || '')}" placeholder="https://your-project-default-rtdb.firebaseio.com">
+        <!-- 3-Step Setup Instructions Card -->
+        <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 10px; padding: 14px;">
+          <h4 style="color: #fff; font-size: 0.9rem; font-weight: 600; margin-bottom: 8px; display: flex; align-items: center; gap: 6px;">
+            <i class="bi bi-info-circle" style="color: var(--color-accent);"></i> How to connect your Google Firebase Database (Free & Fast):
+          </h4>
+          <ol style="margin: 0; padding-left: 20px; color: #cbd5e1; font-size: 0.82rem; line-height: 1.6;">
+            <li>Go to <a href="https://console.firebase.google.com" target="_blank" style="color: var(--color-accent); text-decoration: underline;">console.firebase.google.com</a> and click <strong>Create a project</strong> (e.g. <em>est-brand-services</em>).</li>
+            <li>In the left sidebar, click <strong>Build &gt; Realtime Database</strong> &gt; <strong>Create Database</strong> (choose US or closest region).</li>
+            <li>In the <strong>Rules</strong> tab, set: <code>{ ".read": true, ".write": true }</code> and click <strong>Publish</strong>.</li>
+            <li>Copy the Database URL (e.g. <code>https://your-project-default-rtdb.firebaseio.com</code>) and paste it below!</li>
+          </ol>
         </div>
 
-        <div class="form-row">
+        <!-- Firebase Credentials Form -->
+        <div style="display: flex; flex-direction: column; gap: 12px;">
           <div class="form-group">
-            <label class="form-label">API Key</label>
-            <input type="text" class="form-input" id="cf_apiKey" value="${escapeHtml(currentConfig.apiKey || '')}" placeholder="AIzaSy...">
+            <label class="form-label" style="font-weight: 600;">Firebase Realtime Database URL <span style="color: var(--color-primary);">*</span></label>
+            <input type="url" class="form-input" id="cf_dbUrl" value="${escapeHtml(currentConfig.databaseURL || '')}" placeholder="https://your-project-default-rtdb.firebaseio.com" required>
+            <span style="font-size: 0.75rem; color: var(--text-dim); margin-top: 4px; display: block;">Found at the top of your Firebase Console > Realtime Database tab.</span>
           </div>
-          <div class="form-group">
-            <label class="form-label">Project ID</label>
-            <input type="text" class="form-input" id="cf_projectId" value="${escapeHtml(currentConfig.projectId || '')}" placeholder="est-brand-services">
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">Web API Key (Optional)</label>
+              <input type="text" class="form-input" id="cf_apiKey" value="${escapeHtml(currentConfig.apiKey || '')}" placeholder="AIzaSy...">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Project ID (Optional)</label>
+              <input type="text" class="form-input" id="cf_projectId" value="${escapeHtml(currentConfig.projectId || '')}" placeholder="est-brand-services">
+            </div>
           </div>
         </div>
 
-        <div class="form-group">
-          <label class="form-label">Auth Domain</label>
-          <input type="text" class="form-input" id="cf_authDomain" value="${escapeHtml(currentConfig.authDomain || '')}" placeholder="your-project.firebaseapp.com">
-        </div>
+        <!-- Connection Test Feedback Box -->
+        <div id="cf_testResult" style="display: none; padding: 10px 14px; border-radius: 8px; font-size: 0.85rem;"></div>
 
-        <div style="display: flex; gap: 10px; margin-top: 18px;">
-          <button type="button" class="btn-outline" id="btnForcePushCloud" style="flex: 1; padding: 10px;">
-            <i class="bi bi-cloud-arrow-up-fill"></i> Push Current DB to Cloud
+        <!-- Action Buttons Row -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+          <button type="button" class="btn-outline" id="btnTestCloudConnection" style="justify-content: center; padding: 9px;">
+            <i class="bi bi-broadcast"></i> Test Database Connection
+          </button>
+          <button type="button" class="btn-outline" id="btnForcePushCloud" style="justify-content: center; padding: 9px;">
+            <i class="bi bi-cloud-arrow-up-fill"></i> Push Current Data to Cloud
           </button>
         </div>
+
+        <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.08); margin: 4px 0;">
+
+        <!-- Manual Backup & Slate Reset Controls -->
+        <div style="display: flex; gap: 10px; align-items: center; justify-content: space-between; flex-wrap: wrap;">
+          <div style="display: flex; gap: 8px;">
+            <button type="button" class="btn-outline" id="btnExportJsonBackup" style="font-size: 0.8rem; padding: 6px 12px;" title="Export current database as a JSON backup file">
+              <i class="bi bi-download"></i> Export JSON Backup
+            </button>
+            <label class="btn-outline" style="font-size: 0.8rem; padding: 6px 12px; cursor: pointer; margin: 0;" title="Import a JSON backup to restore database">
+              <i class="bi bi-upload"></i> Import JSON Backup
+              <input type="file" id="btnImportJsonBackup" accept=".json,application/json" style="display: none;">
+            </label>
+          </div>
+          <button type="button" class="btn-outline" id="btnClearMediaSlate" style="font-size: 0.8rem; padding: 6px 12px; color: var(--status-danger); border-color: rgba(239, 68, 68, 0.4);" title="Clear all photos, videos, and case studies to start with a fresh dynamic slate">
+            <i class="bi bi-stars"></i> Reset to Clean Empty State
+          </button>
+        </div>
+
       </div>
     `;
 
     openGenericModal({
-      title: 'Real-Time Cloud Synchronization & Firebase',
+      title: 'Real-Time Cross-Device Synchronization & Database Settings',
       body: modalBody,
-      saveText: 'Save Cloud Config',
+      saveText: 'Save & Connect Cloud',
       onSave: () => {
         const dbUrl = document.getElementById('cf_dbUrl')?.value.trim();
         const apiKey = document.getElementById('cf_apiKey')?.value.trim();
@@ -4739,17 +4578,102 @@
             projectId: projectId,
             authDomain: authDomain
           });
-          showToast('Firebase Cloud settings updated successfully!', 'success');
+          showToast('Database configuration saved! Connecting live...', 'success');
+          setTimeout(() => {
+            if (window.ESTCloudSync && typeof window.ESTCloudSync.saveDB === 'function') {
+              window.ESTCloudSync.saveDB(DB);
+            }
+          }, 1000);
         }
         return true;
       }
     });
 
+    // Test Connection Handler
+    document.getElementById('btnTestCloudConnection')?.addEventListener('click', async () => {
+      const dbUrl = document.getElementById('cf_dbUrl')?.value.trim();
+      const testBox = document.getElementById('cf_testResult');
+      if (!testBox) return;
+
+      testBox.style.display = 'block';
+      testBox.style.background = 'rgba(255, 255, 255, 0.05)';
+      testBox.style.color = '#fff';
+      testBox.innerHTML = '<i class="bi bi-arrow-repeat spin"></i> Testing connection to ' + escapeHtml(dbUrl) + '...';
+
+      if (!dbUrl) {
+        testBox.style.background = 'rgba(239, 68, 68, 0.15)';
+        testBox.style.color = '#ef4444';
+        testBox.innerHTML = '<i class="bi bi-x-circle-fill"></i> Please enter your Firebase Realtime Database URL first.';
+        return;
+      }
+
+      if (window.ESTCloudSync && typeof window.ESTCloudSync.testFirebaseConnection === 'function') {
+        const res = await window.ESTCloudSync.testFirebaseConnection({ databaseURL: dbUrl });
+        if (res.success) {
+          testBox.style.background = 'rgba(12, 188, 161, 0.15)';
+          testBox.style.color = '#0cbca1';
+          testBox.innerHTML = '<i class="bi bi-check-circle-fill"></i> ' + escapeHtml(res.message);
+          showToast('Firebase connection test succeeded!', 'success');
+        } else {
+          testBox.style.background = 'rgba(239, 68, 68, 0.15)';
+          testBox.style.color = '#ef4444';
+          testBox.innerHTML = '<i class="bi bi-exclamation-triangle-fill"></i> ' + escapeHtml(res.message);
+          showToast('Connection test failed. Check URL & Rules.', 'danger');
+        }
+      }
+    });
+
+    // Force Push Cloud Handler
     document.getElementById('btnForcePushCloud')?.addEventListener('click', () => {
       if (window.ESTCloudSync && typeof window.ESTCloudSync.saveDB === 'function') {
         window.ESTCloudSync.saveDB(DB);
         showToast('Pushed current database to Cloud successfully!', 'success');
       }
+    });
+
+    // Export JSON Backup
+    document.getElementById('btnExportJsonBackup')?.addEventListener('click', () => {
+      const dataStr = 'data:text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(DB, null, 2));
+      const dlAnchor = document.createElement('a');
+      dlAnchor.setAttribute('href', dataStr);
+      dlAnchor.setAttribute('download', 'est_database_backup_' + new Date().toISOString().split('T')[0] + '.json');
+      document.body.appendChild(dlAnchor);
+      dlAnchor.click();
+      dlAnchor.remove();
+      showToast('Database backup exported!', 'success');
+    });
+
+    // Import JSON Backup
+    document.getElementById('btnImportJsonBackup')?.addEventListener('change', (e) => {
+      const file = e.target.files?.[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = (evt) => {
+        try {
+          const parsed = JSON.parse(evt.target.result);
+          if (parsed && typeof parsed === 'object') {
+            DB = normalizeDb(parsed);
+            saveDatabase(DB);
+            renderCurrentView();
+            showToast('Database restored from backup successfully!', 'success');
+          }
+        } catch (err) {
+          showToast('Invalid JSON backup file: ' + err.message, 'danger');
+        }
+      };
+      reader.readAsText(file);
+    });
+
+    // Reset Clean Empty State
+    document.getElementById('btnClearMediaSlate')?.addEventListener('click', () => {
+      confirmDelete('Reset Media to Clean Empty State', 'Are you sure you want to clear all sample photos, videos, and case studies? You will have a completely clean slate where only what you add will show.', () => {
+        DB.eventImages = [];
+        DB.eventVideos = [];
+        DB.caseStudies = [];
+        saveDatabase(DB);
+        renderCurrentView();
+        showToast('All media cleared! You now have a 100% clean dynamic slate.', 'success');
+      });
     });
   }
 

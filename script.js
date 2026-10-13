@@ -1115,34 +1115,38 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function getStoredCaseStudies() {
     try {
-      const saved = localStorage.getItem('EST_ADMIN_DB_V2');
-      if (saved) {
-        const parsed = JSON.parse(saved);
-        if (parsed && Array.isArray(parsed.caseStudies) && parsed.caseStudies.length > 0) {
-          return parsed.caseStudies.map(cs => ({
-            id: cs.id || 'cs_' + Math.random().toString(36).substr(2, 9),
-            client: cs.client || 'Enterprise Client',
-            industry: cs.industry || 'Technology & B2B',
-            title: cs.title || 'Client Deployment',
-            category: cs.category || 'Corporate Branding',
-            coverImage: cs.coverImage || 'https://images.unsplash.com/photo-1497215728101-856f4ea42174?q=80&w=1000',
-            challenge: cs.challenge || 'Brief details...',
-            strategy: cs.strategy || 'Strategic framework...',
-            execution: cs.execution || 'Turnkey execution...',
-            resultsHtml: cs.resultsHtml || '<p>Delivered measurable business ROI with high-intent audience conversion.</p>',
-            metric1Value: cs.metric1Value || '100%',
-            metric1Label: cs.metric1Label || 'Success',
-            metric2Value: cs.metric2Value || '',
-            metric2Label: cs.metric2Label || '',
-            status: cs.status || 'Published',
-            date: cs.date || '2026'
-          }));
-        }
+      let db = null;
+      if (window.ESTCloudSync && typeof window.ESTCloudSync.getDB === 'function') {
+        db = window.ESTCloudSync.getDB();
+      }
+      if (!db) {
+        const saved = localStorage.getItem('EST_ADMIN_DB_V2');
+        if (saved) db = JSON.parse(saved);
+      }
+      if (db && Array.isArray(db.caseStudies)) {
+        return db.caseStudies.map(cs => ({
+          id: cs.id || 'cs_' + Math.random().toString(36).substr(2, 9),
+          client: cs.client || 'Enterprise Client',
+          industry: cs.industry || 'Technology & B2B',
+          title: cs.title || 'Client Deployment',
+          category: cs.category || 'Corporate Branding',
+          coverImage: cs.coverImage || 'https://images.unsplash.com/photo-1497215728101-856f4ea42174?q=80&w=1000',
+          challenge: cs.challenge || 'Brief details...',
+          strategy: cs.strategy || 'Strategic framework...',
+          execution: cs.execution || 'Turnkey execution...',
+          resultsHtml: cs.resultsHtml || '<p>Delivered measurable business ROI with high-intent audience conversion.</p>',
+          metric1Value: cs.metric1Value || '100%',
+          metric1Label: cs.metric1Label || 'Success',
+          metric2Value: cs.metric2Value || '',
+          metric2Label: cs.metric2Label || '',
+          status: cs.status || 'Published',
+          date: cs.date || '2026'
+        }));
       }
     } catch (e) {
-      console.warn('Could not read case studies from localStorage:', e);
+      console.warn('Could not read case studies:', e);
     }
-    return DEFAULT_CASE_STUDIES;
+    return [];
   }
 
   // Open Case Study Reader Modal
@@ -1258,6 +1262,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function renderCaseStudiesHub() {
       const allStudies = getStoredCaseStudies().filter(c => !c.status || c.status.toLowerCase() === 'published');
+      if (!allStudies.length && csGrid) {
+        if (filterListEl) filterListEl.style.display = 'none';
+        csGrid.innerHTML = `
+          <div style="grid-column: 1/-1; text-align: center; padding: 70px 20px; background: rgba(255,255,255,0.02); border-radius: 16px; border: 1px dashed rgba(255,255,255,0.1);">
+            <i class="bi bi-journal-x" style="font-size: 2.8rem; color: #fe3b20; display: block; margin-bottom: 14px;"></i>
+            <h3 style="color: #fff; font-size: 1.25rem; font-weight: 600; margin-bottom: 6px;">No Case Studies Published Yet</h3>
+            <p style="color: #94a3b8; font-size: 0.95rem; max-width: 480px; margin: 0 auto;">Client case studies will be displayed here once published from the admin panel.</p>
+          </div>
+        `;
+        return;
+      } else if (filterListEl) {
+        filterListEl.style.display = 'flex';
+      }
 
       // Build categories list
       if (filterListEl) {
@@ -1589,14 +1606,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const STORAGE_KEY = 'EST_ADMIN_DB_V2';
     let db = null;
-    try {
-      const raw = localStorage.getItem(STORAGE_KEY);
-      if (raw) db = JSON.parse(raw);
-    } catch (e) {
-      console.warn('Error reading db for showcase:', e);
+    if (window.ESTCloudSync && typeof window.ESTCloudSync.getDB === 'function') {
+      db = window.ESTCloudSync.getDB();
+    }
+    if (!db) {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (raw) db = JSON.parse(raw);
+      } catch (e) {
+        console.warn('Error reading db for showcase:', e);
+      }
     }
 
-    const studies = (db && Array.isArray(db.caseStudies) && db.caseStudies.length > 0)
+    const studies = (db && Array.isArray(db.caseStudies))
       ? db.caseStudies.filter(c => !c.status || c.status.toLowerCase() === 'published')
       : [];
 
@@ -1773,6 +1795,36 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Initial load
   initDynamicBentoShowcase();
+
+  // Real-time synchronization event listeners across tabs and devices
+  window.addEventListener('EST_DB_UPDATED', () => {
+    initDynamicBentoShowcase();
+    if (typeof initDynamicCaseStudies === 'function') initDynamicCaseStudies();
+  });
+
+  window.addEventListener('EST_DB_SYNC', () => {
+    initDynamicBentoShowcase();
+    if (typeof initDynamicCaseStudies === 'function') initDynamicCaseStudies();
+  });
+
+  window.addEventListener('storage', (e) => {
+    if (!e.key || e.key === 'EST_ADMIN_DB_V2' || e.key === 'EST_ADMIN_DB_SYNC_TS') {
+      initDynamicBentoShowcase();
+      if (typeof initDynamicCaseStudies === 'function') initDynamicCaseStudies();
+    }
+  });
+
+  if (typeof BroadcastChannel !== 'undefined') {
+    try {
+      const bc = new BroadcastChannel('est_admin_sync');
+      bc.onmessage = (event) => {
+        if (event.data && event.data.type === 'DB_UPDATE') {
+          initDynamicBentoShowcase();
+          if (typeof initDynamicCaseStudies === 'function') initDynamicCaseStudies();
+        }
+      };
+    } catch (_) {}
+  }
 
   // (D) Bring Brand Alive Lead Form Submission
   const bringAliveForm = document.getElementById('bringAliveForm');
