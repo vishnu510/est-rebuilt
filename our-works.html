@@ -1038,13 +1038,13 @@
   <section class="section" id="videoShowcaseSection" style="background-color: var(--bg-primary); transition: background-color var(--transition-slow);">
     <div class="container">
       <div class="section-header" style="text-align: center; max-width: 800px; margin: 0 auto 40px;" data-aos="fade-up">
-        <span class="badge" style="background: rgba(12,188,161,0.15); color: #0cbca1; border: 1px solid rgba(12,188,161,0.3); padding: 6px 14px; border-radius: 999px; font-weight: 600;">
+        <span class="badge" id="publicVideosBadge" style="background: rgba(12,188,161,0.15); color: #0cbca1; border: 1px solid rgba(12,188,161,0.3); padding: 6px 14px; border-radius: 999px; font-weight: 600;">
           <i class="bi bi-play-circle-fill"></i> Video Showreels
         </span>
-        <h2 style="font-family: var(--font-heading); font-size: 2.4rem; font-weight: 700; color: var(--text-primary); margin-top: 12px; margin-bottom: 12px;">
+        <h2 id="publicVideosTitle" style="font-family: var(--font-heading); font-size: 2.4rem; font-weight: 700; color: var(--text-primary); margin-top: 12px; margin-bottom: 12px;">
           High-Energy Event Showcases
         </h2>
-        <p style="color: var(--text-secondary); font-size: 1rem;">
+        <p id="publicVideosDesc" style="color: var(--text-secondary); font-size: 1rem;">
           Watch our end-to-end technical production, crowd energy, and multi-hub execution films.
         </p>
       </div>
@@ -1518,7 +1518,25 @@
 
         renderPublicImages('ALL');
 
-        // 4. Render Event Videos
+        // 4. Render Event Videos Section Header & Grid
+        const vSec = (DB && DB.eventVideosSection) ? DB.eventVideosSection : {
+          badge: 'Video Showreels',
+          title: 'High-Energy Event Showcases',
+          desc: 'Watch our end-to-end technical production, crowd energy, and multi-hub execution films.'
+        };
+        const pubVidBadge = document.getElementById('publicVideosBadge');
+        const pubVidTitle = document.getElementById('publicVideosTitle');
+        const pubVidDesc = document.getElementById('publicVideosDesc');
+        if (pubVidBadge && vSec.badge) {
+          pubVidBadge.innerHTML = `<i class="bi bi-play-circle-fill"></i> ${escapeHtml(vSec.badge)}`;
+        }
+        if (pubVidTitle && vSec.title) {
+          pubVidTitle.textContent = vSec.title;
+        }
+        if (pubVidDesc && (vSec.desc || vSec.subtitle)) {
+          pubVidDesc.textContent = vSec.desc || vSec.subtitle;
+        }
+
         const vidGrid = document.getElementById('publicVideosGrid');
         if (vidGrid) {
           if (videos.length === 0) {
@@ -1530,29 +1548,39 @@
               </div>
             `;
           } else {
-            vidGrid.innerHTML = videos.map(vid => `
-              <div class="media-card-premium" data-aos="fade-up">
-                <div class="media-thumb-box" onclick="window.openMediaModal('video', '${escapeHtml(vid.videoUrl)}', '${escapeHtml(vid.title)}')">
-                  <img src="${escapeHtml(vid.thumbUrl)}" alt="${escapeHtml(vid.title)}" class="media-thumb-img">
-                  <span class="media-category-badge">${escapeHtml(vid.category)}</span>
-                  <div class="media-play-overlay">
-                    <div class="media-play-btn"><i class="bi bi-play-fill"></i></div>
+            vidGrid.innerHTML = videos.map(vid => {
+              const thumb = vid.thumbUrl || 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800&auto=format&fit=crop&q=80';
+              const cat = vid.category || 'Showreel';
+              const client = vid.client || 'EST Client';
+              const duration = vid.duration || '2m 30s';
+              const title = vid.title || 'Event Showreel';
+              const desc = vid.desc || '';
+              const videoUrl = vid.videoUrl || '';
+
+              return `
+                <div class="media-card-premium" data-aos="fade-up">
+                  <div class="media-thumb-box" onclick="window.openMediaModal('video', '${escapeHtml(videoUrl)}', '${escapeHtml(title)}')">
+                    <img src="${escapeHtml(thumb)}" alt="${escapeHtml(title)}" class="media-thumb-img">
+                    <span class="media-category-badge">${escapeHtml(cat)}</span>
+                    <div class="media-play-overlay">
+                      <div class="media-play-btn"><i class="bi bi-play-fill"></i></div>
+                    </div>
+                    <span class="media-duration-badge">${escapeHtml(duration)}</span>
                   </div>
-                  <span class="media-duration-badge">${escapeHtml(vid.duration)}</span>
-                </div>
-                <div class="media-card-body">
-                  <span class="media-card-event-name">Client: ${escapeHtml(vid.client)}</span>
-                  <h3 class="media-card-title">${escapeHtml(vid.title)}</h3>
-                  <p class="media-card-desc">${escapeHtml(vid.desc || '')}</p>
-                  <div class="media-card-footer">
-                    <span><i class="bi bi-camera-reels"></i> HD 1080p</span>
-                    <button class="btn btn-primary" style="font-size: 0.775rem; padding: 6px 16px; border-radius: 999px; display: inline-flex; align-items: center; gap: 8px;" onclick="window.openMediaModal('video', '${escapeHtml(vid.videoUrl)}', '${escapeHtml(vid.title)}')">
-                      <i class="bi bi-play-fill" style="margin-right: 5px; font-size: 1rem;"></i><span>Play Video</span>
-                    </button>
+                  <div class="media-card-body">
+                    <span class="media-card-event-name">Client: ${escapeHtml(client)}</span>
+                    <h3 class="media-card-title">${escapeHtml(title)}</h3>
+                    <p class="media-card-desc">${escapeHtml(desc)}</p>
+                    <div class="media-card-footer">
+                      <span><i class="bi bi-camera-reels"></i> HD 1080p</span>
+                      <button class="btn btn-primary" style="font-size: 0.775rem; padding: 6px 16px; border-radius: 999px; display: inline-flex; align-items: center; gap: 8px;" onclick="window.openMediaModal('video', '${escapeHtml(videoUrl)}', '${escapeHtml(title)}')">
+                        <i class="bi bi-play-fill" style="margin-right: 5px; font-size: 1rem;"></i><span>Play Video</span>
+                      </button>
+                    </div>
                   </div>
                 </div>
-              </div>
-            `).join('');
+              `;
+            }).join('');
           }
         }
       }

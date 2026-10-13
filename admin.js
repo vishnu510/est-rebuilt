@@ -768,6 +768,12 @@
 
     eventVideos: [],
 
+    eventVideosSection: {
+      badge: 'Video Showreels',
+      title: 'High-Energy Event Showcases',
+      desc: 'Watch our end-to-end technical production, crowd energy, and multi-hub execution films.'
+    },
+
     auth: {
       adminId: 'admin',
       email: 'admin@estbrandservices.com',
@@ -806,6 +812,7 @@
     if (parsed.heroVideo === undefined) parsed.heroVideo = DEFAULT_DB.heroVideo;
     parsed.eventImages = Array.isArray(parsed.eventImages) ? parsed.eventImages : [];
     parsed.eventVideos = Array.isArray(parsed.eventVideos) ? parsed.eventVideos : [];
+    if (parsed.eventVideosSection === undefined) parsed.eventVideosSection = DEFAULT_DB.eventVideosSection;
     parsed.events = Array.isArray(parsed.events) ? parsed.events : [];
     parsed.caseStudies = Array.isArray(parsed.caseStudies) ? parsed.caseStudies : [];
 
@@ -1063,6 +1070,11 @@
     const hero = DB.heroVideo || DEFAULT_DB.heroVideo;
     const images = Array.isArray(DB.eventImages) ? DB.eventImages : [];
     const videos = Array.isArray(DB.eventVideos) ? DB.eventVideos : [];
+    const vSection = DB.eventVideosSection || DEFAULT_DB.eventVideosSection || {
+      badge: 'Video Showreels',
+      title: 'High-Energy Event Showcases',
+      desc: 'Watch our end-to-end technical production, crowd energy, and multi-hub execution films.'
+    };
 
     container.innerHTML = `
       <div class="view-container active">
@@ -1199,9 +1211,14 @@
                 <option value="Offsites">Offsites</option>
               </select>
             </div>
-            <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;"><button class="btn-outline" id="btnClearAllEventImages" style="color: var(--status-danger); border-color: rgba(239, 68, 68, 0.4);" ${images.length === 0 ? "disabled" : ""}><i class="bi bi-trash-fill"></i> Delete All Photos (${images.length})</button><button class="btn-add" id="btnAddEventImage">
-              <i class="bi bi-images"></i> Add / Upload Multiple Photos
-            </button>
+            <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+              <button class="btn-outline" id="btnClearAllEventImages" style="color: var(--status-danger); border-color: rgba(239, 68, 68, 0.4);" ${images.length === 0 ? "disabled" : ""}>
+                <i class="bi bi-trash-fill"></i> Delete All Photos (${images.length})
+              </button>
+              <button class="btn-add" id="btnAddEventImage">
+                <i class="bi bi-images"></i> Add / Upload Multiple Photos
+              </button>
+            </div>
           </div>
 
           <div class="cards-grid" id="eventImagesGrid">
@@ -1211,12 +1228,57 @@
 
         <!-- ================= TAB 3: EVENT VIDEOS SECTION ================= -->
         <div class="tab-pane" id="tab-event-videos">
+          <!-- Showcase Reel Section Header & Copy Settings -->
+          <div class="data-card" style="padding: 18px 22px; margin-bottom: 24px; border: 1px solid var(--border-color); border-radius: 12px; background: rgba(255,255,255,0.02);">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 10px;">
+              <div>
+                <h3 style="font-size: 1rem; font-weight: 600; color: #fff; margin: 0;">
+                  <i class="bi bi-pencil-square" style="color: var(--color-accent); margin-right: 6px;"></i> Showcase Reel Section Header &amp; Copy
+                </h3>
+                <p style="font-size: 0.825rem; color: var(--text-muted); margin: 2px 0 0;">
+                  Customize the badge, title headline, and description displayed above the video showcase on the public works page.
+                </p>
+              </div>
+              <button type="button" class="btn-outline" id="btnSaveVideoSectionHeader" style="padding: 6px 16px; font-size: 0.825rem; display: inline-flex; align-items: center; gap: 6px;">
+                <i class="bi bi-check2-circle"></i> Save Header Copy
+              </button>
+            </div>
+            <div class="form-row">
+              <div class="form-group" style="flex: 1;">
+                <label class="form-label" style="font-size: 0.775rem;">Section Badge Text</label>
+                <input type="text" class="form-input" id="vSecBadge" value="${escapeHtml(vSection.badge || 'Video Showreels')}" placeholder="e.g. Video Showreels">
+              </div>
+              <div class="form-group" style="flex: 2;">
+                <label class="form-label" style="font-size: 0.775rem;">Main Heading (Title)</label>
+                <input type="text" class="form-input" id="vSecTitle" value="${escapeHtml(vSection.title || 'High-Energy Event Showcases')}" placeholder="e.g. High-Energy Event Showcases">
+              </div>
+            </div>
+            <div class="form-group" style="margin-bottom: 0;">
+              <label class="form-label" style="font-size: 0.775rem;">Section Description (Subtitle)</label>
+              <input type="text" class="form-input" id="vSecDesc" value="${escapeHtml(vSection.desc || vSection.subtitle || 'Watch our end-to-end technical production, crowd energy, and multi-hub execution films.')}" placeholder="e.g. Watch our end-to-end technical production, crowd energy, and multi-hub execution films.">
+            </div>
+          </div>
+
           <div class="table-toolbar">
-            <p style="font-size: 0.9rem; color: var(--text-muted);">
-              Manage showreels, client activation films, and event recap videos displayed on the public page.
-            </p>
+            <div class="search-filter-group">
+              <div class="search-box">
+                <i class="bi bi-search"></i>
+                <input type="text" class="search-input" id="vidSearchInput" placeholder="Search video showreels...">
+              </div>
+              <select class="filter-select" id="vidCategoryFilter">
+                <option value="ALL">All Categories</option>
+                <option value="Showreel">Showreel</option>
+                <option value="Roadshows">Roadshows</option>
+                <option value="Exhibitions">Exhibitions</option>
+                <option value="Conferences">Conferences</option>
+                <option value="Brand Activations">Brand Activations</option>
+                <option value="Offsites">Corporate Offsites</option>
+              </select>
+            </div>
             <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
-              <button class="btn-outline" id="btnClearAllEventVideos" style="color: var(--status-danger); border-color: rgba(239, 68, 68, 0.4);" ${videos.length === 0 ? "disabled" : ""}><i class="bi bi-trash-fill"></i> Delete All Videos (${videos.length})</button>
+              <button class="btn-outline" id="btnClearAllEventVideos" style="color: var(--status-danger); border-color: rgba(239, 68, 68, 0.4);" ${videos.length === 0 ? "disabled" : ""}>
+                <i class="bi bi-trash-fill"></i> Delete All Videos (${videos.length})
+              </button>
               <button class="btn-add" id="btnAddEventVideo">
                 <i class="bi bi-camera-video-fill"></i> Add Video Showreel
               </button>
@@ -1452,30 +1514,49 @@
 
   function renderEventVideoCards(videos) {
     if (!videos || !videos.length) {
-      return `<p style="grid-column: 1/-1; text-align: center; color: var(--text-muted); padding: 40px;">No event video showreels added yet.</p>`;
+      return `
+        <div style="grid-column: 1/-1; text-align: center; padding: 60px 20px; background: rgba(255,255,255,0.02); border-radius: 12px; border: 1px dashed var(--border-color);">
+          <i class="bi bi-camera-video" style="font-size: 2.8rem; color: var(--color-accent); margin-bottom: 12px; display: block;"></i>
+          <h4 style="color: #fff; font-weight: 600; font-size: 1.1rem; margin-bottom: 6px;">No Video Showreels Uploaded Yet</h4>
+          <p style="color: var(--text-muted); font-size: 0.9rem; max-width: 440px; margin: 0 auto 18px;">
+            Add client recap films, keynote highlights, and multi-hub brand activations to show on the public works page.
+          </p>
+          <button type="button" class="btn-add" onclick="document.getElementById('btnAddEventVideo')?.click();">
+            <i class="bi bi-plus-lg"></i> Add First Video Showreel
+          </button>
+        </div>
+      `;
     }
 
     return videos.map(vid => `
-      <div class="item-card">
+      <div class="item-card" data-video-id="${vid.id}">
         <div>
-          <div style="position: relative; overflow: hidden; border-radius: var(--radius-sm); margin-bottom: 14px;">
-            <img src="${escapeHtml(vid.thumbUrl)}" alt="${escapeHtml(vid.title)}" class="item-card-img" style="height: 170px; margin-bottom: 0;">
-            <span style="position: absolute; bottom: 8px; right: 8px; background: rgba(0,0,0,0.8); color: #fff; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 600;">
-              ${escapeHtml(vid.duration)}
+          <div style="position: relative; overflow: hidden; border-radius: var(--radius-sm); margin-bottom: 14px; background: #000;">
+            <img src="${escapeHtml(vid.thumbUrl || 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800&auto=format&fit=crop&q=80')}" alt="${escapeHtml(vid.title)}" class="item-card-img" style="height: 170px; margin-bottom: 0; object-fit: cover; width: 100%;">
+            <div style="position: absolute; inset: 0; background: rgba(0,0,0,0.35); display: flex; align-items: center; justify-content: center; cursor: pointer; transition: background 0.2s;" data-action="play-event-vid" data-url="${escapeHtml(vid.videoUrl)}" data-title="${escapeHtml(vid.title)}">
+              <div style="width: 44px; height: 44px; border-radius: 50%; background: rgba(254,59,32,0.9); display: flex; align-items: center; justify-content: center; color: #fff; font-size: 1.3rem; box-shadow: 0 4px 12px rgba(254,59,32,0.4);">
+                <i class="bi bi-play-fill" style="margin-left: 2px;"></i>
+              </div>
+            </div>
+            <span style="position: absolute; bottom: 8px; right: 8px; background: rgba(0,0,0,0.85); color: #fff; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 600;">
+              ${escapeHtml(vid.duration || '2m 30s')}
             </span>
           </div>
           <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px;">
-            <span class="badge badge-category">${escapeHtml(vid.category)}</span>
-            <span style="font-size: 0.75rem; color: var(--text-dim);">${escapeHtml(vid.client)}</span>
+            <span class="badge badge-category">${escapeHtml(vid.category || 'Showreel')}</span>
+            <span style="font-size: 0.75rem; color: var(--text-dim); font-weight: 500;">Client: ${escapeHtml(vid.client || 'EST Client')}</span>
           </div>
           <h3 class="item-card-title">${escapeHtml(vid.title)}</h3>
-          <p class="item-card-desc">${escapeHtml(vid.desc || '')}</p>
+          <p class="item-card-desc">${escapeHtml(vid.desc || 'No description provided.')}</p>
         </div>
         <div class="item-card-footer">
-          <button class="btn-outline" style="font-size: 0.775rem; padding: 4px 10px;" data-action="play-event-vid" data-url="${escapeHtml(vid.videoUrl)}" data-title="${escapeHtml(vid.title)}">
-            <i class="bi bi-play-circle-fill" style="color: var(--color-primary);"></i> Watch
+          <button class="btn-outline" style="font-size: 0.775rem; padding: 5px 12px;" data-action="play-event-vid" data-url="${escapeHtml(vid.videoUrl)}" data-title="${escapeHtml(vid.title)}">
+            <i class="bi bi-play-fill" style="color: var(--color-primary);"></i> Watch
           </button>
-          <button class="btn-icon btn-delete" data-action="delete-event-vid" data-id="${vid.id}"><i class="bi bi-trash-fill"></i></button>
+          <div class="action-btns">
+            <button class="btn-icon btn-edit" data-action="edit-event-vid" data-id="${vid.id}" title="Edit Video Showreel"><i class="bi bi-pencil-fill"></i></button>
+            <button class="btn-icon btn-delete" data-action="delete-event-vid" data-id="${vid.id}" title="Delete Video Showreel"><i class="bi bi-trash-fill"></i></button>
+          </div>
         </div>
       </div>
     `).join('');
@@ -1854,128 +1935,314 @@
     });
   }
 
+  function formatAdminVideoEmbedHtml(url) {
+    if (!url) return '';
+    const ytMatch = url.match(/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/i);
+    if (ytMatch) {
+      return `<iframe src="https://www.youtube.com/embed/${ytMatch[1]}?autoplay=1&rel=0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width: 100%; height: 55vh; border: none; border-radius: 8px;"></iframe>`;
+    }
+    const vimeoMatch = url.match(/vimeo\.com\/(?:channels\/(?:\w+\/)?|groups\/[^\/]*\/videos\/|album\/(?:\d+)\/video\/|video\/|)(\d+)/i);
+    if (vimeoMatch) {
+      return `<iframe src="https://player.vimeo.com/video/${vimeoMatch[1]}?autoplay=1" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="width: 100%; height: 55vh; border: none; border-radius: 8px;"></iframe>`;
+    }
+    return `<video controls autoplay style="width: 100%; max-height: 55vh; object-fit: contain; border-radius: 8px;" src="${escapeHtml(url)}"></video>`;
+  }
+
   function initEventVideosTab(container) {
-    // Add Video Modal
+    // 1. Save Section Header Copy
+    container.querySelector('#btnSaveVideoSectionHeader')?.addEventListener('click', () => {
+      const badge = document.getElementById('vSecBadge')?.value.trim() || 'Video Showreels';
+      const title = document.getElementById('vSecTitle')?.value.trim() || 'High-Energy Event Showcases';
+      const desc = document.getElementById('vSecDesc')?.value.trim() || 'Watch our end-to-end technical production, crowd energy, and multi-hub execution films.';
+      DB.eventVideosSection = { badge, title, desc };
+      saveDatabase(DB);
+      showToast('Showcase section header and subtitle copy saved!', 'success');
+    });
+
+    // 2. Search & Category Filter
+    const vidSearchInput = container.querySelector('#vidSearchInput');
+    const vidCategoryFilter = container.querySelector('#vidCategoryFilter');
+
+    function applyVideoFilters() {
+      const q = (vidSearchInput?.value || '').toLowerCase().trim();
+      const cat = vidCategoryFilter?.value || 'ALL';
+      const allVideos = Array.isArray(DB.eventVideos) ? DB.eventVideos : [];
+
+      const filtered = allVideos.filter(v => {
+        const matchQ = !q ||
+          (v.title || '').toLowerCase().includes(q) ||
+          (v.desc || '').toLowerCase().includes(q) ||
+          (v.client || '').toLowerCase().includes(q);
+        const matchCat = cat === 'ALL' || (v.category || '').toLowerCase() === cat.toLowerCase();
+        return matchQ && matchCat;
+      });
+
+      const grid = container.querySelector('#eventVideosGrid');
+      if (grid) {
+        grid.innerHTML = renderEventVideoCards(filtered);
+        attachVideoCardActions(container);
+      }
+    }
+
+    vidSearchInput?.addEventListener('input', applyVideoFilters);
+    vidCategoryFilter?.addEventListener('change', applyVideoFilters);
+
+    // 3. Add Video Showreel Button
     container.querySelector('#btnAddEventVideo')?.addEventListener('click', () => {
+      openVideoModal(null);
+    });
+
+    // 4. Unified Add / Edit Modal Helper
+    function openVideoModal(videoToEdit) {
+      const isEdit = !!videoToEdit;
+      const currentTitle = isEdit ? (videoToEdit.title || '') : '';
+      const currentCat = isEdit ? (videoToEdit.category || 'Showreel') : 'Showreel';
+      const currentClient = isEdit ? (videoToEdit.client || '') : '';
+      const currentDuration = isEdit ? (videoToEdit.duration || '2m 30s') : '2m 30s';
+      const currentThumb = isEdit ? (videoToEdit.thumbUrl || '') : 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800&auto=format&fit=crop&q=80';
+      const currentUrl = isEdit ? (videoToEdit.videoUrl || '') : 'https://assets.mixkit.co/videos/preview/mixkit-set-of-plateaus-seen-from-the-sky-in-a-sunset-26070-large.mp4';
+      const currentDesc = isEdit ? (videoToEdit.desc || '') : '';
+
       const formHtml = `
         <div class="form-group">
-          <label class="form-label">Video Title</label>
-          <input type="text" class="form-input" id="m_vTitle" placeholder="e.g. Pan-India Roadshow Highlights" required>
+          <label class="form-label">Video Title <span style="color:var(--status-danger);">*</span></label>
+          <input type="text" class="form-input" id="m_vTitle" placeholder="e.g. Pan-India Roadshow Highlights" value="${escapeHtml(currentTitle)}" required>
         </div>
+
         <div class="form-row">
           <div class="form-group">
             <label class="form-label">Category</label>
             <select class="form-select" id="m_vCat">
-              <option>Showreel</option>
-              <option>Roadshows</option>
-              <option>Exhibitions</option>
-              <option>Conferences</option>
+              <option ${currentCat === 'Showreel' ? 'selected' : ''}>Showreel</option>
+              <option ${currentCat === 'Roadshows' ? 'selected' : ''}>Roadshows</option>
+              <option ${currentCat === 'Exhibitions' ? 'selected' : ''}>Exhibitions</option>
+              <option ${currentCat === 'Conferences' ? 'selected' : ''}>Conferences</option>
+              <option ${currentCat === 'Brand Activations' ? 'selected' : ''}>Brand Activations</option>
+              <option ${currentCat === 'Offsites' ? 'selected' : ''}>Corporate Offsites</option>
             </select>
           </div>
           <div class="form-group">
             <label class="form-label">Client / Brand</label>
-            <input type="text" class="form-input" id="m_vClient" placeholder="e.g. Cisco Systems">
+            <input type="text" class="form-input" id="m_vClient" placeholder="e.g. Cisco &amp; HP, Intel India" value="${escapeHtml(currentClient)}">
           </div>
         </div>
+
         <div class="form-row">
           <div class="form-group">
             <label class="form-label">Duration</label>
-            <input type="text" class="form-input" id="m_vDuration" value="2m 30s">
+            <input type="text" class="form-input" id="m_vDuration" placeholder="e.g. 2m 45s" value="${escapeHtml(currentDuration)}">
           </div>
           <div class="form-group">
-            <label class="form-label">Thumbnail URL</label>
-            <input type="url" class="form-input" id="m_vThumb" value="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800&auto=format&fit=crop&q=80">
+            <label class="form-label">Quick Video Presets</label>
+            <select class="form-select" id="m_vPreset">
+              <option value="">-- Choose High-Quality Preset --</option>
+              <option value="https://assets.mixkit.co/videos/preview/mixkit-set-of-plateaus-seen-from-the-sky-in-a-sunset-26070-large.mp4" data-thumb="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800&auto=format&fit=crop&q=80">Sunset Sky Horizon (Cinematic 1080p)</option>
+              <option value="https://assets.mixkit.co/videos/preview/mixkit-hands-of-a-man-working-on-a-computer-43527-large.mp4" data-thumb="https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=800&auto=format&fit=crop&q=80">Enterprise Tech / Workspace</option>
+              <option value="https://assets.mixkit.co/videos/preview/mixkit-corporate-team-working-in-a-modern-office-42408-large.mp4" data-thumb="https://images.unsplash.com/photo-1511578314322-379afb476865?w=800&auto=format&fit=crop&q=80">Corporate Team &amp; Innovation</option>
+              <option value="https://assets.mixkit.co/videos/preview/mixkit-crowd-at-a-concert-jumping-and-having-fun-44754-large.mp4" data-thumb="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&auto=format&fit=crop&q=80">High-Energy Stage Crowd</option>
+            </select>
           </div>
         </div>
+
         <div class="form-group">
-          <label class="form-label">Video MP4 / Stream URL</label>
-          <input type="url" class="form-input" id="m_vUrl" value="https://assets.mixkit.co/videos/preview/mixkit-set-of-plateaus-seen-from-the-sky-in-a-sunset-26070-large.mp4" required>
+          <label class="form-label">Video Source URL (MP4, WebM, YouTube link, Vimeo) <span style="color:var(--status-danger);">*</span></label>
+          <input type="text" class="form-input" id="m_vUrl" placeholder="https://example.com/video.mp4 or YouTube URL" value="${escapeHtml(currentUrl)}" required>
         </div>
+
         <div class="form-group">
-          <label class="form-label">Description</label>
-          <textarea class="form-textarea" id="m_vDesc" placeholder="Key highlights of this video..."></textarea>
+          <label class="form-label">Or Upload Local Video File</label>
+          <input type="file" accept="video/mp4,video/webm" class="form-input" id="m_vFileInput" style="padding: 6px 10px;">
+          <span id="m_vFileStatus" style="font-size:0.75rem; color:var(--text-muted); margin-top:4px; display:block;"></span>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group" style="flex: 2;">
+            <label class="form-label">Cover Thumbnail Image URL</label>
+            <input type="url" class="form-input" id="m_vThumb" placeholder="https://images.unsplash.com/..." value="${escapeHtml(currentThumb)}">
+          </div>
+          <div class="form-group" style="flex: 1;">
+            <label class="form-label">Or Upload Thumbnail</label>
+            <input type="file" accept="image/*" class="form-input" id="m_vThumbFile" style="padding: 6px 10px;">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Video Description <span style="color:var(--text-muted); font-size:0.8rem;">(Production details &amp; highlights)</span></label>
+          <textarea class="form-textarea" id="m_vDesc" rows="3" placeholder="Key highlights, crowd size, AV execution, or client results...">${escapeHtml(currentDesc)}</textarea>
         </div>
       `;
 
       openGenericModal({
-        title: 'Add Event Video Showreel',
+        title: isEdit ? 'Edit Video Showreel' : 'Add Video Showreel',
         body: formHtml,
-        saveText: 'Publish Video',
+        saveText: isEdit ? 'Save Changes' : 'Publish Video',
         onSave: () => {
-          const title = document.getElementById('m_vTitle').value.trim();
+          const title = document.getElementById('m_vTitle')?.value.trim();
           if (!title) {
             showToast('Video title is required', 'warning');
             return false;
           }
-          const category = document.getElementById('m_vCat').value;
-          const client = document.getElementById('m_vClient').value.trim() || 'EST Brand';
-          const duration = document.getElementById('m_vDuration').value.trim() || '2m 00s';
-          const thumbUrl = document.getElementById('m_vThumb').value.trim();
-          const videoUrl = document.getElementById('m_vUrl').value.trim();
-          const desc = document.getElementById('m_vDesc').value.trim();
+          const videoUrl = document.getElementById('m_vUrl')?.value.trim();
+          if (!videoUrl) {
+            showToast('Video source URL is required', 'warning');
+            return false;
+          }
+          const category = document.getElementById('m_vCat')?.value || 'Showreel';
+          const client = document.getElementById('m_vClient')?.value.trim() || 'EST Brand';
+          const duration = document.getElementById('m_vDuration')?.value.trim() || '2m 30s';
+          const thumbUrl = document.getElementById('m_vThumb')?.value.trim() || 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800&auto=format&fit=crop&q=80';
+          const desc = document.getElementById('m_vDesc')?.value.trim();
 
-          DB.eventVideos.unshift({
-            id: 'ev_' + Date.now().toString().slice(-5),
-            title,
-            category,
-            client,
-            duration,
-            thumbUrl,
-            videoUrl,
-            desc,
-            date: new Date().toISOString().split('T')[0]
-          });
+          if (!Array.isArray(DB.eventVideos)) {
+            DB.eventVideos = [];
+          }
 
-          saveDatabase(DB);
-          renderOurEventsManager(document.getElementById('adminMainContent'));
-          showToast('Video showreel published', 'success');
-          return true;
-        }
-      });
-    });
+          if (isEdit) {
+            const idx = DB.eventVideos.findIndex(v => v.id === videoToEdit.id);
+            if (idx !== -1) {
+              DB.eventVideos[idx] = {
+                ...videoToEdit,
+                title,
+                category,
+                client,
+                duration,
+                thumbUrl,
+                videoUrl,
+                desc,
+                lastUpdated: new Date().toISOString().split('T')[0]
+              };
+            }
+            showToast(`Updated video showreel "${title}"`, 'success');
+          } else {
+            DB.eventVideos.unshift({
+              id: 'ev_' + Date.now().toString().slice(-6),
+              title,
+              category,
+              client,
+              duration,
+              thumbUrl,
+              videoUrl,
+              desc,
+              date: new Date().toISOString().split('T')[0]
+            });
+            showToast(`Published video showreel "${title}"`, 'success');
+          }
 
-    // Play video action
-    container.querySelectorAll('[data-action="play-event-vid"]').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const url = btn.getAttribute('data-url');
-        const title = btn.getAttribute('data-title');
-        openGenericModal({
-          title: title,
-          body: `
-            <div style="background:#000; border-radius:8px; overflow:hidden;">
-              <video controls autoplay style="width:100%; max-height:55vh; object-fit:contain;" src="${escapeHtml(url)}"></video>
-            </div>
-          `,
-          saveText: 'Close',
-          onSave: () => true
-        });
-      });
-    });
-
-    // Delete video action
-    container.querySelectorAll('[data-action="delete-event-vid"]').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const id = btn.getAttribute('data-id');
-        confirmDelete('Delete Video', 'Are you sure you want to remove this video showreel?', () => {
-          DB.eventVideos = (DB.eventVideos || []).filter(v => v.id !== id);
           saveDatabase(DB);
           renderOurEventsManager(document.getElementById('adminMainContent'));
           document.querySelector('[data-tab="tab-event-videos"]')?.click();
-          showToast('Video removed', 'danger');
-        });
+          return true;
+        }
       });
-    });
 
-    // Clear All Videos
+      // Hook modal inputs (presets, local files)
+      setTimeout(() => {
+        const presetEl = document.getElementById('m_vPreset');
+        const urlInput = document.getElementById('m_vUrl');
+        const thumbInput = document.getElementById('m_vThumb');
+        const fileInput = document.getElementById('m_vFileInput');
+        const thumbFileInput = document.getElementById('m_vThumbFile');
+        const statusEl = document.getElementById('m_vFileStatus');
+
+        presetEl?.addEventListener('change', () => {
+          if (presetEl.value) {
+            if (urlInput) urlInput.value = presetEl.value;
+            const selectedOpt = presetEl.options[presetEl.selectedIndex];
+            const thumb = selectedOpt?.getAttribute('data-thumb');
+            if (thumb && thumbInput) thumbInput.value = thumb;
+          }
+        });
+
+        fileInput?.addEventListener('change', (e) => {
+          const file = e.target.files[0];
+          if (!file) return;
+          if (file.size > 25 * 1024 * 1024) {
+            const blobUrl = URL.createObjectURL(file);
+            if (urlInput) urlInput.value = blobUrl;
+            if (statusEl) statusEl.textContent = `Local video linked: ${file.name} (${(file.size / (1024 * 1024)).toFixed(1)} MB)`;
+          } else {
+            const reader = new FileReader();
+            reader.onload = (re) => {
+              if (urlInput) urlInput.value = re.target.result;
+              if (statusEl) statusEl.textContent = `Local video converted: ${file.name} (${(file.size / (1024 * 1024)).toFixed(1)} MB)`;
+            };
+            reader.readAsDataURL(file);
+          }
+        });
+
+        thumbFileInput?.addEventListener('change', (e) => {
+          const file = e.target.files[0];
+          if (!file) return;
+          const reader = new FileReader();
+          reader.onload = (re) => {
+            if (thumbInput) thumbInput.value = re.target.result;
+          };
+          reader.readAsDataURL(file);
+        });
+      }, 50);
+    }
+
+    // 5. Attach Card Actions (Watch, Edit, Delete)
+    attachVideoCardActions(container);
+
+    // 6. Clear All Videos
     container.querySelector('#btnClearAllEventVideos')?.addEventListener('click', () => {
       confirmDelete('Delete All Videos', 'Are you sure you want to permanently delete all video showreels? This cannot be undone.', () => {
         DB.eventVideos = [];
         saveDatabase(DB);
         renderOurEventsManager(document.getElementById('adminMainContent'));
         document.querySelector('[data-tab="tab-event-videos"]')?.click();
-        showToast('All event videos removed', 'danger');
+        showToast('All event video showreels removed', 'danger');
       });
     });
+
+    function attachVideoCardActions(parent) {
+      // Play Video
+      parent.querySelectorAll('[data-action="play-event-vid"]').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const url = btn.getAttribute('data-url');
+          const title = btn.getAttribute('data-title');
+          openGenericModal({
+            title: title || 'Video Preview',
+            body: `
+              <div style="background:#000; border-radius:8px; overflow:hidden; display:flex; align-items:center; justify-content:center;">
+                ${formatAdminVideoEmbedHtml(url)}
+              </div>
+            `,
+            saveText: 'Close',
+            onSave: () => true
+          });
+        });
+      });
+
+      // Edit Video
+      parent.querySelectorAll('[data-action="edit-event-vid"]').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const id = btn.getAttribute('data-id');
+          const vid = (DB.eventVideos || []).find(v => v.id === id);
+          if (vid) {
+            openVideoModal(vid);
+          }
+        });
+      });
+
+      // Delete Video
+      parent.querySelectorAll('[data-action="delete-event-vid"]').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const id = btn.getAttribute('data-id');
+          confirmDelete('Delete Video Showreel', 'Are you sure you want to remove this video showreel?', () => {
+            DB.eventVideos = (DB.eventVideos || []).filter(v => v.id !== id);
+            saveDatabase(DB);
+            renderOurEventsManager(document.getElementById('adminMainContent'));
+            document.querySelector('[data-tab="tab-event-videos"]')?.click();
+            showToast('Video showreel removed', 'danger');
+          });
+        });
+      });
+    }
   }
 
   // =========================================================================
