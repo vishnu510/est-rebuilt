@@ -1241,6 +1241,7 @@
       case 'dashboard':
         renderDashboard(mainArea);
         break;
+      case 'our-works':
       case 'our-events':
         renderOurEventsManager(mainArea);
         break;
@@ -1268,12 +1269,6 @@
       case 'events':
         renderEvents(mainArea);
         break;
-      case 'galleries':
-        renderGalleries(mainArea);
-        break;
-      case 'video-galleries':
-        renderVideoGalleries(mainArea);
-        break;
       case 'client-feedbacks':
         renderClientFeedbacks(mainArea);
         break;
@@ -1287,7 +1282,7 @@
   }
 
   // =========================================================================
-  // VIEW: OUR EVENTS MANAGER (Hero Video + Images + Videos)
+  // VIEW: OUR WORKS MANAGER (Hero Video + Images + Videos)
   // =========================================================================
   function renderOurEventsManager(container) {
     const hero = DB.heroVideo || DEFAULT_DB.heroVideo;
@@ -1298,11 +1293,11 @@
       <div class="view-container active">
         <div class="view-header">
           <div>
-            <h1 class="view-title">Our Events Manager</h1>
-            <p class="view-subtitle">Manage Full-Screen Hero Video, Photo Gallery, and Video Showreels for the Event Page</p>
+            <h1 class="view-title">Our Works Manager</h1>
+            <p class="view-subtitle">Manage Full-Screen Hero Video, Photo Showcase, and Video Showreels for the Works Page</p>
           </div>
-          <a href="our-events.html" target="_blank" class="header-btn header-btn-primary">
-            <i class="bi bi-box-arrow-up-right"></i> View Public Event Page
+          <a href="our-works.html" target="_blank" class="header-btn header-btn-primary">
+            <i class="bi bi-box-arrow-up-right"></i> View Public Works Page
           </a>
         </div>
 
@@ -1312,10 +1307,10 @@
             <i class="bi bi-film"></i> Hero Full-Screen Video
           </button>
           <button class="admin-tab-btn" data-tab="tab-event-images">
-            <i class="bi bi-images"></i> Event Images Section (${images.length})
+            <i class="bi bi-images"></i> Work Images Section (${images.length})
           </button>
           <button class="admin-tab-btn" data-tab="tab-event-videos">
-            <i class="bi bi-camera-video"></i> Event Videos Section (${videos.length})
+            <i class="bi bi-camera-video"></i> Work Videos Section (${videos.length})
           </button>
         </div>
 
@@ -2297,8 +2292,8 @@
               <button class="header-btn" style="justify-content: flex-start; padding: 12px;" onclick="window.adminApp.switchView('services')">
                 <i class="bi bi-layers" style="color: var(--color-accent);"></i> Services CMS
               </button>
-              <button class="header-btn" style="justify-content: flex-start; padding: 12px;" onclick="window.adminApp.switchView('our-events')">
-                <i class="bi bi-camera-reels" style="color: #ec4899;"></i> Our Events Manager
+              <button class="header-btn" style="justify-content: flex-start; padding: 12px;" onclick="window.adminApp.switchView('our-works')">
+                <i class="bi bi-briefcase-fill" style="color: #ec4899;"></i> Our Works Manager
               </button>
             </div>
           </div>
@@ -3816,8 +3811,8 @@
                 <p class="entity-info-sub" style="margin-bottom: 12px;">Linked Event: ${escapeHtml(g.event)}</p>
               </div>
               <div class="item-card-footer">
-                <a href="gallery-images.html" target="_blank" class="btn-outline" style="font-size: 0.775rem; padding: 4px 10px;">
-                  <i class="bi bi-eye"></i> View Album
+                <a href="our-works.html" target="_blank" class="btn-outline" style="font-size: 0.775rem; padding: 4px 10px;">
+                  <i class="bi bi-eye"></i> View on Our Works
                 </a>
                 <button class="btn-icon btn-delete" data-action="delete-gal" data-id="${g.id}"><i class="bi bi-trash-fill"></i></button>
               </div>
@@ -3910,8 +3905,8 @@
                 <p class="entity-info-sub" style="margin-bottom: 12px;">Client: ${escapeHtml(v.client)}</p>
               </div>
               <div class="item-card-footer">
-                <a href="gallery-videos.html" target="_blank" class="btn-outline" style="font-size: 0.775rem; padding: 4px 10px;">
-                  <i class="bi bi-play-fill"></i> Watch
+                <a href="our-works.html" target="_blank" class="btn-outline" style="font-size: 0.775rem; padding: 4px 10px;">
+                  <i class="bi bi-play-fill"></i> View on Our Works
                 </a>
                 <button class="btn-icon btn-delete" data-action="delete-vid" data-id="${v.id}"><i class="bi bi-trash-fill"></i></button>
               </div>

@@ -1736,7 +1736,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <h2 id="vModalTitle" style="font-family: var(--font-heading); font-size: 2rem; font-weight: 800; line-height: 1.2; margin-bottom: 16px; color: #ffffff;"></h2>
                 <p id="vModalDesc" style="font-size: 1.1rem; line-height: 1.7; color: #cbd5e1; margin-bottom: 24px;"></p>
                 <div style="display: flex; gap: 16px; flex-wrap: wrap;">
-                  <a href="our-events.html" class="btn btn-est-primary" style="padding: 12px 28px;">View Full Event Gallery <i class="bi bi-arrow-right"></i></a>
+                  <a href="our-works.html" class="btn btn-est-primary" style="padding: 12px 28px;">Explore Our Works <i class="bi bi-arrow-right"></i></a>
                   <a href="contact.html" class="btn btn-est-glass" style="padding: 12px 24px;">Plan Similar Experience</a>
                 </div>
               </div>

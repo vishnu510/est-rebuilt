@@ -1,0 +1,1795 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+  <title>Our Works & Experiential Showcases | EST Brand Services</title>
+  <meta name="description" content="Explore EST Brand Services' portfolio of experiential brand activations, corporate conferences, exhibition pavilions, and high-impact productions.">
+  <meta name="keywords" content="our works, corporate events India, experiential marketing portfolio, exhibition photo gallery">
+  <link rel="canonical" href="https://estbrandservices.com/our-works.html">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="https://estbrandservices.com/img/favicon/favicon-32x32.png">
+
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- AOS Animation Library -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+
+  <!-- Custom Premium Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    /* =========================================================================
+       HERO FULL-SCREEN VIDEO STYLES
+       ========================================================================= */
+    .events-hero-section {
+      position: relative;
+      width: 100%;
+      height: 92vh;
+      min-height: 620px;
+      max-height: 950px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #05070c;
+    }
+
+    .hero-bg-video-wrapper {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+
+    .hero-bg-video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.85);
+      transition: opacity 0.5s ease;
+    }
+
+    .hero-video-gradient-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      background: radial-gradient(circle at center, rgba(6, 9, 17, 0.45) 0%, rgba(6, 9, 17, 0.88) 100%),
+                  linear-gradient(180deg, rgba(6, 9, 17, 0.5) 0%, rgba(6, 9, 17, 0.95) 100%);
+      pointer-events: none;
+    }
+
+    .events-hero-content {
+      position: relative;
+      z-index: 5;
+      text-align: center;
+      max-width: 960px;
+      padding: 0 24px;
+      color: #ffffff;
+    }
+
+    .events-hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 20px;
+      border-radius: 999px;
+      background: rgba(254, 59, 32, 0.18);
+      border: 1px solid rgba(254, 59, 32, 0.5);
+      color: #ffffff;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-bottom: 22px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 0 25px rgba(254, 59, 32, 0.25);
+    }
+
+    .events-hero-title {
+      font-family: var(--font-heading);
+      font-size: clamp(2.4rem, 5.5vw, 4.2rem);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -1px;
+      color: #ffffff;
+      margin-bottom: 20px;
+      text-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+    }
+
+    .events-hero-title span {
+      background: linear-gradient(135deg, #fe3b20 0%, #ff8066 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .events-hero-subtitle {
+      font-size: clamp(1.05rem, 1.8vw, 1.35rem);
+      color: #e2e8f0;
+      line-height: 1.6;
+      max-width: 780px;
+      margin: 0 auto 34px;
+      font-weight: 400;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .events-hero-actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    /* Floating Video Controls Pill */
+    .hero-video-floating-controls {
+      position: absolute;
+      bottom: 30px;
+      right: 36px;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(11, 15, 28, 0.75);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 999px;
+      padding: 6px 14px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    }
+
+    .hero-control-btn {
+      background: transparent;
+      border: none;
+      color: #ffffff;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1.05rem;
+      transition: all 0.2s ease;
+    }
+
+    .hero-control-btn:hover {
+      background: rgba(254, 59, 32, 0.25);
+      color: var(--color-primary);
+    }
+
+    /* =========================================================================
+       METRICS STRIP
+       ========================================================================= */
+    .metrics-strip {
+      background: #080b12;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      padding: 30px 0;
+    }
+
+    .metrics-grid-four {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 24px;
+      text-align: center;
+    }
+
+    .metric-item h4 {
+      font-family: var(--font-heading);
+      font-size: 2.3rem;
+      font-weight: 800;
+      color: #fe3b20;
+      margin-bottom: 4px;
+    }
+
+    .metric-item p {
+      font-size: 0.9rem;
+      color: #94a3b8;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      font-weight: 500;
+    }
+
+    /* =========================================================================
+       FILTER TABS
+       ========================================================================= */
+    .gallery-filter-tabs {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+
+    .filter-tab-pill {
+      background: #111624;
+      border: 1px solid #1e273d;
+      color: #94a3b8;
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      font-weight: 500;
+      padding: 10px 22px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .filter-tab-pill:hover, .filter-tab-pill.active {
+      background: #fe3b20;
+      border-color: #fe3b20;
+      color: #ffffff;
+      box-shadow: 0 4px 15px rgba(254, 59, 32, 0.3);
+    }
+
+    /* =========================================================================
+       MEDIA GRIDS & CARDS
+       ========================================================================= */
+    .events-media-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 28px;
+    }
+
+    .media-card-premium {
+      background: #0d121e;
+      border: 1px solid #1a2236;
+      border-radius: 16px;
+      overflow: hidden;
+      transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .media-card-premium:hover {
+      transform: translateY(-6px);
+      border-color: #fe3b20;
+      box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.6), 0 0 20px rgba(254, 59, 32, 0.15);
+    }
+
+    .media-thumb-box {
+      position: relative;
+      width: 100%;
+      height: 230px;
+      overflow: hidden;
+      background: #080b12;
+      cursor: pointer;
+    }
+
+    .media-thumb-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .media-card-premium:hover .media-thumb-img {
+      transform: scale(1.08);
+    }
+
+    .media-category-badge {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background: rgba(11, 15, 28, 0.85);
+      backdrop-filter: blur(8px);
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .media-play-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0.85;
+      transition: opacity 0.3s ease;
+    }
+
+    .media-play-btn {
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      background: #fe3b20;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      box-shadow: 0 0 25px rgba(254, 59, 32, 0.5);
+      transition: transform 0.2s ease;
+    }
+
+    .media-card-premium:hover .media-play-btn {
+      transform: scale(1.15);
+    }
+
+    .media-duration-badge {
+      position: absolute;
+      bottom: 12px;
+      right: 12px;
+      background: rgba(0, 0, 0, 0.8);
+      color: #ffffff;
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+
+    .media-card-body {
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .media-card-event-name {
+      font-size: 0.8rem;
+      color: #fe3b20;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 6px;
+    }
+
+    .media-card-title {
+      font-family: var(--font-heading);
+      font-size: 1.18rem;
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1.4;
+      margin-bottom: 10px;
+    }
+
+    .media-card-desc {
+      font-size: 0.875rem;
+      color: #94a3b8;
+      line-height: 1.5;
+      margin-bottom: 18px;
+      flex: 1;
+    }
+
+    .media-card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 14px;
+      border-top: 1px solid #1a2236;
+      font-size: 0.82rem;
+      color: #64748b;
+    }
+
+    /* Modal / Lightbox */
+    .events-modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.88);
+      backdrop-filter: blur(8px);
+      z-index: 1000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      opacity: 0;
+      transition: opacity 0.25s ease;
+    }
+
+    .events-modal-overlay.open {
+      display: flex;
+      opacity: 1;
+    }
+
+    .events-modal-container {
+      background: #0d121e;
+      border: 1px solid #232e47;
+      border-radius: 16px;
+      width: 100%;
+      max-width: 900px;
+      overflow: hidden;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8);
+      position: relative;
+    }
+
+    .events-modal-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(0, 0, 0, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      cursor: pointer;
+      z-index: 10;
+      transition: all 0.2s ease;
+    }
+
+    .events-modal-close:hover {
+      background: #fe3b20;
+    }
+
+    /* =========================================================================
+       EVENT GALLERY CAROUSEL SYSTEM STYLES
+       ========================================================================= */
+    /* Embedded Card Carousel */
+    .card-carousel-wrapper {
+      position: relative;
+      width: 100%;
+      height: 240px;
+      overflow: hidden;
+      background: #060911;
+      border-top-left-radius: 16px;
+      border-top-right-radius: 16px;
+    }
+
+    .card-carousel-track {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.45s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    .card-carousel-slide {
+      flex: 0 0 100%;
+      width: 100%;
+      height: 100%;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .card-carousel-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .media-card-premium:hover .card-carousel-slide img {
+      transform: scale(1.05);
+    }
+
+    .card-carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: rgba(11, 15, 28, 0.85);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      color: #ffffff;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 6;
+      opacity: 0;
+      transition: all 0.25s ease;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    }
+
+    .media-card-premium:hover .card-carousel-btn {
+      opacity: 1;
+    }
+
+    .card-carousel-btn:hover {
+      background: #fe3b20;
+      border-color: #fe3b20;
+      color: #fff;
+      transform: translateY(-50%) scale(1.1);
+    }
+
+    .card-carousel-btn.prev {
+      left: 10px;
+    }
+
+    .card-carousel-btn.next {
+      right: 10px;
+    }
+
+    .card-carousel-counter {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(8px);
+      color: #ffffff;
+      font-size: 0.725rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      z-index: 5;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .card-carousel-dots {
+      position: absolute;
+      bottom: 10px;
+      left: 0;
+      right: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      z-index: 5;
+      pointer-events: auto;
+    }
+
+    .card-carousel-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.45);
+      transition: all 0.25s ease;
+      cursor: pointer;
+      border: none;
+      padding: 0;
+    }
+
+    .card-carousel-dot.active {
+      background: #fe3b20;
+      width: 18px;
+      border-radius: 4px;
+      box-shadow: 0 0 8px rgba(254, 59, 32, 0.8);
+    }
+
+    /* Featured Category Banner Carousel */
+    .category-featured-carousel {
+      position: relative;
+      width: 100%;
+      height: 380px;
+      border-radius: 20px;
+      overflow: hidden;
+      margin-bottom: 40px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: #080c16;
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6);
+    }
+
+    .cat-carousel-track {
+      display: flex;
+      height: 100%;
+      width: 100%;
+      transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    .cat-carousel-slide {
+      flex: 0 0 100%;
+      width: 100%;
+      height: 100%;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .cat-carousel-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.85);
+    }
+
+    .cat-carousel-gradient {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(0deg, rgba(6, 9, 17, 0.95) 0%, rgba(6, 9, 17, 0.35) 50%, rgba(6, 9, 17, 0.6) 100%);
+      pointer-events: none;
+    }
+
+    .cat-carousel-content {
+      position: absolute;
+      bottom: 30px;
+      left: 36px;
+      right: 36px;
+      z-index: 5;
+      color: #ffffff;
+    }
+
+    .cat-carousel-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #fe3b20;
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      padding: 4px 12px;
+      border-radius: 999px;
+      margin-bottom: 10px;
+    }
+
+    .cat-carousel-title {
+      font-family: var(--font-heading);
+      font-size: clamp(1.4rem, 2.5vw, 2.1rem);
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1.25;
+      margin-bottom: 8px;
+    }
+
+    .cat-carousel-desc {
+      color: #cbd5e1;
+      font-size: 0.95rem;
+      max-width: 650px;
+      line-height: 1.5;
+    }
+
+    .cat-carousel-nav-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: rgba(11, 15, 28, 0.8);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #ffffff;
+      font-size: 1.3rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 6;
+      transition: all 0.25s ease;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    }
+
+    .cat-carousel-nav-btn:hover {
+      background: #fe3b20;
+      border-color: #fe3b20;
+      transform: translateY(-50%) scale(1.12);
+    }
+
+    .cat-carousel-nav-btn.prev {
+      left: 18px;
+    }
+
+    .cat-carousel-nav-btn.next {
+      right: 18px;
+    }
+
+    .cat-carousel-dots {
+      position: absolute;
+      bottom: 20px;
+      right: 36px;
+      display: flex;
+      gap: 8px;
+      z-index: 6;
+    }
+
+    .cat-carousel-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.4);
+      border: none;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .cat-carousel-dot.active {
+      background: #fe3b20;
+      width: 24px;
+      border-radius: 4px;
+    }
+
+    /* Interactive Lightbox Carousel */
+    .lightbox-carousel-main {
+      position: relative;
+      width: 100%;
+      background: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 360px;
+    }
+
+    .lightbox-carousel-main img {
+      max-width: 100%;
+      max-height: 68vh;
+      object-fit: contain;
+      transition: opacity 0.3s ease;
+    }
+
+    .lightbox-nav-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(0, 0, 0, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      color: #ffffff;
+      font-size: 1.3rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 5;
+      transition: all 0.2s ease;
+    }
+
+    .lightbox-nav-btn:hover {
+      background: #fe3b20;
+      border-color: #fe3b20;
+    }
+
+    .lightbox-nav-btn.prev { left: 16px; }
+    .lightbox-nav-btn.next { right: 16px; }
+
+    .lightbox-thumb-strip {
+      display: flex;
+      gap: 8px;
+      padding: 12px 18px;
+      background: #080c16;
+      overflow-x: auto;
+      border-top: 1px solid #1a2236;
+      align-items: center;
+    }
+
+    .lightbox-thumb-strip::-webkit-scrollbar {
+      height: 5px;
+    }
+
+    .lightbox-thumb-strip::-webkit-scrollbar-thumb {
+      background: #334155;
+      border-radius: 4px;
+    }
+
+    .lightbox-thumb-item {
+      width: 64px;
+      height: 46px;
+      border-radius: 6px;
+      overflow: hidden;
+      cursor: pointer;
+      opacity: 0.45;
+      border: 2px solid transparent;
+      transition: all 0.2s ease;
+      flex-shrink: 0;
+    }
+
+    .lightbox-thumb-item.active {
+      opacity: 1;
+      border-color: #fe3b20;
+      transform: scale(1.08);
+      box-shadow: 0 0 10px rgba(254, 59, 32, 0.6);
+    }
+
+    .lightbox-thumb-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  </style>
+
+  <!-- Prevent Theme Flash -->
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('theme');
+      const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    })();
+  </script>
+</head>
+<body class="dark">
+
+  <!-- ==========================================
+       HEADER & NAVIGATION
+       ========================================== -->
+  <header class="header">
+    <div class="container nav-container">
+      <!-- Logo -->
+      <a href="index.html" class="logo">
+        <img src="https://estbrandservices.com/img/logo/est-logowithtag-light.webp" alt="EST Brand Services" class="logo-light-img">
+        <img src="https://estbrandservices.com/img/logo/est-logowithtag-dark.webp" alt="EST Brand Services" class="logo-dark-img" style="display: none;">
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <ul class="nav-links">
+        <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+        <li class="nav-item"><a href="about.html" class="nav-link">About Us</a></li>
+        <li class="nav-item"><a href="our-works.html" class="nav-link active">Our Works</a></li>
+        <li class="nav-item nav-dropdown">
+          <a href="index.html#solutions" class="nav-link">Solutions <i class="bi bi-chevron-down" style="font-size: 0.75rem;"></i></a>
+          <div class="dropdown-menu">
+            <a href="services/experiential-marketing.html" class="dropdown-item"><i class="bi bi-stars" style="color: var(--color-primary); margin-right: 0.5rem;"></i> Experiential Marketing</a>
+            <a href="services/marketing-consulting.html" class="dropdown-item"><i class="bi bi-compass" style="color: var(--color-primary); margin-right: 0.5rem;"></i> Marketing Consulting</a>
+            <a href="services/demand-generation.html" class="dropdown-item"><i class="bi bi-funnel" style="color: var(--color-primary); margin-right: 0.5rem;"></i> B2B Demand Generation</a>
+            <a href="services/event-management.html" class="dropdown-item"><i class="bi bi-calendar4-event" style="color: var(--color-primary); margin-right: 0.5rem;"></i> Corporate Event Management</a>
+            <a href="services/btl-activation.html" class="dropdown-item"><i class="bi bi-megaphone" style="color: var(--color-primary); margin-right: 0.5rem;"></i> BTL & Brand Activation</a>
+            <a href="services/exhibition.html" class="dropdown-item"><i class="bi bi-grid-1x2" style="color: var(--color-primary); margin-right: 0.5rem;"></i> Exhibition & Trade Shows</a>
+            <a href="services/digital-marketing.html" class="dropdown-item"><i class="bi bi-phone-vibrate" style="color: var(--color-primary); margin-right: 0.5rem;"></i> B2B Digital Marketing</a>
+            <a href="services/retail-branding.html" class="dropdown-item"><i class="bi bi-shop" style="color: var(--color-primary); margin-right: 0.5rem;"></i> Corporate Branding</a>
+            <a href="services/corporate-travel.html" class="dropdown-item"><i class="bi bi-airplane-engines" style="color: var(--color-primary); margin-right: 0.5rem;"></i> Corporate Travel & Logistics</a>
+          </div>
+        </li>
+        <li class="nav-item"><a href="industries.html" class="nav-link">Industries</a></li>
+        <li class="nav-item"><a href="case-studies.html" class="nav-link">Case Studies</a></li>
+        <li class="nav-item"><a href="insights.html" class="nav-link">Insights</a></li>
+        <li class="nav-item mobile-cta"><a href="contact.html" class="btn btn-primary">Talk to a Consultant</a></li>
+      </ul>
+
+      <!-- Theme Switcher & Mobile Toggle -->
+      <div class="nav-actions">
+        <a href="contact.html" class="btn btn-primary">Talk to a Consultant</a>
+        <div class="mobile-toggle" aria-label="Open Navigation Menu">
+          <i class="bi bi-list"></i>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================
+       HERO SECTION: FULL-SCREEN BACKGROUND VIDEO
+       (Dynamically loaded from Admin Panel)
+       ========================================== -->
+  <section class="events-hero-section" id="heroSection">
+    <div class="hero-bg-video-wrapper">
+      <video id="publicHeroVideo" class="hero-bg-video" autoplay loop muted playsinline src="https://assets.mixkit.co/videos/preview/mixkit-set-of-plateaus-seen-from-the-sky-in-a-sunset-26070-large.mp4">
+        Your browser does not support high-definition video playback.
+      </video>
+    </div>
+
+    <div class="hero-video-gradient-overlay"></div>
+
+    <div class="events-hero-content" data-aos="fade-up">
+      <div class="events-hero-badge" id="publicHeroBadge">
+        <i class="bi bi-stars"></i> <span>EST Experiential Events & Summits 2026</span>
+      </div>
+
+      <h1 class="events-hero-title" id="publicHeroTitle">
+        Crafting <span>Unforgettable</span> Corporate Experiences
+      </h1>
+
+      <p class="events-hero-subtitle" id="publicHeroSubtitle">
+        From high-impact tech conclaves in Gurgaon to luxury partner offsites in Goa and pan-India multi-city roadshows.
+      </p>
+
+      <div class="events-hero-actions">
+        <a href="#photoGallerySection" class="btn btn-primary">
+          <i class="bi bi-images"></i> Explore Event Photos
+        </a>
+        <a href="#videoShowcaseSection" class="btn btn-outline" style="border-color: #fff; color: #fff;">
+          <i class="bi bi-play-circle-fill" style="color: var(--color-primary)"></i> Watch Showreels
+        </a>
+        <a href="contact.html" class="btn btn-secondary" id="publicHeroCta">
+          Plan Your Next Event
+        </a>
+      </div>
+    </div>
+
+    <!-- Floating Video Control Controls Pill -->
+    <div class="hero-video-floating-controls" title="Hero Video Controls">
+      <button class="hero-control-btn" id="heroAudioToggle" title="Unmute / Mute Video Audio">
+        <i class="bi bi-volume-mute-fill"></i>
+      </button>
+      <button class="hero-control-btn" id="heroPlaybackToggle" title="Pause / Play Video">
+        <i class="bi bi-pause-fill"></i>
+      </button>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       HIGHLIGHTS & METRICS STRIP
+       ========================================== -->
+  <section class="metrics-strip">
+    <div class="container">
+      <div class="metrics-grid-four">
+        <div class="metric-item" data-aos="fade-up" data-aos-delay="50">
+          <h4>500+</h4>
+          <p>Conclaves & Summits</p>
+        </div>
+        <div class="metric-item" data-aos="fade-up" data-aos-delay="100">
+          <h4>85+</h4>
+          <p>Global Enterprise Brands</p>
+        </div>
+        <div class="metric-item" data-aos="fade-up" data-aos-delay="150">
+          <h4>15+</h4>
+          <p>Pan-India Direct Hubs</p>
+        </div>
+        <div class="metric-item" data-aos="fade-up" data-aos-delay="200">
+          <h4>100%</h4>
+          <p>Turnkey In-House Build</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       SECTION 1: EVENT IMAGES & PHOTO GALLERY
+       (Dynamically rendered from Admin database)
+       ========================================== -->
+  <section class="section" id="photoGallerySection" style="background-color: #080b12;">
+    <div class="container">
+      <div class="section-header" style="text-align: center; max-width: 800px; margin: 0 auto 30px;" data-aos="fade-up">
+        <span class="badge" style="background: rgba(254,59,32,0.15); color: #fe3b20; border: 1px solid rgba(254,59,32,0.3); padding: 6px 14px; border-radius: 999px; font-weight: 600;">
+          <i class="bi bi-camera-fill"></i> Photo Portfolio
+        </span>
+        <h2 style="font-family: var(--font-heading); font-size: 2.4rem; font-weight: 700; color: #fff; margin-top: 12px; margin-bottom: 12px;">
+          Experiential Event Gallery
+        </h2>
+        <p style="color: #94a3b8; font-size: 1rem;">
+          High-resolution captures from our recent keynote stages, interactive exhibition pavilions, and on-ground activations.
+        </p>
+      </div>
+
+      <!-- Filter Tabs -->
+      <div class="gallery-filter-tabs" id="imgFilterTabs" data-aos="fade-up">
+        <button class="filter-tab-pill active" data-category="ALL">All Categories</button>
+        <button class="filter-tab-pill" data-category="Conferences">Conferences</button>
+        <button class="filter-tab-pill" data-category="Exhibitions">Exhibitions</button>
+        <button class="filter-tab-pill" data-category="Brand Activations">Brand Activations</button>
+        <button class="filter-tab-pill" data-category="Roadshows">Roadshows</button>
+        <button class="filter-tab-pill" data-category="Offsites">Corporate Offsites</button>
+      </div>
+
+      <!-- Featured Category Carousel Slider (Auto-generated for active category) -->
+      <div id="publicCategoryCarouselContainer" data-aos="fade-up"></div>
+
+      <!-- Images Grid Container (Supports Multi-Image Carousel Cards) -->
+      <div class="events-media-grid" id="publicImagesGrid">
+        <!-- Rendered dynamically -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       SECTION 2: EVENT VIDEOS & SHOWREELS
+       (Dynamically rendered from Admin database)
+       ========================================== -->
+  <section class="section" id="videoShowcaseSection" style="background-color: #06080e;">
+    <div class="container">
+      <div class="section-header" style="text-align: center; max-width: 800px; margin: 0 auto 40px;" data-aos="fade-up">
+        <span class="badge" style="background: rgba(12,188,161,0.15); color: #0cbca1; border: 1px solid rgba(12,188,161,0.3); padding: 6px 14px; border-radius: 999px; font-weight: 600;">
+          <i class="bi bi-play-circle-fill"></i> Video Showreels
+        </span>
+        <h2 style="font-family: var(--font-heading); font-size: 2.4rem; font-weight: 700; color: #fff; margin-top: 12px; margin-bottom: 12px;">
+          High-Energy Event Showcases
+        </h2>
+        <p style="color: #94a3b8; font-size: 1rem;">
+          Watch our end-to-end technical production, crowd energy, and multi-hub execution films.
+        </p>
+      </div>
+
+      <!-- Videos Grid Container -->
+      <div class="events-media-grid" id="publicVideosGrid">
+        <!-- Rendered dynamically -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       CTA BANNER SECTION
+       ========================================== -->
+  <section class="cta-section" style="background: linear-gradient(135deg, #090e1a 0%, #151d30 100%); padding: 80px 0; border-top: 1px solid #1f2a42;">
+    <div class="container text-center" data-aos="fade-up">
+      <h2 style="font-family: var(--font-heading); font-size: 2.5rem; font-weight: 800; color: #fff; margin-bottom: 16px;">
+        Ready to Execute a World-Class Experiential Event?
+      </h2>
+      <p style="color: #cbd5e1; max-width: 680px; margin: 0 auto 30px; font-size: 1.1rem; line-height: 1.6;">
+        Partner with EST Brand Services for 3D stage concepts, line-item budgets, and pan-India turnkey fabrication delivered within 48 hours.
+      </p>
+      <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+        <a href="contact.html" class="btn btn-primary" style="padding: 14px 32px; font-size: 1.05rem;">
+          <i class="bi bi-telephone-fill"></i> Talk to an Event Specialist
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       FOOTER
+       ========================================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col footer-brand">
+          <a href="index.html" class="logo">
+            <img src="https://estbrandservices.com/img/logo/est-logowithtag-light.webp" alt="EST Brand Services" class="logo-light-img">
+          </a>
+          <p class="footer-desc">
+            Integrated B2B marketing & experiential marketing agency in India. We turn ideas into high-impact corporate activations.
+          </p>
+          <div class="footer-socials">
+            <a href="https://www.linkedin.com/company/14532109" target="_blank" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+            <a href="https://www.facebook.com/estbrandservices" target="_blank" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+            <a href="https://www.instagram.com/estbrandservices/" target="_blank" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-title">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="our-works.html">Our Works</a></li>
+            <li><a href="case-studies.html">Case Studies</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-title">Core Solutions</h4>
+          <ul class="footer-links">
+            <li><a href="services/experiential-marketing.html">Experiential Marketing</a></li>
+            <li><a href="services/marketing-consulting.html">Marketing Consulting</a></li>
+            <li><a href="services/btl-activation.html">BTL & Brand Activation</a></li>
+            <li><a href="services/exhibition.html">Exhibition & Trade Shows</a></li>
+            <li><a href="services/corporate-travel.html">Corporate Travel & MICE</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-title">Contact Information</h4>
+          <p class="footer-contact-item"><i class="bi bi-geo-alt-fill"></i> Gurgaon, Delhi NCR, Mumbai, Bengaluru</p>
+          <p class="footer-contact-item"><i class="bi bi-telephone-fill"></i> +91-9910875424</p>
+          <p class="footer-contact-item"><i class="bi bi-envelope-fill"></i> info@estbrandservices.com</p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 EST Brand Services. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================
+       MEDIA MODAL / LIGHTBOX CAROUSEL
+       ========================================== -->
+  <div class="events-modal-overlay" id="publicMediaModal">
+    <div class="events-modal-container">
+      <button class="events-modal-close" id="modalCloseBtn" aria-label="Close modal">
+        <i class="bi bi-x-lg"></i>
+      </button>
+      <div id="modalContentSlot"></div>
+    </div>
+  </div>
+
+  <!-- AOS Script -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+  <!-- Firebase & Real-Time Cloud Sync -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+  <script src="cloud-sync.js"></script>
+
+  <!-- Public Dynamic Synchronization & Carousel Script -->
+  <script>
+    (function () {
+      'use strict';
+
+      // Initialize AOS Animations
+      if (typeof AOS !== 'undefined') {
+        AOS.init({ duration: 800, once: true });
+      }
+
+      const STORAGE_KEY = 'EST_ADMIN_DB_V2';
+
+      // Memory store for card carousel index states & timer handles
+      window.cardCarouselStates = {};
+      let catCarouselTimer = null;
+      let catCarouselCurrentIndex = 0;
+      let currentLightboxState = { photos: [], currentIndex: 0, title: '' };
+
+      const DEFAULT_EVENT_IMAGES = [
+        { id: 'ei1', title: 'Cisco Live Keynote Stage & Holographic Projection', category: 'Conferences', eventName: 'Cisco Connect 2026', imgUrl: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=900&auto=format&fit=crop&q=80', date: '2026-02-18', desc: 'Main plenary hall stage design with dynamic LED wall and real-time delegate interaction systems.' },
+        { id: 'ei2', title: 'Intel Innovation 3D Experiential Booth', category: 'Exhibitions', eventName: 'India Tech Expo', imgUrl: 'https://images.unsplash.com/photo-1511578314322-379afb476865?w=900&auto=format&fit=crop&q=80', date: '2026-02-14', desc: 'Bespoke 3D curved pavilion with AI demo pods and enterprise engagement zones.' },
+        { id: 'ei3', title: 'Dell Technologies Multi-City Corporate Conclave', category: 'Roadshows', eventName: 'Dell Enterprise Tour', imgUrl: 'https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=900&auto=format&fit=crop&q=80', date: '2026-01-25', desc: 'Simultaneous 5-city executive breakfast series with interactive product launch displays.' },
+        { id: 'ei4', title: 'Samsung Galaxy Enterprise Zone Activation', category: 'Brand Activations', eventName: 'Samsung B2B Summit', imgUrl: 'https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=900&auto=format&fit=crop&q=80', date: '2026-01-10', desc: 'Tactile experiential pop-up inside DLF CyberHub capturing over 1,500 high-intent enterprise leads.' },
+        { id: 'ei5', title: 'Global Leadership Retreat & Sunset Awards', category: 'Offsites', eventName: 'Annual Partner Offsite Goa', imgUrl: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=900&auto=format&fit=crop&q=80', date: '2025-12-20', desc: 'Curated 3-day luxury leadership summit with themed gala evening and experiential staging.' },
+        { id: 'ei6', title: 'HP Indigo Future Print & Packaging Pavilion', category: 'Exhibitions', eventName: 'PrintPack India', imgUrl: 'https://images.unsplash.com/photo-1528605248644-14dd04022da1?w=900&auto=format&fit=crop&q=80', date: '2025-11-15', desc: 'Full-scale industrial machinery live demonstration booth with private C-suite meeting lounges.' }
+      ];
+
+      const DEFAULT_EVENT_VIDEOS = [
+        { id: 'ev1', title: 'EST Brand Services - Experiential Showreel 2026', category: 'Showreel', client: 'EST Master Reel', duration: '2m 45s', videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-set-of-plateaus-seen-from-the-sky-in-a-sunset-26070-large.mp4', thumbUrl: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800&auto=format&fit=crop&q=80', date: '2026-03-01', desc: 'High-energy compilation of pan-India corporate conferences, stage productions, and bespoke booths.' },
+        { id: 'ev2', title: 'Pan-India Corporate Activation Recap - 8 Cities', category: 'Roadshows', client: 'Cisco & HP', duration: '3m 12s', videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-set-of-plateaus-seen-from-the-sky-in-a-sunset-26070-large.mp4', thumbUrl: 'https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=800&auto=format&fit=crop&q=80', date: '2026-02-10', desc: 'Seamless multi-hub on-ground execution across Mumbai, Bengaluru, Delhi NCR, Hyderabad, and Pune.' },
+        { id: 'ev3', title: 'Exhibition Pavilion 3D Walkthrough & Live Execution', category: 'Exhibitions', client: 'Intel India', duration: '1m 50s', videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-set-of-plateaus-seen-from-the-sky-in-a-sunset-26070-large.mp4', thumbUrl: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&auto=format&fit=crop&q=80', date: '2026-01-18', desc: 'From initial 3D render to turnkey on-site fabrication and live delegate engagement.' }
+      ];
+
+      function getDB() {
+        if (window.ESTCloudSync && typeof window.ESTCloudSync.getDB === 'function') {
+          const cloudDb = window.ESTCloudSync.getDB();
+          if (cloudDb) return cloudDb;
+        }
+        try {
+          const raw = localStorage.getItem(STORAGE_KEY);
+          if (raw) return JSON.parse(raw);
+        } catch (e) {
+          console.warn('Failed to read from localStorage:', e);
+        }
+        return null;
+      }
+
+      function refreshPageData() {
+        const DB = getDB();
+
+        // Safe extraction of admin-uploaded media
+        const hero = (DB && DB.heroVideo) ? DB.heroVideo : {
+          videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-set-of-plateaus-seen-from-the-sky-in-a-sunset-26070-large.mp4',
+          badge: 'EST Experiential Events & Summits 2026',
+          title: 'Crafting Unforgettable Corporate Experiences',
+          subtitle: 'From high-impact tech conclaves in Gurgaon to luxury partner offsites in Goa and pan-India multi-city roadshows.',
+          ctaText: 'Plan Your Next Event',
+          ctaLink: 'contact.html'
+        };
+
+        // Resolute persistence: when DB exists, respect empty array [] so deleted items stay deleted!
+        let images = [];
+        if (DB) {
+          if (Array.isArray(DB.eventImages)) {
+            images = [...DB.eventImages];
+          }
+        } else {
+          images = [...DEFAULT_EVENT_IMAGES];
+        }
+
+        // Resolute persistence: when DB exists, respect empty array [] so deleted items stay deleted!
+        let videos = [];
+        if (DB) {
+          if (Array.isArray(DB.eventVideos)) {
+            videos = [...DB.eventVideos];
+          }
+        } else {
+          videos = [...DEFAULT_EVENT_VIDEOS];
+        }
+
+        // 1. Render Hero Section
+        const heroVideoEl = document.getElementById('publicHeroVideo');
+        const heroBadgeEl = document.getElementById('publicHeroBadge');
+        const heroTitleEl = document.getElementById('publicHeroTitle');
+        const heroSubtitleEl = document.getElementById('publicHeroSubtitle');
+        const heroCtaEl = document.getElementById('publicHeroCta');
+
+        if (heroVideoEl && hero.videoUrl && heroVideoEl.src !== hero.videoUrl) {
+          heroVideoEl.src = hero.videoUrl;
+          heroVideoEl.play().catch(() => {});
+        }
+        if (heroBadgeEl && hero.badge) {
+          heroBadgeEl.innerHTML = `<i class="bi bi-stars"></i> <span>${escapeHtml(hero.badge)}</span>`;
+        }
+        if (heroTitleEl && hero.title) {
+          heroTitleEl.innerHTML = escapeHtml(hero.title);
+        }
+        if (heroSubtitleEl && hero.subtitle) {
+          heroSubtitleEl.textContent = hero.subtitle;
+        }
+        if (heroCtaEl && hero.ctaText) {
+          heroCtaEl.textContent = hero.ctaText;
+          if (hero.ctaLink) heroCtaEl.href = hero.ctaLink;
+        }
+
+        // 2. Render Category Filter Tabs Dynamically
+        const filterContainer = document.getElementById('imgFilterTabs');
+        if (filterContainer) {
+          if (images.length === 0) {
+            filterContainer.style.display = 'none';
+          } else {
+            filterContainer.style.display = 'flex';
+            const distinctCategories = Array.from(new Set(images.map(img => img.category).filter(Boolean)));
+            
+            let tabsHtml = `<button class="filter-tab-pill active" data-category="ALL">All Categories (${images.length})</button>`;
+            distinctCategories.forEach(cat => {
+              const count = images.filter(i => i.category === cat).length;
+              tabsHtml += `<button class="filter-tab-pill" data-category="${escapeHtml(cat)}">${escapeHtml(cat)} (${count})</button>`;
+            });
+            filterContainer.innerHTML = tabsHtml;
+
+            // Re-attach tab click listeners
+            filterContainer.querySelectorAll('.filter-tab-pill').forEach(pill => {
+              pill.addEventListener('click', () => {
+                filterContainer.querySelectorAll('.filter-tab-pill').forEach(p => p.classList.remove('active'));
+                pill.classList.add('active');
+                const cat = pill.getAttribute('data-category');
+                renderPublicImages(cat);
+              });
+            });
+          }
+        }
+
+        // 3. Render Event Images & Carousels
+        const imgGrid = document.getElementById('publicImagesGrid');
+        const catCarouselSlot = document.getElementById('publicCategoryCarouselContainer');
+
+        function renderPublicImages(cat = 'ALL') {
+          if (!imgGrid) return;
+          
+          if (images.length === 0) {
+            if (catCarouselSlot) catCarouselSlot.innerHTML = '';
+            imgGrid.innerHTML = `
+              <div style="grid-column: 1/-1; text-align: center; padding: 70px 20px; background: rgba(255,255,255,0.015); border-radius: 16px; border: 1px dashed rgba(255,255,255,0.1);">
+                <i class="bi bi-images" style="font-size: 2.8rem; color: #475569; margin-bottom: 14px; display: block;"></i>
+                <h4 style="color: #94a3b8; font-weight: 600; font-size: 1.15rem; margin-bottom: 6px;">No Event Photos Uploaded Yet</h4>
+                <p style="color: #64748b; font-size: 0.9rem; max-width: 480px; margin: 0 auto;">Event photos and captures will appear here once uploaded via the admin panel.</p>
+              </div>
+            `;
+            return;
+          }
+
+          const filtered = images.filter(img => cat === 'ALL' || img.category === cat);
+
+          if (!filtered.length) {
+            if (catCarouselSlot) catCarouselSlot.innerHTML = '';
+            imgGrid.innerHTML = `
+              <div style="grid-column: 1/-1; text-align: center; padding: 50px 20px; color: #94a3b8;">
+                <p>No event photos in the "<strong>${escapeHtml(cat)}</strong>" category.</p>
+              </div>
+            `;
+            return;
+          }
+
+          // A. Render Featured Top Carousel for Category
+          renderCategoryFeaturedCarousel(filtered, cat);
+
+          // B. Group images by Event Name to form Multi-Image Carousel Cards
+          const eventGroups = [];
+          const eventMap = new Map();
+
+          filtered.forEach(img => {
+            const key = (img.eventName && img.eventName.trim()) ? img.eventName.trim() : (img.title || 'EST Showcase');
+            if (!eventMap.has(key)) {
+              const newGroup = {
+                eventName: key,
+                category: img.category || 'Events',
+                desc: img.desc || '',
+                date: img.date || 'Recent',
+                photos: []
+              };
+              eventMap.set(key, newGroup);
+              eventGroups.push(newGroup);
+            }
+            eventMap.get(key).photos.push(img);
+          });
+
+          // Render Cards
+          imgGrid.innerHTML = eventGroups.map((group, groupIdx) => {
+            const cardId = `ev_card_${groupIdx}`;
+            const photosCount = group.photos.length;
+            const hasMultiplePhotos = photosCount > 1;
+
+            // Initialize carousel index
+            window.cardCarouselStates[cardId] = {
+              currentIndex: 0,
+              total: photosCount,
+              photos: group.photos,
+              eventName: group.eventName
+            };
+
+            const encodedPhotosJson = escapeHtml(JSON.stringify(group.photos));
+
+            if (hasMultiplePhotos) {
+              // --- RENDER MULTI-PHOTO CAROUSEL CARD ---
+              return `
+                <div class="media-card-premium" id="${cardId}" data-aos="fade-up">
+                  <div class="card-carousel-wrapper">
+                    <!-- Top Badges -->
+                    <span class="media-category-badge">${escapeHtml(group.category)}</span>
+                    <span class="card-carousel-counter" id="counter_${cardId}">
+                      <i class="bi bi-images"></i> 1 / ${photosCount} Photos
+                    </span>
+
+                    <!-- Sliding Track -->
+                    <div class="card-carousel-track" id="track_${cardId}">
+                      ${group.photos.map((p, pIdx) => `
+                        <div class="card-carousel-slide" onclick="window.openPhotoCarousel(${groupIdx}, ${pIdx})">
+                          <img src="${escapeHtml(p.imgUrl)}" alt="${escapeHtml(p.title || group.eventName)}">
+                        </div>
+                      `).join('')}
+                    </div>
+
+                    <!-- Prev/Next Controls -->
+                    <button type="button" class="card-carousel-btn prev" aria-label="Previous image" onclick="event.stopPropagation(); window.slideCardCarousel('${cardId}', -1);">
+                      <i class="bi bi-chevron-left"></i>
+                    </button>
+                    <button type="button" class="card-carousel-btn next" aria-label="Next image" onclick="event.stopPropagation(); window.slideCardCarousel('${cardId}', 1);">
+                      <i class="bi bi-chevron-right"></i>
+                    </button>
+
+                    <!-- Dot Indicators -->
+                    <div class="card-carousel-dots" id="dots_${cardId}">
+                      ${group.photos.map((_, dotIdx) => `
+                        <button type="button" class="card-carousel-dot ${dotIdx === 0 ? 'active' : ''}" onclick="event.stopPropagation(); window.jumpCardCarousel('${cardId}', ${dotIdx});" aria-label="Slide ${dotIdx + 1}"></button>
+                      `).join('')}
+                    </div>
+                  </div>
+
+                  <div class="media-card-body">
+                    <span class="media-card-event-name">${escapeHtml(group.eventName)}</span>
+                    <h3 class="media-card-title" id="title_${cardId}">${escapeHtml(group.photos[0].title || group.eventName)}</h3>
+                    <p class="media-card-desc">${escapeHtml(group.desc || group.photos[0].desc || 'High-resolution event captures and stage architecture.')}</p>
+                    <div class="media-card-footer">
+                      <span><i class="bi bi-calendar3"></i> ${escapeHtml(group.date)}</span>
+                      <button class="btn btn-outline" style="font-size: 0.775rem; padding: 5px 14px; border-radius: 999px;" onclick="window.openPhotoCarousel(${groupIdx}, 0)">
+                        <i class="bi bi-images"></i> View Carousel (${photosCount})
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              `;
+            } else {
+              // --- RENDER SINGLE PHOTO CARD ---
+              const singlePhoto = group.photos[0];
+              return `
+                <div class="media-card-premium" data-aos="fade-up">
+                  <div class="media-thumb-box" onclick="window.openPhotoCarousel(${groupIdx}, 0)">
+                    <img src="${escapeHtml(singlePhoto.imgUrl)}" alt="${escapeHtml(singlePhoto.title)}" class="media-thumb-img">
+                    <span class="media-category-badge">${escapeHtml(group.category)}</span>
+                  </div>
+                  <div class="media-card-body">
+                    <span class="media-card-event-name">${escapeHtml(group.eventName)}</span>
+                    <h3 class="media-card-title">${escapeHtml(singlePhoto.title)}</h3>
+                    <p class="media-card-desc">${escapeHtml(singlePhoto.desc || group.desc || '')}</p>
+                    <div class="media-card-footer">
+                      <span><i class="bi bi-calendar3"></i> ${escapeHtml(singlePhoto.date || group.date)}</span>
+                      <button class="btn btn-outline" style="font-size: 0.775rem; padding: 4px 12px; border-radius: 999px;" onclick="window.openPhotoCarousel(${groupIdx}, 0)">
+                        <i class="bi bi-arrows-fullscreen"></i> Expand
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              `;
+            }
+          }).join('');
+
+          // Expose eventGroups globally for modal carousel
+          window.currentEventGroups = eventGroups;
+        }
+
+        // C. Featured Top Category Carousel
+        function renderCategoryFeaturedCarousel(photoList, activeCat) {
+          if (!catCarouselSlot) return;
+          if (catCarouselTimer) clearInterval(catCarouselTimer);
+
+          if (photoList.length < 2) {
+            catCarouselSlot.innerHTML = '';
+            return;
+          }
+
+          catCarouselCurrentIndex = 0;
+          const carouselPhotos = photoList.slice(0, 8); // Top up to 8 photos for featured banner
+
+          catCarouselSlot.innerHTML = `
+            <div class="category-featured-carousel" id="catFeaturedCarousel">
+              <div class="cat-carousel-track" id="catCarouselTrack">
+                ${carouselPhotos.map((p, idx) => `
+                  <div class="cat-carousel-slide" onclick="window.openFeaturedCarousel(${idx})">
+                    <img src="${escapeHtml(p.imgUrl)}" alt="${escapeHtml(p.title)}" class="cat-carousel-img">
+                    <div class="cat-carousel-gradient"></div>
+                    <div class="cat-carousel-content">
+                      <span class="cat-carousel-badge">
+                        <i class="bi bi-stars"></i> ${escapeHtml(p.category || activeCat)} Showcase
+                      </span>
+                      <h3 class="cat-carousel-title">${escapeHtml(p.title || p.eventName)}</h3>
+                      <p class="cat-carousel-desc">${escapeHtml(p.desc || p.eventName || 'Experiential staging and turnkey production.')}</p>
+                    </div>
+                  </div>
+                `).join('')}
+              </div>
+
+              <!-- Navigation Arrows -->
+              <button type="button" class="cat-carousel-nav-btn prev" id="catCarouselPrev" aria-label="Previous featured photo">
+                <i class="bi bi-chevron-left"></i>
+              </button>
+              <button type="button" class="cat-carousel-nav-btn next" id="catCarouselNext" aria-label="Next featured photo">
+                <i class="bi bi-chevron-right"></i>
+              </button>
+
+              <!-- Dots -->
+              <div class="cat-carousel-dots" id="catCarouselDots">
+                ${carouselPhotos.map((_, idx) => `
+                  <button type="button" class="cat-carousel-dot ${idx === 0 ? 'active' : ''}" data-cat-idx="${idx}" aria-label="Slide ${idx + 1}"></button>
+                `).join('')}
+              </div>
+            </div>
+          `;
+
+          window.currentFeaturedPhotos = carouselPhotos;
+
+          const track = document.getElementById('catCarouselTrack');
+          const dots = document.querySelectorAll('#catCarouselDots .cat-carousel-dot');
+
+          function updateFeaturedSlide(newIdx) {
+            catCarouselCurrentIndex = (newIdx + carouselPhotos.length) % carouselPhotos.length;
+            if (track) track.style.transform = `translateX(-${catCarouselCurrentIndex * 100}%)`;
+            dots.forEach((d, i) => d.classList.toggle('active', i === catCarouselCurrentIndex));
+          }
+
+          document.getElementById('catCarouselPrev')?.addEventListener('click', (e) => {
+            e.stopPropagation();
+            updateFeaturedSlide(catCarouselCurrentIndex - 1);
+          });
+
+          document.getElementById('catCarouselNext')?.addEventListener('click', (e) => {
+            e.stopPropagation();
+            updateFeaturedSlide(catCarouselCurrentIndex + 1);
+          });
+
+          dots.forEach(dot => {
+            dot.addEventListener('click', (e) => {
+              e.stopPropagation();
+              const idx = parseInt(dot.getAttribute('data-cat-idx'), 10);
+              updateFeaturedSlide(idx);
+            });
+          });
+
+          // Auto Slide every 5.5 seconds
+          catCarouselTimer = setInterval(() => {
+            updateFeaturedSlide(catCarouselCurrentIndex + 1);
+          }, 5500);
+
+          const carouselEl = document.getElementById('catFeaturedCarousel');
+          carouselEl?.addEventListener('mouseenter', () => clearInterval(catCarouselTimer));
+          carouselEl?.addEventListener('mouseleave', () => {
+            clearInterval(catCarouselTimer);
+            catCarouselTimer = setInterval(() => updateFeaturedSlide(catCarouselCurrentIndex + 1), 5500);
+          });
+        }
+
+        renderPublicImages('ALL');
+
+        // 4. Render Event Videos
+        const vidGrid = document.getElementById('publicVideosGrid');
+        if (vidGrid) {
+          if (videos.length === 0) {
+            vidGrid.innerHTML = `
+              <div style="grid-column: 1/-1; text-align: center; padding: 70px 20px; background: rgba(255,255,255,0.015); border-radius: 16px; border: 1px dashed rgba(255,255,255,0.1);">
+                <i class="bi bi-camera-video" style="font-size: 2.8rem; color: #475569; margin-bottom: 14px; display: block;"></i>
+                <h4 style="color: #94a3b8; font-weight: 600; font-size: 1.15rem; margin-bottom: 6px;">No Video Showreels Uploaded Yet</h4>
+                <p style="color: #64748b; font-size: 0.9rem; max-width: 480px; margin: 0 auto;">Event showreels and keynote recordings will appear here once uploaded via the admin panel.</p>
+              </div>
+            `;
+          } else {
+            vidGrid.innerHTML = videos.map(vid => `
+              <div class="media-card-premium" data-aos="fade-up">
+                <div class="media-thumb-box" onclick="window.openMediaModal('video', '${escapeHtml(vid.videoUrl)}', '${escapeHtml(vid.title)}')">
+                  <img src="${escapeHtml(vid.thumbUrl)}" alt="${escapeHtml(vid.title)}" class="media-thumb-img">
+                  <span class="media-category-badge">${escapeHtml(vid.category)}</span>
+                  <div class="media-play-overlay">
+                    <div class="media-play-btn"><i class="bi bi-play-fill"></i></div>
+                  </div>
+                  <span class="media-duration-badge">${escapeHtml(vid.duration)}</span>
+                </div>
+                <div class="media-card-body">
+                  <span class="media-card-event-name">Client: ${escapeHtml(vid.client)}</span>
+                  <h3 class="media-card-title">${escapeHtml(vid.title)}</h3>
+                  <p class="media-card-desc">${escapeHtml(vid.desc || '')}</p>
+                  <div class="media-card-footer">
+                    <span><i class="bi bi-camera-reels"></i> HD 1080p</span>
+                    <button class="btn btn-primary" style="font-size: 0.775rem; padding: 5px 14px; border-radius: 999px;" onclick="window.openMediaModal('video', '${escapeHtml(vid.videoUrl)}', '${escapeHtml(vid.title)}')">
+                      <i class="bi bi-play-fill"></i> Play Video
+                    </button>
+                  </div>
+                </div>
+              </div>
+            `).join('');
+          }
+        }
+      }
+
+      // --- CARD CAROUSEL SLIDE CONTROLLER ---
+      window.slideCardCarousel = function (cardId, direction) {
+        const state = window.cardCarouselStates[cardId];
+        if (!state) return;
+
+        state.currentIndex = (state.currentIndex + direction + state.total) % state.total;
+        updateCardCarouselDOM(cardId, state);
+      };
+
+      window.jumpCardCarousel = function (cardId, index) {
+        const state = window.cardCarouselStates[cardId];
+        if (!state) return;
+
+        state.currentIndex = Math.max(0, Math.min(index, state.total - 1));
+        updateCardCarouselDOM(cardId, state);
+      };
+
+      function updateCardCarouselDOM(cardId, state) {
+        const track = document.getElementById(`track_${cardId}`);
+        const counter = document.getElementById(`counter_${cardId}`);
+        const titleEl = document.getElementById(`title_${cardId}`);
+        const dots = document.querySelectorAll(`#dots_${cardId} .card-carousel-dot`);
+
+        if (track) {
+          track.style.transform = `translateX(-${state.currentIndex * 100}%)`;
+        }
+
+        if (counter) {
+          counter.innerHTML = `<i class="bi bi-images"></i> ${state.currentIndex + 1} / ${state.total} Photos`;
+        }
+
+        if (titleEl && state.photos[state.currentIndex]) {
+          titleEl.textContent = state.photos[state.currentIndex].title || state.eventName;
+        }
+
+        dots.forEach((dot, idx) => {
+          dot.classList.toggle('active', idx === state.currentIndex);
+        });
+      }
+
+      // --- OPEN FULLSCREEN CAROUSEL LIGHTBOX ---
+      window.openPhotoCarousel = function (groupIdx, startIndex = 0) {
+        if (!window.currentEventGroups || !window.currentEventGroups[groupIdx]) return;
+        const group = window.currentEventGroups[groupIdx];
+        window.openCarouselLightbox(group.photos, startIndex, group.eventName, group.category);
+      };
+
+      window.openFeaturedCarousel = function (startIndex = 0) {
+        if (!window.currentFeaturedPhotos) return;
+        window.openCarouselLightbox(window.currentFeaturedPhotos, startIndex, 'Featured Event Showcase', 'Gallery');
+      };
+
+      window.openCarouselLightbox = function (photos, startIndex = 0, eventTitle = '', category = '') {
+        const modal = document.getElementById('publicMediaModal');
+        const modalSlot = document.getElementById('modalContentSlot');
+        if (!modal || !modalSlot || !photos || !photos.length) return;
+
+        currentLightboxState = {
+          photos,
+          currentIndex: startIndex,
+          title: eventTitle,
+          category
+        };
+
+        renderLightboxContent();
+        modal.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      };
+
+      function renderLightboxContent() {
+        const modalSlot = document.getElementById('modalContentSlot');
+        if (!modalSlot) return;
+
+        const { photos, currentIndex, title, category } = currentLightboxState;
+        const currentPhoto = photos[currentIndex];
+        const hasMultiple = photos.length > 1;
+
+        modalSlot.innerHTML = `
+          <div class="lightbox-carousel-main">
+            <img src="${escapeHtml(currentPhoto.imgUrl)}" alt="${escapeHtml(currentPhoto.title || title)}" id="lightboxCurrentImg">
+
+            ${hasMultiple ? `
+              <button type="button" class="lightbox-nav-btn prev" id="btnLightboxPrev" aria-label="Previous photo">
+                <i class="bi bi-chevron-left"></i>
+              </button>
+              <button type="button" class="lightbox-nav-btn next" id="btnLightboxNext" aria-label="Next photo">
+                <i class="bi bi-chevron-right"></i>
+              </button>
+            ` : ''}
+          </div>
+
+          <div style="padding: 16px 22px; background: #0b101c; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid #1e283d;">
+            <div>
+              <span style="font-size: 0.75rem; color: #fe3b20; font-weight: 700; text-transform: uppercase;">
+                ${escapeHtml(currentPhoto.category || category || 'Event Gallery')}
+              </span>
+              <h4 style="color: #fff; font-size: 1.15rem; font-family: var(--font-heading); margin-top: 2px;">
+                ${escapeHtml(currentPhoto.title || title)}
+              </h4>
+              <p style="color: #94a3b8; font-size: 0.85rem; margin: 0;">
+                ${escapeHtml(currentPhoto.eventName || title)} &bull; ${escapeHtml(currentPhoto.date || 'Recent')}
+              </p>
+            </div>
+            ${hasMultiple ? `
+              <div style="background: rgba(255,255,255,0.06); padding: 4px 12px; border-radius: 999px; font-size: 0.8rem; color: #cbd5e1; font-weight: 600;">
+                <i class="bi bi-images" style="color: #fe3b20; margin-right: 4px;"></i> Photo ${currentIndex + 1} of ${photos.length}
+              </div>
+            ` : ''}
+          </div>
+
+          ${hasMultiple ? `
+            <div class="lightbox-thumb-strip">
+              ${photos.map((p, idx) => `
+                <div class="lightbox-thumb-item ${idx === currentIndex ? 'active' : ''}" data-thumb-idx="${idx}">
+                  <img src="${escapeHtml(p.imgUrl)}" alt="${escapeHtml(p.title)}">
+                </div>
+              `).join('')}
+            </div>
+          ` : ''}
+        `;
+
+        // Attach Lightbox Handlers
+        document.getElementById('btnLightboxPrev')?.addEventListener('click', (e) => {
+          e.stopPropagation();
+          navigateLightbox(-1);
+        });
+
+        document.getElementById('btnLightboxNext')?.addEventListener('click', (e) => {
+          e.stopPropagation();
+          navigateLightbox(1);
+        });
+
+        modalSlot.querySelectorAll('.lightbox-thumb-item').forEach(thumb => {
+          thumb.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const idx = parseInt(thumb.getAttribute('data-thumb-idx'), 10);
+            currentLightboxState.currentIndex = idx;
+            renderLightboxContent();
+          });
+        });
+      }
+
+      function navigateLightbox(direction) {
+        const { photos, currentIndex } = currentLightboxState;
+        if (!photos.length) return;
+        currentLightboxState.currentIndex = (currentIndex + direction + photos.length) % photos.length;
+        renderLightboxContent();
+      }
+
+      // Keyboard support for Lightbox
+      window.addEventListener('keydown', (e) => {
+        const modal = document.getElementById('publicMediaModal');
+        if (modal && modal.classList.contains('open')) {
+          if (e.key === 'ArrowLeft') navigateLightbox(-1);
+          if (e.key === 'ArrowRight') navigateLightbox(1);
+          if (e.key === 'Escape') {
+            modal.classList.remove('open');
+            document.body.style.overflow = 'auto';
+          }
+        }
+      });
+
+      function formatVideoEmbedHtml(url, style = 'width: 100%; height: 75vh; border: none; outline: none;') {
+        if (!url) return '';
+        const ytMatch = url.match(/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/i);
+        if (ytMatch) {
+          return `<iframe src="https://www.youtube.com/embed/${ytMatch[1]}?autoplay=1&rel=0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="${style}"></iframe>`;
+        }
+        const vimeoMatch = url.match(/vimeo\.com\/(?:channels\/(?:\w+\/)?|groups\/[^\/]*\/videos\/|album\/(?:\d+)\/video\/|video\/|)(\d+)/i);
+        if (vimeoMatch) {
+          return `<iframe src="https://player.vimeo.com/video/${vimeoMatch[1]}?autoplay=1" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="${style}"></iframe>`;
+        }
+        return `<video controls autoplay style="${style}" src="${escapeHtml(url)}"></video>`;
+      }
+
+      // Video & Simple Image Lightbox fallback
+      window.openMediaModal = function (type, src, title) {
+        const modal = document.getElementById('publicMediaModal');
+        const modalSlot = document.getElementById('modalContentSlot');
+        if (!modal || !modalSlot) return;
+
+        if (type === 'img') {
+          window.openCarouselLightbox([{ imgUrl: src, title: title }], 0, title);
+          return;
+        } else if (type === 'video') {
+          modalSlot.innerHTML = `
+            <div style="background: #000; width: 100%;">
+              ${formatVideoEmbedHtml(src, 'width: 100%; height: 75vh; outline: none; border: none;')}
+            </div>
+            <div style="padding: 18px 22px; background: #0b101c;">
+              <h4 style="color: #fff; font-size: 1.15rem; font-family: var(--font-heading);">${escapeHtml(title)}</h4>
+            </div>
+          `;
+          modal.classList.add('open');
+          document.body.style.overflow = 'hidden';
+        }
+      };
+
+      // Modal Close Listeners
+      const closeBtn = document.getElementById('modalCloseBtn');
+      const modal = document.getElementById('publicMediaModal');
+
+      closeBtn?.addEventListener('click', () => {
+        modal?.classList.remove('open');
+        document.body.style.overflow = 'auto';
+        if (document.getElementById('modalContentSlot')) document.getElementById('modalContentSlot').innerHTML = '';
+      });
+
+      modal?.addEventListener('click', (e) => {
+        if (e.target === modal) {
+          modal.classList.remove('open');
+          document.body.style.overflow = 'auto';
+          if (document.getElementById('modalContentSlot')) document.getElementById('modalContentSlot').innerHTML = '';
+        }
+      });
+
+      // Hero Audio & Playback Controls
+      const heroVideoEl = document.getElementById('publicHeroVideo');
+      const audioBtn = document.getElementById('heroAudioToggle');
+      const playBtn = document.getElementById('heroPlaybackToggle');
+
+      audioBtn?.addEventListener('click', () => {
+        if (!heroVideoEl) return;
+        heroVideoEl.muted = !heroVideoEl.muted;
+        audioBtn.innerHTML = heroVideoEl.muted ? '<i class="bi bi-volume-mute-fill"></i>' : '<i class="bi bi-volume-up-fill"></i>';
+      });
+
+      playBtn?.addEventListener('click', () => {
+        if (!heroVideoEl) return;
+        if (heroVideoEl.paused) {
+          heroVideoEl.play();
+          playBtn.innerHTML = '<i class="bi bi-pause-fill"></i>';
+        } else {
+          heroVideoEl.pause();
+          playBtn.innerHTML = '<i class="bi bi-play-fill"></i>';
+        }
+      });
+
+      // Initial Render
+      refreshPageData();
+
+      // Real-time synchronization when Admin uploads or modifies data
+      window.addEventListener('storage', (e) => {
+        if (!e.key || e.key === STORAGE_KEY || e.key === 'EST_ADMIN_DB_SYNC_TS') {
+          refreshPageData();
+        }
+      });
+
+      window.addEventListener('EST_DB_UPDATED', () => {
+        refreshPageData();
+      });
+
+      window.addEventListener('EST_DB_SYNC', () => {
+        refreshPageData();
+      });
+
+      if (window.ESTCloudSync && typeof window.ESTCloudSync.onSync === 'function') {
+        window.ESTCloudSync.onSync(() => {
+          refreshPageData();
+        });
+      }
+
+      if (typeof BroadcastChannel !== 'undefined') {
+        try {
+          const syncChannel = new BroadcastChannel('est_admin_sync');
+          syncChannel.onmessage = (event) => {
+            if (event.data && event.data.type === 'DB_UPDATE') {
+              refreshPageData();
+            }
+          };
+        } catch (_) {}
+      }
+
+      window.addEventListener('focus', () => {
+        refreshPageData();
+      });
+
+      document.addEventListener('visibilitychange', () => {
+        if (document.visibilityState === 'visible') {
+          refreshPageData();
+        }
+      });
+
+      function escapeHtml(str) {
+        if (typeof str !== 'string') return str;
+        return str.replace(/[&<>'"]/g, tag => ({
+          '&': '&amp;',
+          '<': '&lt;',
+          '>': '&gt;',
+          "'": '&#39;',
+          '"': '&quot;'
+        }[tag] || tag));
+      }
+
+    })();
+  </script>
+</body>
+</html>
