@@ -167,10 +167,16 @@
        METRICS STRIP
        ========================================================================= */
     .metrics-strip {
-      background: #080b12;
-      border-top: 1px solid rgba(255, 255, 255, 0.05);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      background: var(--bg-secondary);
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
       padding: 30px 0;
+      transition: background-color var(--transition-slow), border-color var(--transition-slow);
+    }
+
+    html.dark .metrics-strip {
+      background: #080b12;
+      border-color: rgba(255, 255, 255, 0.05);
     }
 
     .metrics-grid-four {
@@ -190,10 +196,14 @@
 
     .metric-item p {
       font-size: 0.9rem;
-      color: #94a3b8;
+      color: var(--text-secondary);
       text-transform: uppercase;
       letter-spacing: 0.5px;
       font-weight: 500;
+    }
+
+    html.dark .metric-item p {
+      color: #94a3b8;
     }
 
     /* =========================================================================
@@ -209,9 +219,9 @@
     }
 
     .filter-tab-pill {
-      background: #111624;
-      border: 1px solid #1e273d;
-      color: #94a3b8;
+      background: var(--bg-tertiary);
+      border: 1px solid var(--border-color);
+      color: var(--text-secondary);
       font-family: var(--font-body);
       font-size: 0.9rem;
       font-weight: 500;
@@ -219,6 +229,12 @@
       border-radius: 999px;
       cursor: pointer;
       transition: all 0.25s ease;
+    }
+
+    html.dark .filter-tab-pill {
+      background: #111624;
+      border-color: #1e273d;
+      color: #94a3b8;
     }
 
     .filter-tab-pill:hover, .filter-tab-pill.active {
@@ -238,14 +254,21 @@
     }
 
     .media-card-premium {
-      background: #0d121e;
-      border: 1px solid #1a2236;
+      background: var(--glass-bg);
+      border: 1px solid var(--border-color);
       border-radius: 16px;
       overflow: hidden;
       transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
       display: flex;
       flex-direction: column;
       position: relative;
+      box-shadow: var(--shadow-sm);
+    }
+
+    html.dark .media-card-premium {
+      background: #0d121e;
+      border-color: #1a2236;
+      box-shadow: none;
     }
 
     .media-card-premium:hover {
@@ -349,17 +372,25 @@
       font-family: var(--font-heading);
       font-size: 1.18rem;
       font-weight: 700;
-      color: #ffffff;
+      color: var(--text-primary);
       line-height: 1.4;
       margin-bottom: 10px;
     }
 
+    html.dark .media-card-title {
+      color: #ffffff;
+    }
+
     .media-card-desc {
       font-size: 0.875rem;
-      color: #94a3b8;
+      color: var(--text-secondary);
       line-height: 1.5;
       margin-bottom: 18px;
       flex: 1;
+    }
+
+    html.dark .media-card-desc {
+      color: #94a3b8;
     }
 
     .media-card-footer {
@@ -367,8 +398,13 @@
       align-items: center;
       justify-content: space-between;
       padding-top: 14px;
-      border-top: 1px solid #1a2236;
+      border-top: 1px solid var(--border-color);
       font-size: 0.82rem;
+      color: var(--text-secondary);
+    }
+
+    html.dark .media-card-footer {
+      border-top-color: #1a2236;
       color: #64748b;
     }
 
@@ -961,16 +997,16 @@
        SECTION 1: EVENT IMAGES & PHOTO GALLERY
        (Dynamically rendered from Admin database)
        ========================================== -->
-  <section class="section" id="photoGallerySection" style="background-color: #080b12;">
+  <section class="section" id="photoGallerySection" style="background-color: var(--bg-secondary); transition: background-color var(--transition-slow);">
     <div class="container">
       <div class="section-header" style="text-align: center; max-width: 800px; margin: 0 auto 30px;" data-aos="fade-up">
         <span class="badge" style="background: rgba(254,59,32,0.15); color: #fe3b20; border: 1px solid rgba(254,59,32,0.3); padding: 6px 14px; border-radius: 999px; font-weight: 600;">
           <i class="bi bi-camera-fill"></i> Photo Portfolio
         </span>
-        <h2 style="font-family: var(--font-heading); font-size: 2.4rem; font-weight: 700; color: #fff; margin-top: 12px; margin-bottom: 12px;">
+        <h2 style="font-family: var(--font-heading); font-size: 2.4rem; font-weight: 700; color: var(--text-primary); margin-top: 12px; margin-bottom: 12px;">
           Experiential Event Gallery
         </h2>
-        <p style="color: #94a3b8; font-size: 1rem;">
+        <p style="color: var(--text-secondary); font-size: 1rem;">
           High-resolution captures from our recent keynote stages, interactive exhibition pavilions, and on-ground activations.
         </p>
       </div>
@@ -999,16 +1035,16 @@
        SECTION 2: EVENT VIDEOS & SHOWREELS
        (Dynamically rendered from Admin database)
        ========================================== -->
-  <section class="section" id="videoShowcaseSection" style="background-color: #06080e;">
+  <section class="section" id="videoShowcaseSection" style="background-color: var(--bg-primary); transition: background-color var(--transition-slow);">
     <div class="container">
       <div class="section-header" style="text-align: center; max-width: 800px; margin: 0 auto 40px;" data-aos="fade-up">
         <span class="badge" style="background: rgba(12,188,161,0.15); color: #0cbca1; border: 1px solid rgba(12,188,161,0.3); padding: 6px 14px; border-radius: 999px; font-weight: 600;">
           <i class="bi bi-play-circle-fill"></i> Video Showreels
         </span>
-        <h2 style="font-family: var(--font-heading); font-size: 2.4rem; font-weight: 700; color: #fff; margin-top: 12px; margin-bottom: 12px;">
+        <h2 style="font-family: var(--font-heading); font-size: 2.4rem; font-weight: 700; color: var(--text-primary); margin-top: 12px; margin-bottom: 12px;">
           High-Energy Event Showcases
         </h2>
-        <p style="color: #94a3b8; font-size: 1rem;">
+        <p style="color: var(--text-secondary); font-size: 1rem;">
           Watch our end-to-end technical production, crowd energy, and multi-hub execution films.
         </p>
       </div>
@@ -1252,10 +1288,10 @@
           if (images.length === 0) {
             if (catCarouselSlot) catCarouselSlot.innerHTML = '';
             imgGrid.innerHTML = `
-              <div style="grid-column: 1/-1; text-align: center; padding: 70px 20px; background: rgba(255,255,255,0.015); border-radius: 16px; border: 1px dashed rgba(255,255,255,0.1);">
-                <i class="bi bi-images" style="font-size: 2.8rem; color: #475569; margin-bottom: 14px; display: block;"></i>
-                <h4 style="color: #94a3b8; font-weight: 600; font-size: 1.15rem; margin-bottom: 6px;">No Event Photos Uploaded Yet</h4>
-                <p style="color: #64748b; font-size: 0.9rem; max-width: 480px; margin: 0 auto;">Event photos and captures will appear here once uploaded via the admin panel.</p>
+              <div style="grid-column: 1/-1; text-align: center; padding: 70px 20px; background: var(--bg-tertiary); border-radius: 16px; border: 1px dashed var(--border-color);">
+                <i class="bi bi-images" style="font-size: 2.8rem; color: var(--color-primary); margin-bottom: 14px; display: block;"></i>
+                <h4 style="color: var(--text-primary); font-weight: 600; font-size: 1.15rem; margin-bottom: 6px;">No Event Photos Uploaded Yet</h4>
+                <p style="color: var(--text-secondary); font-size: 0.9rem; max-width: 480px; margin: 0 auto;">Event photos and captures will appear here once uploaded via the admin panel.</p>
               </div>
             `;
             return;
@@ -1487,10 +1523,10 @@
         if (vidGrid) {
           if (videos.length === 0) {
             vidGrid.innerHTML = `
-              <div style="grid-column: 1/-1; text-align: center; padding: 70px 20px; background: rgba(255,255,255,0.015); border-radius: 16px; border: 1px dashed rgba(255,255,255,0.1);">
-                <i class="bi bi-camera-video" style="font-size: 2.8rem; color: #475569; margin-bottom: 14px; display: block;"></i>
-                <h4 style="color: #94a3b8; font-weight: 600; font-size: 1.15rem; margin-bottom: 6px;">No Video Showreels Uploaded Yet</h4>
-                <p style="color: #64748b; font-size: 0.9rem; max-width: 480px; margin: 0 auto;">Event showreels and keynote recordings will appear here once uploaded via the admin panel.</p>
+              <div style="grid-column: 1/-1; text-align: center; padding: 70px 20px; background: var(--bg-tertiary); border-radius: 16px; border: 1px dashed var(--border-color);">
+                <i class="bi bi-camera-video" style="font-size: 2.8rem; color: var(--color-accent); margin-bottom: 14px; display: block;"></i>
+                <h4 style="color: var(--text-primary); font-weight: 600; font-size: 1.15rem; margin-bottom: 6px;">No Video Showreels Uploaded Yet</h4>
+                <p style="color: var(--text-secondary); font-size: 0.9rem; max-width: 480px; margin: 0 auto;">Event showreels and keynote recordings will appear here once uploaded via the admin panel.</p>
               </div>
             `;
           } else {

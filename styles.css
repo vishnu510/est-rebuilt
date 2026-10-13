@@ -43,7 +43,7 @@
   /* Text colors */
   --text-primary: #0f172a;
   --text-secondary: #475569;
-  --text-muted: #94a3b8;
+  --text-muted: #64748b;
 
   /* Glassmorphism details */
   --glass-bg: rgba(255, 255, 255, 0.7);
@@ -5072,17 +5072,29 @@ html.dark .article-modal-top-bar,
 
 /* --- High-Contrast Section Classes --- */
 .section-pitch-black {
-  background-color: #000000 !important;
-  color: #ffffff !important;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
   position: relative;
   overflow: hidden;
+  transition: background-color var(--transition-slow), color var(--transition-slow);
+}
+
+html.dark .section-pitch-black {
+  background-color: #000000 !important;
+  color: #ffffff !important;
 }
 
 .section-pure-dark {
-  background-color: #080a0f !important;
-  color: #f1f5f9 !important;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
   position: relative;
   overflow: hidden;
+  transition: background-color var(--transition-slow), color var(--transition-slow);
+}
+
+html.dark .section-pure-dark {
+  background-color: #080a0f !important;
+  color: #f1f5f9 !important;
 }
 
 .section-off-white {
@@ -5098,6 +5110,13 @@ html.dark .section-off-white {
 
 /* Accent Neon & Glows */
 :root {
+  --neon-cyan: #0284c7;
+  --neon-cyan-glow: rgba(2, 132, 199, 0.25);
+  --neon-orange: #ea580c;
+  --est-yellow: #ca8a04;
+}
+
+html.dark {
   --neon-cyan: #00f0ff;
   --neon-cyan-glow: rgba(0, 240, 255, 0.4);
   --neon-orange: #ff5e3a;
@@ -5374,13 +5393,19 @@ html.dark .est-manifesto-banner {
 }
 
 /* ==========================================================================
-   2-COLUMN DARK PHILOSOPHY BANNER
+   2-COLUMN DARK/LIGHT PHILOSOPHY BANNER
    ========================================================================== */
 .est-philosophy-section {
   padding: 120px 0;
+  background-color: #f1f5f9;
+  color: #0f172a;
+  position: relative;
+  transition: background-color var(--transition-slow), color var(--transition-slow);
+}
+
+html.dark .est-philosophy-section {
   background-color: #000000;
   color: #ffffff;
-  position: relative;
 }
 
 .philosophy-grid {
@@ -5398,16 +5423,23 @@ html.dark .est-manifesto-banner {
 }
 
 .philosophy-col-left {
-  border-right: 1px solid rgba(255, 255, 255, 0.12);
+  border-right: 1px solid #cbd5e1;
   padding-right: 50px;
+}
+
+html.dark .philosophy-col-left {
+  border-right-color: rgba(255, 255, 255, 0.12);
 }
 
 @media (max-width: 900px) {
   .philosophy-col-left {
     border-right: none;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    border-bottom: 1px solid #cbd5e1;
     padding-right: 0;
     padding-bottom: 40px;
+  }
+  html.dark .philosophy-col-left {
+    border-bottom-color: rgba(255, 255, 255, 0.12);
   }
 }
 
@@ -5424,13 +5456,21 @@ html.dark .est-manifesto-banner {
 .philosophy-narrative {
   font-size: clamp(1.2rem, 1.8vw, 1.55rem);
   line-height: 1.6;
-  color: #cbd5e1;
+  color: #334155;
   font-weight: 400;
 }
 
+html.dark .philosophy-narrative {
+  color: #cbd5e1;
+}
+
 .philosophy-narrative strong {
-  color: #ffffff;
+  color: #0f172a;
   font-weight: 700;
+}
+
+html.dark .philosophy-narrative strong {
+  color: #ffffff;
 }
 
 .philosophy-col-right {
@@ -5449,8 +5489,12 @@ html.dark .est-manifesto-banner {
   font-weight: 800;
   line-height: 1.15;
   letter-spacing: -1px;
-  color: #ffffff;
+  color: #0f172a;
   margin-bottom: 24px;
+}
+
+html.dark .philosophy-punch-statement {
+  color: #ffffff;
 }
 
 .philosophy-punch-sub {
@@ -5458,8 +5502,12 @@ html.dark .est-manifesto-banner {
   font-size: clamp(1.3rem, 2.2vw, 2rem);
   font-weight: 600;
   line-height: 1.3;
-  color: #94a3b8;
+  color: #64748b;
   font-style: italic;
+}
+
+html.dark .philosophy-punch-sub {
+  color: #94a3b8;
 }
 
 /* ==========================================================================
@@ -5467,9 +5515,15 @@ html.dark .est-manifesto-banner {
    ========================================================================== */
 .est-showcase-section {
   padding: 120px 0;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  position: relative;
+  transition: background-color var(--transition-slow), color var(--transition-slow);
+}
+
+html.dark .est-showcase-section {
   background-color: #06080e;
   color: #ffffff;
-  position: relative;
 }
 
 .showcase-header-bar {
@@ -5487,13 +5541,21 @@ html.dark .est-manifesto-banner {
   font-weight: 800;
   line-height: 1.1;
   letter-spacing: -1px;
+  color: var(--text-primary);
+}
+
+html.dark .showcase-title-wrap h2 {
   color: #ffffff;
 }
 
 .showcase-title-wrap p {
-  color: #94a3b8;
+  color: var(--text-secondary);
   font-size: 1.1rem;
   margin-top: 10px;
+}
+
+html.dark .showcase-title-wrap p {
+  color: #94a3b8;
 }
 
 .showcase-filter-pills {
@@ -5503,9 +5565,9 @@ html.dark .est-manifesto-banner {
 }
 
 .showcase-pill-btn {
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  color: #94a3b8;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
   padding: 10px 22px;
   border-radius: 999px;
   font-size: 0.9rem;
@@ -5514,8 +5576,22 @@ html.dark .est-manifesto-banner {
   transition: all 0.25s ease;
 }
 
+html.dark .showcase-pill-btn {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.12);
+  color: #94a3b8;
+}
+
 .showcase-pill-btn:hover,
 .showcase-pill-btn.active {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: #ffffff;
+  box-shadow: 0 4px 15px rgba(var(--color-primary-rgb), 0.3);
+}
+
+html.dark .showcase-pill-btn:hover,
+html.dark .showcase-pill-btn.active {
   background: var(--neon-cyan);
   border-color: var(--neon-cyan);
   color: #000000;
@@ -5726,13 +5802,20 @@ html.dark .est-manifesto-banner {
    "WANT TO EXPERIENCE MORE?" CTA BANNER
    ========================================================================== */
 .est-experience-cta-ribbon {
-  background-color: #000000;
+  background-color: #f8fafc;
   padding: 90px 20px;
   text-align: center;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
   position: relative;
   overflow: hidden;
+  transition: background-color var(--transition-slow), border-color var(--transition-slow);
+}
+
+html.dark .est-experience-cta-ribbon {
+  background-color: #000000;
+  border-top-color: rgba(255, 255, 255, 0.08);
+  border-bottom-color: rgba(255, 255, 255, 0.08);
 }
 
 .experience-cta-text {
@@ -5740,12 +5823,17 @@ html.dark .est-manifesto-banner {
   font-size: clamp(2.4rem, 5.5vw, 4.8rem);
   font-weight: 800;
   letter-spacing: -1.5px;
-  color: #ffffff;
+  color: #0f172a;
   display: inline-flex;
   align-items: center;
   gap: 16px;
   flex-wrap: wrap;
   justify-content: center;
+  transition: color var(--transition-slow);
+}
+
+html.dark .experience-cta-text {
+  color: #ffffff;
 }
 
 .experience-glow-link {
@@ -5758,6 +5846,11 @@ html.dark .est-manifesto-banner {
 }
 
 .experience-glow-link:hover {
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+html.dark .experience-glow-link:hover {
   color: #ffffff;
   border-color: #ffffff;
   text-shadow: 0 0 20px var(--neon-cyan);
@@ -6009,10 +6102,16 @@ html.dark .author-info p {
    ========================================================================== */
 .est-bring-alive-section {
   padding: 120px 0;
-  background-color: #060911;
-  color: #ffffff;
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
   position: relative;
   text-align: center;
+  transition: background-color var(--transition-slow), color var(--transition-slow);
+}
+
+html.dark .est-bring-alive-section {
+  background-color: #060911;
+  color: #ffffff;
 }
 
 .bring-alive-content {
@@ -6026,8 +6125,12 @@ html.dark .author-info p {
   font-weight: 800;
   line-height: 1.1;
   letter-spacing: -1px;
-  color: #ffffff;
+  color: var(--text-primary);
   margin-bottom: 20px;
+}
+
+html.dark .bring-alive-title {
+  color: #ffffff;
 }
 
 .bring-alive-title span {
@@ -6038,9 +6141,13 @@ html.dark .author-info p {
 
 .bring-alive-subtitle {
   font-size: 1.3rem;
-  color: #94a3b8;
+  color: var(--text-secondary);
   margin-bottom: 40px;
   line-height: 1.5;
+}
+
+html.dark .bring-alive-subtitle {
+  color: #94a3b8;
 }
 
 .bring-alive-form {
@@ -6054,17 +6161,28 @@ html.dark .author-info p {
 .bring-alive-input {
   flex: 1;
   min-width: 240px;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: #ffffff;
+  border: 1px solid var(--border-color);
   border-radius: 999px;
   padding: 16px 28px;
-  color: #ffffff;
+  color: var(--text-primary);
   font-size: 1rem;
   outline: none;
   transition: all 0.3s ease;
 }
 
+html.dark .bring-alive-input {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+}
+
 .bring-alive-input:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 20px rgba(var(--color-primary-rgb), 0.25);
+}
+
+html.dark .bring-alive-input:focus {
   border-color: var(--neon-cyan);
   box-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
   background: rgba(255, 255, 255, 0.12);
