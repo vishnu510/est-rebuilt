@@ -131,9 +131,9 @@
         <p class="section-desc">Structured breakdowns of client challenges, strategic frameworks, turnkey execution, and verified business outcomes.</p>
       </div>
 
-      <!-- Interactive Category Filter Bar -->
-      <div class="blog-controls-wrap" style="margin-bottom: 2.5rem;" data-aos="fade-up">
-        <ul class="blog-filters-list" id="csFilterList">
+      <!-- Interactive Category Filter & Live Search Bar -->
+      <div class="blog-controls-wrap" style="margin-bottom: 2.5rem; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1.25rem;" data-aos="fade-up">
+        <ul class="blog-filters-list" id="csFilterList" style="margin: 0;">
           <li><button class="blog-filter-btn active" data-cs-filter="all"><span>All Work</span></button></li>
           <li><button class="blog-filter-btn" data-cs-filter="Corporate Branding"><span>Corporate Branding</span></button></li>
           <li><button class="blog-filter-btn" data-cs-filter="Conferences & AV"><span>Conferences & AV</span></button></li>
@@ -141,6 +141,10 @@
           <li><button class="blog-filter-btn" data-cs-filter="Exhibition Marketing"><span>Exhibition Marketing</span></button></li>
           <li><button class="blog-filter-btn" data-cs-filter="BTL Activation"><span>BTL Activation</span></button></li>
         </ul>
+        <div class="cs-search-wrapper" style="position: relative; min-width: 260px; max-width: 380px; flex: 1;">
+          <i class="bi bi-search" style="position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: var(--text-muted); font-size: 0.9rem; pointer-events: none;"></i>
+          <input type="text" id="csSearchInput" placeholder="Search by client, industry, keywords..." aria-label="Search Case Studies" style="width: 100%; padding: 0.65rem 1rem 0.65rem 2.5rem; background: var(--bg-card); border: 1px solid var(--border-card); border-radius: 30px; color: var(--text-primary); font-size: 0.9rem; outline: none; transition: all 0.2s ease;">
+        </div>
       </div>
 
       <div class="case-study-grid" id="caseStudiesGrid">
@@ -351,15 +355,15 @@
           <h1 class="article-modal-title" id="csModalTitle">Case Study Title</h1>
         </div>
 
-        <!-- Metrics Showcase -->
+        <!-- Metrics Showcase (Dynamically populated from uploaded data) -->
         <div class="cs-metrics-row" id="csModalMetricsRow" style="margin: 1.5rem 0 2rem; display: flex; gap: 1rem; flex-wrap: wrap;">
-          <div class="cs-metric-box" style="flex: 1; min-width: 140px; background: rgba(var(--color-primary-rgb), 0.08); border: 1px solid rgba(var(--color-primary-rgb), 0.2); padding: 1.25rem; border-radius: var(--border-radius-md); text-align: center;">
-            <div class="cs-metric-value" id="csModalM1Val" style="font-size: 2rem; font-weight: 800; color: var(--color-primary);">45K+</div>
-            <div class="cs-metric-label" id="csModalM1Lab" style="font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase;">Sq. Ft. Branded</div>
+          <div class="cs-metric-box" id="csModalM1Box" style="flex: 1; min-width: 140px; background: rgba(var(--color-primary-rgb), 0.08); border: 1px solid rgba(var(--color-primary-rgb), 0.2); padding: 1.25rem; border-radius: var(--border-radius-md); text-align: center;">
+            <div class="cs-metric-value" id="csModalM1Val" style="font-size: 2rem; font-weight: 800; color: var(--color-primary);">--</div>
+            <div class="cs-metric-label" id="csModalM1Lab" style="font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase;">Key Metric</div>
           </div>
           <div class="cs-metric-box" id="csModalM2Box" style="flex: 1; min-width: 140px; background: rgba(12, 188, 161, 0.08); border: 1px solid rgba(12, 188, 161, 0.2); padding: 1.25rem; border-radius: var(--border-radius-md); text-align: center;">
-            <div class="cs-metric-value" id="csModalM2Val" style="font-size: 2rem; font-weight: 800; color: var(--color-accent);">Zero</div>
-            <div class="cs-metric-label" id="csModalM2Lab" style="font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase;">Workday Downtime</div>
+            <div class="cs-metric-value" id="csModalM2Val" style="font-size: 2rem; font-weight: 800; color: var(--color-accent);">--</div>
+            <div class="cs-metric-label" id="csModalM2Lab" style="font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase;">Key Metric</div>
           </div>
         </div>
 
@@ -369,7 +373,7 @@
             <i class="bi bi-exclamation-octagon-fill" style="color: #ef4444;"></i>
             <div>
               <strong style="color: var(--text-primary); display: block; margin-bottom: 4px; font-size: 1.05rem;">The Business Challenge</strong>
-              <div id="csModalChallenge" style="color: var(--text-secondary); line-height: 1.6;">Challenge details...</div>
+              <div id="csModalChallenge" style="color: var(--text-secondary); line-height: 1.6;"></div>
             </div>
           </div>
 
@@ -377,7 +381,7 @@
             <i class="bi bi-lightbulb-fill" style="color: var(--color-primary);"></i>
             <div>
               <strong style="color: var(--text-primary); display: block; margin-bottom: 4px; font-size: 1.05rem;">Strategic Framework & Concept</strong>
-              <div id="csModalStrategy" style="color: var(--text-secondary); line-height: 1.6;">Strategy details...</div>
+              <div id="csModalStrategy" style="color: var(--text-secondary); line-height: 1.6;"></div>
             </div>
           </div>
 
@@ -385,13 +389,13 @@
             <i class="bi bi-gear-wide-connected" style="color: #3b82f6;"></i>
             <div>
               <strong style="color: var(--text-primary); display: block; margin-bottom: 4px; font-size: 1.05rem;">Turnkey On-Ground Execution</strong>
-              <div id="csModalExecution" style="color: var(--text-secondary); line-height: 1.6;">Execution details...</div>
+              <div id="csModalExecution" style="color: var(--text-secondary); line-height: 1.6;"></div>
             </div>
           </div>
 
           <h3 style="margin-top: 2rem; font-size: 1.3rem; color: var(--text-primary);"><i class="bi bi-trophy-fill" style="color: #f59e0b; margin-right: 0.5rem;"></i> Verified Results & Measurable ROI</h3>
           <div id="csModalResults" style="color: var(--text-secondary); line-height: 1.7; margin-top: 0.75rem;">
-            <!-- Injected dynamically -->
+            <!-- Dynamically populated by window.estOpenCaseStudy -->
           </div>
         </div>
 

@@ -1141,23 +1141,31 @@ document.addEventListener('DOMContentLoaded', () => {
         const saved = localStorage.getItem('EST_ADMIN_DB_V2');
         if (saved) db = JSON.parse(saved);
       }
-      const rawStudies = (db && Array.isArray(db.caseStudies) && db.caseStudies.length > 0)
-        ? db.caseStudies
-        : DEFAULT_CASE_STUDIES;
+
+      let rawStudies = null;
+      if (db && Array.isArray(db.caseStudies)) {
+        if (db._initialized || db._lastSync || db.caseStudies.length > 0) {
+          rawStudies = db.caseStudies;
+        }
+      }
+
+      if (!rawStudies) {
+        rawStudies = DEFAULT_CASE_STUDIES;
+      }
 
       return rawStudies.map(cs => ({
         id: cs.id || 'cs_' + Math.random().toString(36).substr(2, 9),
         client: cs.client || 'Enterprise Client',
         industry: cs.industry || 'Technology & B2B',
         title: cs.title || 'Client Deployment',
-        category: cs.category || 'Corporate Branding',
+        category: cs.category || 'Corporate Work',
         coverImage: cs.coverImage || 'https://images.unsplash.com/photo-1497215728101-856f4ea42174?q=80&w=1000',
-        challenge: cs.challenge || 'Brief details...',
-        strategy: cs.strategy || 'Strategic framework...',
-        execution: cs.execution || 'Turnkey execution...',
+        challenge: cs.challenge || '',
+        strategy: cs.strategy || '',
+        execution: cs.execution || '',
         resultsHtml: cs.resultsHtml || '<p>Delivered measurable business ROI with high-intent audience conversion.</p>',
-        metric1Value: cs.metric1Value || '100%',
-        metric1Label: cs.metric1Label || 'Success',
+        metric1Value: cs.metric1Value || '',
+        metric1Label: cs.metric1Label || '',
         metric2Value: cs.metric2Value || '',
         metric2Label: cs.metric2Label || '',
         status: cs.status || 'Published',
@@ -1169,7 +1177,7 @@ document.addEventListener('DOMContentLoaded', () => {
     return DEFAULT_CASE_STUDIES;
   }
 
-  // Open Case Study Reader Modal
+  // Open Case Study Reader Modal - 100% Dynamic Binding
   window.estOpenCaseStudy = function(studyId) {
     const studies = getStoredCaseStudies();
     const study = studies.find(s => s.id === studyId) || studies[0];
@@ -1199,14 +1207,24 @@ document.addEventListener('DOMContentLoaded', () => {
     const titleEl = document.getElementById('csModalTitle');
     if (titleEl) titleEl.textContent = study.title;
 
+    const metricsRow = document.getElementById('csModalMetricsRow');
+    const m1Box = document.getElementById('csModalM1Box');
     const m1Val = document.getElementById('csModalM1Val');
-    if (m1Val) m1Val.textContent = study.metric1Value || '100%';
     const m1Lab = document.getElementById('csModalM1Lab');
-    if (m1Lab) m1Lab.textContent = study.metric1Label || 'Success';
-
     const m2Box = document.getElementById('csModalM2Box');
     const m2Val = document.getElementById('csModalM2Val');
     const m2Lab = document.getElementById('csModalM2Lab');
+
+    if (m1Box) {
+      if (study.metric1Value) {
+        m1Box.style.display = 'block';
+        if (m1Val) m1Val.textContent = study.metric1Value;
+        if (m1Lab) m1Lab.textContent = study.metric1Label || 'Achievement';
+      } else {
+        m1Box.style.display = 'none';
+      }
+    }
+
     if (m2Box) {
       if (study.metric2Value) {
         m2Box.style.display = 'block';
@@ -1214,6 +1232,14 @@ document.addEventListener('DOMContentLoaded', () => {
         if (m2Lab) m2Lab.textContent = study.metric2Label || 'Impact';
       } else {
         m2Box.style.display = 'none';
+      }
+    }
+
+    if (metricsRow) {
+      if (!study.metric1Value && !study.metric2Value) {
+        metricsRow.style.display = 'none';
+      } else {
+        metricsRow.style.display = 'flex';
       }
     }
 
@@ -1239,9 +1265,18 @@ document.addEventListener('DOMContentLoaded', () => {
   function initDynamicCaseStudies() {
     const csGrid = document.getElementById('caseStudiesGrid');
     const filterListEl = document.getElementById('csFilterList');
+    const searchInput = document.getElementById('csSearchInput');
     if (!csGrid && !filterListEl) return;
 
     let currentFilter = 'all';
+    let searchQuery = '';
+
+    if (searchInput) {
+      searchInput.oninput = (e) => {
+        searchQuery = (e.target.value || '').trim().toLowerCase();
+        renderCaseStudiesHub();
+      };
+    }
 
     const modalOverlay = document.getElementById('caseStudyModalOverlay');
     const modalCloseBtn = document.getElementById('csModalCloseBtn');
@@ -1298,22 +1333,23 @@ document.addEventListener('DOMContentLoaded', () => {
         filterListEl.style.display = 'flex';
       }
 
-      // Build categories list
+      // Build categories list dynamically from whatever case studies exist in DB
       if (filterListEl) {
-        const categoriesSet = new Set(['Corporate Branding', 'Conferences & AV', 'Demand Generation', 'Exhibition Marketing', 'BTL Activation']);
+        const categoriesSet = new Set();
         allStudies.forEach(s => {
-          if (s.category) categoriesSet.add(s.category);
+          if (s.category && s.category.trim()) categoriesSet.add(s.category.trim());
         });
 
         const categories = ['all', ...Array.from(categoriesSet)];
         filterListEl.innerHTML = categories.map(cat => {
           const isAll = cat === 'all';
           const label = isAll ? 'All Work' : cat;
+          const count = isAll ? allStudies.length : allStudies.filter(s => (s.category || '').toLowerCase() === cat.toLowerCase()).length;
           const isActive = isAll ? (currentFilter === 'all') : (currentFilter.toLowerCase() === cat.toLowerCase());
           return `
             <li>
               <button class="blog-filter-btn ${isActive ? 'active' : ''}" data-cs-filter="${escapeHtml(cat)}">
-                <span>${escapeHtml(label)}</span>
+                <span>${escapeHtml(label)} (${count})</span>
               </button>
             </li>
           `;
@@ -1329,11 +1365,22 @@ document.addEventListener('DOMContentLoaded', () => {
         });
       }
 
-      // Filter by category
+      // Filter by category & live search query
       let filtered = allStudies;
       if (currentFilter !== 'all') {
         const cf = currentFilter.toLowerCase();
         filtered = filtered.filter(s => (s.category || '').toLowerCase() === cf);
+      }
+      if (searchQuery) {
+        filtered = filtered.filter(s =>
+          (s.title || '').toLowerCase().includes(searchQuery) ||
+          (s.client || '').toLowerCase().includes(searchQuery) ||
+          (s.industry || '').toLowerCase().includes(searchQuery) ||
+          (s.category || '').toLowerCase().includes(searchQuery) ||
+          (s.challenge || '').toLowerCase().includes(searchQuery) ||
+          (s.strategy || '').toLowerCase().includes(searchQuery) ||
+          (s.execution || '').toLowerCase().includes(searchQuery)
+        );
       }
 
       if (csGrid) {
@@ -1341,7 +1388,7 @@ document.addEventListener('DOMContentLoaded', () => {
           csGrid.innerHTML = `
             <div style="grid-column: 1 / -1; padding: 3rem 1.5rem; text-align: center; color: var(--text-muted); background: var(--bg-card); border-radius: var(--radius-md); border: 1px dashed var(--border-card);">
               <i class="bi bi-briefcase" style="font-size: 2.5rem; color: var(--color-primary); display: block; margin-bottom: 0.5rem;"></i>
-              No case studies found for this category yet. Check back soon!
+              No case studies found matching your criteria. Check back soon or try another search!
             </div>
           `;
         } else {
@@ -1354,21 +1401,25 @@ document.addEventListener('DOMContentLoaded', () => {
               <div class="case-study-body">
                 <div class="case-study-client">${escapeHtml(c.client)} | ${escapeHtml(c.industry || 'Technology')}</div>
                 <h3 class="case-study-title">${escapeHtml(c.title)}</h3>
-                <div class="cs-meta-block"><span class="cs-meta-label">Challenge:</span> ${escapeHtml(c.challenge || '')}</div>
-                <div class="cs-meta-block"><span class="cs-meta-label">Strategy:</span> ${escapeHtml(c.strategy || '')}</div>
-                <div class="cs-meta-block"><span class="cs-meta-label">Execution:</span> ${escapeHtml(c.execution || '')}</div>
-                <div class="cs-metrics-row">
-                  <div class="cs-metric-box">
-                    <div class="cs-metric-value">${escapeHtml(c.metric1Value || '100%')}</div>
-                    <div class="cs-metric-label">${escapeHtml(c.metric1Label || 'Success')}</div>
+                ${c.challenge ? `<div class="cs-meta-block"><span class="cs-meta-label">Challenge:</span> ${escapeHtml(c.challenge)}</div>` : ''}
+                ${c.strategy ? `<div class="cs-meta-block"><span class="cs-meta-label">Strategy:</span> ${escapeHtml(c.strategy)}</div>` : ''}
+                ${c.execution ? `<div class="cs-meta-block"><span class="cs-meta-label">Execution:</span> ${escapeHtml(c.execution)}</div>` : ''}
+                ${(c.metric1Value || c.metric2Value) ? `
+                  <div class="cs-metrics-row">
+                    ${c.metric1Value ? `
+                      <div class="cs-metric-box">
+                        <div class="cs-metric-value">${escapeHtml(c.metric1Value)}</div>
+                        <div class="cs-metric-label">${escapeHtml(c.metric1Label || 'Achievement')}</div>
+                      </div>
+                    ` : ''}
+                    ${c.metric2Value ? `
+                      <div class="cs-metric-box">
+                        <div class="cs-metric-value">${escapeHtml(c.metric2Value)}</div>
+                        <div class="cs-metric-label">${escapeHtml(c.metric2Label || 'Impact')}</div>
+                      </div>
+                    ` : ''}
                   </div>
-                  ${c.metric2Value ? `
-                    <div class="cs-metric-box">
-                      <div class="cs-metric-value">${escapeHtml(c.metric2Value)}</div>
-                      <div class="cs-metric-label">${escapeHtml(c.metric2Label || 'Impact')}</div>
-                    </div>
-                  ` : ''}
-                </div>
+                ` : ''}
                 <div style="margin-top: 1.25rem; display: flex; justify-content: flex-end;">
                   <button class="btn btn-outline" style="padding: 0.4rem 0.9rem; font-size: 0.82rem;" onclick="event.stopPropagation(); window.estOpenCaseStudy('${escapeHtml(c.id)}')">
                     <span>Full Case Study</span> <i class="bi bi-arrow-right"></i>
@@ -1571,8 +1622,9 @@ document.addEventListener('DOMContentLoaded', () => {
   function refreshAllDynamicEngines() {
     if (typeof window.estRefreshCaseStudies === 'function') window.estRefreshCaseStudies();
     if (typeof window.estRefreshInsights === 'function') window.estRefreshInsights();
-    initDynamicGallery();
-    initDynamicBentoShowcase();
+    if (typeof initDynamicPortfolio === 'function') initDynamicPortfolio();
+    if (typeof initDynamicBentoShowcase === 'function') initDynamicBentoShowcase();
+    if (typeof initDynamicClients === 'function') initDynamicClients();
   }
 
   window.addEventListener('storage', (e) => {
