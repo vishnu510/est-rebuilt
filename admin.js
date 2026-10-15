@@ -691,7 +691,116 @@
 
     eventImages: [],
 
-    caseStudies: [],
+    caseStudies: [
+      {
+        id: 'cs1',
+        client: 'Adobe Systems',
+        industry: 'Technology & Design',
+        title: 'Workspace Transformation & Experiential Innovation Zones',
+        category: 'Corporate Branding',
+        coverImage: 'https://images.unsplash.com/photo-1497215728101-856f4ea42174?q=80&w=1000',
+        challenge: 'Re-energize 45,000+ sq. ft. of headquarters space with brand culture art without disrupting daily office operations.',
+        strategy: 'Developed a 3D architectural plan with custom frosted glass manifestations, acoustic felt murals, and interactive team breakout spaces.',
+        execution: '100% turnkey night installations across 3 floors within 14 business days.',
+        resultsHtml: '<p>Delivered an award-winning workspace environment that increased workplace satisfaction scores by 42% while causing zero interruption to daily enterprise workflows.</p>',
+        metric1Value: '45K+',
+        metric1Label: 'Sq. Ft. Branded',
+        metric2Value: 'Zero',
+        metric2Label: 'Workday Downtime',
+        status: 'Published',
+        date: '2026-02-10'
+      },
+      {
+        id: 'cs2',
+        client: 'AMD',
+        industry: 'Semiconductor & Enterprise Tech',
+        title: 'High-Performance Developer Summit & Global Live Broadcast',
+        category: 'Conferences & AV',
+        coverImage: 'https://images.unsplash.com/photo-1505373877841-8d25f7d46678?q=80&w=1000',
+        challenge: 'Deliver a flawless technical seminar for 850+ in-person CXOs and developers while streaming globally with zero audio/video lag.',
+        strategy: 'Curved P2.6 LED stage backdrop, hot-standby audio/video matrix, Watchout media servers, and RFID delegate tracking.',
+        execution: 'Turnkey stage production, green room management, and multi-cam broadcast in Bangalore.',
+        resultsHtml: '<p>Orchestrated an end-to-end technical summit with 99.9% stream reliability and over 12,000 virtual attendees worldwide.</p>',
+        metric1Value: '850+',
+        metric1Label: 'CXO & Dev Attendees',
+        metric2Value: '99.9%',
+        metric2Label: 'Stream Uptime',
+        status: 'Published',
+        date: '2026-01-28'
+      },
+      {
+        id: 'cs3',
+        client: 'ACPL Systems',
+        industry: 'Enterprise Cybersecurity',
+        title: 'Account-Based Marketing & Executive CXO Dinner Series',
+        category: 'Demand Generation',
+        coverImage: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1000',
+        challenge: 'Penetrate Tier-1 Enterprise CIOs and CISOs in Delhi NCR and Mumbai for cybersecurity advisory.',
+        strategy: 'Integrated LinkedIn ABM messaging, personalized SDR cadences, and exclusive 5-star private executive roundtables.',
+        execution: '3 closed-door roundtables hosted with 14 CISOs per city and direct account executive introductions.',
+        resultsHtml: '<p>Successfully connected ACPL cybersecurity experts with 42 verified decision-makers resulting in 3.8x pipeline ROI within 90 days.</p>',
+        metric1Value: '42',
+        metric1Label: 'Qualified CXO Meetings',
+        metric2Value: '3.8x',
+        metric2Label: 'Pipeline ROI',
+        status: 'Published',
+        date: '2026-01-15'
+      },
+      {
+        id: 'cs4',
+        client: 'BenQ',
+        industry: 'Display Technology',
+        title: 'Immersive 3D Exhibition Pavilion & Live Color Labs',
+        category: 'Exhibition Marketing',
+        coverImage: 'https://images.unsplash.com/photo-1565034946487-077786996e27?q=80&w=1000',
+        challenge: 'Stand out on a crowded trade show floor at Pragati Maidan and demonstrate professional color accuracy displays.',
+        strategy: 'Built a raised double-height wooden and glass pavilion featuring interactive darkroom display testing pods and executive hospitality.',
+        execution: 'Turnkey 3D CAD modeling, CNC fabrication, lighting calibration, and badge scan lead capture.',
+        resultsHtml: '<p>Captured record footfall with 2,800+ trade visitors experiencing hands-on display demos, generating 340+ dealer inquiries.</p>',
+        metric1Value: '2,800+',
+        metric1Label: 'Trade Show Visitors',
+        metric2Value: '340+',
+        metric2Label: 'Dealer Inquiries',
+        status: 'Published',
+        date: '2025-12-14'
+      },
+      {
+        id: 'cs5',
+        client: 'National FMCG Brand',
+        industry: 'CPG & Personal Care',
+        title: '12-City Mall & Residential Society Direct Sampling Tour',
+        category: 'BTL Activation',
+        coverImage: 'https://images.unsplash.com/photo-1560523136-40743f800c87?q=80&w=1000',
+        challenge: 'Accelerate consumer trial and regional brand recall for a new organic personal care line across North and West India.',
+        strategy: 'Multi-city hydraulic mobile vans, mall kiosks, and weekend gated society carnivals with gamified interactive surveys.',
+        execution: 'Synchronized rollout across Delhi NCR, Jaipur, Chandigarh, Lucknow, Mumbai, and Pune over 30 days.',
+        resultsHtml: '<p>Achieved unprecedented sampling velocity with 120,000+ consumer interactions and a 94% verified trial rate.</p>',
+        metric1Value: '120K+',
+        metric1Label: 'Samples Disbursed',
+        metric2Value: '94%',
+        metric2Label: 'Consumer Trial Rate',
+        status: 'Published',
+        date: '2025-11-20'
+      },
+      {
+        id: 'cs6',
+        client: 'Brigade Group',
+        industry: 'Real Estate & Infrastructure',
+        title: 'Luxury Leadership Retreat & Strategic Investor Conclave',
+        category: 'Corporate Travel',
+        coverImage: 'https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=1000',
+        challenge: 'Host a private high-stakes investor conclave in Goa with VIP charter logistics, bespoke branding, and zero room for error.',
+        strategy: 'End-to-end luxury itinerary planning, beachfront stage set, private chartered flight coordination, and security protocols.',
+        execution: 'Curated 3-day experience for 120 high-net-worth investors with gala networking dinners and keynote presentations.',
+        resultsHtml: '<p>Delivered a flawless luxury experience resulting in 98% attendee satisfaction and high investor confidence.</p>',
+        metric1Value: '120',
+        metric1Label: 'HNW Investors Hosted',
+        metric2Value: '98%',
+        metric2Label: 'Satisfaction Rating',
+        status: 'Published',
+        date: '2025-10-18'
+      }
+    ],
 
     insightClusters: [
       {
@@ -814,7 +923,9 @@
     parsed.eventVideos = Array.isArray(parsed.eventVideos) ? parsed.eventVideos : [];
     if (parsed.eventVideosSection === undefined) parsed.eventVideosSection = DEFAULT_DB.eventVideosSection;
     parsed.events = Array.isArray(parsed.events) ? parsed.events : [];
-    parsed.caseStudies = Array.isArray(parsed.caseStudies) ? parsed.caseStudies : [];
+    if (!Array.isArray(parsed.caseStudies) || parsed.caseStudies.length === 0) {
+      parsed.caseStudies = JSON.parse(JSON.stringify(DEFAULT_DB.caseStudies || []));
+    }
 
     // Automatically strip any existing DSC_ or camera suffixes from event photo titles
     parsed.eventImages.forEach(img => {
@@ -3030,7 +3141,10 @@
       <div class="form-row">
         <div class="form-group">
           <label class="form-label">Client Name <span style="color: var(--color-primary);">*</span></label>
-          <input type="text" class="form-input" id="m_csClient" value="${isEdit ? escapeHtml(study.client) : ''}" placeholder="e.g. Adobe Systems" required>
+          <input type="text" class="form-input" id="m_csClient" list="m_csClientDatalist" value="${isEdit ? escapeHtml(study.client) : ''}" placeholder="e.g. Adobe Systems" required>
+          <datalist id="m_csClientDatalist">
+            ${(DB.clients || []).map(cl => `<option value="${escapeHtml(cl.name)}">${escapeHtml(cl.category || '')}</option>`).join('')}
+          </datalist>
         </div>
         <div class="form-group">
           <label class="form-label">Industry / Sector</label>

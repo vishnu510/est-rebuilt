@@ -1110,6 +1110,24 @@ document.addEventListener('DOMContentLoaded', () => {
       metric2Label: 'Consumer Trial Rate',
       status: 'Published',
       date: '2025-11-20'
+    },
+    {
+      id: 'cs6',
+      client: 'Brigade Group',
+      industry: 'Real Estate & Infrastructure',
+      title: 'Luxury Leadership Retreat & Strategic Investor Conclave',
+      category: 'Corporate Travel',
+      coverImage: 'https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=1000',
+      challenge: 'Host a private high-stakes investor conclave in Goa with VIP charter logistics, bespoke branding, and zero room for error.',
+      strategy: 'End-to-end luxury itinerary planning, beachfront stage set, private chartered flight coordination, and security protocols.',
+      execution: 'Curated 3-day experience for 120 high-net-worth investors with gala networking dinners and keynote presentations.',
+      resultsHtml: '<p>Delivered a flawless luxury experience resulting in 98% attendee satisfaction and high investor confidence.</p>',
+      metric1Value: '120',
+      metric1Label: 'HNW Investors Hosted',
+      metric2Value: '98%',
+      metric2Label: 'Satisfaction Rating',
+      status: 'Published',
+      date: '2025-10-18'
     }
   ];
 
@@ -1123,30 +1141,32 @@ document.addEventListener('DOMContentLoaded', () => {
         const saved = localStorage.getItem('EST_ADMIN_DB_V2');
         if (saved) db = JSON.parse(saved);
       }
-      if (db && Array.isArray(db.caseStudies)) {
-        return db.caseStudies.map(cs => ({
-          id: cs.id || 'cs_' + Math.random().toString(36).substr(2, 9),
-          client: cs.client || 'Enterprise Client',
-          industry: cs.industry || 'Technology & B2B',
-          title: cs.title || 'Client Deployment',
-          category: cs.category || 'Corporate Branding',
-          coverImage: cs.coverImage || 'https://images.unsplash.com/photo-1497215728101-856f4ea42174?q=80&w=1000',
-          challenge: cs.challenge || 'Brief details...',
-          strategy: cs.strategy || 'Strategic framework...',
-          execution: cs.execution || 'Turnkey execution...',
-          resultsHtml: cs.resultsHtml || '<p>Delivered measurable business ROI with high-intent audience conversion.</p>',
-          metric1Value: cs.metric1Value || '100%',
-          metric1Label: cs.metric1Label || 'Success',
-          metric2Value: cs.metric2Value || '',
-          metric2Label: cs.metric2Label || '',
-          status: cs.status || 'Published',
-          date: cs.date || '2026'
-        }));
-      }
+      const rawStudies = (db && Array.isArray(db.caseStudies) && db.caseStudies.length > 0)
+        ? db.caseStudies
+        : DEFAULT_CASE_STUDIES;
+
+      return rawStudies.map(cs => ({
+        id: cs.id || 'cs_' + Math.random().toString(36).substr(2, 9),
+        client: cs.client || 'Enterprise Client',
+        industry: cs.industry || 'Technology & B2B',
+        title: cs.title || 'Client Deployment',
+        category: cs.category || 'Corporate Branding',
+        coverImage: cs.coverImage || 'https://images.unsplash.com/photo-1497215728101-856f4ea42174?q=80&w=1000',
+        challenge: cs.challenge || 'Brief details...',
+        strategy: cs.strategy || 'Strategic framework...',
+        execution: cs.execution || 'Turnkey execution...',
+        resultsHtml: cs.resultsHtml || '<p>Delivered measurable business ROI with high-intent audience conversion.</p>',
+        metric1Value: cs.metric1Value || '100%',
+        metric1Label: cs.metric1Label || 'Success',
+        metric2Value: cs.metric2Value || '',
+        metric2Label: cs.metric2Label || '',
+        status: cs.status || 'Published',
+        date: cs.date || '2026'
+      }));
     } catch (e) {
       console.warn('Could not read case studies:', e);
     }
-    return [];
+    return DEFAULT_CASE_STUDIES;
   }
 
   // Open Case Study Reader Modal
