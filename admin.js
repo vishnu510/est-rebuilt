@@ -12,292 +12,292 @@
   const DEFAULT_DB = {
     clients: [
       {
-            "id": "c1",
-            "name": "ACPL",
-            "category": "Technology",
-            "partnershipYear": "2018",
-            "logoUrl": "storage/clients/all-logos/01JZT7BZXA4VA77AJE5S3FGNK9.jpg",
-            "status": "Active",
-            "projectsCount": 5
+        id: "c1",
+        name: "ACPL Systems",
+        category: "Technology",
+        partnershipYear: "2018",
+        logoUrl: "storage/clients/all-logos/01JZT7BZXA4VA77AJE5S3FGNK9.jpg",
+        status: "Active",
+        projectsCount: 15
       },
       {
-            "id": "c2",
-            "name": "Adobe",
-            "category": "Technology",
-            "partnershipYear": "2019",
-            "logoUrl": "storage/clients/all-logos/01JZT7DKZPCEVYQ49KXZ72W0DN.jpg",
-            "status": "Active",
-            "projectsCount": 8
+        id: "c2",
+        name: "Adobe",
+        category: "Technology",
+        partnershipYear: "2019",
+        logoUrl: "storage/clients/all-logos/01JZT7DKZPCEVYQ49KXZ72W0DN.jpg",
+        status: "Active",
+        projectsCount: 28
       },
       {
-            "id": "c3",
-            "name": "AMD",
-            "category": "Technology",
-            "partnershipYear": "2020",
-            "logoUrl": "storage/clients/all-logos/01JZT7E9X8WE3FAG84PMENQYW7.jpg",
-            "status": "Active",
-            "projectsCount": 11
+        id: "c3",
+        name: "AMD",
+        category: "Technology",
+        partnershipYear: "2020",
+        logoUrl: "storage/clients/all-logos/01JZT7E9X8WE3FAG84PMENQYW7.jpg",
+        status: "Active",
+        projectsCount: 22
       },
       {
-            "id": "c4",
-            "name": "AVEDA",
-            "category": "Technology",
-            "partnershipYear": "2021",
-            "logoUrl": "storage/clients/all-logos/01JZT7FXEK89XNP9QHDRM9HDQA.jpg",
-            "status": "Active",
-            "projectsCount": 14
+        id: "c4",
+        name: "AVEDA",
+        category: "Consumer & Retail",
+        partnershipYear: "2021",
+        logoUrl: "storage/clients/all-logos/01JZT7FXEK89XNP9QHDRM9HDQA.jpg",
+        status: "Active",
+        projectsCount: 14
       },
       {
-            "id": "c5",
-            "name": "BENQ",
-            "category": "Technology",
-            "partnershipYear": "2022",
-            "logoUrl": "storage/clients/all-logos/01JZT7GHG1FG4GHCAY441MGQRE.jpg",
-            "status": "Active",
-            "projectsCount": 17
+        id: "c5",
+        name: "BenQ",
+        category: "Hardware & Print",
+        partnershipYear: "2022",
+        logoUrl: "storage/clients/all-logos/01JZT7GHG1FG4GHCAY441MGQRE.jpg",
+        status: "Active",
+        projectsCount: 19
       },
       {
-            "id": "c6",
-            "name": "Partner Brand 6",
-            "category": "Technology",
-            "partnershipYear": "2023",
-            "logoUrl": "storage/clients/all-logos/01JZT7H8NRXQ34NZ7Y9NSCAM8T.jpg",
-            "status": "Active",
-            "projectsCount": 20
+        id: "c6",
+        name: "Brigade Group",
+        category: "Real Estate & Infrastructure",
+        partnershipYear: "2021",
+        logoUrl: "storage/clients/all-logos/01JZT7H8NRXQ34NZ7Y9NSCAM8T.jpg",
+        status: "Active",
+        projectsCount: 12
       },
       {
-            "id": "c7",
-            "name": "Partner Brand 7",
-            "category": "Technology",
-            "partnershipYear": "2024",
-            "logoUrl": "storage/clients/all-logos/01JZT7J7WDT0YFT6W8FJ9E0Z6V.jpg",
-            "status": "Active",
-            "projectsCount": 23
+        id: "c7",
+        name: "Builder.ai",
+        category: "Technology",
+        partnershipYear: "2022",
+        logoUrl: "storage/clients/all-logos/01JZT7J7WDT0YFT6W8FJ9E0Z6V.jpg",
+        status: "Active",
+        projectsCount: 16
       },
       {
-            "id": "c8",
-            "name": "Partner Brand 8",
-            "category": "Technology",
-            "partnershipYear": "2025",
-            "logoUrl": "storage/clients/all-logos/01JZT7K0CH1NW2F3CKBNRPW48D.jpg",
-            "status": "Active",
-            "projectsCount": 26
+        id: "c8",
+        name: "CAST Software",
+        category: "Enterprise IT",
+        partnershipYear: "2020",
+        logoUrl: "storage/clients/all-logos/01JZT7K0CH1NW2F3CKBNRPW48D.jpg",
+        status: "Active",
+        projectsCount: 11
       },
       {
-            "id": "c9",
-            "name": "Partner Brand 9",
-            "category": "Enterprise IT",
-            "partnershipYear": "2018",
-            "logoUrl": "storage/clients/all-logos/01JZT7KN0BE99VDQ32KKP195T0.jpg",
-            "status": "Active",
-            "projectsCount": 29
+        id: "c9",
+        name: "Croma",
+        category: "Consumer & Retail",
+        partnershipYear: "2018",
+        logoUrl: "storage/clients/all-logos/01JZT7KN0BE99VDQ32KKP195T0.jpg",
+        status: "Active",
+        projectsCount: 24
       },
       {
-            "id": "c10",
-            "name": "Partner Brand 10",
-            "category": "Enterprise IT",
-            "partnershipYear": "2019",
-            "logoUrl": "storage/clients/all-logos/01JZT7MBTFNKPYNB20TZKSPF1X.jpg",
-            "status": "Active",
-            "projectsCount": 7
+        id: "c10",
+        name: "Elekore",
+        category: "Energy & Infrastructure",
+        partnershipYear: "2019",
+        logoUrl: "storage/clients/all-logos/01JZT7MBTFNKPYNB20TZKSPF1X.jpg",
+        status: "Active",
+        projectsCount: 9
       },
       {
-            "id": "c11",
-            "name": "Partner Brand 11",
-            "category": "Enterprise IT",
-            "partnershipYear": "2020",
-            "logoUrl": "storage/clients/all-logos/01JZT7NEVMSY3JK82A65X5BMZF.jpg",
-            "status": "Active",
-            "projectsCount": 10
+        id: "c11",
+        name: "Embee Software",
+        category: "Enterprise IT",
+        partnershipYear: "2020",
+        logoUrl: "storage/clients/all-logos/01JZT7NEVMSY3JK82A65X5BMZF.jpg",
+        status: "Active",
+        projectsCount: 17
       },
       {
-            "id": "c12",
-            "name": "Partner Brand 12",
-            "category": "Enterprise IT",
-            "partnershipYear": "2021",
-            "logoUrl": "storage/clients/all-logos/01JZT7P6KV6JCS3E7RBGDCRGPW.jpg",
-            "status": "Active",
-            "projectsCount": 13
+        id: "c12",
+        name: "Eros Group",
+        category: "Real Estate & Infrastructure",
+        partnershipYear: "2019",
+        logoUrl: "storage/clients/all-logos/01JZT7P6KV6JCS3E7RBGDCRGPW.jpg",
+        status: "Active",
+        projectsCount: 13
       },
       {
-            "id": "c13",
-            "name": "Partner Brand 13",
-            "category": "Enterprise IT",
-            "partnershipYear": "2022",
-            "logoUrl": "storage/clients/all-logos/01JZT7RWJABEVAZDF71CR2NDRG.jpg",
-            "status": "Active",
-            "projectsCount": 16
+        id: "c13",
+        name: "Softline",
+        category: "Enterprise IT",
+        partnershipYear: "2021",
+        logoUrl: "storage/clients/all-logos/01JZT7RWJABEVAZDF71CR2NDRG.jpg",
+        status: "Active",
+        projectsCount: 15
       },
       {
-            "id": "c14",
-            "name": "Partner Brand 14",
-            "category": "Enterprise IT",
-            "partnershipYear": "2023",
-            "logoUrl": "storage/clients/all-logos/01JZT7SK5P2PMBT0KFRHYKK637.jpg",
-            "status": "Active",
-            "projectsCount": 19
+        id: "c14",
+        name: "GAP",
+        category: "Consumer & Retail",
+        partnershipYear: "2022",
+        logoUrl: "storage/clients/all-logos/01JZT7SK5P2PMBT0KFRHYKK637.jpg",
+        status: "Active",
+        projectsCount: 18
       },
       {
-            "id": "c15",
-            "name": "Partner Brand 15",
-            "category": "Enterprise IT",
-            "partnershipYear": "2024",
-            "logoUrl": "storage/clients/all-logos/01JZT7T80Y7H2JKCT170BH1AH9.jpg",
-            "status": "Active",
-            "projectsCount": 22
+        id: "c15",
+        name: "Harvest Gold",
+        category: "Consumer & Retail",
+        partnershipYear: "2020",
+        logoUrl: "storage/clients/all-logos/01JZT7T80Y7H2JKCT170BH1AH9.jpg",
+        status: "Active",
+        projectsCount: 21
       },
       {
-            "id": "c16",
-            "name": "Partner Brand 16",
-            "category": "Enterprise IT",
-            "partnershipYear": "2025",
-            "logoUrl": "storage/clients/all-logos/01JZT7VQWBT95S84FXR88CTGFE.jpg",
-            "status": "Active",
-            "projectsCount": 25
+        id: "c16",
+        name: "Moët Hennessy",
+        category: "Consumer & Retail",
+        partnershipYear: "2021",
+        logoUrl: "storage/clients/all-logos/01JZT7VQWBT95S84FXR88CTGFE.jpg",
+        status: "Active",
+        projectsCount: 14
       },
       {
-            "id": "c17",
-            "name": "Partner Brand 17",
-            "category": "Consumer & Retail",
-            "partnershipYear": "2018",
-            "logoUrl": "storage/clients/all-logos/01JZT7WF76VXZHB4GG7P45V92M.jpg",
-            "status": "Active",
-            "projectsCount": 28
+        id: "c17",
+        name: "Kingfisher",
+        category: "Consumer & Retail",
+        partnershipYear: "2018",
+        logoUrl: "storage/clients/all-logos/01JZT7WF76VXZHB4GG7P45V92M.jpg",
+        status: "Active",
+        projectsCount: 30
       },
       {
-            "id": "c18",
-            "name": "Partner Brand 18",
-            "category": "Consumer & Retail",
-            "partnershipYear": "2019",
-            "logoUrl": "storage/clients/all-logos/01JZT7YSVGN5FDXAH4GJ79FK3Z.jpg",
-            "status": "Active",
-            "projectsCount": 6
+        id: "c18",
+        name: "Lighthouse Canton",
+        category: "BFSI",
+        partnershipYear: "2022",
+        logoUrl: "storage/clients/all-logos/01JZT7YSVGN5FDXAH4GJ79FK3Z.jpg",
+        status: "Active",
+        projectsCount: 8
       },
       {
-            "id": "c19",
-            "name": "Partner Brand 19",
-            "category": "Consumer & Retail",
-            "partnershipYear": "2020",
-            "logoUrl": "storage/clients/all-logos/01JZT7ZNEHHZWXDKF4EKQ5RZ9C.jpg",
-            "status": "Active",
-            "projectsCount": 9
+        id: "c19",
+        name: "Mother Dairy",
+        category: "Consumer & Retail",
+        partnershipYear: "2019",
+        logoUrl: "storage/clients/all-logos/01JZT7ZNEHHZWXDKF4EKQ5RZ9C.jpg",
+        status: "Active",
+        projectsCount: 26
       },
       {
-            "id": "c20",
-            "name": "Partner Brand 20",
-            "category": "Consumer & Retail",
-            "partnershipYear": "2021",
-            "logoUrl": "storage/clients/all-logos/01JZT80FCSTB105P5C67VAGXJW.jpg",
-            "status": "Active",
-            "projectsCount": 12
+        id: "c20",
+        name: "Neovantage Innovation Parks",
+        category: "Real Estate & Infrastructure",
+        partnershipYear: "2022",
+        logoUrl: "storage/clients/all-logos/01JZT80FCSTB105P5C67VAGXJW.jpg",
+        status: "Active",
+        projectsCount: 10
       },
       {
-            "id": "c21",
-            "name": "Partner Brand 21",
-            "category": "Consumer & Retail",
-            "partnershipYear": "2022",
-            "logoUrl": "storage/clients/all-logos/01JZT81GDVN0MCC8EA7CZEKTQ4.jpg",
-            "status": "Active",
-            "projectsCount": 15
+        id: "c21",
+        name: "Noventiq",
+        category: "Enterprise IT",
+        partnershipYear: "2021",
+        logoUrl: "storage/clients/all-logos/01JZT81GDVN0MCC8EA7CZEKTQ4.jpg",
+        status: "Active",
+        projectsCount: 16
       },
       {
-            "id": "c22",
-            "name": "Partner Brand 22",
-            "category": "Consumer & Retail",
-            "partnershipYear": "2023",
-            "logoUrl": "storage/clients/all-logos/01JZT827C4AVD8Y2AYD2BAXHFC.jpg",
-            "status": "Active",
-            "projectsCount": 18
+        id: "c22",
+        name: "Puravankara",
+        category: "Real Estate & Infrastructure",
+        partnershipYear: "2020",
+        logoUrl: "storage/clients/all-logos/01JZT827C4AVD8Y2AYD2BAXHFC.jpg",
+        status: "Active",
+        projectsCount: 15
       },
       {
-            "id": "c23",
-            "name": "Partner Brand 23",
-            "category": "Consumer & Retail",
-            "partnershipYear": "2024",
-            "logoUrl": "storage/clients/all-logos/01JZT82YYDAQZB9Y6CDHQVC0DB.jpg",
-            "status": "Active",
-            "projectsCount": 21
+        id: "c23",
+        name: "Quess Corp",
+        category: "Enterprise IT",
+        partnershipYear: "2021",
+        logoUrl: "storage/clients/all-logos/01JZT82YYDAQZB9Y6CDHQVC0DB.jpg",
+        status: "Active",
+        projectsCount: 18
       },
       {
-            "id": "c24",
-            "name": "Partner Brand 24",
-            "category": "Consumer & Retail",
-            "partnershipYear": "2025",
-            "logoUrl": "storage/clients/all-logos/01JZT83NV8Z8P2S3FEN4N3J56H.jpg",
-            "status": "Active",
-            "projectsCount": 24
+        id: "c24",
+        name: "Savex Technologies",
+        category: "Technology",
+        partnershipYear: "2019",
+        logoUrl: "storage/clients/all-logos/01JZT83NV8Z8P2S3FEN4N3J56H.jpg",
+        status: "Active",
+        projectsCount: 25
       },
       {
-            "id": "c25",
-            "name": "Partner Brand 25",
-            "category": "BFSI & Growth",
-            "partnershipYear": "2018",
-            "logoUrl": "storage/clients/all-logos/01JZT85CC1MZWCB0CNKGE7QKHT.jpg",
-            "status": "Active",
-            "projectsCount": 27
+        id: "c25",
+        name: "Sephora",
+        category: "Consumer & Retail",
+        partnershipYear: "2022",
+        logoUrl: "storage/clients/all-logos/01JZT85CC1MZWCB0CNKGE7QKHT.jpg",
+        status: "Active",
+        projectsCount: 12
       },
       {
-            "id": "c26",
-            "name": "Partner Brand 26",
-            "category": "BFSI & Growth",
-            "partnershipYear": "2019",
-            "logoUrl": "storage/clients/all-logos/01JZT865DQ6G2WK9FJH8E16RM7.jpg",
-            "status": "Active",
-            "projectsCount": 5
+        id: "c26",
+        name: "Shalimar Paints",
+        category: "Consumer & Retail",
+        partnershipYear: "2018",
+        logoUrl: "storage/clients/all-logos/01JZT865DQ6G2WK9FJH8E16RM7.jpg",
+        status: "Active",
+        projectsCount: 14
       },
       {
-            "id": "c27",
-            "name": "Partner Brand 27",
-            "category": "BFSI & Growth",
-            "partnershipYear": "2020",
-            "logoUrl": "storage/clients/all-logos/01JZT86X7SDV30D6NGF4G42S4G.jpg",
-            "status": "Active",
-            "projectsCount": 8
+        id: "c27",
+        name: "Siemens",
+        category: "Technology",
+        partnershipYear: "2019",
+        logoUrl: "storage/clients/all-logos/01JZT86X7SDV30D6NGF4G42S4G.jpg",
+        status: "Active",
+        projectsCount: 20
       },
       {
-            "id": "c28",
-            "name": "Partner Brand 28",
-            "category": "BFSI & Growth",
-            "partnershipYear": "2021",
-            "logoUrl": "storage/clients/all-logos/01JZT87JQVNA4D8MYQCKG8RT2V.jpg",
-            "status": "Active",
-            "projectsCount": 11
+        id: "c28",
+        name: "Taylor & Francis Group",
+        category: "Enterprise IT",
+        partnershipYear: "2021",
+        logoUrl: "storage/clients/all-logos/01JZT87JQVNA4D8MYQCKG8RT2V.jpg",
+        status: "Active",
+        projectsCount: 11
       },
       {
-            "id": "c29",
-            "name": "Partner Brand 29",
-            "category": "BFSI & Growth",
-            "partnershipYear": "2022",
-            "logoUrl": "storage/clients/all-logos/01JZT88F4AED61YS8PCWGDY9J6.jpg",
-            "status": "Active",
-            "projectsCount": 14
+        id: "c29",
+        name: "Tech Data",
+        category: "Technology",
+        partnershipYear: "2020",
+        logoUrl: "storage/clients/all-logos/01JZT88F4AED61YS8PCWGDY9J6.jpg",
+        status: "Active",
+        projectsCount: 22
       },
       {
-            "id": "c30",
-            "name": "Partner Brand 30",
-            "category": "BFSI & Growth",
-            "partnershipYear": "2023",
-            "logoUrl": "storage/clients/all-logos/01JZT89479VPRSW9BFHX9DJETC.jpg",
-            "status": "Active",
-            "projectsCount": 17
+        id: "c30",
+        name: "Umbrella Infocare",
+        category: "Enterprise IT",
+        partnershipYear: "2022",
+        logoUrl: "storage/clients/all-logos/01JZT89479VPRSW9BFHX9DJETC.jpg",
+        status: "Active",
+        projectsCount: 13
       },
       {
-            "id": "c31",
-            "name": "Partner Brand 31",
-            "category": "BFSI & Growth",
-            "partnershipYear": "2024",
-            "logoUrl": "storage/clients/all-logos/01JZT89SQHE0RJT87RK952PTD7.jpg",
-            "status": "Active",
-            "projectsCount": 20
+        id: "c31",
+        name: "Varchas Spirits",
+        category: "Consumer & Retail",
+        partnershipYear: "2023",
+        logoUrl: "storage/clients/all-logos/01JZT89SQHE0RJT87RK952PTD7.jpg",
+        status: "Active",
+        projectsCount: 9
       },
       {
-            "id": "c32",
-            "name": "Partner Brand 32",
-            "category": "BFSI & Growth",
-            "partnershipYear": "2025",
-            "logoUrl": "storage/clients/all-logos/01JZT8ADQ14TWK41XRBWP0KXTR.jpg",
-            "status": "Active",
-            "projectsCount": 23
+        id: "c32",
+        name: "Western Digital",
+        category: "Technology",
+        partnershipYear: "2021",
+        logoUrl: "storage/clients/all-logos/01JZT8ADQ14TWK41XRBWP0KXTR.jpg",
+        status: "Active",
+        projectsCount: 27
       }
     ],
 
@@ -826,8 +826,32 @@
     if (parsed.auth === undefined) parsed.auth = DEFAULT_DB.auth;
     if (parsed.insightClusters === undefined) parsed.insightClusters = DEFAULT_DB.insightClusters || [];
     if (parsed.blogPosts === undefined) parsed.blogPosts = DEFAULT_DB.blogPosts || [];
-    if (parsed.clients === undefined) parsed.clients = DEFAULT_DB.clients || [];
     if (parsed.services === undefined) parsed.services = DEFAULT_DB.services || [];
+    if (!Array.isArray(parsed.clients) || parsed.clients.length === 0) {
+      parsed.clients = JSON.parse(JSON.stringify(DEFAULT_DB.clients));
+    } else {
+      // Migrate old placeholder brand names or missing logoUrls from DEFAULT_DB
+      const defMap = new Map(DEFAULT_DB.clients.map(c => [c.id, c]));
+      parsed.clients.forEach(c => {
+        const def = defMap.get(c.id);
+        if (def) {
+          if (!c.name || c.name.startsWith('Partner Brand') || c.name === 'ACPL' || c.name === 'BENQ') {
+            c.name = def.name;
+            c.category = def.category;
+          }
+          if (!c.logoUrl) {
+            c.logoUrl = def.logoUrl;
+          }
+        }
+      });
+      // Ensure all 32 default enterprise brands exist
+      const existingIds = new Set(parsed.clients.map(c => c.id));
+      DEFAULT_DB.clients.forEach(def => {
+        if (!existingIds.has(def.id)) {
+          parsed.clients.push(JSON.parse(JSON.stringify(def)));
+        }
+      });
+    }
     if (parsed.clientFeedbacks === undefined) parsed.clientFeedbacks = DEFAULT_DB.clientFeedbacks || [];
     if (parsed.employeeFeedbacks === undefined) parsed.employeeFeedbacks = DEFAULT_DB.employeeFeedbacks || [];
     parsed.eventRegistrations = Array.isArray(parsed.eventRegistrations) ? parsed.eventRegistrations : [];
@@ -2396,13 +2420,48 @@
   // =========================================================================
   // VIEW: OUR CLIENTS
   // =========================================================================
+  const EXISTING_CLIENT_LOGOS = [
+    { name: "ACPL Systems", url: "storage/clients/all-logos/01JZT7BZXA4VA77AJE5S3FGNK9.jpg" },
+    { name: "Adobe", url: "storage/clients/all-logos/01JZT7DKZPCEVYQ49KXZ72W0DN.jpg" },
+    { name: "AMD", url: "storage/clients/all-logos/01JZT7E9X8WE3FAG84PMENQYW7.jpg" },
+    { name: "AVEDA", url: "storage/clients/all-logos/01JZT7FXEK89XNP9QHDRM9HDQA.jpg" },
+    { name: "BenQ", url: "storage/clients/all-logos/01JZT7GHG1FG4GHCAY441MGQRE.jpg" },
+    { name: "Brigade Group", url: "storage/clients/all-logos/01JZT7H8NRXQ34NZ7Y9NSCAM8T.jpg" },
+    { name: "Builder.ai", url: "storage/clients/all-logos/01JZT7J7WDT0YFT6W8FJ9E0Z6V.jpg" },
+    { name: "CAST Software", url: "storage/clients/all-logos/01JZT7K0CH1NW2F3CKBNRPW48D.jpg" },
+    { name: "Croma", url: "storage/clients/all-logos/01JZT7KN0BE99VDQ32KKP195T0.jpg" },
+    { name: "Elekore", url: "storage/clients/all-logos/01JZT7MBTFNKPYNB20TZKSPF1X.jpg" },
+    { name: "Embee Software", url: "storage/clients/all-logos/01JZT7NEVMSY3JK82A65X5BMZF.jpg" },
+    { name: "Eros Group", url: "storage/clients/all-logos/01JZT7P6KV6JCS3E7RBGDCRGPW.jpg" },
+    { name: "Softline", url: "storage/clients/all-logos/01JZT7RWJABEVAZDF71CR2NDRG.jpg" },
+    { name: "GAP", url: "storage/clients/all-logos/01JZT7SK5P2PMBT0KFRHYKK637.jpg" },
+    { name: "Harvest Gold", url: "storage/clients/all-logos/01JZT7T80Y7H2JKCT170BH1AH9.jpg" },
+    { name: "Moët Hennessy", url: "storage/clients/all-logos/01JZT7VQWBT95S84FXR88CTGFE.jpg" },
+    { name: "Kingfisher", url: "storage/clients/all-logos/01JZT7WF76VXZHB4GG7P45V92M.jpg" },
+    { name: "Lighthouse Canton", url: "storage/clients/all-logos/01JZT7YSVGN5FDXAH4GJ79FK3Z.jpg" },
+    { name: "Mother Dairy", url: "storage/clients/all-logos/01JZT7ZNEHHZWXDKF4EKQ5RZ9C.jpg" },
+    { name: "Neovantage Innovation Parks", url: "storage/clients/all-logos/01JZT80FCSTB105P5C67VAGXJW.jpg" },
+    { name: "Noventiq", url: "storage/clients/all-logos/01JZT81GDVN0MCC8EA7CZEKTQ4.jpg" },
+    { name: "Puravankara", url: "storage/clients/all-logos/01JZT827C4AVD8Y2AYD2BAXHFC.jpg" },
+    { name: "Quess Corp", url: "storage/clients/all-logos/01JZT82YYDAQZB9Y6CDHQVC0DB.jpg" },
+    { name: "Savex Technologies", url: "storage/clients/all-logos/01JZT83NV8Z8P2S3FEN4N3J56H.jpg" },
+    { name: "Sephora", url: "storage/clients/all-logos/01JZT85CC1MZWCB0CNKGE7QKHT.jpg" },
+    { name: "Shalimar Paints", url: "storage/clients/all-logos/01JZT865DQ6G2WK9FJH8E16RM7.jpg" },
+    { name: "Siemens", url: "storage/clients/all-logos/01JZT86X7SDV30D6NGF4G42S4G.jpg" },
+    { name: "Taylor & Francis Group", url: "storage/clients/all-logos/01JZT87JQVNA4D8MYQCKG8RT2V.jpg" },
+    { name: "Tech Data", url: "storage/clients/all-logos/01JZT88F4AED61YS8PCWGDY9J6.jpg" },
+    { name: "Umbrella Infocare", url: "storage/clients/all-logos/01JZT89479VPRSW9BFHX9DJETC.jpg" },
+    { name: "Varchas Spirits", url: "storage/clients/all-logos/01JZT89SQHE0RJT87RK952PTD7.jpg" },
+    { name: "Western Digital", url: "storage/clients/all-logos/01JZT8ADQ14TWK41XRBWP0KXTR.jpg" }
+  ];
+
   function renderClients(container) {
     container.innerHTML = `
       <div class="view-container active">
         <div class="view-header">
           <div>
             <h1 class="view-title">Our Clients</h1>
-            <p class="view-subtitle">Manage enterprise brand partners, logos, and collaboration records</p>
+            <p class="view-subtitle">Manage enterprise brand partners, logos, and collaboration records across the website</p>
           </div>
           <button class="btn-add" id="btnAddClient"><i class="bi bi-plus-lg"></i> Add New Client</button>
         </div>
@@ -2418,7 +2477,11 @@
               <option value="Technology">Technology</option>
               <option value="Enterprise IT">Enterprise IT</option>
               <option value="Hardware & Print">Hardware & Print</option>
-              <option value="Consumer & Tech">Consumer & Tech</option>
+              <option value="Consumer & Retail">Consumer & Retail</option>
+              <option value="Real Estate & Infrastructure">Real Estate & Infrastructure</option>
+              <option value="BFSI">BFSI</option>
+              <option value="FMCG & Beverages">FMCG & Beverages</option>
+              <option value="Energy & Infrastructure">Energy & Infrastructure</option>
             </select>
           </div>
           <span style="font-size: 0.85rem; color: var(--text-muted);">${DB.clients.length} Clients Registered</span>
@@ -2429,7 +2492,7 @@
             <table class="admin-table">
               <thead>
                 <tr>
-                  <th>Client Brand</th>
+                  <th>Client Brand & Logo</th>
                   <th>Industry Category</th>
                   <th>Partner Since</th>
                   <th>Projects Executed</th>
@@ -2454,7 +2517,7 @@
       const q = searchInput.value.toLowerCase().trim();
       const cat = filterSelect.value;
       const filtered = DB.clients.filter(c => {
-        const matchesQ = c.name.toLowerCase().includes(q) || c.category.toLowerCase().includes(q);
+        const matchesQ = (c.name || '').toLowerCase().includes(q) || (c.category || '').toLowerCase().includes(q);
         const matchesCat = cat === 'ALL' || c.category === cat;
         return matchesQ && matchesCat;
       });
@@ -2480,21 +2543,23 @@
       <tr data-id="${c.id}">
         <td>
           <div class="table-entity">
-            <div class="table-avatar-fallback">${escapeHtml(c.name.substring(0, 2).toUpperCase())}</div>
+            <div class="table-avatar-fallback" style="background: rgba(255,255,255,0.06); width: 50px; height: 38px; border-radius: 8px; display: flex; align-items: center; justify-content: center; padding: 4px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1);">
+              ${c.logoUrl ? `<img src="${escapeHtml(c.logoUrl)}" alt="${escapeHtml(c.name)}" style="max-height: 28px; max-width: 42px; object-fit: contain;" onerror="this.style.display='none'; this.nextElementSibling ? this.nextElementSibling.style.display='block' : null;"><span style="display:none; font-size:0.75rem; font-weight:700;">${escapeHtml((c.name || 'CL').substring(0, 2).toUpperCase())}</span>` : `<span style="font-size:0.75rem; font-weight:700;">${escapeHtml((c.name || 'CL').substring(0, 2).toUpperCase())}</span>`}
+            </div>
             <div>
               <div class="entity-info-primary">${escapeHtml(c.name)}</div>
               <div class="entity-info-sub">ID: ${escapeHtml(c.id)}</div>
             </div>
           </div>
         </td>
-        <td><span class="badge badge-category">${escapeHtml(c.category)}</span></td>
-        <td>${escapeHtml(c.partnershipYear)}</td>
-        <td><strong>${escapeHtml(c.projectsCount.toString())}</strong> activations</td>
-        <td><span class="badge ${c.status === 'Active' ? 'badge-active' : 'badge-draft'}">${escapeHtml(c.status)}</span></td>
+        <td><span class="badge badge-category">${escapeHtml(c.category || 'General')}</span></td>
+        <td>${escapeHtml(c.partnershipYear || '2026')}</td>
+        <td><strong>${escapeHtml((c.projectsCount || 0).toString())}</strong> activations</td>
+        <td><span class="badge ${c.status === 'Active' ? 'badge-active' : 'badge-draft'}">${escapeHtml(c.status || 'Active')}</span></td>
         <td style="text-align: right;">
           <div class="action-btns" style="justify-content: flex-end;">
-            <button class="btn-icon btn-edit" title="Edit" data-action="edit-client" data-id="${c.id}"><i class="bi bi-pencil-fill"></i></button>
-            <button class="btn-icon btn-delete" title="Delete" data-action="delete-client" data-id="${c.id}"><i class="bi bi-trash-fill"></i></button>
+            <button class="btn-icon btn-edit" title="Edit Client" data-action="edit-client" data-id="${c.id}"><i class="bi bi-pencil-fill"></i></button>
+            <button class="btn-icon btn-delete" title="Delete Client" data-action="delete-client" data-id="${c.id}"><i class="bi bi-trash-fill"></i></button>
           </div>
         </td>
       </tr>
@@ -2513,7 +2578,7 @@
     document.querySelectorAll('[data-action="delete-client"]').forEach(btn => {
       btn.addEventListener('click', () => {
         const id = btn.getAttribute('data-id');
-        confirmDelete('Delete Client', 'Are you sure you want to delete this enterprise client?', () => {
+        confirmDelete('Delete Client', 'Are you sure you want to delete this enterprise client from the database and public site?', () => {
           DB.clients = DB.clients.filter(c => c.id !== id);
           saveDatabase(DB);
           renderClients(document.getElementById('adminMainContent'));
@@ -2525,11 +2590,39 @@
 
   function openClientModal(client = null) {
     const isEdit = !!client;
+    const currentLogo = isEdit ? (client.logoUrl || '') : '';
+    const presetOptionsHtml = EXISTING_CLIENT_LOGOS.map(p => `
+      <option value="${escapeHtml(p.url)}" ${currentLogo === p.url ? 'selected' : ''}>${escapeHtml(p.name)} (${escapeHtml(p.url.split('/').pop())})</option>
+    `).join('');
+
     const formHtml = `
       <div class="form-group">
-        <label class="form-label">Client / Brand Name</label>
-        <input type="text" class="form-input" id="m_clientName" value="${isEdit ? escapeHtml(client.name) : ''}" placeholder="e.g. Oracle India" required>
+        <label class="form-label">Client / Brand Name <span style="color:var(--color-primary);">*</span></label>
+        <input type="text" class="form-input" id="m_clientName" value="${isEdit ? escapeHtml(client.name) : ''}" placeholder="e.g. Adobe India" required>
       </div>
+
+      <div class="form-group">
+        <label class="form-label">Brand Logo</label>
+        <div style="display: flex; gap: 12px; align-items: center; margin-bottom: 8px;">
+          <div id="m_clientLogoPreviewBox" style="width: 80px; height: 56px; border-radius: 8px; border: 1px solid var(--border-color); background: rgba(255,255,255,0.04); display: flex; align-items: center; justify-content: center; overflow: hidden; padding: 4px;">
+            ${currentLogo ? `<img src="${escapeHtml(currentLogo)}" style="max-height: 48px; max-width: 72px; object-fit: contain;">` : `<span style="font-size: 0.72rem; color: var(--text-muted);">No Logo</span>`}
+          </div>
+          <div style="flex: 1;">
+            <input type="text" class="form-input" id="m_clientLogoUrl" value="${escapeHtml(currentLogo)}" placeholder="storage/clients/all-logos/... or https://..." style="margin-bottom: 6px;">
+            <div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap;">
+              <label class="btn-secondary" style="cursor: pointer; font-size: 0.76rem; padding: 5px 10px; display: inline-flex; align-items: center; gap: 4px; border-radius: 6px; margin: 0; background: rgba(255,255,255,0.06); border: 1px solid var(--border-color);">
+                <i class="bi bi-upload"></i> Upload Logo
+                <input type="file" id="m_clientLogoFile" accept="image/*" style="display: none;">
+              </label>
+              <select class="form-select" id="m_clientLogoPreset" style="font-size: 0.76rem; padding: 4px 8px; flex: 1; min-width: 170px;">
+                <option value="">-- Or Choose Existing Logo --</option>
+                ${presetOptionsHtml}
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div class="form-row">
         <div class="form-group">
           <label class="form-label">Category</label>
@@ -2537,25 +2630,27 @@
             <option ${isEdit && client.category === 'Technology' ? 'selected' : ''}>Technology</option>
             <option ${isEdit && client.category === 'Enterprise IT' ? 'selected' : ''}>Enterprise IT</option>
             <option ${isEdit && client.category === 'Hardware & Print' ? 'selected' : ''}>Hardware & Print</option>
-            <option ${isEdit && client.category === 'Consumer & Tech' ? 'selected' : ''}>Consumer & Tech</option>
-            <option ${isEdit && client.category === 'Cloud Computing' ? 'selected' : ''}>Cloud Computing</option>
+            <option ${isEdit && client.category === 'Consumer & Retail' ? 'selected' : ''}>Consumer & Retail</option>
+            <option ${isEdit && client.category === 'Real Estate & Infrastructure' ? 'selected' : ''}>Real Estate & Infrastructure</option>
             <option ${isEdit && client.category === 'BFSI' ? 'selected' : ''}>BFSI</option>
+            <option ${isEdit && client.category === 'FMCG & Beverages' ? 'selected' : ''}>FMCG & Beverages</option>
+            <option ${isEdit && client.category === 'Energy & Infrastructure' ? 'selected' : ''}>Energy & Infrastructure</option>
           </select>
         </div>
         <div class="form-group">
           <label class="form-label">Partnership Year</label>
-          <input type="text" class="form-input" id="m_clientYear" value="${isEdit ? escapeHtml(client.partnershipYear) : '2026'}" placeholder="2026">
+          <input type="text" class="form-input" id="m_clientYear" value="${isEdit ? escapeHtml(client.partnershipYear || '2026') : '2026'}" placeholder="2026">
         </div>
       </div>
       <div class="form-row">
         <div class="form-group">
           <label class="form-label">Projects Executed</label>
-          <input type="number" class="form-input" id="m_clientProjects" value="${isEdit ? client.projectsCount : '1'}">
+          <input type="number" class="form-input" id="m_clientProjects" value="${isEdit ? (client.projectsCount || 1) : '1'}" min="0">
         </div>
         <div class="form-group">
           <label class="form-label">Status</label>
           <select class="form-select" id="m_clientStatus">
-            <option ${isEdit && client.status === 'Active' ? 'selected' : ''}>Active</option>
+            <option ${!isEdit || client.status === 'Active' ? 'selected' : ''}>Active</option>
             <option ${isEdit && client.status === 'Inactive' ? 'selected' : ''}>Inactive</option>
           </select>
         </div>
@@ -2573,6 +2668,7 @@
           return false;
         }
 
+        const logoUrl = document.getElementById('m_clientLogoUrl')?.value.trim() || '';
         const category = document.getElementById('m_clientCategory').value;
         const year = document.getElementById('m_clientYear').value || '2026';
         const projects = parseInt(document.getElementById('m_clientProjects').value || '1', 10);
@@ -2580,6 +2676,7 @@
 
         if (isEdit) {
           client.name = name;
+          client.logoUrl = logoUrl;
           client.category = category;
           client.partnershipYear = year;
           client.projectsCount = projects;
@@ -2592,7 +2689,7 @@
             name,
             category,
             partnershipYear: year,
-            logoUrl: '',
+            logoUrl,
             projectsCount: projects,
             status
           });
@@ -2604,6 +2701,44 @@
         return true;
       }
     });
+
+    // Wire up modal interactivity
+    setTimeout(() => {
+      const urlInput = document.getElementById('m_clientLogoUrl');
+      const fileInput = document.getElementById('m_clientLogoFile');
+      const presetSelect = document.getElementById('m_clientLogoPreset');
+      const previewBox = document.getElementById('m_clientLogoPreviewBox');
+
+      const updatePreview = (url) => {
+        if (!previewBox) return;
+        if (url && url.trim()) {
+          previewBox.innerHTML = `<img src="${escapeHtml(url.trim())}" style="max-height: 48px; max-width: 72px; object-fit: contain;" onerror="this.parentElement.innerHTML='<span style=\\'font-size:0.7rem;color:var(--text-muted);\\'>Invalid</span>';">`;
+        } else {
+          previewBox.innerHTML = `<span style="font-size: 0.72rem; color: var(--text-muted);">No Logo</span>`;
+        }
+      };
+
+      urlInput?.addEventListener('input', (e) => updatePreview(e.target.value));
+
+      presetSelect?.addEventListener('change', (e) => {
+        if (e.target.value) {
+          if (urlInput) urlInput.value = e.target.value;
+          updatePreview(e.target.value);
+        }
+      });
+
+      fileInput?.addEventListener('change', async (e) => {
+        const file = e.target.files?.[0];
+        if (file) {
+          const res = await compressImageFile(file, 500, 250, 0.85);
+          if (res && res.dataUrl) {
+            if (urlInput) urlInput.value = res.dataUrl;
+            updatePreview(res.dataUrl);
+            showToast('Logo uploaded and compressed', 'success');
+          }
+        }
+      });
+    }, 40);
   }
 
   // =========================================================================

@@ -131,7 +131,7 @@
         <p class="section-desc">Delivering unmatched quality, accountability, and ROI for global enterprises.</p>
       </div>
 
-      <div class="grid-cols-4" style="gap: 2.5rem; align-items: center;">
+      <div class="grid-cols-4 dynamic-clients-grid" id="clients-page-grid" style="gap: 2.5rem; align-items: center;">
         <div class="glass-panel flex-center client-logo-card" style="padding: 2rem; height: 150px;" data-aos="fade-up" data-aos-delay="0">
           <img src="storage/clients/all-logos/01JZT7BZXA4VA77AJE5S3FGNK9.jpg" alt="ACPL Systems Logo" style="max-height: 75px; max-width: 85%; width: auto; object-fit: contain; filter: grayscale(100%); transition: all 0.3s ease;" onmouseover="this.style.filter='grayscale(0%)'; this.style.transform='scale(1.05)';" onmouseout="this.style.filter='grayscale(100%)'; this.style.transform='scale(1)';">
         </div>
@@ -323,6 +323,11 @@
       once: true
     });
   </script>
+  <!-- Firebase & Real-Time Cloud Sync -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+  <script src="cloud-sync.js"></script>
+
   <script src="script.js"></script>
 </body>
 </html>

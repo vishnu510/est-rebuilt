@@ -1793,23 +1793,135 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // ==========================================
+  // Dynamic Enterprise Client Logos Sync
+  // ==========================================
+  const DEFAULT_CLIENTS_DATA = [
+    { name: "ACPL Systems", logoUrl: "storage/clients/all-logos/01JZT7BZXA4VA77AJE5S3FGNK9.jpg", category: "Technology", status: "Active" },
+    { name: "Adobe", logoUrl: "storage/clients/all-logos/01JZT7DKZPCEVYQ49KXZ72W0DN.jpg", category: "Technology", status: "Active" },
+    { name: "AMD", logoUrl: "storage/clients/all-logos/01JZT7E9X8WE3FAG84PMENQYW7.jpg", category: "Technology", status: "Active" },
+    { name: "AVEDA", logoUrl: "storage/clients/all-logos/01JZT7FXEK89XNP9QHDRM9HDQA.jpg", category: "Consumer & Retail", status: "Active" },
+    { name: "BenQ", logoUrl: "storage/clients/all-logos/01JZT7GHG1FG4GHCAY441MGQRE.jpg", category: "Hardware & Print", status: "Active" },
+    { name: "Brigade Group", logoUrl: "storage/clients/all-logos/01JZT7H8NRXQ34NZ7Y9NSCAM8T.jpg", category: "Real Estate & Infrastructure", status: "Active" },
+    { name: "Builder.ai", logoUrl: "storage/clients/all-logos/01JZT7J7WDT0YFT6W8FJ9E0Z6V.jpg", category: "Technology", status: "Active" },
+    { name: "CAST Software", logoUrl: "storage/clients/all-logos/01JZT7K0CH1NW2F3CKBNRPW48D.jpg", category: "Enterprise IT", status: "Active" },
+    { name: "Croma", logoUrl: "storage/clients/all-logos/01JZT7KN0BE99VDQ32KKP195T0.jpg", category: "Consumer & Retail", status: "Active" },
+    { name: "Elekore", logoUrl: "storage/clients/all-logos/01JZT7MBTFNKPYNB20TZKSPF1X.jpg", category: "Energy & Infrastructure", status: "Active" },
+    { name: "Embee Software", logoUrl: "storage/clients/all-logos/01JZT7NEVMSY3JK82A65X5BMZF.jpg", category: "Enterprise IT", status: "Active" },
+    { name: "Eros Group", logoUrl: "storage/clients/all-logos/01JZT7P6KV6JCS3E7RBGDCRGPW.jpg", category: "Real Estate & Infrastructure", status: "Active" },
+    { name: "Softline", logoUrl: "storage/clients/all-logos/01JZT7RWJABEVAZDF71CR2NDRG.jpg", category: "Enterprise IT", status: "Active" },
+    { name: "GAP", logoUrl: "storage/clients/all-logos/01JZT7SK5P2PMBT0KFRHYKK637.jpg", category: "Consumer & Retail", status: "Active" },
+    { name: "Harvest Gold", logoUrl: "storage/clients/all-logos/01JZT7T80Y7H2JKCT170BH1AH9.jpg", category: "Consumer & Retail", status: "Active" },
+    { name: "Moët Hennessy", logoUrl: "storage/clients/all-logos/01JZT7VQWBT95S84FXR88CTGFE.jpg", category: "Consumer & Retail", status: "Active" },
+    { name: "Kingfisher", logoUrl: "storage/clients/all-logos/01JZT7WF76VXZHB4GG7P45V92M.jpg", category: "Consumer & Retail", status: "Active" },
+    { name: "Lighthouse Canton", logoUrl: "storage/clients/all-logos/01JZT7YSVGN5FDXAH4GJ79FK3Z.jpg", category: "BFSI", status: "Active" },
+    { name: "Mother Dairy", logoUrl: "storage/clients/all-logos/01JZT7ZNEHHZWXDKF4EKQ5RZ9C.jpg", category: "Consumer & Retail", status: "Active" },
+    { name: "Neovantage Innovation Parks", logoUrl: "storage/clients/all-logos/01JZT80FCSTB105P5C67VAGXJW.jpg", category: "Real Estate & Infrastructure", status: "Active" },
+    { name: "Noventiq", logoUrl: "storage/clients/all-logos/01JZT81GDVN0MCC8EA7CZEKTQ4.jpg", category: "Enterprise IT", status: "Active" },
+    { name: "Puravankara", logoUrl: "storage/clients/all-logos/01JZT827C4AVD8Y2AYD2BAXHFC.jpg", category: "Real Estate & Infrastructure", status: "Active" },
+    { name: "Quess Corp", logoUrl: "storage/clients/all-logos/01JZT82YYDAQZB9Y6CDHQVC0DB.jpg", category: "Enterprise IT", status: "Active" },
+    { name: "Savex Technologies", logoUrl: "storage/clients/all-logos/01JZT83NV8Z8P2S3FEN4N3J56H.jpg", category: "Technology", status: "Active" },
+    { name: "Sephora", logoUrl: "storage/clients/all-logos/01JZT85CC1MZWCB0CNKGE7QKHT.jpg", category: "Consumer & Retail", status: "Active" },
+    { name: "Shalimar Paints", logoUrl: "storage/clients/all-logos/01JZT865DQ6G2WK9FJH8E16RM7.jpg", category: "Consumer & Retail", status: "Active" },
+    { name: "Siemens", logoUrl: "storage/clients/all-logos/01JZT86X7SDV30D6NGF4G42S4G.jpg", category: "Technology", status: "Active" },
+    { name: "Taylor & Francis Group", logoUrl: "storage/clients/all-logos/01JZT87JQVNA4D8MYQCKG8RT2V.jpg", category: "Enterprise IT", status: "Active" },
+    { name: "Tech Data", logoUrl: "storage/clients/all-logos/01JZT88F4AED61YS8PCWGDY9J6.jpg", category: "Technology", status: "Active" },
+    { name: "Umbrella Infocare", logoUrl: "storage/clients/all-logos/01JZT89479VPRSW9BFHX9DJETC.jpg", category: "Enterprise IT", status: "Active" },
+    { name: "Varchas Spirits", logoUrl: "storage/clients/all-logos/01JZT89SQHE0RJT87RK952PTD7.jpg", category: "Consumer & Retail", status: "Active" },
+    { name: "Western Digital", logoUrl: "storage/clients/all-logos/01JZT8ADQ14TWK41XRBWP0KXTR.jpg", category: "Technology", status: "Active" }
+  ];
+
+  function initDynamicClients() {
+    const grids = document.querySelectorAll('.dynamic-clients-grid, #dynamic-clients-grid, #clients-page-grid, #about-clients-grid');
+    if (!grids.length) return;
+
+    let db = null;
+    if (window.ESTCloudSync && typeof window.ESTCloudSync.getDB === 'function') {
+      db = window.ESTCloudSync.getDB();
+    }
+    if (!db) {
+      try {
+        const raw = localStorage.getItem('EST_ADMIN_DB_V2');
+        if (raw) db = JSON.parse(raw);
+      } catch (e) {
+        console.warn('Error reading db for clients:', e);
+      }
+    }
+
+    const clients = (db && Array.isArray(db.clients) && db.clients.length > 0)
+      ? db.clients
+      : DEFAULT_CLIENTS_DATA;
+
+    const activeClients = clients.filter(c => !c.status || c.status.toLowerCase() === 'active');
+
+    grids.forEach(grid => {
+      const isClientsPage = grid.id === 'clients-page-grid' || window.location.pathname.includes('clients.html');
+      const cardHeight = isClientsPage ? '150px' : '110px';
+      const maxImgHeight = isClientsPage ? '75px' : '60px';
+      const padding = isClientsPage ? '2rem' : '1.5rem';
+
+      if (activeClients.length === 0) {
+        grid.innerHTML = `
+          <div style="grid-column: 1 / -1; padding: 40px 20px; text-align: center; color: #94a3b8; background: rgba(255,255,255,0.02); border-radius: 12px; border: 1px dashed rgba(255,255,255,0.1);">
+            <p style="margin: 0; font-size: 0.95rem;">No active clients registered in admin panel.</p>
+          </div>
+        `;
+        return;
+      }
+
+      grid.innerHTML = activeClients.map((c, idx) => {
+        const delay = (idx % 6) * 50;
+        const logo = c.logoUrl || '';
+        const name = c.name || 'Partner Brand';
+        return `
+          <div class="glass-panel flex-center client-logo-card" style="padding: ${padding}; height: ${cardHeight}; border-radius: 12px; background: rgba(255, 255, 255, 0.03);" data-aos="fade-up" data-aos-delay="${delay}">
+            ${logo ? `
+              <img src="${escapeHtml(logo)}" 
+                   alt="${escapeHtml(name)} Logo" 
+                   title="${escapeHtml(name)}"
+                   style="max-height: ${maxImgHeight}; max-width: 85%; width: auto; object-fit: contain; filter: grayscale(100%); transition: all 0.3s ease;" 
+                   onmouseover="this.style.filter='grayscale(0%)'; this.style.transform='scale(1.08)';" 
+                   onmouseout="this.style.filter='grayscale(100%)'; this.style.transform='scale(1)';"
+                   onerror="this.style.display='none'; this.nextElementSibling ? this.nextElementSibling.style.display='block' : null;">
+              <span style="display: none; font-weight: 600; font-size: 0.9rem; color: #fff;">${escapeHtml(name)}</span>
+            ` : `
+              <span style="font-weight: 600; font-size: 0.95rem; color: #fff;">${escapeHtml(name)}</span>
+            `}
+          </div>
+        `;
+      }).join('');
+    });
+  }
+
+  // Hook sync listeners
+  if (!window._clientsSyncBound) {
+    window._clientsSyncBound = true;
+    if (window.ESTCloudSync && typeof window.ESTCloudSync.onSync === 'function') {
+      window.ESTCloudSync.onSync(() => initDynamicClients());
+    }
+  }
+
   // Initial load
   initDynamicBentoShowcase();
+  initDynamicClients();
 
   // Real-time synchronization event listeners across tabs and devices
   window.addEventListener('EST_DB_UPDATED', () => {
     initDynamicBentoShowcase();
+    initDynamicClients();
     if (typeof initDynamicCaseStudies === 'function') initDynamicCaseStudies();
   });
 
   window.addEventListener('EST_DB_SYNC', () => {
     initDynamicBentoShowcase();
+    initDynamicClients();
     if (typeof initDynamicCaseStudies === 'function') initDynamicCaseStudies();
   });
 
   window.addEventListener('storage', (e) => {
     if (!e.key || e.key === 'EST_ADMIN_DB_V2' || e.key === 'EST_ADMIN_DB_SYNC_TS') {
       initDynamicBentoShowcase();
+      initDynamicClients();
       if (typeof initDynamicCaseStudies === 'function') initDynamicCaseStudies();
     }
   });
@@ -1820,6 +1932,7 @@ document.addEventListener('DOMContentLoaded', () => {
       bc.onmessage = (event) => {
         if (event.data && event.data.type === 'DB_UPDATE') {
           initDynamicBentoShowcase();
+          initDynamicClients();
           if (typeof initDynamicCaseStudies === 'function') initDynamicCaseStudies();
         }
       };
