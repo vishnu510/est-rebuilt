@@ -1266,11 +1266,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (copyLinkBtn) {
       copyLinkBtn.onclick = () => {
-        navigator.clipboard.writeText(window.location.href).then(() => {
-          const orig = copyLinkBtn.innerHTML;
-          copyLinkBtn.innerHTML = '<i class="bi bi-check2" style="color: #10b981;"></i>';
-          setTimeout(() => copyLinkBtn.innerHTML = orig, 2000);
-        });
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(window.location.href).then(() => {
+            const orig = copyLinkBtn.innerHTML;
+            copyLinkBtn.innerHTML = '<i class="bi bi-check2" style="color: #10b981;"></i>';
+            setTimeout(() => copyLinkBtn.innerHTML = orig, 2000);
+          }).catch(() => {});
+        }
       };
     }
 
@@ -1375,6 +1377,22 @@ document.addEventListener('DOMContentLoaded', () => {
               </div>
             </div>
           `).join('');
+
+          // Re-trigger AOS animations for dynamically injected case study cards
+          if (typeof AOS !== 'undefined') {
+            try { AOS.refresh(); } catch (_) {}
+          }
+
+          // Safety guarantee: Ensure all cards are visible even if animation library lags
+          setTimeout(() => {
+            if (csGrid) {
+              csGrid.querySelectorAll('.case-study-card').forEach(card => {
+                card.classList.add('aos-animate');
+                card.style.opacity = '1';
+                card.style.transform = 'none';
+              });
+            }
+          }, 250);
         }
       }
     }

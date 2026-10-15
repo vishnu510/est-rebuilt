@@ -3366,6 +3366,8 @@ html.dark .problem-solution-box {
   grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
   gap: 2rem;
   margin-top: 3rem;
+  opacity: 1 !important;
+  visibility: visible !important;
 }
 
 .case-study-card {
@@ -3374,6 +3376,13 @@ html.dark .problem-solution-box {
   display: flex;
   flex-direction: column;
   transition: all var(--transition-normal);
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+}
+
+.case-study-card.aos-animate {
+  opacity: 1 !important;
+  transform: none !important;
 }
 
 .case-study-card:hover {
