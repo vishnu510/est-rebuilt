@@ -923,7 +923,7 @@
     parsed.eventVideos = Array.isArray(parsed.eventVideos) ? parsed.eventVideos : [];
     if (parsed.eventVideosSection === undefined) parsed.eventVideosSection = DEFAULT_DB.eventVideosSection;
     parsed.events = Array.isArray(parsed.events) ? parsed.events : [];
-    if (!Array.isArray(parsed.caseStudies) || parsed.caseStudies.length === 0) {
+    if (!Array.isArray(parsed.caseStudies)) {
       parsed.caseStudies = JSON.parse(JSON.stringify(DEFAULT_DB.caseStudies || []));
     }
 

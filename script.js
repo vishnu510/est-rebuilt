@@ -1179,8 +1179,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Open Case Study Reader Modal - 100% Dynamic Binding
   window.estOpenCaseStudy = function(studyId) {
+    if (!studyId) return;
     const studies = getStoredCaseStudies();
-    const study = studies.find(s => s.id === studyId) || studies[0];
+    const study = studies.find(s => s.id === studyId);
     if (!study) return;
 
     try {
@@ -1253,7 +1254,10 @@ document.addEventListener('DOMContentLoaded', () => {
     if (execEl) execEl.textContent = study.execution || '';
 
     const resultsEl = document.getElementById('csModalResults');
-    if (resultsEl) resultsEl.innerHTML = study.resultsHtml || '<p>Delivered measurable business ROI and flawless execution.</p>';
+    if (resultsEl) {
+      const res = study.resultsHtml || '<p>Delivered measurable business ROI and flawless execution.</p>';
+      resultsEl.innerHTML = res.startsWith('<') ? res : `<p>${escapeHtml(res)}</p>`;
+    }
 
     const modalOverlay = document.getElementById('caseStudyModalOverlay');
     if (modalOverlay) {
@@ -1270,6 +1274,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let currentFilter = 'all';
     let searchQuery = '';
+
+    // Support URL parameters: ?category=... or ?search=...
+    try {
+      const urlParams = new URLSearchParams(window.location.search);
+      const urlCat = urlParams.get('category') || urlParams.get('filter');
+      if (urlCat) currentFilter = urlCat;
+      const urlQ = urlParams.get('search') || urlParams.get('q');
+      if (urlQ) {
+        searchQuery = urlQ.trim().toLowerCase();
+        if (searchInput) searchInput.value = urlQ.trim();
+      }
+    } catch (_) {}
 
     if (searchInput) {
       searchInput.oninput = (e) => {
@@ -1288,7 +1304,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.style.overflow = '';
       }
       try {
-        history.replaceState(null, null, window.location.pathname);
+        history.replaceState(null, null, window.location.pathname + window.location.search);
       } catch (_) {}
     }
 
@@ -1320,7 +1336,9 @@ document.addEventListener('DOMContentLoaded', () => {
     function renderCaseStudiesHub() {
       const allStudies = getStoredCaseStudies().filter(c => !c.status || c.status.toLowerCase() === 'published');
       if (!allStudies.length && csGrid) {
-        if (filterListEl) filterListEl.style.display = 'none';
+        if (filterListEl) {
+          filterListEl.innerHTML = `<li><button class="blog-filter-btn active" data-cs-filter="all"><span>All Work (0)</span></button></li>`;
+        }
         csGrid.innerHTML = `
           <div style="grid-column: 1/-1; text-align: center; padding: 70px 20px; background: rgba(255,255,255,0.02); border-radius: 16px; border: 1px dashed rgba(255,255,255,0.1);">
             <i class="bi bi-journal-x" style="font-size: 2.8rem; color: #fe3b20; display: block; margin-bottom: 14px;"></i>
@@ -1329,8 +1347,6 @@ document.addEventListener('DOMContentLoaded', () => {
           </div>
         `;
         return;
-      } else if (filterListEl) {
-        filterListEl.style.display = 'flex';
       }
 
       // Build categories list dynamically from whatever case studies exist in DB
@@ -1339,6 +1355,16 @@ document.addEventListener('DOMContentLoaded', () => {
         allStudies.forEach(s => {
           if (s.category && s.category.trim()) categoriesSet.add(s.category.trim());
         });
+
+        // If currentFilter is not 'all' and no longer exists in DB, fallback to 'all'
+        if (currentFilter !== 'all' && !categoriesSet.has(currentFilter)) {
+          const matchCaseInsensitive = Array.from(categoriesSet).find(cat => cat.toLowerCase() === currentFilter.toLowerCase());
+          if (matchCaseInsensitive) {
+            currentFilter = matchCaseInsensitive;
+          } else {
+            currentFilter = 'all';
+          }
+        }
 
         const categories = ['all', ...Array.from(categoriesSet)];
         filterListEl.innerHTML = categories.map(cat => {
@@ -1636,6 +1662,16 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('EST_DB_UPDATED', () => {
     refreshAllDynamicEngines();
   });
+
+  window.addEventListener('EST_DB_SYNC', () => {
+    refreshAllDynamicEngines();
+  });
+
+  if (window.ESTCloudSync && typeof window.ESTCloudSync.onSync === 'function') {
+    window.ESTCloudSync.onSync(() => {
+      refreshAllDynamicEngines();
+    });
+  }
 
   if (typeof BroadcastChannel !== 'undefined') {
     try {
@@ -1995,39 +2031,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initDynamicBentoShowcase();
   initDynamicClients();
 
-  // Real-time synchronization event listeners across tabs and devices
-  window.addEventListener('EST_DB_UPDATED', () => {
-    initDynamicBentoShowcase();
-    initDynamicClients();
-    if (typeof initDynamicCaseStudies === 'function') initDynamicCaseStudies();
-  });
-
-  window.addEventListener('EST_DB_SYNC', () => {
-    initDynamicBentoShowcase();
-    initDynamicClients();
-    if (typeof initDynamicCaseStudies === 'function') initDynamicCaseStudies();
-  });
-
-  window.addEventListener('storage', (e) => {
-    if (!e.key || e.key === 'EST_ADMIN_DB_V2' || e.key === 'EST_ADMIN_DB_SYNC_TS') {
-      initDynamicBentoShowcase();
-      initDynamicClients();
-      if (typeof initDynamicCaseStudies === 'function') initDynamicCaseStudies();
-    }
-  });
-
-  if (typeof BroadcastChannel !== 'undefined') {
-    try {
-      const bc = new BroadcastChannel('est_admin_sync');
-      bc.onmessage = (event) => {
-        if (event.data && event.data.type === 'DB_UPDATE') {
-          initDynamicBentoShowcase();
-          initDynamicClients();
-          if (typeof initDynamicCaseStudies === 'function') initDynamicCaseStudies();
-        }
-      };
-    } catch (_) {}
-  }
+  // Note: Cross-tab and cloud sync are centrally orchestrated above by refreshAllDynamicEngines()
 
   // (D) Bring Brand Alive Lead Form Submission
   const bringAliveForm = document.getElementById('bringAliveForm');
