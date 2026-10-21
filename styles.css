@@ -210,7 +210,33 @@ button, input, select, textarea {
   gap: 1.5rem;
 }
 
+.grid-cols-5 {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.5rem;
+}
+
+#dynamic-clients-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.client-logo-card {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.client-logo-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(0, 240, 255, 0.3) !important;
+  box-shadow: 0 12px 28px -8px rgba(0, 0, 0, 0.5), 0 0 16px rgba(0, 240, 255, 0.15);
+}
+
 @media (max-width: 1024px) {
+  .grid-cols-5, #dynamic-clients-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
   .grid-cols-4 {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -223,6 +249,13 @@ button, input, select, textarea {
   .grid-cols-2, .grid-cols-3, .grid-cols-4 {
     grid-template-columns: 1fr;
     gap: 1.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .grid-cols-5, #dynamic-clients-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
   }
 }
 

@@ -1982,11 +1982,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     grids.forEach(grid => {
       const isClientsPage = grid.id === 'clients-page-grid' || window.location.pathname.includes('clients.html');
+      const isHomePage = grid.id === 'dynamic-clients-grid' || (!isClientsPage && grid.id !== 'about-clients-grid' && (window.location.pathname.endsWith('index.html') || window.location.pathname === '/' || window.location.pathname === ''));
+
+      // On home page, strictly show top 10 company logos; clients page shows full roster
+      const clientsToRender = isHomePage ? activeClients.slice(0, 10) : activeClients;
+
       const cardHeight = isClientsPage ? '150px' : '110px';
       const maxImgHeight = isClientsPage ? '75px' : '60px';
       const padding = isClientsPage ? '2rem' : '1.5rem';
 
-      if (activeClients.length === 0) {
+      if (clientsToRender.length === 0) {
         grid.innerHTML = `
           <div style="grid-column: 1 / -1; padding: 40px 20px; text-align: center; color: #94a3b8; background: rgba(255,255,255,0.02); border-radius: 12px; border: 1px dashed rgba(255,255,255,0.1);">
             <p style="margin: 0; font-size: 0.95rem;">No active clients registered in admin panel.</p>
@@ -1995,7 +2000,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
-      grid.innerHTML = activeClients.map((c, idx) => {
+      grid.innerHTML = clientsToRender.map((c, idx) => {
         const delay = (idx % 6) * 50;
         const logo = c.logoUrl || '';
         const name = c.name || 'Partner Brand';
