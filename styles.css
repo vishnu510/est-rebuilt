@@ -216,13 +216,155 @@ button, input, select, textarea {
   gap: 1.5rem;
 }
 
-#dynamic-clients-grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
+/* ==========================================
+   DUAL MARQUEE LOGO TICKER & BLINKING ANIMATION
+   ========================================== */
+#dynamic-clients-grid.clients-marquee-container,
+.clients-marquee-container {
+  display: flex;
+  flex-direction: column;
   gap: 1.5rem;
-  align-items: center;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  padding: 1.5rem 0;
+  mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
 }
 
+.marquee-row {
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+  user-select: none;
+}
+
+.marquee-track {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  will-change: transform;
+}
+
+/* Row 1: Moves Left to Right */
+.marquee-ltr .marquee-track {
+  animation: marqueeScrollLTR 35s linear infinite;
+}
+
+/* Row 2: Moves Right to Left */
+.marquee-rtl .marquee-track {
+  animation: marqueeScrollRTL 35s linear infinite;
+}
+
+/* Pause moving on hover */
+.marquee-row:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes marqueeScrollRTL {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marqueeScrollLTR {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* Marquee Client Logo Card */
+.marquee-track .client-logo-card {
+  width: 220px;
+  min-width: 220px;
+  height: 110px;
+  margin: 0 12px;
+  padding: 1.25rem 1.75rem;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.marquee-track .client-logo-card img {
+  max-height: 58px;
+  max-width: 82%;
+  width: auto;
+  object-fit: contain;
+  filter: grayscale(100%) opacity(0.7);
+  transition: all 0.35s ease;
+}
+
+/* Blinking & Pulsing Cyan Neon Glow Animation */
+.client-logo-card.blink-pulse {
+  animation: logoBlinkCycle 4s ease-in-out infinite;
+}
+
+@keyframes logoBlinkCycle {
+  0%, 15% {
+    border-color: #00f0ff;
+    background: rgba(0, 240, 255, 0.07);
+    box-shadow: 0 0 24px rgba(0, 240, 255, 0.45), inset 0 0 12px rgba(0, 240, 255, 0.15);
+  }
+  25%, 90% {
+    border-color: rgba(255, 255, 255, 0.07);
+    background: rgba(255, 255, 255, 0.03);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  }
+  100% {
+    border-color: #00f0ff;
+    background: rgba(0, 240, 255, 0.07);
+    box-shadow: 0 0 24px rgba(0, 240, 255, 0.45), inset 0 0 12px rgba(0, 240, 255, 0.15);
+  }
+}
+
+.client-logo-card.blink-pulse img {
+  animation: logoImgBlinkCycle 4s ease-in-out infinite;
+}
+
+@keyframes logoImgBlinkCycle {
+  0%, 15% {
+    filter: grayscale(0%) opacity(1) drop-shadow(0 0 8px rgba(0, 240, 255, 0.5));
+    transform: scale(1.06);
+  }
+  25%, 90% {
+    filter: grayscale(100%) opacity(0.65);
+    transform: scale(1);
+  }
+  100% {
+    filter: grayscale(0%) opacity(1) drop-shadow(0 0 8px rgba(0, 240, 255, 0.5));
+    transform: scale(1.06);
+  }
+}
+
+/* Hover effect on cards */
+.marquee-track .client-logo-card:hover {
+  transform: translateY(-4px) scale(1.06) !important;
+  border-color: #00f0ff !important;
+  background: rgba(0, 240, 255, 0.08) !important;
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.5), 0 0 28px rgba(0, 240, 255, 0.55) !important;
+  animation-play-state: paused !important;
+}
+
+.marquee-track .client-logo-card:hover img {
+  filter: grayscale(0%) opacity(1) drop-shadow(0 0 10px rgba(0, 240, 255, 0.5)) !important;
+  transform: scale(1.1) !important;
+  animation-play-state: paused !important;
+}
+
+/* Standard static card hover for clients.html */
 .client-logo-card {
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
 }
@@ -234,9 +376,6 @@ button, input, select, textarea {
 }
 
 @media (max-width: 1024px) {
-  .grid-cols-5, #dynamic-clients-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
   .grid-cols-4 {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -250,12 +389,21 @@ button, input, select, textarea {
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
-}
-
-@media (max-width: 640px) {
-  .grid-cols-5, #dynamic-clients-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
+  .marquee-track .client-logo-card {
+    width: 170px;
+    min-width: 170px;
+    height: 92px;
+    margin: 0 8px;
+    padding: 1rem 1.25rem;
+  }
+  .marquee-track .client-logo-card img {
+    max-height: 48px;
+  }
+  .marquee-ltr .marquee-track {
+    animation-duration: 25s;
+  }
+  .marquee-rtl .marquee-track {
+    animation-duration: 25s;
   }
 }
 

@@ -2000,6 +2000,50 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
+      if (isHomePage) {
+        // Dual-row marquee for home page: Row 1 moves Left-to-Right, Row 2 moves Right-to-Left
+        const row1 = clientsToRender.slice(0, 5);
+        const row2 = clientsToRender.slice(5, 10);
+
+        const buildTrackHtml = (items, baseDelayOffset = 0) => {
+          // Quadruple items to guarantee seamless 50% infinite translation on all screen widths
+          const quad = [...items, ...items, ...items, ...items];
+          return quad.map((c, i) => {
+            const delay = ((i % 5) * 0.8 + baseDelayOffset).toFixed(1);
+            const logo = c.logoUrl || '';
+            const name = c.name || 'Partner Brand';
+            return `
+              <div class="glass-panel flex-center client-logo-card blink-pulse" style="animation-delay: ${delay}s;" title="${escapeHtml(name)}">
+                ${logo ? `
+                  <img src="${escapeHtml(logo)}" 
+                       alt="${escapeHtml(name)} Logo" 
+                       title="${escapeHtml(name)}"
+                       onerror="this.style.display='none'; this.nextElementSibling ? this.nextElementSibling.style.display='block' : null;">
+                  <span style="display: none; font-weight: 600; font-size: 0.9rem; color: #fff;">${escapeHtml(name)}</span>
+                ` : `
+                  <span style="font-weight: 600; font-size: 0.95rem; color: #fff;">${escapeHtml(name)}</span>
+                `}
+              </div>
+            `;
+          }).join('');
+        };
+
+        grid.className = 'clients-marquee-container';
+        grid.innerHTML = `
+          <div class="marquee-row marquee-ltr" aria-label="Brand Partners Row 1 (Left to Right)">
+            <div class="marquee-track">
+              ${buildTrackHtml(row1, 0)}
+            </div>
+          </div>
+          <div class="marquee-row marquee-rtl" aria-label="Brand Partners Row 2 (Right to Left)">
+            <div class="marquee-track">
+              ${buildTrackHtml(row2, 0.4)}
+            </div>
+          </div>
+        `;
+        return;
+      }
+
       grid.innerHTML = clientsToRender.map((c, idx) => {
         const delay = (idx % 6) * 50;
         const logo = c.logoUrl || '';
