@@ -2205,6 +2205,72 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
+    const SERVICE_DIAGRAM_PRESETS = {
+      's1': {
+        tag: '@est.events/live-runsheet',
+        status: 'LIVE OPS',
+        row: '4K Stage LED & Audio Sync',
+        check: '60fps',
+        floating: '★ Zero-Glitch'
+      },
+      's2': {
+        tag: '@est.gtm/abm-lead-funnel',
+        status: 'PIPELINE',
+        row: 'Fortune 500 CXO ICP',
+        check: '340 SQLs',
+        floating: '📈 48% Open'
+      },
+      's3': {
+        tag: '@est.travel/group-charters',
+        status: 'MICE HUB',
+        row: '5-Star Hotel Room Blocks',
+        check: 'Reserved',
+        floating: '✈️ 100% On-Time'
+      },
+      's4': {
+        tag: '@est.retail/spatial-facade',
+        status: 'DEPLOYED',
+        row: 'Acoustic Fabrication',
+        check: 'Installed',
+        floating: '🏬 100% Brand'
+      },
+      's5': {
+        tag: '@est.btl/pan-india-tour',
+        status: 'ACTIVE',
+        row: 'Direct Mall Sampling',
+        check: '12 Cities',
+        floating: '🔥 250k+ Reach'
+      },
+      's6': {
+        tag: '@est.exhibition/3d-booth-cad',
+        status: 'FABRICATION',
+        row: '180m² Pavilion Blueprint',
+        check: 'Approved',
+        floating: '🏆 Award 3D'
+      },
+      's7': {
+        tag: '@est.digital/b2b-omnichannel',
+        status: 'OPTIMIZED',
+        row: 'LinkedIn CXO Thought Lead',
+        check: '+142% CTR',
+        floating: '⚡ 4.8x ROAS'
+      },
+      's8': {
+        tag: '@est.experiential/hologram-dome',
+        status: 'SENSORY',
+        row: 'Kinetic Motion Sensor Dome',
+        check: '100% Immersion',
+        floating: '✨ Goosebumps'
+      },
+      's9': {
+        tag: '@est.consulting/gtm-roadmap',
+        status: 'STRATEGY',
+        row: 'Enterprise ICP Strategy',
+        check: 'Attributed',
+        floating: '🎯 CXO Advisory'
+      }
+    };
+
     grid.innerHTML = activeServices.map((s, idx) => {
       const delay = (idx % 3 + 1) * 100;
       const isAlt = idx % 2 === 1;
@@ -2217,8 +2283,33 @@ document.addEventListener('DOMContentLoaded', () => {
       const subtitle = s.subtitle ? `<div class="service-subtitle-tag" style="font-size: 0.82rem; color: ${accentColor}; font-weight: 600; margin-bottom: 8px;">${escapeHtml(s.subtitle)}</div>` : '';
       const desc = s.desc || '';
 
+      const preset = SERVICE_DIAGRAM_PRESETS[s.id] || {
+        tag: `@est.${(title || 'service').toLowerCase().replace(/[^a-z0-9]/g, '')}/hub`,
+        status: 'ACTIVE',
+        row: 'Precision Turnkey Execution',
+        check: '100% SLA',
+        floating: '★ Verified'
+      };
+
       return `
         <div class="glass-panel service-card" data-aos="fade-up" data-aos-delay="${delay}">
+          <div class="service-mini-diagram">
+            <div class="mini-diag-floating">${preset.floating}</div>
+            <div class="mini-diag-top">
+              <div class="mini-diag-dots">
+                <span></span><span></span><span></span>
+              </div>
+              <span class="mini-diag-badge"><span class="pulse-dot green" style="width: 5px; height: 5px; display: inline-block;"></span> ${preset.status}</span>
+            </div>
+            <div class="mini-diag-search">
+              <span>${preset.tag}</span>
+              <span class="mini-diag-search-icon"><i class="bi bi-search"></i></span>
+            </div>
+            <div class="mini-diag-row">
+              <span>${preset.row}</span>
+              <span class="mini-diag-check"><i class="bi bi-check2"></i> ${preset.check}</span>
+            </div>
+          </div>
           <div class="service-icon flex-center" style="background: ${accentBg}; color: ${accentColor};">
             <i class="bi ${escapeHtml(icon)}"></i>
           </div>
@@ -2235,6 +2326,354 @@ document.addEventListener('DOMContentLoaded', () => {
     }).join('');
   }
 
+  // ==========================================
+  // Dynamic Interactive Service Visualizer Hub
+  // ==========================================
+  const DIAGRAM_SHOWCASE_DATA = {
+    events: {
+      title: 'EST Service Runtime • Corporate Events Command Center',
+      status: 'LIVE STAGE OPS',
+      command: 'est.events/live-runsheet',
+      url: 'services/event-management.html',
+      chipTopRight: 'Zero-Glitch AV SLA',
+      chipLeft: '80+ Yrs Agency Pedigree',
+      chipBottomRight: '4.98 NPS (150+ Enterprises)',
+      chipTopLeft: '120ms Staging Latency',
+      rows: [
+        {
+          icon: 'bi-broadcast',
+          title: '4K Stage LED & Line-Array Audio Sync',
+          meta: 'Stage A & B Audio Matrix • 60 FPS Locked',
+          badge: '<span class="diag-live-wave"><span></span><span></span><span></span><span></span></span> ✔ Synced 60fps'
+        },
+        {
+          icon: 'bi-qr-code-scan',
+          title: 'Delegate RFID & QR Badging Gateway',
+          meta: '1,500+ CXO Attendees Verified On-Ground',
+          badge: '✔ 99.4% Flow Rate'
+        },
+        {
+          icon: 'bi-lightning-charge',
+          title: 'Keynote Hologram & Reveal Cues',
+          meta: 'Automated DMX Lighting & Special FX Standby',
+          badge: '● Active on Deck'
+        }
+      ]
+    },
+    demand: {
+      title: 'EST Service Runtime • B2B Demand Generation Engine',
+      status: 'ENTERPRISE FUNNEL',
+      command: 'est.gtm/icp-lead-pipeline',
+      url: 'services/demand-generation.html',
+      chipTopRight: 'Verified B2B Intent',
+      chipLeft: '₹48 Cr Pipeline Value',
+      chipBottomRight: 'High-Conversion ABM',
+      chipTopLeft: '98.6% ICP Match Rate',
+      rows: [
+        {
+          icon: 'bi-funnel-fill',
+          title: 'Fortune 500 ICP Segmentation & Enrichment',
+          meta: 'Tech & BFSI Enterprise Decision Makers',
+          badge: '✔ 12,400 Verified'
+        },
+        {
+          icon: 'bi-envelope-check-fill',
+          title: 'Multi-Touch Outbound Cadence & SDR Outreach',
+          meta: 'LinkedIn InMail, Executive Email & Phone',
+          badge: '✔ 48% Open Rate'
+        },
+        {
+          icon: 'bi-graph-up-arrow',
+          title: 'Sales Qualified Leads (SQLs) Dispatched',
+          meta: 'Direct CXO Meetings Booked on Client Calendars',
+          badge: '✔ +340 CXO Meetings'
+        }
+      ]
+    },
+    travel: {
+      title: 'EST Service Runtime • Corporate Travel & MICE Dispatch',
+      status: 'HOSPITALITY RADAR',
+      command: 'est.travel/group-logistics',
+      url: 'services/corporate-travel.html',
+      chipTopRight: 'Turnkey Visa & Insurance',
+      chipLeft: '24/7 On-Ground Concierge',
+      chipBottomRight: '100% On-Time MICE Tours',
+      chipTopLeft: 'Zero Booking Discrepancy',
+      rows: [
+        {
+          icon: 'bi-buildings-fill',
+          title: '5-Star Hotel Partner Room Blocks',
+          meta: 'Goa, Rajasthan & Dubai Premier Properties',
+          badge: '✔ 100% Guaranteed'
+        },
+        {
+          icon: 'bi-airplane-fill',
+          title: 'Chartered Flights & Group Air Ticketing',
+          meta: 'Executive Leadership & Dealer Delegations',
+          badge: '✔ On Schedule'
+        },
+        {
+          icon: 'bi-car-front-fill',
+          title: 'VIP Chauffeur & Sanitized Luxury Coaches',
+          meta: 'Airport Reception Counter & Luggage Marshalling',
+          badge: '✔ Active Concierge'
+        }
+      ]
+    },
+    experiential: {
+      title: 'EST Service Runtime • Immersive Spatial Activation',
+      status: 'GOOSEBUMPS ENGINE',
+      command: 'est.experiential/spatial-immersion',
+      url: 'services/experiential-marketing.html',
+      chipTopRight: 'Unforgettable Recall',
+      chipLeft: 'Sensory Immersion Matrix',
+      chipBottomRight: 'Talk of the Town Guaranteed',
+      chipTopLeft: 'Kinetic Motion Sensor Ready',
+      rows: [
+        {
+          icon: 'bi-stars',
+          title: 'Kinetic LED Screen Architecture & Domes',
+          meta: 'Multi-Sensory Projection Mapping & Soundscapes',
+          badge: '✔ Calibrated'
+        },
+        {
+          icon: 'bi-hand-index-thumb-fill',
+          title: 'Interactive Motion Tracking & AR Installations',
+          meta: 'Audience Touchpoints & Gamified Brand Intercepts',
+          badge: '✔ 1,200 Engagements/hr'
+        },
+        {
+          icon: 'bi-camera-reels-fill',
+          title: 'Viral Social UGC & Media Unboxing Zone',
+          meta: 'Real-time Instagram Reels & LinkedIn Buzz Stream',
+          badge: '● Live Streamed'
+        }
+      ]
+    },
+    exhibition: {
+      title: 'EST Service Runtime • 3D Trade Show Pavilion Studio',
+      status: 'FABRICATION CAD',
+      command: 'est.exhibition/3d-pavilion-cad',
+      url: 'services/exhibition.html',
+      chipTopRight: 'Pan-India Fabrication',
+      chipLeft: '300+ Expos Delivered',
+      chipBottomRight: 'Best Stall Design Awards',
+      chipTopLeft: 'German Hangar Certified',
+      rows: [
+        {
+          icon: 'bi-box',
+          title: 'Photorealistic 3D CAD Walkthrough & Renderings',
+          meta: '180m² Island Pavilion Blueprint & Spatial Flow',
+          badge: '✔ Client Approved'
+        },
+        {
+          icon: 'bi-hammer',
+          title: 'Precision CNC Carpentry & Acrylic Fabrication',
+          meta: 'Structural Load Tested & Fire Safety Permitted',
+          badge: '✔ Built on Time'
+        },
+        {
+          icon: 'bi-tablet-fill',
+          title: 'Digital Kiosks & Live Badge Lead Scanners',
+          meta: 'Seamless Booth Footfall & Sales Lead Capture',
+          badge: '✔ Connected'
+        }
+      ]
+    },
+    btl: {
+      title: 'EST Service Runtime • Pan-India BTL Activation',
+      status: 'ON-GROUND CONTROL',
+      command: 'est.btl/pan-india-activation',
+      url: 'services/btl-activation.html',
+      chipTopRight: 'Real-time GPS Tracking',
+      chipLeft: '28 States Covered',
+      chipBottomRight: 'Top Tier Brand Recall',
+      chipTopLeft: 'Direct Consumer Sampling',
+      rows: [
+        {
+          icon: 'bi-megaphone-fill',
+          title: 'Mall, Tech-Park & High-Street Intercepts',
+          meta: '12 Metro Cities Operating Simultaneously',
+          badge: '✔ 12 Cities Live'
+        },
+        {
+          icon: 'bi-cup-hot-fill',
+          title: 'Product Sampling & Direct Consumer Trial',
+          meta: 'Trained Brand Promoters & Feedback Capture',
+          badge: '✔ 250,000+ Reached'
+        },
+        {
+          icon: 'bi-geo-alt-fill',
+          title: 'Live Promoter Telemetry & Cloud Dashboard',
+          meta: 'GPS-Verified Store Audits & Daily Conversion Logs',
+          badge: '● Syncing Live'
+        }
+      ]
+    }
+  };
+
+  function initDynamicServiceVisualizer() {
+    const nav = document.getElementById('diagServiceTabs');
+    const stage = document.getElementById('diagInteractiveStage');
+    const card = document.getElementById('diagWindowCard');
+    if (!nav || !stage || !card) return;
+
+    const tabBtns = Array.from(nav.querySelectorAll('.diag-tab-btn'));
+    const windowTitle = document.getElementById('diagWindowTitle');
+    const statusLabel = document.getElementById('diagStatusLabel');
+    const commandText = document.getElementById('diagCommandText');
+    const searchBtn = document.getElementById('diagSearchBtn');
+    const rowsWrap = document.getElementById('diagRowsWrap');
+
+    const chipTopRightText = document.getElementById('diagChipTopRightText');
+    const chipLeftText = document.getElementById('diagChipLeftText');
+    const chipBottomRightText = document.getElementById('diagChipBottomRightText');
+    const chipTopLeftText = document.getElementById('diagChipTopLeftText');
+
+    const chipTR = document.getElementById('diagChipTopRight');
+    const chipL = document.getElementById('diagChipLeft');
+    const chipBR = document.getElementById('diagChipBottomRight');
+
+    let activeServiceKey = 'events';
+    let autoPlayInterval = null;
+    let progressTimer = null;
+    let progressVal = 0;
+    const CYCLE_DURATION_MS = 6000;
+    let isUserHovering = false;
+
+    function renderServiceDiagram(key) {
+      const data = DIAGRAM_SHOWCASE_DATA[key];
+      if (!data) return;
+
+      activeServiceKey = key;
+
+      // Update Active Tab
+      tabBtns.forEach(btn => {
+        const isActive = btn.getAttribute('data-service') === key;
+        btn.classList.toggle('active', isActive);
+        const bar = btn.querySelector('.diag-tab-progress');
+        if (bar) bar.style.width = '0%';
+      });
+
+      // Subtle transition
+      card.style.opacity = '0.7';
+      card.style.transform = 'scale(0.98)';
+
+      setTimeout(() => {
+        if (windowTitle) windowTitle.textContent = data.title;
+        if (statusLabel) statusLabel.textContent = data.status;
+        if (commandText) commandText.textContent = data.command;
+        if (searchBtn) searchBtn.href = data.url;
+
+        if (chipTopRightText) chipTopRightText.textContent = data.chipTopRight;
+        if (chipLeftText) chipLeftText.textContent = data.chipLeft;
+        if (chipBottomRightText) chipBottomRightText.textContent = data.chipBottomRight;
+        if (chipTopLeftText) chipTopLeftText.textContent = data.chipTopLeft;
+
+        if (rowsWrap) {
+          rowsWrap.innerHTML = data.rows.map(row => `
+            <div class="diag-row-item">
+              <div class="diag-row-left">
+                <div class="diag-row-icon"><i class="bi ${row.icon}"></i></div>
+                <div>
+                  <div class="diag-row-text">${escapeHtml(row.title)}</div>
+                  <div class="diag-row-meta">${escapeHtml(row.meta)}</div>
+                </div>
+              </div>
+              <div class="diag-row-badge">${row.badge}</div>
+            </div>
+          `).join('');
+        }
+
+        card.style.opacity = '1';
+        card.style.transform = '';
+      }, 150);
+    }
+
+    // Tab Clicks
+    tabBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const key = btn.getAttribute('data-service');
+        if (key && key !== activeServiceKey) {
+          resetAutoCycle();
+          renderServiceDiagram(key);
+        }
+      });
+    });
+
+    // Auto Cycle Logic with Smooth Progress Bar
+    function startAutoCycle() {
+      stopAutoCycle();
+      progressVal = 0;
+
+      progressTimer = setInterval(() => {
+        if (isUserHovering) return;
+        progressVal += (100 / (CYCLE_DURATION_MS / 100));
+        const activeBtn = nav.querySelector('.diag-tab-btn.active');
+        if (activeBtn) {
+          const bar = activeBtn.querySelector('.diag-tab-progress');
+          if (bar) bar.style.width = Math.min(progressVal, 100) + '%';
+        }
+
+        if (progressVal >= 100) {
+          progressVal = 0;
+          const currentIdx = tabBtns.findIndex(b => b.getAttribute('data-service') === activeServiceKey);
+          const nextIdx = (currentIdx + 1) % tabBtns.length;
+          const nextKey = tabBtns[nextIdx].getAttribute('data-service');
+          renderServiceDiagram(nextKey);
+        }
+      }, 100);
+    }
+
+    function stopAutoCycle() {
+      if (progressTimer) clearInterval(progressTimer);
+      progressTimer = null;
+    }
+
+    function resetAutoCycle() {
+      stopAutoCycle();
+      progressVal = 0;
+      const activeBtn = nav.querySelector('.diag-tab-btn.active');
+      if (activeBtn) {
+        const bar = activeBtn.querySelector('.diag-tab-progress');
+        if (bar) bar.style.width = '0%';
+      }
+      startAutoCycle();
+    }
+
+    stage.addEventListener('mouseenter', () => { isUserHovering = true; });
+    stage.addEventListener('mouseleave', () => { isUserHovering = false; });
+    nav.addEventListener('mouseenter', () => { isUserHovering = true; });
+    nav.addEventListener('mouseleave', () => { isUserHovering = false; });
+
+    // 3D Parallax Tilt Effect on Desktop
+    stage.addEventListener('mousemove', (e) => {
+      if (window.innerWidth < 768) return;
+      const rect = stage.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
+      const rotX = -(y / (rect.height / 2)) * 6;
+      const rotY = (x / (rect.width / 2)) * 6;
+
+      card.style.transform = `perspective(1000px) rotateX(${rotX.toFixed(2)}deg) rotateY(${rotY.toFixed(2)}deg)`;
+
+      if (chipTR) chipTR.style.transform = `translate3d(${(rotY * 1.6).toFixed(1)}px, ${(rotX * 1.6).toFixed(1)}px, 25px)`;
+      if (chipL) chipL.style.transform = `translate3d(${(-rotY * 1.6).toFixed(1)}px, ${(-rotX * 1.6).toFixed(1)}px, 20px)`;
+      if (chipBR) chipBR.style.transform = `translate3d(${(rotY * 1.2).toFixed(1)}px, ${(rotX * 1.2).toFixed(1)}px, 20px)`;
+    });
+
+    stage.addEventListener('mouseleave', () => {
+      card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
+      if (chipTR) chipTR.style.transform = '';
+      if (chipL) chipL.style.transform = '';
+      if (chipBR) chipBR.style.transform = '';
+    });
+
+    // Initialize initial view
+    renderServiceDiagram('events');
+    startAutoCycle();
+  }
+
   // Hook services sync listeners
   if (!window._servicesSyncBound) {
     window._servicesSyncBound = true;
@@ -2247,6 +2686,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initDynamicBentoShowcase();
   initDynamicClients();
   initDynamicServices();
+  initDynamicServiceVisualizer();
 
   // Note: Cross-tab and cloud sync are centrally orchestrated above by refreshAllDynamicEngines()
 

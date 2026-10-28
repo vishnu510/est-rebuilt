@@ -628,9 +628,166 @@
         <p class="section-desc">From conceptualization to on-ground fabrication, high-stakes tech summits, and demand generation funnels.</p>
       </div>
 
+      <!-- ==========================================
+           INTERACTIVE SERVICE OPERATIONS ARCHITECTURE (DYNAMIC DIAGRAM VISUALIZER)
+           ========================================== -->
+      <div class="dynamic-diagram-showcase" data-aos="zoom-in" data-aos-delay="100">
+        <!-- Interactive Service Navigation Tabs -->
+        <div class="diag-tabs-nav" id="diagServiceTabs">
+          <button class="diag-tab-btn active" data-service="events" type="button">
+            <i class="bi bi-calendar4-event"></i> Corporate Events
+            <span class="diag-tab-progress"></span>
+          </button>
+          <button class="diag-tab-btn" data-service="demand" type="button">
+            <i class="bi bi-funnel"></i> B2B Demand Gen
+            <span class="diag-tab-progress"></span>
+          </button>
+          <button class="diag-tab-btn" data-service="travel" type="button">
+            <i class="bi bi-airplane-engines"></i> MICE & Travel
+            <span class="diag-tab-progress"></span>
+          </button>
+          <button class="diag-tab-btn" data-service="experiential" type="button">
+            <i class="bi bi-stars"></i> Experiential Tech
+            <span class="diag-tab-progress"></span>
+          </button>
+          <button class="diag-tab-btn" data-service="exhibition" type="button">
+            <i class="bi bi-grid-1x2"></i> 3D Trade Shows
+            <span class="diag-tab-progress"></span>
+          </button>
+          <button class="diag-tab-btn" data-service="btl" type="button">
+            <i class="bi bi-megaphone"></i> BTL Activations
+            <span class="diag-tab-progress"></span>
+          </button>
+        </div>
+
+        <!-- Dynamic Diagram Stage with Orbital Trajectories & Floating Satellites -->
+        <div class="diag-stage" id="diagInteractiveStage">
+          <!-- Orbital Dotted Rings with Rotating Satellite Nodes -->
+          <div class="diag-orbit-ring ring-outer">
+            <span class="diag-orbit-satellite sat-1"></span>
+          </div>
+          <div class="diag-orbit-ring ring-inner">
+            <span class="diag-orbit-satellite sat-2"></span>
+          </div>
+
+          <!-- Central Window Card Mockup -->
+          <div class="diag-window-card" id="diagWindowCard">
+            <!-- Satellite 1: Top Right Checkmark Badge -->
+            <div class="diag-floating-chip chip-top-right" id="diagChipTopRight">
+              <div class="chip-icon-wrap mint">
+                <i class="bi bi-check-lg"></i>
+              </div>
+              <div class="chip-bar-wrap">
+                <span class="chip-bar-line"></span>
+                <span class="chip-text" id="diagChipTopRightText">Zero-Glitch AV SLA</span>
+              </div>
+            </div>
+
+            <!-- Satellite 2: Left Monogram / @ Badge -->
+            <div class="diag-floating-chip chip-left" id="diagChipLeft">
+              <div class="chip-icon-wrap indigo">
+                <span class="chip-at-symbol">@</span>
+              </div>
+              <div class="chip-bar-wrap">
+                <span class="chip-bar-line"></span>
+                <span class="chip-text" id="diagChipLeftText">80+ Yrs Agency Pedigree</span>
+              </div>
+            </div>
+
+            <!-- Satellite 3: Bottom Right Star Rating Badge -->
+            <div class="diag-floating-chip chip-bottom-right" id="diagChipBottomRight">
+              <div class="chip-star-icon">
+                <i class="bi bi-star-fill"></i>
+              </div>
+              <span class="chip-star-text" id="diagChipBottomRightText">4.98 NPS (150+ Enterprises)</span>
+            </div>
+
+            <!-- Satellite 4: Top Left SLA / Speed Badge -->
+            <div class="diag-floating-chip chip-top-left" id="diagChipTopLeft">
+              <span class="pulse-dot green" style="width: 7px; height: 7px; display: inline-block;"></span>
+              <span class="chip-speed-text" id="diagChipTopLeftText">120ms Staging Latency</span>
+            </div>
+
+            <!-- Window Chrome Header with macOS Dots -->
+            <div class="diag-window-header">
+              <div class="diag-window-dots">
+                <span class="diag-dot dot-red" title="Close"></span>
+                <span class="diag-dot dot-yellow" title="Minimize"></span>
+                <span class="diag-dot dot-green" title="Expand"></span>
+                <span class="diag-window-title" id="diagWindowTitle">EST Service Runtime • Corporate Events Command Center</span>
+              </div>
+              <div class="diag-window-status" id="diagWindowStatus">
+                <span class="diag-status-ping"></span>
+                <span id="diagStatusLabel">LIVE STAGE OPS</span>
+              </div>
+            </div>
+
+            <!-- Interactive Command / Search Pill Bar -->
+            <div class="diag-search-bar" id="diagSearchBar">
+              <div class="diag-search-query">
+                <span class="diag-prefix">@</span><span id="diagCommandText">est.events/live-runsheet</span>
+                <span class="diag-cursor">|</span>
+              </div>
+              <a href="services/event-management.html" class="diag-search-btn" id="diagSearchBtn" title="Launch Service Blueprint">
+                <i class="bi bi-search" id="diagActionIcon"></i>
+              </a>
+            </div>
+
+            <!-- Interactive Workflow / Service Rows -->
+            <div class="diag-rows-wrap" id="diagRowsWrap">
+              <div class="diag-row-item">
+                <div class="diag-row-left">
+                  <div class="diag-row-icon"><i class="bi bi-broadcast"></i></div>
+                  <div>
+                    <div class="diag-row-text">4K Stage LED &amp; Line-Array Audio Sync</div>
+                    <div class="diag-row-meta">Stage A &amp; B Audio Matrix • 60 FPS Locked</div>
+                  </div>
+                </div>
+                <div class="diag-row-badge"><span class="diag-live-wave"><span></span><span></span><span></span><span></span></span> ✔ Synced 60fps</div>
+              </div>
+              <div class="diag-row-item">
+                <div class="diag-row-left">
+                  <div class="diag-row-icon"><i class="bi bi-qr-code-scan"></i></div>
+                  <div>
+                    <div class="diag-row-text">Delegate RFID &amp; QR Badging Gateway</div>
+                    <div class="diag-row-meta">1,500+ CXO Attendees Verified On-Ground</div>
+                  </div>
+                </div>
+                <div class="diag-row-badge">✔ 99.4% Flow Rate</div>
+              </div>
+              <div class="diag-row-item">
+                <div class="diag-row-left">
+                  <div class="diag-row-icon"><i class="bi bi-lightning-charge"></i></div>
+                  <div>
+                    <div class="diag-row-text">Keynote Hologram &amp; Reveal Cues</div>
+                    <div class="diag-row-meta">Automated DMX Lighting &amp; Special FX Standby</div>
+                  </div>
+                </div>
+                <div class="diag-row-badge">● Active on Deck</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div class="grid-cols-3 services-grid" id="dynamic-services-grid">
         <!-- Service 1: Event Management -->
         <div class="glass-panel service-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="service-mini-diagram">
+            <div class="mini-diag-floating">★ Zero-Glitch</div>
+            <div class="mini-diag-top">
+              <div class="mini-diag-dots"><span></span><span></span><span></span></div>
+              <span class="mini-diag-badge"><span class="pulse-dot green" style="width: 5px; height: 5px; display: inline-block;"></span> LIVE OPS</span>
+            </div>
+            <div class="mini-diag-search">
+              <span>@est.events/live-runsheet</span>
+              <span class="mini-diag-search-icon"><i class="bi bi-search"></i></span>
+            </div>
+            <div class="mini-diag-row">
+              <span>4K Stage LED &amp; Audio Sync</span>
+              <span class="mini-diag-check"><i class="bi bi-check2"></i> 60fps</span>
+            </div>
+          </div>
           <div class="service-icon flex-center" style="background: rgba(0,240,255,0.1); color: var(--neon-cyan);"><i class="bi bi-calendar4-event"></i></div>
           <h3 class="service-title">Event Management</h3>
           <div class="service-subtitle-tag" style="font-size: 0.82rem; color: var(--neon-cyan); font-weight: 600; margin-bottom: 8px;">From corporate conferences to product launches, we create impactful and memorable events.</div>
@@ -642,6 +799,21 @@
 
         <!-- Service 2: Demand Generation -->
         <div class="glass-panel service-card" data-aos="fade-up" data-aos-delay="150">
+          <div class="service-mini-diagram">
+            <div class="mini-diag-floating">📈 48% Open</div>
+            <div class="mini-diag-top">
+              <div class="mini-diag-dots"><span></span><span></span><span></span></div>
+              <span class="mini-diag-badge"><span class="pulse-dot green" style="width: 5px; height: 5px; display: inline-block;"></span> PIPELINE</span>
+            </div>
+            <div class="mini-diag-search">
+              <span>@est.gtm/abm-lead-funnel</span>
+              <span class="mini-diag-search-icon"><i class="bi bi-search"></i></span>
+            </div>
+            <div class="mini-diag-row">
+              <span>Fortune 500 CXO ICP</span>
+              <span class="mini-diag-check"><i class="bi bi-check2"></i> 340 SQLs</span>
+            </div>
+          </div>
           <div class="service-icon flex-center" style="background: rgba(254,59,32,0.1); color: var(--color-primary);"><i class="bi bi-funnel"></i></div>
           <h3 class="service-title">Demand Generation</h3>
           <div class="service-subtitle-tag" style="font-size: 0.82rem; color: var(--color-primary); font-weight: 600; margin-bottom: 8px;">Reach new audiences and convert interest into actionable leads through data-driven strategies.</div>
@@ -653,6 +825,21 @@
 
         <!-- Service 3: Corporate Travel -->
         <div class="glass-panel service-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="service-mini-diagram">
+            <div class="mini-diag-floating">✈️ 100% On-Time</div>
+            <div class="mini-diag-top">
+              <div class="mini-diag-dots"><span></span><span></span><span></span></div>
+              <span class="mini-diag-badge"><span class="pulse-dot green" style="width: 5px; height: 5px; display: inline-block;"></span> MICE HUB</span>
+            </div>
+            <div class="mini-diag-search">
+              <span>@est.travel/group-charters</span>
+              <span class="mini-diag-search-icon"><i class="bi bi-search"></i></span>
+            </div>
+            <div class="mini-diag-row">
+              <span>5-Star Hotel Room Blocks</span>
+              <span class="mini-diag-check"><i class="bi bi-check2"></i> Reserved</span>
+            </div>
+          </div>
           <div class="service-icon flex-center" style="background: rgba(0,240,255,0.1); color: var(--neon-cyan);"><i class="bi bi-airplane-engines"></i></div>
           <h3 class="service-title">Corporate Travel & Hospitality</h3>
           <div class="service-subtitle-tag" style="font-size: 0.82rem; color: var(--neon-cyan); font-weight: 600; margin-bottom: 8px;">Seamlessly manage business travel needs with efficient hotel and flight booking solutions.</div>
@@ -664,6 +851,21 @@
 
         <!-- Service 4: Retail & Office Branding -->
         <div class="glass-panel service-card" data-aos="fade-up" data-aos-delay="250">
+          <div class="service-mini-diagram">
+            <div class="mini-diag-floating">🏬 100% Brand</div>
+            <div class="mini-diag-top">
+              <div class="mini-diag-dots"><span></span><span></span><span></span></div>
+              <span class="mini-diag-badge"><span class="pulse-dot green" style="width: 5px; height: 5px; display: inline-block;"></span> DEPLOYED</span>
+            </div>
+            <div class="mini-diag-search">
+              <span>@est.retail/spatial-facade</span>
+              <span class="mini-diag-search-icon"><i class="bi bi-search"></i></span>
+            </div>
+            <div class="mini-diag-row">
+              <span>Acoustic Fabrication</span>
+              <span class="mini-diag-check"><i class="bi bi-check2"></i> Installed</span>
+            </div>
+          </div>
           <div class="service-icon flex-center" style="background: rgba(254,59,32,0.1); color: var(--color-primary);"><i class="bi bi-shop"></i></div>
           <h3 class="service-title">Retail & Office Branding Solutions</h3>
           <div class="service-subtitle-tag" style="font-size: 0.82rem; color: var(--color-primary); font-weight: 600; margin-bottom: 8px;">Transform physical spaces with tailored branding that reflects your business identity and values.</div>
@@ -675,6 +877,21 @@
 
         <!-- Service 5: BTL Activation -->
         <div class="glass-panel service-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="service-mini-diagram">
+            <div class="mini-diag-floating">🔥 250k+ Reach</div>
+            <div class="mini-diag-top">
+              <div class="mini-diag-dots"><span></span><span></span><span></span></div>
+              <span class="mini-diag-badge"><span class="pulse-dot green" style="width: 5px; height: 5px; display: inline-block;"></span> ACTIVE</span>
+            </div>
+            <div class="mini-diag-search">
+              <span>@est.btl/pan-india-tour</span>
+              <span class="mini-diag-search-icon"><i class="bi bi-search"></i></span>
+            </div>
+            <div class="mini-diag-row">
+              <span>Direct Mall Sampling</span>
+              <span class="mini-diag-check"><i class="bi bi-check2"></i> 12 Cities</span>
+            </div>
+          </div>
           <div class="service-icon flex-center" style="background: rgba(0,240,255,0.1); color: var(--neon-cyan);"><i class="bi bi-megaphone"></i></div>
           <h3 class="service-title">BTL Activation</h3>
           <div class="service-subtitle-tag" style="font-size: 0.82rem; color: var(--neon-cyan); font-weight: 600; margin-bottom: 8px;">Boost consumer engagement and brand awareness with dynamic on-ground marketing initiatives.</div>
@@ -686,6 +903,21 @@
 
         <!-- Service 6: Exhibition -->
         <div class="glass-panel service-card" data-aos="fade-up" data-aos-delay="350">
+          <div class="service-mini-diagram">
+            <div class="mini-diag-floating">🏆 Award 3D</div>
+            <div class="mini-diag-top">
+              <div class="mini-diag-dots"><span></span><span></span><span></span></div>
+              <span class="mini-diag-badge"><span class="pulse-dot green" style="width: 5px; height: 5px; display: inline-block;"></span> FABRICATION</span>
+            </div>
+            <div class="mini-diag-search">
+              <span>@est.exhibition/3d-booth-cad</span>
+              <span class="mini-diag-search-icon"><i class="bi bi-search"></i></span>
+            </div>
+            <div class="mini-diag-row">
+              <span>180m² Pavilion Blueprint</span>
+              <span class="mini-diag-check"><i class="bi bi-check2"></i> Approved</span>
+            </div>
+          </div>
           <div class="service-icon flex-center" style="background: rgba(254,59,32,0.1); color: var(--color-primary);"><i class="bi bi-grid-1x2"></i></div>
           <h3 class="service-title">Exhibition & Trade Shows</h3>
           <div class="service-subtitle-tag" style="font-size: 0.82rem; color: var(--color-primary); font-weight: 600; margin-bottom: 8px;">Plan and design your exhibition booths to create immersive brand experiences that stand out.</div>
@@ -697,6 +929,21 @@
 
         <!-- Service 7: Digital Marketing -->
         <div class="glass-panel service-card" data-aos="fade-up" data-aos-delay="400">
+          <div class="service-mini-diagram">
+            <div class="mini-diag-floating">⚡ 4.8x ROAS</div>
+            <div class="mini-diag-top">
+              <div class="mini-diag-dots"><span></span><span></span><span></span></div>
+              <span class="mini-diag-badge"><span class="pulse-dot green" style="width: 5px; height: 5px; display: inline-block;"></span> OPTIMIZED</span>
+            </div>
+            <div class="mini-diag-search">
+              <span>@est.digital/b2b-omnichannel</span>
+              <span class="mini-diag-search-icon"><i class="bi bi-search"></i></span>
+            </div>
+            <div class="mini-diag-row">
+              <span>LinkedIn CXO Ads</span>
+              <span class="mini-diag-check"><i class="bi bi-check2"></i> +142% CTR</span>
+            </div>
+          </div>
           <div class="service-icon flex-center" style="background: rgba(0,240,255,0.1); color: var(--neon-cyan);"><i class="bi bi-phone-vibrate"></i></div>
           <h3 class="service-title">Digital Marketing</h3>
           <div class="service-subtitle-tag" style="font-size: 0.82rem; color: var(--neon-cyan); font-weight: 600; margin-bottom: 8px;">Enhance your digital presence with targeted campaigns across SEO, social media, and more.</div>
@@ -708,6 +955,21 @@
 
         <!-- Service 8: Experiential Marketing -->
         <div class="glass-panel service-card" data-aos="fade-up" data-aos-delay="450">
+          <div class="service-mini-diagram">
+            <div class="mini-diag-floating">✨ Goosebumps</div>
+            <div class="mini-diag-top">
+              <div class="mini-diag-dots"><span></span><span></span><span></span></div>
+              <span class="mini-diag-badge"><span class="pulse-dot green" style="width: 5px; height: 5px; display: inline-block;"></span> SENSORY</span>
+            </div>
+            <div class="mini-diag-search">
+              <span>@est.experiential/hologram-dome</span>
+              <span class="mini-diag-search-icon"><i class="bi bi-search"></i></span>
+            </div>
+            <div class="mini-diag-row">
+              <span>Kinetic Motion Sensor Dome</span>
+              <span class="mini-diag-check"><i class="bi bi-check2"></i> Immersion</span>
+            </div>
+          </div>
           <div class="service-icon flex-center" style="background: rgba(254,59,32,0.1); color: var(--color-primary);"><i class="bi bi-stars"></i></div>
           <h3 class="service-title">Experiential Marketing</h3>
           <div class="service-subtitle-tag" style="font-size: 0.82rem; color: var(--color-primary); font-weight: 600; margin-bottom: 8px;">We engineer experiences that become the talk of the town.</div>
@@ -719,6 +981,21 @@
 
         <!-- Service 9: Marketing Consulting -->
         <div class="glass-panel service-card" data-aos="fade-up" data-aos-delay="500">
+          <div class="service-mini-diagram">
+            <div class="mini-diag-floating">🎯 CXO Advisory</div>
+            <div class="mini-diag-top">
+              <div class="mini-diag-dots"><span></span><span></span><span></span></div>
+              <span class="mini-diag-badge"><span class="pulse-dot green" style="width: 5px; height: 5px; display: inline-block;"></span> STRATEGY</span>
+            </div>
+            <div class="mini-diag-search">
+              <span>@est.consulting/gtm-roadmap</span>
+              <span class="mini-diag-search-icon"><i class="bi bi-search"></i></span>
+            </div>
+            <div class="mini-diag-row">
+              <span>Enterprise ICP Strategy</span>
+              <span class="mini-diag-check"><i class="bi bi-check2"></i> Attributed</span>
+            </div>
+          </div>
           <div class="service-icon flex-center" style="background: rgba(0,240,255,0.1); color: var(--neon-cyan);"><i class="bi bi-compass"></i></div>
           <h3 class="service-title">Marketing Consulting</h3>
           <div class="service-subtitle-tag" style="font-size: 0.82rem; color: var(--neon-cyan); font-weight: 600; margin-bottom: 8px;">Strategic marketing advisory built for high-stakes enterprise business goals.</div>
