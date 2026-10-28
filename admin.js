@@ -302,15 +302,96 @@
     ],
 
     services: [
-      { id: 's1', title: 'Experiential Marketing', icon: 'bi-stars', slug: 'experiential-marketing.html', category: 'Experiential', status: 'Active', desc: 'Immersive tactile brand activations and pop-ups that create lasting enterprise connections.' },
-      { id: 's2', title: 'Marketing Consulting', icon: 'bi-compass', slug: 'marketing-consulting.html', category: 'Strategy', status: 'Active', desc: 'Full-funnel GTM architecture, market penetration models, and ICP demand planning.' },
-      { id: 's3', title: 'BTL Brand Activation', icon: 'bi-megaphone', slug: 'btl-activation.html', category: 'Experiential', status: 'Active', desc: 'Pan-India on-ground roadshows, corporate park activations, and direct engagement.' },
-      { id: 's4', title: 'Corporate Travel & MICE', icon: 'bi-airplane', slug: 'corporate-travel.html', category: 'Corporate', status: 'Active', desc: 'End-to-end offsites, global leadership summits, incentives, and luxury corporate itineraries.' },
-      { id: 's5', title: 'Exhibition & Pavilions', icon: 'bi-building-gear', slug: 'exhibition.html', category: 'Exhibition', status: 'Active', desc: 'Award-winning bespoke 3D stalls, custom fabrication, and interactive trade booths.' },
-      { id: 's6', title: 'Demand Generation & ABM', icon: 'bi-funnel', slug: 'demand-generation.html', category: 'Growth', status: 'Active', desc: 'High-intent B2B lead generation, C-level executive roundtables, and pipeline acceleration.' },
-      { id: 's7', title: 'Digital Marketing', icon: 'bi-graph-up-arrow', slug: 'digital-marketing.html', category: 'Digital', status: 'Active', desc: 'Performance marketing, LinkedIn thought leadership, content syndication, and SEO.' },
-      { id: 's8', title: 'Retail & Brand Merchandising', icon: 'bi-shop', slug: 'retail-branding.html', category: 'Branding', status: 'Active', desc: 'Store-in-store fixtures, POSM visibility, retail rollouts, and experiential zones.' },
-      { id: 's9', title: 'Event Management', icon: 'bi-calendar2-event', slug: 'event-management.html', category: 'Events', status: 'Active', desc: 'Turnkey technical production, stage design, AV orchestration, and delegate workflows.' }
+      {
+        id: 's1',
+        title: 'Event Management',
+        subtitle: 'From corporate conferences to product launches, we create impactful and memorable events.',
+        category: 'Events',
+        icon: 'bi-calendar4-event',
+        slug: 'services/event-management.html',
+        status: 'Active',
+        desc: 'With a combined 80 years of experience, our team brings unmatched expertise in strategic planning, coordination, and execution of a wide range of events—including conferences, product launches, exhibitions, and trade shows. Turnkey venue selection, staging, AV, and guest management.'
+      },
+      {
+        id: 's2',
+        title: 'Demand Generation',
+        subtitle: 'Reach new audiences and convert interest into actionable leads through data-driven strategies.',
+        category: 'Growth',
+        icon: 'bi-funnel',
+        slug: 'services/demand-generation.html',
+        status: 'Active',
+        desc: 'We work with B2B services and demand generation product companies to design ideal target segments. Dedicated SDRs and outbound GTM experts fuel your sales pipeline with high-quality business leads and decision-maker meetings.'
+      },
+      {
+        id: 's3',
+        title: 'Corporate Travel & Hospitality',
+        subtitle: 'Seamlessly manage business travel needs with efficient hotel and flight booking solutions.',
+        category: 'Corporate',
+        icon: 'bi-airplane-engines',
+        slug: 'services/corporate-travel.html',
+        status: 'Active',
+        desc: 'We bring a full-value proposition backed by strength, experience, technology, and innovation to meet all your corporate travel needs. 5-star room blocks, group flight bookings, luxury charters, and turnkey MICE itineraries.'
+      },
+      {
+        id: 's4',
+        title: 'Retail & Office Branding Solutions',
+        subtitle: 'Transform physical spaces with tailored branding that reflects your business identity and values.',
+        category: 'Branding',
+        icon: 'bi-shop',
+        slug: 'services/retail-branding.html',
+        status: 'Active',
+        desc: 'Create distinct and memorable brand identities in physical retail environments or corporate offices. Bespoke design and flawless execution that enhances spaces, elevates brand perception, and increases foot traffic and engagement.'
+      },
+      {
+        id: 's5',
+        title: 'BTL Activation',
+        subtitle: 'Boost consumer engagement and brand awareness with dynamic on-ground marketing initiatives.',
+        category: 'Experiential',
+        icon: 'bi-megaphone',
+        slug: 'services/btl-activation.html',
+        status: 'Active',
+        desc: 'Deep expertise in product sampling, in-store promotions, experiential marketing, mall and tech-park activations, roadshows, and nationwide brand intercepts delivering highly measurable and cost-effective engagement.'
+      },
+      {
+        id: 's6',
+        title: 'Exhibition & Trade Shows',
+        subtitle: 'Plan and design your exhibition booths to create immersive brand experiences that stand out.',
+        category: 'Exhibitions',
+        icon: 'bi-grid-1x2',
+        slug: 'services/exhibition.html',
+        status: 'Active',
+        desc: 'Comprehensive expertise in every aspect of exhibition management: 3D stall design, custom architectural fabrication, on-ground logistics, and attendee engagement for physical, virtual, and hybrid trade expos.'
+      },
+      {
+        id: 's7',
+        title: 'Digital Marketing',
+        subtitle: 'Enhance your digital presence with targeted campaigns across SEO, social media, and more.',
+        category: 'Digital',
+        icon: 'bi-phone-vibrate',
+        slug: 'services/digital-marketing.html',
+        status: 'Active',
+        desc: 'Elevate your digital presence with cutting-edge, performance-driven strategies. SEO dominance, targeted LinkedIn B2B thought leadership, performance ad campaigns, and innovative multi-channel brand storytelling.'
+      },
+      {
+        id: 's8',
+        title: 'Experiential Marketing',
+        subtitle: 'We engineer experiences that become the talk of the town.',
+        category: 'Experiential',
+        icon: 'bi-stars',
+        slug: 'services/experiential-marketing.html',
+        status: 'Active',
+        desc: 'Multi-sensory brand installations, kinetic LED reveals, holographic showcases, interactive domes, and luxury VIP experiences that pull audiences directly into your brand story.'
+      },
+      {
+        id: 's9',
+        title: 'Marketing Consulting',
+        subtitle: 'Strategic marketing advisory built for high-stakes enterprise business goals.',
+        category: 'Strategy',
+        icon: 'bi-compass',
+        slug: 'services/marketing-consulting.html',
+        status: 'Active',
+        desc: 'Bridging high-level corporate marketing strategy with boots-on-the-ground operational execution. Founded by corporate marketing veterans to align ICP demand, brand equity, and closed-loop revenue attribution.'
+      }
     ],
 
     blogPosts: [
@@ -936,8 +1017,41 @@
     parsed.videoGalleries = Array.isArray(parsed.videoGalleries) ? parsed.videoGalleries : [];
     if (parsed.auth === undefined) parsed.auth = DEFAULT_DB.auth;
     if (parsed.insightClusters === undefined) parsed.insightClusters = DEFAULT_DB.insightClusters || [];
-    if (parsed.blogPosts === undefined) parsed.blogPosts = DEFAULT_DB.blogPosts || [];
-    if (parsed.services === undefined) parsed.services = DEFAULT_DB.services || [];
+    if (!Array.isArray(parsed.services) || parsed.services.length === 0) {
+      parsed.services = JSON.parse(JSON.stringify(DEFAULT_DB.services));
+    } else {
+      function findDefService(s) {
+        const key = ((s.slug || '') + ' ' + (s.title || '')).toLowerCase();
+        if (key.includes('event-management') || (key.includes('event') && !key.includes('experiential'))) return DEFAULT_DB.services.find(d => d.id === 's1');
+        if (key.includes('demand-generation') || key.includes('demand')) return DEFAULT_DB.services.find(d => d.id === 's2');
+        if (key.includes('travel') || key.includes('mice') || key.includes('hotel') || key.includes('flight')) return DEFAULT_DB.services.find(d => d.id === 's3');
+        if (key.includes('retail') || key.includes('merchandis') || key.includes('office')) return DEFAULT_DB.services.find(d => d.id === 's4');
+        if (key.includes('btl')) return DEFAULT_DB.services.find(d => d.id === 's5');
+        if (key.includes('exhib') || key.includes('pavilion')) return DEFAULT_DB.services.find(d => d.id === 's6');
+        if (key.includes('digital') || key.includes('seo')) return DEFAULT_DB.services.find(d => d.id === 's7');
+        if (key.includes('experiential')) return DEFAULT_DB.services.find(d => d.id === 's8');
+        if (key.includes('consulting') || key.includes('strategy')) return DEFAULT_DB.services.find(d => d.id === 's9');
+        return null;
+      }
+
+      parsed.services.forEach(s => {
+        const def = findDefService(s);
+        if (def) {
+          s.title = def.title;
+          s.subtitle = def.subtitle;
+          s.desc = def.desc;
+          s.category = def.category;
+          s.icon = def.icon;
+          s.slug = def.slug;
+        }
+      });
+      const existingSlugs = new Set(parsed.services.map(s => (s.slug || '').toLowerCase()));
+      DEFAULT_DB.services.forEach(def => {
+        if (!existingSlugs.has((def.slug || '').toLowerCase())) {
+          parsed.services.push(JSON.parse(JSON.stringify(def)));
+        }
+      });
+    }
     if (!Array.isArray(parsed.clients) || parsed.clients.length === 0) {
       parsed.clients = JSON.parse(JSON.stringify(DEFAULT_DB.clients));
     } else {
@@ -2867,21 +2981,24 @@
         </div>
 
         <div class="cards-grid">
-          ${DB.services.map(s => `
+          ${DB.services.map(s => {
+            const pageHref = s.slug ? (s.slug.startsWith('http') ? s.slug : (s.slug.startsWith('/') ? s.slug.substring(1) : s.slug)) : 'services/event-management.html';
+            return `
             <div class="item-card">
               <div>
                 <div class="item-card-header">
-                  <div class="item-card-icon"><i class="bi ${s.icon}"></i></div>
+                  <div class="item-card-icon"><i class="bi ${s.icon || 'bi-stars'}"></i></div>
                   <span class="badge ${s.status === 'Active' ? 'badge-active' : 'badge-draft'}">${s.status}</span>
                 </div>
                 <h3 class="item-card-title">${escapeHtml(s.title)}</h3>
+                ${s.subtitle ? `<div style="font-size: 0.825rem; font-weight: 600; color: var(--color-primary); margin-bottom: 8px;">${escapeHtml(s.subtitle)}</div>` : ''}
                 <p class="item-card-desc">${escapeHtml(s.desc)}</p>
                 <div style="font-size: 0.775rem; color: var(--text-dim); margin-bottom: 12px;">
-                  <i class="bi bi-link-45deg"></i> <code>services/${escapeHtml(s.slug)}</code>
+                  <i class="bi bi-link-45deg"></i> <code>${escapeHtml(s.slug || '')}</code>
                 </div>
               </div>
               <div class="item-card-footer">
-                <a href="services/${escapeHtml(s.slug)}" target="_blank" class="btn-outline" style="font-size: 0.775rem; padding: 4px 10px;">
+                <a href="${escapeHtml(pageHref)}" target="_blank" class="btn-outline" style="font-size: 0.775rem; padding: 4px 10px;">
                   <i class="bi bi-box-arrow-up-right"></i> View Page
                 </a>
                 <div class="action-btns">
@@ -2890,7 +3007,8 @@
                 </div>
               </div>
             </div>
-          `).join('')}
+            `;
+          }).join('')}
         </div>
       </div>
     `;
@@ -2925,25 +3043,29 @@
     const formHtml = `
       <div class="form-group">
         <label class="form-label">Service Title</label>
-        <input type="text" class="form-input" id="m_servTitle" value="${isEdit ? escapeHtml(service.title) : ''}" placeholder="e.g. AI-Powered Experiential Zones" required>
+        <input type="text" class="form-input" id="m_servTitle" value="${isEdit ? escapeHtml(service.title) : ''}" placeholder="e.g. Corporate Event Management" required>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Subtitle / Punchline Hook</label>
+        <input type="text" class="form-input" id="m_servSubtitle" value="${isEdit ? escapeHtml(service.subtitle || '') : ''}" placeholder="e.g. From corporate conferences to product launches, we create impactful and memorable events.">
       </div>
       <div class="form-row">
         <div class="form-group">
           <label class="form-label">Category</label>
-          <input type="text" class="form-input" id="m_servCategory" value="${isEdit ? escapeHtml(service.category) : 'Experiential'}" placeholder="Category">
+          <input type="text" class="form-input" id="m_servCategory" value="${isEdit ? escapeHtml(service.category) : 'Experiential'}" placeholder="e.g. Events, Experiential, Growth, Strategy">
         </div>
         <div class="form-group">
           <label class="form-label">Bootstrap Icon Class</label>
-          <input type="text" class="form-input" id="m_servIcon" value="${isEdit ? escapeHtml(service.icon) : 'bi-stars'}" placeholder="bi-stars">
+          <input type="text" class="form-input" id="m_servIcon" value="${isEdit ? escapeHtml(service.icon) : 'bi-stars'}" placeholder="bi-calendar4-event">
         </div>
       </div>
       <div class="form-group">
-        <label class="form-label">HTML File Name / Slug</label>
-        <input type="text" class="form-input" id="m_servSlug" value="${isEdit ? escapeHtml(service.slug) : 'custom-service.html'}" placeholder="custom-service.html">
+        <label class="form-label">Page Link / Slug</label>
+        <input type="text" class="form-input" id="m_servSlug" value="${isEdit ? escapeHtml(service.slug) : 'services/event-management.html'}" placeholder="services/event-management.html">
       </div>
       <div class="form-group">
-        <label class="form-label">Short Description</label>
-        <textarea class="form-textarea" id="m_servDesc" placeholder="Describe the service offering...">${isEdit ? escapeHtml(service.desc) : ''}</textarea>
+        <label class="form-label">Comprehensive Description</label>
+        <textarea class="form-textarea" id="m_servDesc" rows="4" placeholder="Describe the service offering in detail...">${isEdit ? escapeHtml(service.desc) : ''}</textarea>
       </div>
       <div class="form-group">
         <label class="form-label">Status</label>
@@ -2964,14 +3086,16 @@
           showToast('Service title is required', 'warning');
           return false;
         }
+        const subtitle = document.getElementById('m_servSubtitle').value.trim();
         const category = document.getElementById('m_servCategory').value.trim() || 'Experiential';
         const icon = document.getElementById('m_servIcon').value.trim() || 'bi-stars';
-        const slug = document.getElementById('m_servSlug').value.trim() || 'service.html';
+        const slug = document.getElementById('m_servSlug').value.trim() || 'services/event-management.html';
         const desc = document.getElementById('m_servDesc').value.trim();
         const status = document.getElementById('m_servStatus').value;
 
         if (isEdit) {
           service.title = title;
+          service.subtitle = subtitle;
           service.category = category;
           service.icon = icon;
           service.slug = slug;
@@ -2982,6 +3106,7 @@
           DB.services.push({
             id: 's_' + Date.now().toString().slice(-5),
             title,
+            subtitle,
             category,
             icon,
             slug,

@@ -1345,7 +1345,15 @@ html.dark .service-card:hover .service-icon {
 
 .service-title {
   font-size: 1.35rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.service-subtitle-tag {
+  font-size: 0.85rem;
+  line-height: 1.45;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  letter-spacing: 0.2px;
 }
 
 .service-desc {
@@ -5465,11 +5473,30 @@ html.dark {
 
 .hero-showreel-subtitle {
   font-size: clamp(1.15rem, 2vw, 1.55rem);
+  font-weight: 500;
+  color: #f8fafc;
+  max-width: 860px;
+  margin: 0 auto 14px;
+  line-height: 1.45;
+  letter-spacing: -0.2px;
+}
+
+.hero-showreel-desc {
+  font-size: clamp(0.95rem, 1.25vw, 1.15rem);
   font-weight: 400;
-  color: #d1d5db;
-  max-width: 820px;
-  margin: 0 auto 40px;
-  line-height: 1.5;
+  color: #cbd5e1;
+  max-width: 840px;
+  margin: 0 auto 38px;
+  line-height: 1.6;
+  letter-spacing: 0.15px;
+}
+
+.hero-showreel-desc .hero-highlight-accent {
+  color: #ffffff;
+  font-weight: 600;
+  text-decoration: underline decoration-color(var(--neon-cyan), 2px);
+  text-underline-offset: 4px;
+  text-decoration-color: rgba(0, 240, 255, 0.6);
 }
 
 .hero-showreel-actions {

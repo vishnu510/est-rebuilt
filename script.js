@@ -1651,6 +1651,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (typeof initDynamicPortfolio === 'function') initDynamicPortfolio();
     if (typeof initDynamicBentoShowcase === 'function') initDynamicBentoShowcase();
     if (typeof initDynamicClients === 'function') initDynamicClients();
+    if (typeof initDynamicServices === 'function') initDynamicServices();
   }
 
   window.addEventListener('storage', (e) => {
@@ -2076,9 +2077,176 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  // ==========================================
+  // Dynamic Services Ecosystem Sync (From Admin)
+  // ==========================================
+  const DEFAULT_SERVICES_DATA = [
+    {
+      id: 's1',
+      title: 'Event Management',
+      subtitle: 'From corporate conferences to product launches, we create impactful and memorable events.',
+      category: 'Events',
+      icon: 'bi-calendar4-event',
+      slug: 'services/event-management.html',
+      status: 'Active',
+      desc: 'With a combined 80 years of experience, our team brings unmatched expertise in strategic planning, coordination, and execution of conferences, product launches, exhibitions, and trade shows across India. Turnkey venue selection, staging, AV, and guest management.'
+    },
+    {
+      id: 's2',
+      title: 'Demand Generation',
+      subtitle: 'Reach new audiences and convert interest into actionable leads through data-driven strategies.',
+      category: 'Growth',
+      icon: 'bi-funnel',
+      slug: 'services/demand-generation.html',
+      status: 'Active',
+      desc: 'We work with B2B services and demand generation product companies to design ideal target segments. Dedicated SDRs and outbound GTM experts fuel your sales pipeline with high-quality business leads and decision-maker meetings.'
+    },
+    {
+      id: 's3',
+      title: 'Corporate Travel & Hospitality',
+      subtitle: 'Seamlessly manage business travel needs with efficient hotel and flight booking solutions.',
+      category: 'Corporate',
+      icon: 'bi-airplane-engines',
+      slug: 'services/corporate-travel.html',
+      status: 'Active',
+      desc: 'We bring a full-value proposition backed by strength, experience, technology, and innovation to meet all your corporate travel needs. 5-star room blocks, group flight bookings, luxury charters, and turnkey MICE itineraries.'
+    },
+    {
+      id: 's4',
+      title: 'Retail & Office Branding Solutions',
+      subtitle: 'Transform physical spaces with tailored branding that reflects your business identity and values.',
+      category: 'Branding',
+      icon: 'bi-shop',
+      slug: 'services/retail-branding.html',
+      status: 'Active',
+      desc: 'Create distinct and memorable brand identities in physical retail environments or corporate offices. Bespoke design and flawless execution that enhances spaces, elevates brand perception, and increases foot traffic and engagement.'
+    },
+    {
+      id: 's5',
+      title: 'BTL Activation',
+      subtitle: 'Boost consumer engagement and brand awareness with dynamic on-ground marketing initiatives.',
+      category: 'Experiential',
+      icon: 'bi-megaphone',
+      slug: 'services/btl-activation.html',
+      status: 'Active',
+      desc: 'Deep expertise in product sampling, in-store promotions, experiential marketing, mall and tech-park activations, roadshows, and nationwide brand intercepts delivering highly measurable and cost-effective engagement.'
+    },
+    {
+      id: 's6',
+      title: 'Exhibition & Trade Shows',
+      subtitle: 'Plan and design your exhibition booths to create immersive brand experiences that stand out.',
+      category: 'Exhibitions',
+      icon: 'bi-grid-1x2',
+      slug: 'services/exhibition.html',
+      status: 'Active',
+      desc: 'Comprehensive expertise in every aspect of exhibition management: 3D stall design, custom architectural fabrication, on-ground logistics, and attendee engagement for physical, virtual, and hybrid trade expos.'
+    },
+    {
+      id: 's7',
+      title: 'Digital Marketing',
+      subtitle: 'Enhance your digital presence with targeted campaigns across SEO, social media, and more.',
+      category: 'Digital',
+      icon: 'bi-phone-vibrate',
+      slug: 'services/digital-marketing.html',
+      status: 'Active',
+      desc: 'Elevate your digital presence with cutting-edge, performance-driven strategies. SEO dominance, targeted LinkedIn B2B thought leadership, performance ad campaigns, and innovative multi-channel brand storytelling.'
+    },
+    {
+      id: 's8',
+      title: 'Experiential Marketing',
+      subtitle: 'We engineer experiences that become the talk of the town.',
+      category: 'Experiential',
+      icon: 'bi-stars',
+      slug: 'services/experiential-marketing.html',
+      status: 'Active',
+      desc: 'Multi-sensory brand installations, kinetic LED reveals, holographic showcases, interactive domes, and luxury VIP experiences that pull audiences directly into your brand story.'
+    },
+    {
+      id: 's9',
+      title: 'Marketing Consulting',
+      subtitle: 'Strategic marketing advisory built for high-stakes enterprise business goals.',
+      category: 'Strategy',
+      icon: 'bi-compass',
+      slug: 'services/marketing-consulting.html',
+      status: 'Active',
+      desc: 'Bridging high-level corporate marketing strategy with boots-on-the-ground operational execution. Founded by corporate marketing veterans to align ICP demand, brand equity, and closed-loop revenue attribution.'
+    }
+  ];
+
+  function initDynamicServices() {
+    const grid = document.getElementById('dynamic-services-grid');
+    if (!grid) return;
+
+    let db = null;
+    if (window.ESTCloudSync && typeof window.ESTCloudSync.getDB === 'function') {
+      db = window.ESTCloudSync.getDB();
+    }
+    if (!db) {
+      try {
+        const raw = localStorage.getItem('EST_ADMIN_DB_V2');
+        if (raw) db = JSON.parse(raw);
+      } catch (e) {
+        console.warn('Error reading db for services:', e);
+      }
+    }
+
+    const services = (db && Array.isArray(db.services) && db.services.length > 0)
+      ? db.services
+      : DEFAULT_SERVICES_DATA;
+
+    const activeServices = services.filter(s => !s.status || s.status.toLowerCase() === 'active');
+
+    if (activeServices.length === 0) {
+      grid.innerHTML = `
+        <div style="grid-column: 1 / -1; padding: 40px 20px; text-align: center; color: #94a3b8; background: rgba(255,255,255,0.02); border-radius: 12px; border: 1px dashed rgba(255,255,255,0.1);">
+          <p style="margin: 0; font-size: 0.95rem;">No active services configured in admin panel.</p>
+        </div>
+      `;
+      return;
+    }
+
+    grid.innerHTML = activeServices.map((s, idx) => {
+      const delay = (idx % 3 + 1) * 100;
+      const isAlt = idx % 2 === 1;
+      const accentColor = isAlt ? 'var(--color-primary)' : 'var(--neon-cyan)';
+      const accentBg = isAlt ? 'rgba(254,59,32,0.1)' : 'rgba(0,240,255,0.1)';
+      const icon = s.icon || 'bi-stars';
+      const rawSlug = s.slug || 'services/event-management.html';
+      const link = rawSlug.startsWith('http') ? rawSlug : (rawSlug.startsWith('/') ? rawSlug.substring(1) : rawSlug);
+      const title = s.title || 'Marketing Service';
+      const subtitle = s.subtitle ? `<div class="service-subtitle-tag" style="font-size: 0.82rem; color: ${accentColor}; font-weight: 600; margin-bottom: 8px;">${escapeHtml(s.subtitle)}</div>` : '';
+      const desc = s.desc || '';
+
+      return `
+        <div class="glass-panel service-card" data-aos="fade-up" data-aos-delay="${delay}">
+          <div class="service-icon flex-center" style="background: ${accentBg}; color: ${accentColor};">
+            <i class="bi ${escapeHtml(icon)}"></i>
+          </div>
+          <h3 class="service-title">${escapeHtml(title)}</h3>
+          ${subtitle}
+          <p class="service-desc">${escapeHtml(desc)}</p>
+          <div class="service-actions">
+            <a href="${escapeHtml(link)}" class="service-link" style="color: ${accentColor};">
+              Explore Service <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      `;
+    }).join('');
+  }
+
+  // Hook services sync listeners
+  if (!window._servicesSyncBound) {
+    window._servicesSyncBound = true;
+    if (window.ESTCloudSync && typeof window.ESTCloudSync.onSync === 'function') {
+      window.ESTCloudSync.onSync(() => initDynamicServices());
+    }
+  }
+
   // Initial load
   initDynamicBentoShowcase();
   initDynamicClients();
+  initDynamicServices();
 
   // Note: Cross-tab and cloud sync are centrally orchestrated above by refreshAllDynamicEngines()
 
