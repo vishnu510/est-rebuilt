@@ -2679,6 +2679,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // (E) Modern Interactive Card Spotlight & 3D Perspective Tilt
   // ==========================================
   function initCardSpotlights() {
+    const isTouch = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0) || (window.matchMedia && window.matchMedia('(hover: none)').matches);
     const cards = document.querySelectorAll('.service-card, .bento-card, .philosophy-punch-card, .est-testimonial-card, .diag-window-card');
     cards.forEach(card => {
       if (card._spotlightBound) return;
@@ -2691,8 +2692,8 @@ document.addEventListener('DOMContentLoaded', () => {
         card.style.setProperty('--mouse-x', `${x}px`);
         card.style.setProperty('--mouse-y', `${y}px`);
 
-        // Gentle 3D perspective tilt on service cards
-        if (card.classList.contains('service-card')) {
+        // Gentle 3D perspective tilt on service cards (only on mouse/desktop devices)
+        if (!isTouch && card.classList.contains('service-card')) {
           const centerX = rect.width / 2;
           const centerY = rect.height / 2;
           const rotateX = ((y - centerY) / centerY) * -4.5;
