@@ -2089,7 +2089,7 @@ document.addEventListener('DOMContentLoaded', () => {
       icon: 'bi-calendar4-event',
       slug: 'services/event-management.html',
       status: 'Active',
-      desc: 'With a combined 80 years of experience, our team brings unmatched expertise in strategic planning, coordination, and execution of conferences, product launches, exhibitions, and trade shows across India. Turnkey venue selection, staging, AV, and guest management.'
+      desc: 'From corporate conferences to product launches, we create impactful and memorable events.'
     },
     {
       id: 's2',
@@ -2099,17 +2099,17 @@ document.addEventListener('DOMContentLoaded', () => {
       icon: 'bi-funnel',
       slug: 'services/demand-generation.html',
       status: 'Active',
-      desc: 'We work with B2B services and demand generation product companies to design ideal target segments. Dedicated SDRs and outbound GTM experts fuel your sales pipeline with high-quality business leads and decision-maker meetings.'
+      desc: 'Reach new audiences and convert interest into actionable leads through data-driven strategies.'
     },
     {
       id: 's3',
-      title: 'Corporate Travel & Hospitality',
+      title: 'Corporate Travel – Hotel & Flight Booking',
       subtitle: 'Seamlessly manage business travel needs with efficient hotel and flight booking solutions.',
       category: 'Corporate',
       icon: 'bi-airplane-engines',
       slug: 'services/corporate-travel.html',
       status: 'Active',
-      desc: 'We bring a full-value proposition backed by strength, experience, technology, and innovation to meet all your corporate travel needs. 5-star room blocks, group flight bookings, luxury charters, and turnkey MICE itineraries.'
+      desc: 'Seamlessly manage business travel needs with efficient hotel and flight booking solutions.'
     },
     {
       id: 's4',
@@ -2119,7 +2119,7 @@ document.addEventListener('DOMContentLoaded', () => {
       icon: 'bi-shop',
       slug: 'services/retail-branding.html',
       status: 'Active',
-      desc: 'Create distinct and memorable brand identities in physical retail environments or corporate offices. Bespoke design and flawless execution that enhances spaces, elevates brand perception, and increases foot traffic and engagement.'
+      desc: 'Transform physical spaces with tailored branding that reflects your business identity and values.'
     },
     {
       id: 's5',
@@ -2129,17 +2129,17 @@ document.addEventListener('DOMContentLoaded', () => {
       icon: 'bi-megaphone',
       slug: 'services/btl-activation.html',
       status: 'Active',
-      desc: 'Deep expertise in product sampling, in-store promotions, experiential marketing, mall and tech-park activations, roadshows, and nationwide brand intercepts delivering highly measurable and cost-effective engagement.'
+      desc: 'Boost consumer engagement and brand awareness with dynamic on-ground marketing initiatives.'
     },
     {
       id: 's6',
-      title: 'Exhibition & Trade Shows',
+      title: 'Exhibition',
       subtitle: 'Plan and design your exhibition booths to create immersive brand experiences that stand out.',
       category: 'Exhibitions',
       icon: 'bi-grid-1x2',
       slug: 'services/exhibition.html',
       status: 'Active',
-      desc: 'Comprehensive expertise in every aspect of exhibition management: 3D stall design, custom architectural fabrication, on-ground logistics, and attendee engagement for physical, virtual, and hybrid trade expos.'
+      desc: 'Plan and design your exhibition booths to create immersive brand experiences that stand out.'
     },
     {
       id: 's7',
@@ -2149,27 +2149,7 @@ document.addEventListener('DOMContentLoaded', () => {
       icon: 'bi-phone-vibrate',
       slug: 'services/digital-marketing.html',
       status: 'Active',
-      desc: 'Elevate your digital presence with cutting-edge, performance-driven strategies. SEO dominance, targeted LinkedIn B2B thought leadership, performance ad campaigns, and innovative multi-channel brand storytelling.'
-    },
-    {
-      id: 's8',
-      title: 'Experiential Marketing',
-      subtitle: 'We engineer experiences that become the talk of the town.',
-      category: 'Experiential',
-      icon: 'bi-stars',
-      slug: 'services/experiential-marketing.html',
-      status: 'Active',
-      desc: 'Multi-sensory brand installations, kinetic LED reveals, holographic showcases, interactive domes, and luxury VIP experiences that pull audiences directly into your brand story.'
-    },
-    {
-      id: 's9',
-      title: 'Marketing Consulting',
-      subtitle: 'Strategic marketing advisory built for high-stakes enterprise business goals.',
-      category: 'Strategy',
-      icon: 'bi-compass',
-      slug: 'services/marketing-consulting.html',
-      status: 'Active',
-      desc: 'Bridging high-level corporate marketing strategy with boots-on-the-ground operational execution. Founded by corporate marketing veterans to align ICP demand, brand equity, and closed-loop revenue attribution.'
+      desc: 'Enhance your digital presence with targeted campaigns across SEO, social media, and more.'
     }
   ];
 
@@ -2221,67 +2201,48 @@ document.addEventListener('DOMContentLoaded', () => {
         floating: '📈 48% Open'
       },
       's3': {
-        tag: '@est.travel/group-charters',
+        tag: '@est.travel/flight-hotel-dispatch',
         status: 'MICE HUB',
         row: '5-Star Hotel Room Blocks',
         check: 'Reserved',
         floating: '✈️ 100% On-Time'
       },
       's4': {
-        tag: '@est.retail/spatial-facade',
+        tag: '@est.retail/space-branding',
         status: 'DEPLOYED',
-        row: 'Acoustic Fabrication',
+        row: 'Acoustic Fabrication & Crests',
         check: 'Installed',
         floating: '🏬 100% Brand'
       },
       's5': {
         tag: '@est.btl/pan-india-tour',
         status: 'ACTIVE',
-        row: 'Direct Mall Sampling',
+        row: 'Direct Mall & Tech-Park Sampling',
         check: '12 Cities',
         floating: '🔥 250k+ Reach'
       },
       's6': {
         tag: '@est.exhibition/3d-booth-cad',
         status: 'FABRICATION',
-        row: '180m² Pavilion Blueprint',
+        row: '180m² Pavilion 3D Blueprint',
         check: 'Approved',
         floating: '🏆 Award 3D'
       },
       's7': {
         tag: '@est.digital/b2b-omnichannel',
         status: 'OPTIMIZED',
-        row: 'LinkedIn CXO Thought Lead',
+        row: 'LinkedIn CXO Thought Leadership',
         check: '+142% CTR',
         floating: '⚡ 4.8x ROAS'
-      },
-      's8': {
-        tag: '@est.experiential/hologram-dome',
-        status: 'SENSORY',
-        row: 'Kinetic Motion Sensor Dome',
-        check: '100% Immersion',
-        floating: '✨ Goosebumps'
-      },
-      's9': {
-        tag: '@est.consulting/gtm-roadmap',
-        status: 'STRATEGY',
-        row: 'Enterprise ICP Strategy',
-        check: 'Attributed',
-        floating: '🎯 CXO Advisory'
       }
     };
 
     grid.innerHTML = activeServices.map((s, idx) => {
       const delay = (idx % 3 + 1) * 100;
-      const isAlt = idx % 2 === 1;
-      const accentColor = isAlt ? 'var(--color-primary)' : 'var(--neon-cyan)';
-      const accentBg = isAlt ? 'rgba(254,59,32,0.1)' : 'rgba(0,240,255,0.1)';
-      const icon = s.icon || 'bi-stars';
       const rawSlug = s.slug || 'services/event-management.html';
       const link = rawSlug.startsWith('http') ? rawSlug : (rawSlug.startsWith('/') ? rawSlug.substring(1) : rawSlug);
       const title = s.title || 'Marketing Service';
-      const subtitle = s.subtitle ? `<div class="service-subtitle-tag" style="font-size: 0.82rem; color: ${accentColor}; font-weight: 600; margin-bottom: 8px;">${escapeHtml(s.subtitle)}</div>` : '';
-      const desc = s.desc || '';
+      const desc = s.desc || s.subtitle || '';
 
       const preset = SERVICE_DIAGRAM_PRESETS[s.id] || {
         tag: `@est.${(title || 'service').toLowerCase().replace(/[^a-z0-9]/g, '')}/hub`,
@@ -2292,7 +2253,7 @@ document.addEventListener('DOMContentLoaded', () => {
       };
 
       return `
-        <div class="glass-panel service-card" data-aos="fade-up" data-aos-delay="${delay}">
+        <div class="glass-panel service-card" data-aos="fade-up" data-aos-delay="${delay}" onclick="window.location.href='${escapeHtml(link)}'" style="cursor: pointer;">
           <div class="service-mini-diagram">
             <div class="mini-diag-floating">${preset.floating}</div>
             <div class="mini-diag-top">
@@ -2303,27 +2264,27 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
             <div class="mini-diag-search">
               <span>${preset.tag}</span>
-              <span class="mini-diag-search-icon"><i class="bi bi-search"></i></span>
+              <a href="${escapeHtml(link)}" class="mini-diag-search-icon" title="View ${escapeHtml(title)}" onclick="event.stopPropagation();"><i class="bi bi-search"></i></a>
             </div>
             <div class="mini-diag-row">
               <span>${preset.row}</span>
               <span class="mini-diag-check"><i class="bi bi-check2"></i> ${preset.check}</span>
             </div>
           </div>
-          <div class="service-icon flex-center" style="background: ${accentBg}; color: ${accentColor};">
-            <i class="bi ${escapeHtml(icon)}"></i>
-          </div>
-          <h3 class="service-title">${escapeHtml(title)}</h3>
-          ${subtitle}
-          <p class="service-desc">${escapeHtml(desc)}</p>
-          <div class="service-actions">
-            <a href="${escapeHtml(link)}" class="service-link" style="color: ${accentColor};">
-              Explore Service <i class="bi bi-arrow-right"></i>
+          <h3 class="service-title" style="color: var(--color-primary); font-weight: 800; font-size: 1.35rem; margin-bottom: 0.75rem;">${escapeHtml(title)}</h3>
+          <p class="service-desc" style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.55; margin-bottom: 1.5rem; flex-grow: 1;">${escapeHtml(desc)}</p>
+          <div class="service-actions" style="border: none; padding-top: 0; margin-top: auto;">
+            <a href="${escapeHtml(link)}" class="service-read-more-btn" onclick="event.stopPropagation();">
+              Read More <i class="bi bi-arrow-right"></i>
             </a>
           </div>
         </div>
       `;
     }).join('');
+
+    if (typeof initCardSpotlights === 'function') {
+      initCardSpotlights();
+    }
   }
 
   // ==========================================
@@ -2714,7 +2675,44 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // ==========================================
+  // (E) Modern Interactive Card Spotlight & 3D Perspective Tilt
+  // ==========================================
+  function initCardSpotlights() {
+    const cards = document.querySelectorAll('.service-card, .bento-card, .philosophy-punch-card, .est-testimonial-card, .diag-window-card');
+    cards.forEach(card => {
+      if (card._spotlightBound) return;
+      card._spotlightBound = true;
+
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        card.style.setProperty('--mouse-x', `${x}px`);
+        card.style.setProperty('--mouse-y', `${y}px`);
+
+        // Gentle 3D perspective tilt on service cards
+        if (card.classList.contains('service-card')) {
+          const centerX = rect.width / 2;
+          const centerY = rect.height / 2;
+          const rotateX = ((y - centerY) / centerY) * -4.5;
+          const rotateY = ((x - centerX) / centerX) * 4.5;
+          card.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateY(-6px)`;
+        }
+      });
+
+      card.addEventListener('mouseleave', () => {
+        if (card.classList.contains('service-card')) {
+          card.style.transform = '';
+        }
+      });
+    });
+  }
+
+  initCardSpotlights();
+
 });
+
 
 
 

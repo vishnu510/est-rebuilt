@@ -4,13 +4,15 @@
 */
 
 /* --- Google Fonts --- */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Space+Grotesk:wght@500;600;700&display=swap');
 
 /* --- Root & Color Variables --- */
 :root {
-  /* Fonts */
-  --font-heading: 'Outfit', sans-serif;
-  --font-body: 'Inter', sans-serif;
+  /* Fonts - High-End Trending Agency Typography */
+  --font-heading: 'Plus Jakarta Sans', 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-display: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+  --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: 'Space Grotesk', ui-monospace, SFMono-Regular, Menlo, monospace;
 
   /* HSL Brand Colors (Light Mode) */
   --primary-hue: 8;
@@ -103,21 +105,26 @@ html.dark {
 html {
   scroll-behavior: smooth;
   font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 body {
   font-family: var(--font-body);
   background-color: var(--bg-primary);
   color: var(--text-primary);
-  line-height: 1.6;
+  line-height: 1.65;
+  letter-spacing: -0.011em;
   overflow-x: hidden;
   transition: background-color var(--transition-slow), color var(--transition-slow);
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
-  font-weight: 700;
-  line-height: 1.25;
+  font-weight: 800;
+  line-height: 1.18;
+  letter-spacing: -0.032em;
   color: var(--text-primary);
 }
 
@@ -1361,6 +1368,40 @@ html.dark .service-card:hover .service-icon {
   font-size: 0.95rem;
   margin-bottom: 1.5rem;
   flex-grow: 1;
+}
+
+.service-read-more-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--color-primary);
+  color: #ffffff !important;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 10px 24px;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 14px rgba(var(--color-primary-rgb), 0.3);
+  margin-top: auto;
+  align-self: flex-start;
+  cursor: pointer;
+}
+
+.service-read-more-btn:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 8px 22px rgba(var(--color-primary-rgb), 0.45);
+  background: #ea580c;
+  color: #ffffff !important;
+}
+
+.service-read-more-btn i {
+  transition: transform 0.25s ease;
+}
+
+.service-read-more-btn:hover i {
+  transform: translateX(4px);
 }
 
 .service-link {
@@ -7405,16 +7446,548 @@ html.dark .mini-diag-floating {
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .diag-orbit-ring,
-  .chip-top-right,
-  .chip-left,
-  .chip-bottom-right,
-  .chip-top-left,
-  .mini-diag-floating {
-    animation: none !important;
+/* ==========================================================================
+   HIGH-END TRENDING AGENCY AESTHETICS (ILLUSTRATED CHIPS, AMBIENT MESH & GLOW)
+   ========================================================================== */
+
+/* Ambient Glowing Mesh & Orbs for Hero */
+.hero-ambient-mesh {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 3;
+}
+
+.mesh-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+  opacity: 0.35;
+  mix-blend-mode: screen;
+}
+
+.mesh-orb.orb-1 {
+  width: 520px;
+  height: 520px;
+  top: 8%;
+  left: 8%;
+  background: radial-gradient(circle, rgba(0, 240, 255, 0.5) 0%, rgba(99, 102, 241, 0.25) 50%, transparent 75%);
+  animation: orbFloat1 22s ease-in-out infinite alternate;
+}
+
+.mesh-orb.orb-2 {
+  width: 580px;
+  height: 580px;
+  bottom: 8%;
+  right: 6%;
+  background: radial-gradient(circle, rgba(254, 59, 32, 0.4) 0%, rgba(249, 115, 22, 0.2) 50%, transparent 75%);
+  animation: orbFloat2 26s ease-in-out infinite alternate;
+}
+
+@keyframes orbFloat1 {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(60px, 40px) scale(1.1); }
+  100% { transform: translate(-30px, 70px) scale(0.95); }
+}
+
+@keyframes orbFloat2 {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-50px, -40px) scale(1.12); }
+  100% { transform: translate(40px, -60px) scale(0.9); }
+}
+
+/* Background Orbital Rings in Hero */
+.hero-orbit-rings {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 4;
+}
+
+.hero-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  border: 1px dashed rgba(255, 255, 255, 0.12);
+}
+
+.hero-ring.ring-1 {
+  width: 780px;
+  height: 780px;
+  animation: orbitRotate 90s linear infinite;
+}
+
+.hero-ring.ring-2 {
+  width: 1040px;
+  height: 1040px;
+  border-color: rgba(0, 240, 255, 0.08);
+  animation: orbitRotate 130s linear infinite reverse;
+}
+
+.hero-satellite {
+  position: absolute;
+  top: -5px;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  margin-left: -5px;
+  border-radius: 50%;
+  background: var(--neon-cyan);
+  box-shadow: 0 0 14px var(--neon-cyan);
+}
+
+.hero-satellite.sat-2 {
+  background: var(--color-primary);
+  box-shadow: 0 0 14px var(--color-primary);
+}
+
+/* Hero Floating Illustrated Telemetry Chips */
+.hero-float-chip {
+  position: absolute;
+  z-index: 10;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 18px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+  pointer-events: auto;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  user-select: none;
+}
+
+.hero-float-chip:hover {
+  transform: translateY(-4px) scale(1.05);
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 20px 45px -8px rgba(0, 240, 255, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.3) inset;
+}
+
+.chip-hero-left {
+  top: 18%;
+  left: -20px;
+  animation: floatHeroLeft 6s ease-in-out infinite;
+}
+
+.chip-hero-right {
+  top: 22%;
+  right: -20px;
+  animation: floatHeroRight 6.8s ease-in-out infinite 0.8s;
+}
+
+.chip-hero-bottom {
+  bottom: -22px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: floatHeroBottom 7.2s ease-in-out infinite 1.4s;
+}
+
+@keyframes floatHeroLeft {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-12px) rotate(-1.5deg); }
+}
+
+@keyframes floatHeroRight {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(12px) rotate(1.5deg); }
+}
+
+@keyframes floatHeroBottom {
+  0%, 100% { transform: translate(-50%, 0px); }
+  50% { transform: translate(-50%, -8px); }
+}
+
+/* Chip Internal Elements */
+.hero-float-chip .chip-icon-wrap {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.95rem;
+  flex-shrink: 0;
+}
+
+.hero-float-chip .chip-icon-wrap.indigo {
+  background: rgba(99, 102, 241, 0.3);
+  color: #a5b4fc;
+}
+
+.hero-float-chip .chip-icon-wrap.mint {
+  background: rgba(16, 185, 129, 0.25);
+  color: #34d399;
+}
+
+.hero-float-chip .chip-icon-wrap.coral {
+  background: rgba(254, 59, 32, 0.25);
+  color: #ff8c7a;
+}
+
+.hero-float-chip .chip-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  text-align: left;
+}
+
+.hero-float-chip .chip-title {
+  font-family: var(--font-heading);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.2px;
+  white-space: nowrap;
+}
+
+.hero-float-chip .chip-star-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: #ffedd5;
+  color: #c2410c;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.hero-float-chip .chip-star-pill i {
+  color: #ea580c;
+  font-size: 0.76rem;
+}
+
+.hero-float-chip .chip-status-pill {
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: rgba(16, 185, 129, 0.2);
+  color: #6ee7b7;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.hero-float-chip .chip-badge-live {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: rgba(0, 240, 255, 0.15);
+  color: var(--neon-cyan);
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+@media (max-width: 992px) {
+  .hero-float-chip {
+    display: none;
   }
 }
+
+/* ==========================================================================
+   MANIFESTO & PHILOSOPHY EDITORIAL POLISH
+   ========================================================================== */
+.manifesto-pill-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 18px;
+  border-radius: 999px;
+  background: rgba(var(--color-primary-rgb), 0.08);
+  border: 1px solid rgba(var(--color-primary-rgb), 0.2);
+  color: var(--color-primary);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 22px;
+}
+
+html.dark .manifesto-pill-tag {
+  background: rgba(0, 240, 255, 0.08);
+  border-color: rgba(0, 240, 255, 0.2);
+  color: var(--neon-cyan);
+}
+
+.sparkle-icon {
+  font-size: 0.85rem;
+  color: var(--color-primary);
+  animation: sparkleTwinkle 2.5s infinite;
+}
+
+html.dark .sparkle-icon {
+  color: var(--neon-cyan);
+}
+
+@keyframes sparkleTwinkle {
+  0%, 100% { opacity: 0.4; transform: scale(0.85); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+.philosophy-bg-ambient {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.philo-glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  pointer-events: none;
+  opacity: 0.2;
+}
+
+.philo-glow.glow-1 {
+  width: 480px;
+  height: 480px;
+  top: 10%;
+  left: -100px;
+  background: var(--neon-cyan);
+}
+
+.philo-glow.glow-2 {
+  width: 520px;
+  height: 520px;
+  bottom: 5%;
+  right: -100px;
+  background: var(--color-primary);
+}
+
+.philosophy-punch-card {
+  position: relative;
+  padding: 2.5rem;
+  border-radius: 28px;
+  background: var(--glass-bg);
+  border: 1px solid var(--border-color);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.08);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+}
+
+.philosophy-punch-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(var(--color-primary-rgb), 0.35);
+}
+
+html.dark .philosophy-punch-card {
+  background: rgba(15, 23, 42, 0.7);
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.7);
+}
+
+.punch-quote-symbol {
+  font-family: Georgia, serif;
+  font-size: 5rem;
+  line-height: 1;
+  color: var(--color-primary);
+  opacity: 0.25;
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  pointer-events: none;
+}
+
+html.dark .punch-quote-symbol {
+  color: var(--neon-cyan);
+  opacity: 0.2;
+}
+
+/* ==========================================================================
+   ENTERPRISE STATS RIBBON ELEVATION
+   ========================================================================== */
+.stats-glass-card {
+  border-radius: 28px;
+  padding: 3rem 2.5rem;
+  background: var(--glass-bg);
+  border: 1px solid var(--border-color);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 20px 45px -15px rgba(0, 0, 0, 0.07);
+}
+
+html.dark .stats-glass-card {
+  background: rgba(15, 23, 42, 0.75);
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.8), 0 0 30px rgba(0, 240, 255, 0.05);
+}
+
+.stat-item {
+  text-align: center;
+  position: relative;
+  padding: 0 1rem;
+}
+
+.stat-num-wrap {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+}
+
+.stat-num {
+  font-family: var(--font-mono);
+  font-size: clamp(3rem, 5.5vw, 4.5rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -2px;
+  color: var(--text-primary);
+}
+
+.stat-plus {
+  font-family: var(--font-mono);
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-left: 2px;
+}
+
+html.dark .stat-plus {
+  color: var(--neon-cyan);
+}
+
+.stat-label {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  line-height: 1.4;
+  max-width: 200px;
+  margin: 0 auto;
+}
+
+/* ==========================================================================
+   ENHANCED 7 SERVICE CARDS & CORAL ACTION BUTTON
+   ========================================================================== */
+.service-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 1.85rem;
+  border-radius: 24px;
+  border: 1px solid var(--border-color);
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: visible;
+}
+
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 24px;
+  right: 24px;
+  height: 3px;
+  border-radius: 0 0 3px 3px;
+  background: linear-gradient(90deg, var(--color-primary), #ff7b54);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-8px) scale(1.015);
+  border-color: rgba(var(--color-primary-rgb), 0.4);
+  box-shadow: 0 24px 50px -15px rgba(254, 59, 32, 0.16), 0 0 0 1px rgba(var(--color-primary-rgb), 0.2);
+}
+
+.service-card:hover::before {
+  opacity: 1;
+}
+
+html.dark .service-card {
+  background: rgba(15, 23, 42, 0.75);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+html.dark .service-card:hover {
+  border-color: rgba(254, 59, 32, 0.5);
+  box-shadow: 0 24px 55px -15px rgba(0, 0, 0, 0.8), 0 0 30px rgba(254, 59, 32, 0.25);
+}
+
+/* Coral Pill Read More Button */
+.service-read-more-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 22px;
+  border-radius: 999px;
+  background: #e04c37;
+  color: #ffffff !important;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.92rem;
+  letter-spacing: 0.2px;
+  box-shadow: 0 4px 14px rgba(224, 76, 55, 0.35);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+}
+
+.service-read-more-btn i {
+  font-size: 0.95rem;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.service-read-more-btn:hover {
+  background: #fe3b20;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(254, 59, 32, 0.5);
+  color: #ffffff !important;
+}
+
+.service-read-more-btn:hover i {
+  transform: translateX(5px);
+}
+
+/* Section Header Typography */
+.section-tag {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+
+.section-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2.2rem, 4vw, 3.4rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  margin-bottom: 1rem;
+}
+
+.section-desc {
+  font-size: clamp(1rem, 1.6vw, 1.15rem);
+  color: var(--text-secondary);
+  line-height: 1.6;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
 
 
 

@@ -324,13 +324,13 @@
       },
       {
         id: 's3',
-        title: 'Corporate Travel & Hospitality',
+        title: 'Corporate Travel – Hotel & Flight Booking',
         subtitle: 'Seamlessly manage business travel needs with efficient hotel and flight booking solutions.',
         category: 'Corporate',
         icon: 'bi-airplane-engines',
         slug: 'services/corporate-travel.html',
         status: 'Active',
-        desc: 'We bring a full-value proposition backed by strength, experience, technology, and innovation to meet all your corporate travel needs. 5-star room blocks, group flight bookings, luxury charters, and turnkey MICE itineraries.'
+        desc: 'Seamlessly manage business travel needs with efficient hotel and flight booking solutions. 5-star hotel partner blocks, group air ticketing, luxury VIP transfers, and turnkey MICE itineraries across India and abroad.'
       },
       {
         id: 's4',
@@ -340,7 +340,7 @@
         icon: 'bi-shop',
         slug: 'services/retail-branding.html',
         status: 'Active',
-        desc: 'Create distinct and memorable brand identities in physical retail environments or corporate offices. Bespoke design and flawless execution that enhances spaces, elevates brand perception, and increases foot traffic and engagement.'
+        desc: 'Transform physical spaces with tailored branding that reflects your business identity and values. Executive lobby makeovers, acoustic wall treatments, wayfinding systems, and environmental spatial graphics.'
       },
       {
         id: 's5',
@@ -350,17 +350,17 @@
         icon: 'bi-megaphone',
         slug: 'services/btl-activation.html',
         status: 'Active',
-        desc: 'Deep expertise in product sampling, in-store promotions, experiential marketing, mall and tech-park activations, roadshows, and nationwide brand intercepts delivering highly measurable and cost-effective engagement.'
+        desc: 'Boost consumer engagement and brand awareness with dynamic on-ground marketing initiatives. Corporate tech-park intercepts, high-street sampling, mall pop-ups, and nationwide mobile roadshows.'
       },
       {
         id: 's6',
-        title: 'Exhibition & Trade Shows',
+        title: 'Exhibition',
         subtitle: 'Plan and design your exhibition booths to create immersive brand experiences that stand out.',
         category: 'Exhibitions',
         icon: 'bi-grid-1x2',
         slug: 'services/exhibition.html',
         status: 'Active',
-        desc: 'Comprehensive expertise in every aspect of exhibition management: 3D stall design, custom architectural fabrication, on-ground logistics, and attendee engagement for physical, virtual, and hybrid trade expos.'
+        desc: 'Plan and design your exhibition booths to create immersive brand experiences that stand out. Photorealistic 3D CAD stall design, custom architectural fabrication, and on-floor attendee engagement.'
       },
       {
         id: 's7',
@@ -370,27 +370,7 @@
         icon: 'bi-phone-vibrate',
         slug: 'services/digital-marketing.html',
         status: 'Active',
-        desc: 'Elevate your digital presence with cutting-edge, performance-driven strategies. SEO dominance, targeted LinkedIn B2B thought leadership, performance ad campaigns, and innovative multi-channel brand storytelling.'
-      },
-      {
-        id: 's8',
-        title: 'Experiential Marketing',
-        subtitle: 'We engineer experiences that become the talk of the town.',
-        category: 'Experiential',
-        icon: 'bi-stars',
-        slug: 'services/experiential-marketing.html',
-        status: 'Active',
-        desc: 'Multi-sensory brand installations, kinetic LED reveals, holographic showcases, interactive domes, and luxury VIP experiences that pull audiences directly into your brand story.'
-      },
-      {
-        id: 's9',
-        title: 'Marketing Consulting',
-        subtitle: 'Strategic marketing advisory built for high-stakes enterprise business goals.',
-        category: 'Strategy',
-        icon: 'bi-compass',
-        slug: 'services/marketing-consulting.html',
-        status: 'Active',
-        desc: 'Bridging high-level corporate marketing strategy with boots-on-the-ground operational execution. Founded by corporate marketing veterans to align ICP demand, brand equity, and closed-loop revenue attribution.'
+        desc: 'Enhance your digital presence with targeted campaigns across SEO, social media, and more. B2B enterprise search dominance, LinkedIn thought leadership ads, content syndication, and high-conversion landing funnels.'
       }
     ],
 

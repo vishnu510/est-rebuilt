@@ -20,6 +20,11 @@
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="https://estbrandservices.com/img/favicon/favicon-32x32.png">
 
+  <!-- Google Fonts: Plus Jakarta Sans, Outfit, Space Grotesk -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
   <!-- Bootstrap Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
@@ -120,15 +125,13 @@
         <li class="nav-item nav-dropdown">
           <a href="#solutions" class="nav-link">Solutions <i class="bi bi-chevron-down" style="font-size: 0.75rem;"></i></a>
           <div class="dropdown-menu">
-            <a href="services/experiential-marketing.html" class="dropdown-item"><i class="bi bi-stars" style="color: var(--color-primary); margin-right: 0.5rem;"></i> Experiential Marketing</a>
-            <a href="services/marketing-consulting.html" class="dropdown-item"><i class="bi bi-compass" style="color: var(--color-primary); margin-right: 0.5rem;"></i> Marketing Consulting</a>
-            <a href="services/demand-generation.html" class="dropdown-item"><i class="bi bi-funnel" style="color: var(--color-primary); margin-right: 0.5rem;"></i> B2B Demand Generation</a>
-            <a href="services/event-management.html" class="dropdown-item"><i class="bi bi-calendar4-event" style="color: var(--color-primary); margin-right: 0.5rem;"></i> Corporate Event Management</a>
-            <a href="services/btl-activation.html" class="dropdown-item"><i class="bi bi-megaphone" style="color: var(--color-primary); margin-right: 0.5rem;"></i> BTL & Brand Activation</a>
-            <a href="services/exhibition.html" class="dropdown-item"><i class="bi bi-grid-1x2" style="color: var(--color-primary); margin-right: 0.5rem;"></i> Exhibition & Trade Shows</a>
-            <a href="services/digital-marketing.html" class="dropdown-item"><i class="bi bi-phone-vibrate" style="color: var(--color-primary); margin-right: 0.5rem;"></i> B2B Digital Marketing</a>
-            <a href="services/retail-branding.html" class="dropdown-item"><i class="bi bi-shop" style="color: var(--color-primary); margin-right: 0.5rem;"></i> Corporate Branding</a>
-            <a href="services/corporate-travel.html" class="dropdown-item"><i class="bi bi-airplane-engines" style="color: var(--color-primary); margin-right: 0.5rem;"></i> Corporate Travel & Logistics</a>
+            <a href="services/event-management.html" class="dropdown-item"><i class="bi bi-calendar4-event" style="color: var(--color-primary); margin-right: 0.5rem;"></i> Event Management</a>
+            <a href="services/demand-generation.html" class="dropdown-item"><i class="bi bi-funnel" style="color: var(--color-primary); margin-right: 0.5rem;"></i> Demand Generation</a>
+            <a href="services/corporate-travel.html" class="dropdown-item"><i class="bi bi-airplane-engines" style="color: var(--color-primary); margin-right: 0.5rem;"></i> Corporate Travel – Hotel &amp; Flight Booking</a>
+            <a href="services/retail-branding.html" class="dropdown-item"><i class="bi bi-shop" style="color: var(--color-primary); margin-right: 0.5rem;"></i> Retail &amp; Office Branding Solutions</a>
+            <a href="services/btl-activation.html" class="dropdown-item"><i class="bi bi-megaphone" style="color: var(--color-primary); margin-right: 0.5rem;"></i> BTL Activation</a>
+            <a href="services/exhibition.html" class="dropdown-item"><i class="bi bi-grid-1x2" style="color: var(--color-primary); margin-right: 0.5rem;"></i> Exhibition</a>
+            <a href="services/digital-marketing.html" class="dropdown-item"><i class="bi bi-phone-vibrate" style="color: var(--color-primary); margin-right: 0.5rem;"></i> Digital Marketing</a>
           </div>
         </li>
         <li class="nav-item"><a href="case-studies.html" class="nav-link">Case Studies</a></li>
@@ -168,11 +171,41 @@
       </div>
     </div>
 
-    <!-- Dark Vignette Overlay -->
+    <!-- Dark Vignette & Mesh Ambient Overlay -->
     <div class="hero-showreel-overlay"></div>
+    <div class="hero-ambient-mesh">
+      <span class="mesh-orb orb-1"></span>
+      <span class="mesh-orb orb-2"></span>
+    </div>
 
-    <!-- Centered Hero Stage -->
+    <!-- Background Orbital Trajectory Rings -->
+    <div class="hero-orbit-rings">
+      <div class="hero-ring ring-1"><span class="hero-satellite sat-1"></span></div>
+      <div class="hero-ring ring-2"><span class="hero-satellite sat-2"></span></div>
+    </div>
+
+    <!-- Centered Hero Stage with Floating Illustrated Chips -->
     <div class="container hero-showreel-content">
+      <!-- Floating Illustrated Chip: Left (@est.experience) -->
+      <div class="hero-float-chip chip-hero-left" data-aos="fade-right" data-aos-delay="400">
+        <div class="chip-icon-wrap indigo"><span class="chip-at-symbol">@</span></div>
+        <div class="chip-content">
+          <span class="chip-line"></span>
+          <span class="chip-title">@est.experience</span>
+        </div>
+        <span class="chip-star-pill"><i class="bi bi-star-fill"></i> 4.98</span>
+      </div>
+
+      <!-- Floating Illustrated Chip: Right (Zero-Glitch SLA) -->
+      <div class="hero-float-chip chip-hero-right" data-aos="fade-left" data-aos-delay="500">
+        <div class="chip-icon-wrap mint"><i class="bi bi-check-lg"></i></div>
+        <div class="chip-content">
+          <span class="chip-line"></span>
+          <span class="chip-title">Zero-Glitch Stage SLA</span>
+        </div>
+        <span class="chip-status-pill">99.4% Flawless</span>
+      </div>
+
       <div class="hero-showreel-badge" data-aos="fade-down">
         <span class="pulse-dot"></span>
         <span>Experience Architects & Goosebumps Curators</span>
@@ -199,6 +232,15 @@
           <span>Watch Showreel</span>
         </a>
       </div>
+
+      <!-- Floating Illustrated Chip: Bottom Live Telemetry -->
+      <div class="hero-float-chip chip-hero-bottom" data-aos="fade-up" data-aos-delay="550">
+        <div class="chip-icon-wrap coral"><i class="bi bi-lightning-charge-fill"></i></div>
+        <div class="chip-content">
+          <span class="chip-title">Pan-India Experiential Architecture</span>
+        </div>
+        <span class="chip-badge-live"><span class="pulse-dot green" style="width: 6px; height: 6px; display: inline-block;"></span> 28 STATES</span>
+      </div>
     </div>
 
     <!-- Scroll Indicator -->
@@ -213,6 +255,9 @@
        ========================================== -->
   <section class="est-manifesto-banner" id="manifesto">
     <div class="container">
+      <div class="manifesto-pill-tag" data-aos="fade-down">
+        <span class="sparkle-icon">✦</span> THE B2B EXPERIENTIAL BENCHMARK <span class="sparkle-icon">✦</span>
+      </div>
       <h2 class="manifesto-big-heading" data-aos="fade-up">
         We Don’t Just Do Events. We Engineer Experiences that become the <span class="highlight-italic">talk of the town</span>.
       </h2>
@@ -223,11 +268,15 @@
        SECTION 2: DARK SPLIT PHILOSOPHY BANNER
        ========================================== -->
   <section class="est-philosophy-section">
-    <div class="container">
+    <div class="philosophy-bg-ambient">
+      <span class="philo-glow glow-1"></span>
+      <span class="philo-glow glow-2"></span>
+    </div>
+    <div class="container" style="position: relative; z-index: 2;">
       <div class="philosophy-grid">
         <!-- Left Column: Agency Narrative -->
         <div class="philosophy-col-left" data-aos="fade-right">
-          <span class="philosophy-tag">The EST Philosophy</span>
+          <span class="philosophy-tag"><i class="bi bi-compass"></i> The EST Philosophy</span>
           <p class="philosophy-narrative">
             At <strong>EST</strong>, we don’t "execute campaigns." We create <strong>goosebumps</strong>. We don’t just "engage audiences." We pull them directly into the story. Because brands don’t just need visibility. They need <strong>unforgettable relevance</strong>.
           </p>
@@ -235,12 +284,15 @@
 
         <!-- Right Column: Punch Statement -->
         <div class="philosophy-col-right" data-aos="fade-left" data-aos-delay="150">
-          <h3 class="philosophy-punch-statement">
-            Experiences people feel in their gut.
-          </h3>
-          <p class="philosophy-punch-sub">
-            — The kind they post about even before they end.
-          </p>
+          <div class="philosophy-punch-card">
+            <div class="punch-quote-symbol">“</div>
+            <h3 class="philosophy-punch-statement">
+              Experiences people feel in their gut.
+            </h3>
+            <p class="philosophy-punch-sub">
+              — The kind they post about even before they end.
+            </p>
+          </div>
         </div>
       </div>
     </div>
@@ -635,27 +687,31 @@
         <!-- Interactive Service Navigation Tabs -->
         <div class="diag-tabs-nav" id="diagServiceTabs">
           <button class="diag-tab-btn active" data-service="events" type="button">
-            <i class="bi bi-calendar4-event"></i> Corporate Events
+            <i class="bi bi-calendar4-event"></i> Event Management
             <span class="diag-tab-progress"></span>
           </button>
           <button class="diag-tab-btn" data-service="demand" type="button">
-            <i class="bi bi-funnel"></i> B2B Demand Gen
+            <i class="bi bi-funnel"></i> Demand Generation
             <span class="diag-tab-progress"></span>
           </button>
           <button class="diag-tab-btn" data-service="travel" type="button">
-            <i class="bi bi-airplane-engines"></i> MICE & Travel
+            <i class="bi bi-airplane-engines"></i> Corporate Travel
             <span class="diag-tab-progress"></span>
           </button>
-          <button class="diag-tab-btn" data-service="experiential" type="button">
-            <i class="bi bi-stars"></i> Experiential Tech
-            <span class="diag-tab-progress"></span>
-          </button>
-          <button class="diag-tab-btn" data-service="exhibition" type="button">
-            <i class="bi bi-grid-1x2"></i> 3D Trade Shows
+          <button class="diag-tab-btn" data-service="retail" type="button">
+            <i class="bi bi-shop"></i> Retail &amp; Office Branding
             <span class="diag-tab-progress"></span>
           </button>
           <button class="diag-tab-btn" data-service="btl" type="button">
-            <i class="bi bi-megaphone"></i> BTL Activations
+            <i class="bi bi-megaphone"></i> BTL Activation
+            <span class="diag-tab-progress"></span>
+          </button>
+          <button class="diag-tab-btn" data-service="exhibition" type="button">
+            <i class="bi bi-grid-1x2"></i> Exhibition
+            <span class="diag-tab-progress"></span>
+          </button>
+          <button class="diag-tab-btn" data-service="digital" type="button">
+            <i class="bi bi-phone-vibrate"></i> Digital Marketing
             <span class="diag-tab-progress"></span>
           </button>
         </div>
@@ -772,7 +828,7 @@
 
       <div class="grid-cols-3 services-grid" id="dynamic-services-grid">
         <!-- Service 1: Event Management -->
-        <div class="glass-panel service-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="glass-panel service-card" data-aos="fade-up" data-aos-delay="100" onclick="window.location.href='services/event-management.html'" style="cursor: pointer;">
           <div class="service-mini-diagram">
             <div class="mini-diag-floating">★ Zero-Glitch</div>
             <div class="mini-diag-top">
@@ -781,24 +837,24 @@
             </div>
             <div class="mini-diag-search">
               <span>@est.events/live-runsheet</span>
-              <span class="mini-diag-search-icon"><i class="bi bi-search"></i></span>
+              <a href="services/event-management.html" class="mini-diag-search-icon" title="View Event Management" onclick="event.stopPropagation();"><i class="bi bi-search"></i></a>
             </div>
             <div class="mini-diag-row">
               <span>4K Stage LED &amp; Audio Sync</span>
               <span class="mini-diag-check"><i class="bi bi-check2"></i> 60fps</span>
             </div>
           </div>
-          <div class="service-icon flex-center" style="background: rgba(0,240,255,0.1); color: var(--neon-cyan);"><i class="bi bi-calendar4-event"></i></div>
-          <h3 class="service-title">Event Management</h3>
-          <div class="service-subtitle-tag" style="font-size: 0.82rem; color: var(--neon-cyan); font-weight: 600; margin-bottom: 8px;">From corporate conferences to product launches, we create impactful and memorable events.</div>
-          <p class="service-desc">With a combined 80 years of experience, our team brings unmatched expertise in strategic planning, coordination, and execution of conferences, product launches, exhibitions, and trade shows across India.</p>
-          <div class="service-actions">
-            <a href="services/event-management.html" class="service-link" style="color: var(--neon-cyan);">Explore Service <i class="bi bi-arrow-right"></i></a>
+          <h3 class="service-title" style="color: var(--color-primary); font-weight: 800; font-size: 1.35rem; margin-bottom: 0.75rem;">Event Management</h3>
+          <p class="service-desc" style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.55; margin-bottom: 1.5rem; flex-grow: 1;">From corporate conferences to product launches, we create impactful and memorable events.</p>
+          <div class="service-actions" style="border: none; padding-top: 0; margin-top: auto;">
+            <a href="services/event-management.html" class="service-read-more-btn" onclick="event.stopPropagation();">
+              Read More <i class="bi bi-arrow-right"></i>
+            </a>
           </div>
         </div>
 
         <!-- Service 2: Demand Generation -->
-        <div class="glass-panel service-card" data-aos="fade-up" data-aos-delay="150">
+        <div class="glass-panel service-card" data-aos="fade-up" data-aos-delay="150" onclick="window.location.href='services/demand-generation.html'" style="cursor: pointer;">
           <div class="service-mini-diagram">
             <div class="mini-diag-floating">📈 48% Open</div>
             <div class="mini-diag-top">
@@ -807,24 +863,24 @@
             </div>
             <div class="mini-diag-search">
               <span>@est.gtm/abm-lead-funnel</span>
-              <span class="mini-diag-search-icon"><i class="bi bi-search"></i></span>
+              <a href="services/demand-generation.html" class="mini-diag-search-icon" title="View Demand Generation" onclick="event.stopPropagation();"><i class="bi bi-search"></i></a>
             </div>
             <div class="mini-diag-row">
               <span>Fortune 500 CXO ICP</span>
               <span class="mini-diag-check"><i class="bi bi-check2"></i> 340 SQLs</span>
             </div>
           </div>
-          <div class="service-icon flex-center" style="background: rgba(254,59,32,0.1); color: var(--color-primary);"><i class="bi bi-funnel"></i></div>
-          <h3 class="service-title">Demand Generation</h3>
-          <div class="service-subtitle-tag" style="font-size: 0.82rem; color: var(--color-primary); font-weight: 600; margin-bottom: 8px;">Reach new audiences and convert interest into actionable leads through data-driven strategies.</div>
-          <p class="service-desc">We work with B2B services and demand generation product companies to design ideal target segments. Dedicated SDRs and outbound GTM experts fuel your sales pipeline with high-quality business leads.</p>
-          <div class="service-actions">
-            <a href="services/demand-generation.html" class="service-link" style="color: var(--color-primary);">Explore Service <i class="bi bi-arrow-right"></i></a>
+          <h3 class="service-title" style="color: var(--color-primary); font-weight: 800; font-size: 1.35rem; margin-bottom: 0.75rem;">Demand Generation</h3>
+          <p class="service-desc" style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.55; margin-bottom: 1.5rem; flex-grow: 1;">Reach new audiences and convert interest into actionable leads through data-driven strategies.</p>
+          <div class="service-actions" style="border: none; padding-top: 0; margin-top: auto;">
+            <a href="services/demand-generation.html" class="service-read-more-btn" onclick="event.stopPropagation();">
+              Read More <i class="bi bi-arrow-right"></i>
+            </a>
           </div>
         </div>
 
-        <!-- Service 3: Corporate Travel -->
-        <div class="glass-panel service-card" data-aos="fade-up" data-aos-delay="200">
+        <!-- Service 3: Corporate Travel – Hotel & Flight Booking -->
+        <div class="glass-panel service-card" data-aos="fade-up" data-aos-delay="200" onclick="window.location.href='services/corporate-travel.html'" style="cursor: pointer;">
           <div class="service-mini-diagram">
             <div class="mini-diag-floating">✈️ 100% On-Time</div>
             <div class="mini-diag-top">
@@ -832,25 +888,25 @@
               <span class="mini-diag-badge"><span class="pulse-dot green" style="width: 5px; height: 5px; display: inline-block;"></span> MICE HUB</span>
             </div>
             <div class="mini-diag-search">
-              <span>@est.travel/group-charters</span>
-              <span class="mini-diag-search-icon"><i class="bi bi-search"></i></span>
+              <span>@est.travel/flight-hotel-dispatch</span>
+              <a href="services/corporate-travel.html" class="mini-diag-search-icon" title="View Corporate Travel" onclick="event.stopPropagation();"><i class="bi bi-search"></i></a>
             </div>
             <div class="mini-diag-row">
               <span>5-Star Hotel Room Blocks</span>
               <span class="mini-diag-check"><i class="bi bi-check2"></i> Reserved</span>
             </div>
           </div>
-          <div class="service-icon flex-center" style="background: rgba(0,240,255,0.1); color: var(--neon-cyan);"><i class="bi bi-airplane-engines"></i></div>
-          <h3 class="service-title">Corporate Travel & Hospitality</h3>
-          <div class="service-subtitle-tag" style="font-size: 0.82rem; color: var(--neon-cyan); font-weight: 600; margin-bottom: 8px;">Seamlessly manage business travel needs with efficient hotel and flight booking solutions.</div>
-          <p class="service-desc">World-class corporate travel solutions backed by strength, experience, technology, and innovation. 5-star hotel blocks, group flight bookings, luxury charters, and turnkey MICE delegate itineraries.</p>
-          <div class="service-actions">
-            <a href="services/corporate-travel.html" class="service-link" style="color: var(--neon-cyan);">Explore Service <i class="bi bi-arrow-right"></i></a>
+          <h3 class="service-title" style="color: var(--color-primary); font-weight: 800; font-size: 1.35rem; margin-bottom: 0.75rem;">Corporate Travel – Hotel &amp; Flight Booking</h3>
+          <p class="service-desc" style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.55; margin-bottom: 1.5rem; flex-grow: 1;">Seamlessly manage business travel needs with efficient hotel and flight booking solutions.</p>
+          <div class="service-actions" style="border: none; padding-top: 0; margin-top: auto;">
+            <a href="services/corporate-travel.html" class="service-read-more-btn" onclick="event.stopPropagation();">
+              Read More <i class="bi bi-arrow-right"></i>
+            </a>
           </div>
         </div>
 
-        <!-- Service 4: Retail & Office Branding -->
-        <div class="glass-panel service-card" data-aos="fade-up" data-aos-delay="250">
+        <!-- Service 4: Retail & Office Branding Solutions -->
+        <div class="glass-panel service-card" data-aos="fade-up" data-aos-delay="250" onclick="window.location.href='services/retail-branding.html'" style="cursor: pointer;">
           <div class="service-mini-diagram">
             <div class="mini-diag-floating">🏬 100% Brand</div>
             <div class="mini-diag-top">
@@ -858,25 +914,25 @@
               <span class="mini-diag-badge"><span class="pulse-dot green" style="width: 5px; height: 5px; display: inline-block;"></span> DEPLOYED</span>
             </div>
             <div class="mini-diag-search">
-              <span>@est.retail/spatial-facade</span>
-              <span class="mini-diag-search-icon"><i class="bi bi-search"></i></span>
+              <span>@est.retail/space-branding</span>
+              <a href="services/retail-branding.html" class="mini-diag-search-icon" title="View Retail &amp; Office Branding" onclick="event.stopPropagation();"><i class="bi bi-search"></i></a>
             </div>
             <div class="mini-diag-row">
-              <span>Acoustic Fabrication</span>
+              <span>Acoustic Fabrication &amp; Crests</span>
               <span class="mini-diag-check"><i class="bi bi-check2"></i> Installed</span>
             </div>
           </div>
-          <div class="service-icon flex-center" style="background: rgba(254,59,32,0.1); color: var(--color-primary);"><i class="bi bi-shop"></i></div>
-          <h3 class="service-title">Retail & Office Branding Solutions</h3>
-          <div class="service-subtitle-tag" style="font-size: 0.82rem; color: var(--color-primary); font-weight: 600; margin-bottom: 8px;">Transform physical spaces with tailored branding that reflects your business identity and values.</div>
-          <p class="service-desc">Create distinct and memorable brand identities in physical retail environments or corporate offices. Bespoke design and flawless execution that enhances spaces, elevates brand perception, and increases foot traffic.</p>
-          <div class="service-actions">
-            <a href="services/retail-branding.html" class="service-link" style="color: var(--color-primary);">Explore Service <i class="bi bi-arrow-right"></i></a>
+          <h3 class="service-title" style="color: var(--color-primary); font-weight: 800; font-size: 1.35rem; margin-bottom: 0.75rem;">Retail &amp; Office Branding Solutions</h3>
+          <p class="service-desc" style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.55; margin-bottom: 1.5rem; flex-grow: 1;">Transform physical spaces with tailored branding that reflects your business identity and values.</p>
+          <div class="service-actions" style="border: none; padding-top: 0; margin-top: auto;">
+            <a href="services/retail-branding.html" class="service-read-more-btn" onclick="event.stopPropagation();">
+              Read More <i class="bi bi-arrow-right"></i>
+            </a>
           </div>
         </div>
 
         <!-- Service 5: BTL Activation -->
-        <div class="glass-panel service-card" data-aos="fade-up" data-aos-delay="300">
+        <div class="glass-panel service-card" data-aos="fade-up" data-aos-delay="300" onclick="window.location.href='services/btl-activation.html'" style="cursor: pointer;">
           <div class="service-mini-diagram">
             <div class="mini-diag-floating">🔥 250k+ Reach</div>
             <div class="mini-diag-top">
@@ -885,24 +941,24 @@
             </div>
             <div class="mini-diag-search">
               <span>@est.btl/pan-india-tour</span>
-              <span class="mini-diag-search-icon"><i class="bi bi-search"></i></span>
+              <a href="services/btl-activation.html" class="mini-diag-search-icon" title="View BTL Activation" onclick="event.stopPropagation();"><i class="bi bi-search"></i></a>
             </div>
             <div class="mini-diag-row">
-              <span>Direct Mall Sampling</span>
+              <span>Direct Mall &amp; Tech-Park Sampling</span>
               <span class="mini-diag-check"><i class="bi bi-check2"></i> 12 Cities</span>
             </div>
           </div>
-          <div class="service-icon flex-center" style="background: rgba(0,240,255,0.1); color: var(--neon-cyan);"><i class="bi bi-megaphone"></i></div>
-          <h3 class="service-title">BTL Activation</h3>
-          <div class="service-subtitle-tag" style="font-size: 0.82rem; color: var(--neon-cyan); font-weight: 600; margin-bottom: 8px;">Boost consumer engagement and brand awareness with dynamic on-ground marketing initiatives.</div>
-          <p class="service-desc">Deep expertise in product sampling, in-store promotions, experiential marketing, mall and tech-park activations, roadshows, and nationwide brand intercepts delivering measurable, high-ROI engagement.</p>
-          <div class="service-actions">
-            <a href="services/btl-activation.html" class="service-link" style="color: var(--neon-cyan);">Explore Service <i class="bi bi-arrow-right"></i></a>
+          <h3 class="service-title" style="color: var(--color-primary); font-weight: 800; font-size: 1.35rem; margin-bottom: 0.75rem;">BTL Activation</h3>
+          <p class="service-desc" style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.55; margin-bottom: 1.5rem; flex-grow: 1;">Boost consumer engagement and brand awareness with dynamic on-ground marketing initiatives.</p>
+          <div class="service-actions" style="border: none; padding-top: 0; margin-top: auto;">
+            <a href="services/btl-activation.html" class="service-read-more-btn" onclick="event.stopPropagation();">
+              Read More <i class="bi bi-arrow-right"></i>
+            </a>
           </div>
         </div>
 
         <!-- Service 6: Exhibition -->
-        <div class="glass-panel service-card" data-aos="fade-up" data-aos-delay="350">
+        <div class="glass-panel service-card" data-aos="fade-up" data-aos-delay="350" onclick="window.location.href='services/exhibition.html'" style="cursor: pointer;">
           <div class="service-mini-diagram">
             <div class="mini-diag-floating">🏆 Award 3D</div>
             <div class="mini-diag-top">
@@ -911,24 +967,24 @@
             </div>
             <div class="mini-diag-search">
               <span>@est.exhibition/3d-booth-cad</span>
-              <span class="mini-diag-search-icon"><i class="bi bi-search"></i></span>
+              <a href="services/exhibition.html" class="mini-diag-search-icon" title="View Exhibition" onclick="event.stopPropagation();"><i class="bi bi-search"></i></a>
             </div>
             <div class="mini-diag-row">
-              <span>180m² Pavilion Blueprint</span>
+              <span>180m² Pavilion 3D Blueprint</span>
               <span class="mini-diag-check"><i class="bi bi-check2"></i> Approved</span>
             </div>
           </div>
-          <div class="service-icon flex-center" style="background: rgba(254,59,32,0.1); color: var(--color-primary);"><i class="bi bi-grid-1x2"></i></div>
-          <h3 class="service-title">Exhibition & Trade Shows</h3>
-          <div class="service-subtitle-tag" style="font-size: 0.82rem; color: var(--color-primary); font-weight: 600; margin-bottom: 8px;">Plan and design your exhibition booths to create immersive brand experiences that stand out.</div>
-          <p class="service-desc">Comprehensive expertise in every aspect of exhibition management: 3D stall design, custom architectural fabrication, on-ground logistics, and attendee engagement for physical, virtual, and hybrid trade expos.</p>
-          <div class="service-actions">
-            <a href="services/exhibition.html" class="service-link" style="color: var(--color-primary);">Explore Service <i class="bi bi-arrow-right"></i></a>
+          <h3 class="service-title" style="color: var(--color-primary); font-weight: 800; font-size: 1.35rem; margin-bottom: 0.75rem;">Exhibition</h3>
+          <p class="service-desc" style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.55; margin-bottom: 1.5rem; flex-grow: 1;">Plan and design your exhibition booths to create immersive brand experiences that stand out.</p>
+          <div class="service-actions" style="border: none; padding-top: 0; margin-top: auto;">
+            <a href="services/exhibition.html" class="service-read-more-btn" onclick="event.stopPropagation();">
+              Read More <i class="bi bi-arrow-right"></i>
+            </a>
           </div>
         </div>
 
         <!-- Service 7: Digital Marketing -->
-        <div class="glass-panel service-card" data-aos="fade-up" data-aos-delay="400">
+        <div class="glass-panel service-card" data-aos="fade-up" data-aos-delay="400" onclick="window.location.href='services/digital-marketing.html'" style="cursor: pointer;">
           <div class="service-mini-diagram">
             <div class="mini-diag-floating">⚡ 4.8x ROAS</div>
             <div class="mini-diag-top">
@@ -937,71 +993,19 @@
             </div>
             <div class="mini-diag-search">
               <span>@est.digital/b2b-omnichannel</span>
-              <span class="mini-diag-search-icon"><i class="bi bi-search"></i></span>
+              <a href="services/digital-marketing.html" class="mini-diag-search-icon" title="View Digital Marketing" onclick="event.stopPropagation();"><i class="bi bi-search"></i></a>
             </div>
             <div class="mini-diag-row">
-              <span>LinkedIn CXO Ads</span>
+              <span>LinkedIn CXO Thought Leadership</span>
               <span class="mini-diag-check"><i class="bi bi-check2"></i> +142% CTR</span>
             </div>
           </div>
-          <div class="service-icon flex-center" style="background: rgba(0,240,255,0.1); color: var(--neon-cyan);"><i class="bi bi-phone-vibrate"></i></div>
-          <h3 class="service-title">Digital Marketing</h3>
-          <div class="service-subtitle-tag" style="font-size: 0.82rem; color: var(--neon-cyan); font-weight: 600; margin-bottom: 8px;">Enhance your digital presence with targeted campaigns across SEO, social media, and more.</div>
-          <p class="service-desc">Elevate your digital presence with cutting-edge, performance-driven strategies. SEO dominance, targeted LinkedIn B2B thought leadership, performance ad campaigns, and innovative multi-channel brand storytelling.</p>
-          <div class="service-actions">
-            <a href="services/digital-marketing.html" class="service-link" style="color: var(--neon-cyan);">Explore Service <i class="bi bi-arrow-right"></i></a>
-          </div>
-        </div>
-
-        <!-- Service 8: Experiential Marketing -->
-        <div class="glass-panel service-card" data-aos="fade-up" data-aos-delay="450">
-          <div class="service-mini-diagram">
-            <div class="mini-diag-floating">✨ Goosebumps</div>
-            <div class="mini-diag-top">
-              <div class="mini-diag-dots"><span></span><span></span><span></span></div>
-              <span class="mini-diag-badge"><span class="pulse-dot green" style="width: 5px; height: 5px; display: inline-block;"></span> SENSORY</span>
-            </div>
-            <div class="mini-diag-search">
-              <span>@est.experiential/hologram-dome</span>
-              <span class="mini-diag-search-icon"><i class="bi bi-search"></i></span>
-            </div>
-            <div class="mini-diag-row">
-              <span>Kinetic Motion Sensor Dome</span>
-              <span class="mini-diag-check"><i class="bi bi-check2"></i> Immersion</span>
-            </div>
-          </div>
-          <div class="service-icon flex-center" style="background: rgba(254,59,32,0.1); color: var(--color-primary);"><i class="bi bi-stars"></i></div>
-          <h3 class="service-title">Experiential Marketing</h3>
-          <div class="service-subtitle-tag" style="font-size: 0.82rem; color: var(--color-primary); font-weight: 600; margin-bottom: 8px;">We engineer experiences that become the talk of the town.</div>
-          <p class="service-desc">Multi-sensory brand installations, holographic showcases, interactive domes, and luxury VIP experiences that pull audiences directly into your brand story.</p>
-          <div class="service-actions">
-            <a href="services/experiential-marketing.html" class="service-link" style="color: var(--color-primary);">Explore Service <i class="bi bi-arrow-right"></i></a>
-          </div>
-        </div>
-
-        <!-- Service 9: Marketing Consulting -->
-        <div class="glass-panel service-card" data-aos="fade-up" data-aos-delay="500">
-          <div class="service-mini-diagram">
-            <div class="mini-diag-floating">🎯 CXO Advisory</div>
-            <div class="mini-diag-top">
-              <div class="mini-diag-dots"><span></span><span></span><span></span></div>
-              <span class="mini-diag-badge"><span class="pulse-dot green" style="width: 5px; height: 5px; display: inline-block;"></span> STRATEGY</span>
-            </div>
-            <div class="mini-diag-search">
-              <span>@est.consulting/gtm-roadmap</span>
-              <span class="mini-diag-search-icon"><i class="bi bi-search"></i></span>
-            </div>
-            <div class="mini-diag-row">
-              <span>Enterprise ICP Strategy</span>
-              <span class="mini-diag-check"><i class="bi bi-check2"></i> Attributed</span>
-            </div>
-          </div>
-          <div class="service-icon flex-center" style="background: rgba(0,240,255,0.1); color: var(--neon-cyan);"><i class="bi bi-compass"></i></div>
-          <h3 class="service-title">Marketing Consulting</h3>
-          <div class="service-subtitle-tag" style="font-size: 0.82rem; color: var(--neon-cyan); font-weight: 600; margin-bottom: 8px;">Strategic marketing advisory built for high-stakes enterprise business goals.</div>
-          <p class="service-desc">Bridging high-level strategy with boots-on-the-ground operational execution. Founded by corporate marketing veterans to align ICP demand, brand equity, and closed-loop revenue attribution.</p>
-          <div class="service-actions">
-            <a href="services/marketing-consulting.html" class="service-link" style="color: var(--neon-cyan);">Explore Service <i class="bi bi-arrow-right"></i></a>
+          <h3 class="service-title" style="color: var(--color-primary); font-weight: 800; font-size: 1.35rem; margin-bottom: 0.75rem;">Digital Marketing</h3>
+          <p class="service-desc" style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.55; margin-bottom: 1.5rem; flex-grow: 1;">Enhance your digital presence with targeted campaigns across SEO, social media, and more.</p>
+          <div class="service-actions" style="border: none; padding-top: 0; margin-top: auto;">
+            <a href="services/digital-marketing.html" class="service-read-more-btn" onclick="event.stopPropagation();">
+              Read More <i class="bi bi-arrow-right"></i>
+            </a>
           </div>
         </div>
       </div>
